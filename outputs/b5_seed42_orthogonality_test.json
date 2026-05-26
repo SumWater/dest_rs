@@ -1,0 +1,13 @@
+{
+  "checkpoint_dir": "outputs/followup/b5_seed_42",
+  "split": "test",
+  "samples": 64,
+  "batches": 64,
+  "tokens": 1339.0,
+  "mean_cosine": 0.08646599663392995,
+  "mean_abs_cosine": 0.13142721584766456,
+  "mean_cosine_squared": 0.028304383425421797,
+  "frobenius_corr": 0.9999999940350841,
+  "prefix_delta_norm": 137.2476802310274,
+  "lora_delta_norm": 377.6859077755598
+}

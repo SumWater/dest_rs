@@ -1,0 +1,406 @@
+﻿dialogue_id,turn_index,gold_strategy,target_strategy,prompt,gold_target,b4_response,b5_response,b4_match,b5_match,which_better,judge_note
+157,0,small-talk,elicit-pref,"You are generating the next utterance for a negotiation dialogue in the CaSiNo campsite bargaining task.
+
+Target speaker private profile:
+- High priority item: Firewood
+  Reason: It is the rainy season where I am traveling, so the abundance of dry firewood to scavenge for is slim.
+- Medium priority item: Food
+  Reason: Due to the rainy season there has been a disease go through the vegetation in the area, so I would like to be prepared in case the same has happened where I am going.
+- Low priority item: Water
+  Reason: There is a lot of rain water I can collect and boil down that is safe to drink.
+
+Dialogue history:
+(conversation start)
+
+Generate the target speaker's next utterance.
+Response:",Hello there! Are you getting excited for your upcoming trip?! I am so very excited to test my skills!,"Hello, what is your highest priority item?","Hello, what are your preferences for the extra supplies?",,,,
+157,0,small-talk,self-need,"You are generating the next utterance for a negotiation dialogue in the CaSiNo campsite bargaining task.
+
+Target speaker private profile:
+- High priority item: Firewood
+  Reason: It is the rainy season where I am traveling, so the abundance of dry firewood to scavenge for is slim.
+- Medium priority item: Food
+  Reason: Due to the rainy season there has been a disease go through the vegetation in the area, so I would like to be prepared in case the same has happened where I am going.
+- Low priority item: Water
+  Reason: There is a lot of rain water I can collect and boil down that is safe to drink.
+
+Dialogue history:
+(conversation start)
+
+Generate the target speaker's next utterance.
+Response:",Hello there! Are you getting excited for your upcoming trip?! I am so very excited to test my skills!,"Hello, how are you today?","Hello, I am going to be camping in the rainy season, so I would like to have extra firewood and food.",,,,
+157,0,small-talk,other-need,"You are generating the next utterance for a negotiation dialogue in the CaSiNo campsite bargaining task.
+
+Target speaker private profile:
+- High priority item: Firewood
+  Reason: It is the rainy season where I am traveling, so the abundance of dry firewood to scavenge for is slim.
+- Medium priority item: Food
+  Reason: Due to the rainy season there has been a disease go through the vegetation in the area, so I would like to be prepared in case the same has happened where I am going.
+- Low priority item: Water
+  Reason: There is a lot of rain water I can collect and boil down that is safe to drink.
+
+Dialogue history:
+(conversation start)
+
+Generate the target speaker's next utterance.
+Response:",Hello there! Are you getting excited for your upcoming trip?! I am so very excited to test my skills!,"Hello, how are you today?","Hello, I am going to be in the area where it is raining a lot, so I would like to have extra firewood to keep warm.",,,,
+157,0,small-talk,promote-coordination,"You are generating the next utterance for a negotiation dialogue in the CaSiNo campsite bargaining task.
+
+Target speaker private profile:
+- High priority item: Firewood
+  Reason: It is the rainy season where I am traveling, so the abundance of dry firewood to scavenge for is slim.
+- Medium priority item: Food
+  Reason: Due to the rainy season there has been a disease go through the vegetation in the area, so I would like to be prepared in case the same has happened where I am going.
+- Low priority item: Water
+  Reason: There is a lot of rain water I can collect and boil down that is safe to drink.
+
+Dialogue history:
+(conversation start)
+
+Generate the target speaker's next utterance.
+Response:",Hello there! Are you getting excited for your upcoming trip?! I am so very excited to test my skills!,"Hello, I am looking forward to getting some firewood.","Hello, I would like to have 3 firewood, 2 food, and 1 water.",,,,
+157,0,small-talk,vouch-fair,"You are generating the next utterance for a negotiation dialogue in the CaSiNo campsite bargaining task.
+
+Target speaker private profile:
+- High priority item: Firewood
+  Reason: It is the rainy season where I am traveling, so the abundance of dry firewood to scavenge for is slim.
+- Medium priority item: Food
+  Reason: Due to the rainy season there has been a disease go through the vegetation in the area, so I would like to be prepared in case the same has happened where I am going.
+- Low priority item: Water
+  Reason: There is a lot of rain water I can collect and boil down that is safe to drink.
+
+Dialogue history:
+(conversation start)
+
+Generate the target speaker's next utterance.
+Response:",Hello there! Are you getting excited for your upcoming trip?! I am so very excited to test my skills!,"Hello, I am looking forward to camping this weekend.","Hello, how are you today?",,,,
+157,1,small-talk,elicit-pref,"You are generating the next utterance for a negotiation dialogue in the CaSiNo campsite bargaining task.
+
+Target speaker private profile:
+- High priority item: Firewood
+  Reason: It may be used for other people also. So, only I bring additional
+- Medium priority item: Food
+  Reason: During the trip, food is important. But other people may bring other food package. Hence, I choose this one is medium priority
+- Low priority item: Water
+  Reason: water is very essential for me. Hence I keep more, then I gave it least priority
+
+Dialogue history:
+Partner: Hello there! Are you getting excited for your upcoming trip?! I am so very excited to test my skills!
+
+Generate the target speaker's next utterance.
+Response:",Hi friend! I'm very excited to go to the trip,"Yes, I am also excited. What is your most important item?","Yes, I am. What is your most important item?",,,,
+157,1,small-talk,self-need,"You are generating the next utterance for a negotiation dialogue in the CaSiNo campsite bargaining task.
+
+Target speaker private profile:
+- High priority item: Firewood
+  Reason: It may be used for other people also. So, only I bring additional
+- Medium priority item: Food
+  Reason: During the trip, food is important. But other people may bring other food package. Hence, I choose this one is medium priority
+- Low priority item: Water
+  Reason: water is very essential for me. Hence I keep more, then I gave it least priority
+
+Dialogue history:
+Partner: Hello there! Are you getting excited for your upcoming trip?! I am so very excited to test my skills!
+
+Generate the target speaker's next utterance.
+Response:",Hi friend! I'm very excited to go to the trip,"Yes, I am also excited. I am planning to go camping with my family.","Yes, I am. I am also excited to test my skills.",,,,
+157,1,small-talk,other-need,"You are generating the next utterance for a negotiation dialogue in the CaSiNo campsite bargaining task.
+
+Target speaker private profile:
+- High priority item: Firewood
+  Reason: It may be used for other people also. So, only I bring additional
+- Medium priority item: Food
+  Reason: During the trip, food is important. But other people may bring other food package. Hence, I choose this one is medium priority
+- Low priority item: Water
+  Reason: water is very essential for me. Hence I keep more, then I gave it least priority
+
+Dialogue history:
+Partner: Hello there! Are you getting excited for your upcoming trip?! I am so very excited to test my skills!
+
+Generate the target speaker's next utterance.
+Response:",Hi friend! I'm very excited to go to the trip,"Yes, I am also excited. I am planning to go with my family.","Yes, I am. I am also excited to test my skills.",,,,
+157,1,small-talk,promote-coordination,"You are generating the next utterance for a negotiation dialogue in the CaSiNo campsite bargaining task.
+
+Target speaker private profile:
+- High priority item: Firewood
+  Reason: It may be used for other people also. So, only I bring additional
+- Medium priority item: Food
+  Reason: During the trip, food is important. But other people may bring other food package. Hence, I choose this one is medium priority
+- Low priority item: Water
+  Reason: water is very essential for me. Hence I keep more, then I gave it least priority
+
+Dialogue history:
+Partner: Hello there! Are you getting excited for your upcoming trip?! I am so very excited to test my skills!
+
+Generate the target speaker's next utterance.
+Response:",Hi friend! I'm very excited to go to the trip,"Yes, I am also excited. I am planning to go camping with my family.","Yes, I am. I am also excited to test my skills.",,,,
+157,1,small-talk,vouch-fair,"You are generating the next utterance for a negotiation dialogue in the CaSiNo campsite bargaining task.
+
+Target speaker private profile:
+- High priority item: Firewood
+  Reason: It may be used for other people also. So, only I bring additional
+- Medium priority item: Food
+  Reason: During the trip, food is important. But other people may bring other food package. Hence, I choose this one is medium priority
+- Low priority item: Water
+  Reason: water is very essential for me. Hence I keep more, then I gave it least priority
+
+Dialogue history:
+Partner: Hello there! Are you getting excited for your upcoming trip?! I am so very excited to test my skills!
+
+Generate the target speaker's next utterance.
+Response:",Hi friend! I'm very excited to go to the trip,"Yes, I am also excited. I am planning to go camping with my family.","Yes, I am also excited.",,,,
+157,2,small-talk,elicit-pref,"You are generating the next utterance for a negotiation dialogue in the CaSiNo campsite bargaining task.
+
+Target speaker private profile:
+- High priority item: Firewood
+  Reason: It is the rainy season where I am traveling, so the abundance of dry firewood to scavenge for is slim.
+- Medium priority item: Food
+  Reason: Due to the rainy season there has been a disease go through the vegetation in the area, so I would like to be prepared in case the same has happened where I am going.
+- Low priority item: Water
+  Reason: There is a lot of rain water I can collect and boil down that is safe to drink.
+
+Dialogue history:
+You: Hello there! Are you getting excited for your upcoming trip?! I am so very excited to test my skills!
+Partner: Hi friend! I'm very excited to go to the trip
+
+Generate the target speaker's next utterance.
+Response:",Great! Have you checked to see what the weather has been like in the area you are going to??,What is your most needed item for your trip?,What is it that you are looking forward to the most?,,,,
+157,2,small-talk,self-need,"You are generating the next utterance for a negotiation dialogue in the CaSiNo campsite bargaining task.
+
+Target speaker private profile:
+- High priority item: Firewood
+  Reason: It is the rainy season where I am traveling, so the abundance of dry firewood to scavenge for is slim.
+- Medium priority item: Food
+  Reason: Due to the rainy season there has been a disease go through the vegetation in the area, so I would like to be prepared in case the same has happened where I am going.
+- Low priority item: Water
+  Reason: There is a lot of rain water I can collect and boil down that is safe to drink.
+
+Dialogue history:
+You: Hello there! Are you getting excited for your upcoming trip?! I am so very excited to test my skills!
+Partner: Hi friend! I'm very excited to go to the trip
+
+Generate the target speaker's next utterance.
+Response:",Great! Have you checked to see what the weather has been like in the area you are going to??,"I am so glad to hear that! I am going to be camping in the rainy season, so I am hoping to get some extra supplies.","I am so glad to hear that! I am going to be in the rainy season where I am going, so I would like to have extra firewood and food.",,,,
+157,2,small-talk,other-need,"You are generating the next utterance for a negotiation dialogue in the CaSiNo campsite bargaining task.
+
+Target speaker private profile:
+- High priority item: Firewood
+  Reason: It is the rainy season where I am traveling, so the abundance of dry firewood to scavenge for is slim.
+- Medium priority item: Food
+  Reason: Due to the rainy season there has been a disease go through the vegetation in the area, so I would like to be prepared in case the same has happened where I am going.
+- Low priority item: Water
+  Reason: There is a lot of rain water I can collect and boil down that is safe to drink.
+
+Dialogue history:
+You: Hello there! Are you getting excited for your upcoming trip?! I am so very excited to test my skills!
+Partner: Hi friend! I'm very excited to go to the trip
+
+Generate the target speaker's next utterance.
+Response:",Great! Have you checked to see what the weather has been like in the area you are going to??,"I am so glad to hear that! I am going to be traveling to a place that is very rainy, so I am hoping to get some extra supplies.","I am so glad to hear that! I am going to be in the area where it is very rainy, so I am going to need a lot of firewood to keep warm at night.",,,,
+157,2,small-talk,promote-coordination,"You are generating the next utterance for a negotiation dialogue in the CaSiNo campsite bargaining task.
+
+Target speaker private profile:
+- High priority item: Firewood
+  Reason: It is the rainy season where I am traveling, so the abundance of dry firewood to scavenge for is slim.
+- Medium priority item: Food
+  Reason: Due to the rainy season there has been a disease go through the vegetation in the area, so I would like to be prepared in case the same has happened where I am going.
+- Low priority item: Water
+  Reason: There is a lot of rain water I can collect and boil down that is safe to drink.
+
+Dialogue history:
+You: Hello there! Are you getting excited for your upcoming trip?! I am so very excited to test my skills!
+Partner: Hi friend! I'm very excited to go to the trip
+
+Generate the target speaker's next utterance.
+Response:",Great! Have you checked to see what the weather has been like in the area you are going to??,"I am so glad to hear that! I am going to be traveling to a place that is very rainy, so I am hoping to get some extra supplies.",I am so glad to hear that! I am hoping to get some extra firewood and food for my trip.,,,,
+157,2,small-talk,vouch-fair,"You are generating the next utterance for a negotiation dialogue in the CaSiNo campsite bargaining task.
+
+Target speaker private profile:
+- High priority item: Firewood
+  Reason: It is the rainy season where I am traveling, so the abundance of dry firewood to scavenge for is slim.
+- Medium priority item: Food
+  Reason: Due to the rainy season there has been a disease go through the vegetation in the area, so I would like to be prepared in case the same has happened where I am going.
+- Low priority item: Water
+  Reason: There is a lot of rain water I can collect and boil down that is safe to drink.
+
+Dialogue history:
+You: Hello there! Are you getting excited for your upcoming trip?! I am so very excited to test my skills!
+Partner: Hi friend! I'm very excited to go to the trip
+
+Generate the target speaker's next utterance.
+Response:",Great! Have you checked to see what the weather has been like in the area you are going to??,"I am so glad to hear that! I am going to be camping in the rainy season, so I am hoping to get some extra firewood and food.","I am so glad to hear that! I am so looking forward to this trip, I have been planning it for so long!",,,,
+157,3,small-talk,elicit-pref,"You are generating the next utterance for a negotiation dialogue in the CaSiNo campsite bargaining task.
+
+Target speaker private profile:
+- High priority item: Firewood
+  Reason: It may be used for other people also. So, only I bring additional
+- Medium priority item: Food
+  Reason: During the trip, food is important. But other people may bring other food package. Hence, I choose this one is medium priority
+- Low priority item: Water
+  Reason: water is very essential for me. Hence I keep more, then I gave it least priority
+
+Dialogue history:
+Partner: Hello there! Are you getting excited for your upcoming trip?! I am so very excited to test my skills!
+You: Hi friend! I'm very excited to go to the trip
+Partner: Great! Have you checked to see what the weather has been like in the area you are going to??
+
+Generate the target speaker's next utterance.
+Response:",Definitely I will checked. I m eager to prepare each & every things for the trip,"Yes, I have checked the weather. It is very cold.","Yes, I have checked the weather. It is very hot.",,,,
+157,3,small-talk,self-need,"You are generating the next utterance for a negotiation dialogue in the CaSiNo campsite bargaining task.
+
+Target speaker private profile:
+- High priority item: Firewood
+  Reason: It may be used for other people also. So, only I bring additional
+- Medium priority item: Food
+  Reason: During the trip, food is important. But other people may bring other food package. Hence, I choose this one is medium priority
+- Low priority item: Water
+  Reason: water is very essential for me. Hence I keep more, then I gave it least priority
+
+Dialogue history:
+Partner: Hello there! Are you getting excited for your upcoming trip?! I am so very excited to test my skills!
+You: Hi friend! I'm very excited to go to the trip
+Partner: Great! Have you checked to see what the weather has been like in the area you are going to??
+
+Generate the target speaker's next utterance.
+Response:",Definitely I will checked. I m eager to prepare each & every things for the trip,"Yes, I have checked. It is very cold.",I have not. But I will check it.,,,,
+157,3,small-talk,other-need,"You are generating the next utterance for a negotiation dialogue in the CaSiNo campsite bargaining task.
+
+Target speaker private profile:
+- High priority item: Firewood
+  Reason: It may be used for other people also. So, only I bring additional
+- Medium priority item: Food
+  Reason: During the trip, food is important. But other people may bring other food package. Hence, I choose this one is medium priority
+- Low priority item: Water
+  Reason: water is very essential for me. Hence I keep more, then I gave it least priority
+
+Dialogue history:
+Partner: Hello there! Are you getting excited for your upcoming trip?! I am so very excited to test my skills!
+You: Hi friend! I'm very excited to go to the trip
+Partner: Great! Have you checked to see what the weather has been like in the area you are going to??
+
+Generate the target speaker's next utterance.
+Response:",Definitely I will checked. I m eager to prepare each & every things for the trip,"Yes, I have checked. It is very cold.","I have checked the weather. It is very hot. Hence, I need more water",,,,
+157,3,small-talk,promote-coordination,"You are generating the next utterance for a negotiation dialogue in the CaSiNo campsite bargaining task.
+
+Target speaker private profile:
+- High priority item: Firewood
+  Reason: It may be used for other people also. So, only I bring additional
+- Medium priority item: Food
+  Reason: During the trip, food is important. But other people may bring other food package. Hence, I choose this one is medium priority
+- Low priority item: Water
+  Reason: water is very essential for me. Hence I keep more, then I gave it least priority
+
+Dialogue history:
+Partner: Hello there! Are you getting excited for your upcoming trip?! I am so very excited to test my skills!
+You: Hi friend! I'm very excited to go to the trip
+Partner: Great! Have you checked to see what the weather has been like in the area you are going to??
+
+Generate the target speaker's next utterance.
+Response:",Definitely I will checked. I m eager to prepare each & every things for the trip,"Yes, I have checked. It is very cold.","Yes, I have checked the weather. It is very hot.",,,,
+157,3,small-talk,vouch-fair,"You are generating the next utterance for a negotiation dialogue in the CaSiNo campsite bargaining task.
+
+Target speaker private profile:
+- High priority item: Firewood
+  Reason: It may be used for other people also. So, only I bring additional
+- Medium priority item: Food
+  Reason: During the trip, food is important. But other people may bring other food package. Hence, I choose this one is medium priority
+- Low priority item: Water
+  Reason: water is very essential for me. Hence I keep more, then I gave it least priority
+
+Dialogue history:
+Partner: Hello there! Are you getting excited for your upcoming trip?! I am so very excited to test my skills!
+You: Hi friend! I'm very excited to go to the trip
+Partner: Great! Have you checked to see what the weather has been like in the area you are going to??
+
+Generate the target speaker's next utterance.
+Response:",Definitely I will checked. I m eager to prepare each & every things for the trip,"Yes, I have checked. It is very cold.","Yes, I have checked the weather. It is very hot.",,,,
+157,4,self-need,elicit-pref,"You are generating the next utterance for a negotiation dialogue in the CaSiNo campsite bargaining task.
+
+Target speaker private profile:
+- High priority item: Firewood
+  Reason: It is the rainy season where I am traveling, so the abundance of dry firewood to scavenge for is slim.
+- Medium priority item: Food
+  Reason: Due to the rainy season there has been a disease go through the vegetation in the area, so I would like to be prepared in case the same has happened where I am going.
+- Low priority item: Water
+  Reason: There is a lot of rain water I can collect and boil down that is safe to drink.
+
+Dialogue history:
+You: Hello there! Are you getting excited for your upcoming trip?! I am so very excited to test my skills!
+Partner: Hi friend! I'm very excited to go to the trip
+You: Great! Have you checked to see what the weather has been like in the area you are going to??
+Partner: Definitely I will checked. I m eager to prepare each & every things for the trip
+
+Generate the target speaker's next utterance.
+Response:",I have checked and see that it is in the rainy season! I know I need to pack some extra firewood if you can spare me some??,That is great! I am also very excited to see what I can scavenge for in the area I am going to.,Great! What is your most needed item for your trip?,,,,
+157,4,self-need,self-need,"You are generating the next utterance for a negotiation dialogue in the CaSiNo campsite bargaining task.
+
+Target speaker private profile:
+- High priority item: Firewood
+  Reason: It is the rainy season where I am traveling, so the abundance of dry firewood to scavenge for is slim.
+- Medium priority item: Food
+  Reason: Due to the rainy season there has been a disease go through the vegetation in the area, so I would like to be prepared in case the same has happened where I am going.
+- Low priority item: Water
+  Reason: There is a lot of rain water I can collect and boil down that is safe to drink.
+
+Dialogue history:
+You: Hello there! Are you getting excited for your upcoming trip?! I am so very excited to test my skills!
+Partner: Hi friend! I'm very excited to go to the trip
+You: Great! Have you checked to see what the weather has been like in the area you are going to??
+Partner: Definitely I will checked. I m eager to prepare each & every things for the trip
+
+Generate the target speaker's next utterance.
+Response:",I have checked and see that it is in the rainy season! I know I need to pack some extra firewood if you can spare me some??,That is great! I am in the process of gathering supplies for my trip as well. I am in the process of gathering firewood and food.,"I am also checking the weather, but I am worried about the rainy season. I have heard that there is a disease that has been going through the vegetation in the area I am going to.",,,,
+157,4,self-need,other-need,"You are generating the next utterance for a negotiation dialogue in the CaSiNo campsite bargaining task.
+
+Target speaker private profile:
+- High priority item: Firewood
+  Reason: It is the rainy season where I am traveling, so the abundance of dry firewood to scavenge for is slim.
+- Medium priority item: Food
+  Reason: Due to the rainy season there has been a disease go through the vegetation in the area, so I would like to be prepared in case the same has happened where I am going.
+- Low priority item: Water
+  Reason: There is a lot of rain water I can collect and boil down that is safe to drink.
+
+Dialogue history:
+You: Hello there! Are you getting excited for your upcoming trip?! I am so very excited to test my skills!
+Partner: Hi friend! I'm very excited to go to the trip
+You: Great! Have you checked to see what the weather has been like in the area you are going to??
+Partner: Definitely I will checked. I m eager to prepare each & every things for the trip
+
+Generate the target speaker's next utterance.
+Response:",I have checked and see that it is in the rainy season! I know I need to pack some extra firewood if you can spare me some??,"That is great! I am in the process of gathering supplies for my trip. I am in the process of gathering firewood, but I am worried that I may not have enough.","I am also checking the weather, but I am worried about the firewood. I am going to a place where it is very rainy, so I am worried about not having enough firewood to keep",,,,
+157,4,self-need,promote-coordination,"You are generating the next utterance for a negotiation dialogue in the CaSiNo campsite bargaining task.
+
+Target speaker private profile:
+- High priority item: Firewood
+  Reason: It is the rainy season where I am traveling, so the abundance of dry firewood to scavenge for is slim.
+- Medium priority item: Food
+  Reason: Due to the rainy season there has been a disease go through the vegetation in the area, so I would like to be prepared in case the same has happened where I am going.
+- Low priority item: Water
+  Reason: There is a lot of rain water I can collect and boil down that is safe to drink.
+
+Dialogue history:
+You: Hello there! Are you getting excited for your upcoming trip?! I am so very excited to test my skills!
+Partner: Hi friend! I'm very excited to go to the trip
+You: Great! Have you checked to see what the weather has been like in the area you are going to??
+Partner: Definitely I will checked. I m eager to prepare each & every things for the trip
+
+Generate the target speaker's next utterance.
+Response:",I have checked and see that it is in the rainy season! I know I need to pack some extra firewood if you can spare me some??,That is great! I am also very excited to see what I can scavenge for!,I am sure you are! I am sure you will be prepared! I am sure you will be prepared! I am sure you will be prepared!,,,,
+157,4,self-need,vouch-fair,"You are generating the next utterance for a negotiation dialogue in the CaSiNo campsite bargaining task.
+
+Target speaker private profile:
+- High priority item: Firewood
+  Reason: It is the rainy season where I am traveling, so the abundance of dry firewood to scavenge for is slim.
+- Medium priority item: Food
+  Reason: Due to the rainy season there has been a disease go through the vegetation in the area, so I would like to be prepared in case the same has happened where I am going.
+- Low priority item: Water
+  Reason: There is a lot of rain water I can collect and boil down that is safe to drink.
+
+Dialogue history:
+You: Hello there! Are you getting excited for your upcoming trip?! I am so very excited to test my skills!
+Partner: Hi friend! I'm very excited to go to the trip
+You: Great! Have you checked to see what the weather has been like in the area you are going to??
+Partner: Definitely I will checked. I m eager to prepare each & every things for the trip
+
+Generate the target speaker's next utterance.
+Response:",I have checked and see that it is in the rainy season! I know I need to pack some extra firewood if you can spare me some??,That is great! I am also very excited to see what I can scavenge for in the area I am going to.,Great! I am also doing that. I have been checking the weather and I have been told that it is going to be very rainy.,,,,
