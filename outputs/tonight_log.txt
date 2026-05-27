@@ -1,0 +1,2217 @@
+========================================================================
+ DEST-RS 今晚实验批处理脚本
+ 启动时间: 2026-05-27 19:26:39
+ 工作目录: /home/amax/桌面/Dynamic-Prefix+LoRA-Joint-Training/dest_rs
+========================================================================
+
+════════════════════════════════════════════════════════════════════
+ 阶段 1/4：核心消融实验
+════════════════════════════════════════════════════════════════════
+
+[开始] B2 (lora_only) — 19:26:39
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+========================================================================================
+[config]
+{
+  "model_name_or_path": "/home/amax/PycharmProjects/AINegoProject/src/Models/LLM/Qwen3-8B",
+  "dataset_dir": "./CaSiNo-main/data",
+  "train_file": null,
+  "valid_file": null,
+  "test_file": null,
+  "output_dir": "./outputs/b2_lora_only",
+  "warm_start_dir": null,
+  "max_length": 512,
+  "context_turns": 6,
+  "max_reason_chars": 180,
+  "include_profile": true,
+  "multi_label_policy": "drop",
+  "exclude_labels": [
+    "non-strategic"
+  ],
+  "max_train_samples": null,
+  "max_valid_samples": null,
+  "max_test_samples": null,
+  "seed": 42,
+  "batch_size": 1,
+  "eval_batch_size": 1,
+  "num_epochs": 2,
+  "lr": 0.0001,
+  "prefix_lr": 0.0005,
+  "weight_decay": 0.0,
+  "grad_clip": 1.0,
+  "eval_every_epoch": true,
+  "save_best_only": true,
+  "adapter_mode": "lora_only",
+  "trust_remote_code": true,
+  "use_4bit": true,
+  "use_bfloat16": true,
+  "gradient_checkpointing": true,
+  "lora_r": 16,
+  "lora_alpha": 32,
+  "lora_dropout": 0.05,
+  "lora_target_candidates": [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj"
+  ],
+  "num_virtual_tokens": 20,
+  "prefix_init_std": 0.02,
+  "prefix_scale_train": 1.0,
+  "prefix_scale_eval": 1.0,
+  "lambda_orth": 0.0,
+  "orth_alpha": 0.5,
+  "orth_start_step": 0,
+  "orth_every_n_steps": 20,
+  "orth_token_sample_size": 64,
+  "orth_layer_index": -4,
+  "lambda_cls": 0.0,
+  "cls_hidden_dim": 256,
+  "cls_dropout": 0.1,
+  "demo_max_new_tokens": 40,
+  "demo_temperature": 0.0,
+  "demo_num_examples": 5
+}
+========================================================================================
+========================================================================================
+[data] train examples: 1910
+[data] valid examples: 43
+[data] test examples:  239
+[data] strategies: ['elicit-pref', 'no-need', 'other-need', 'promote-coordination', 'self-need', 'showing-empathy', 'small-talk', 'uv-part', 'vouch-fair']
+========================================================================================
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights:   0%|          | 1/399 [00:00<01:35,  4.18it/s]Loading weights:   1%|          | 2/399 [00:00<01:30,  4.40it/s]/home/amax/miniconda3/envs/tuning/lib/python3.10/site-packages/bitsandbytes/backends/cuda/ops.py:213: FutureWarning: _check_is_size will be removed in a future PyTorch release along with guard_size_oblivious.     Use _check(i >= 0) instead.
+  torch._check_is_size(blocksize)
+Loading weights:   2%|▏         | 6/399 [00:00<00:28, 13.59it/s]Loading weights:   7%|▋         | 26/399 [00:00<00:05, 62.30it/s]Loading weights:  10%|▉         | 38/399 [00:00<00:04, 76.09it/s]Loading weights:  14%|█▎        | 54/399 [00:00<00:03, 98.30it/s]Loading weights:  18%|█▊        | 70/399 [00:00<00:02, 114.68it/s]Loading weights:  21%|██        | 83/399 [00:01<00:02, 115.03it/s]Loading weights:  26%|██▌       | 103/399 [00:01<00:02, 134.68it/s]Loading weights:  30%|██▉       | 118/399 [00:01<00:02, 134.06it/s]Loading weights:  34%|███▍      | 136/399 [00:01<00:01, 142.51it/s]Loading weights:  38%|███▊      | 151/399 [00:01<00:01, 139.93it/s]Loading weights:  42%|████▏     | 169/399 [00:01<00:01, 146.52it/s]Loading weights:  46%|████▌     | 184/399 [00:01<00:01, 143.14it/s]Loading weights:  51%|█████     | 202/399 [00:01<00:01, 148.19it/s]Loading weights:  54%|█████▍    | 217/399 [00:02<00:01, 142.49it/s]Loading weights:  59%|█████▉    | 235/399 [00:02<00:01, 147.96it/s]Loading weights:  63%|██████▎   | 250/399 [00:02<00:01, 144.25it/s]Loading weights:  67%|██████▋   | 268/399 [00:02<00:00, 149.84it/s]Loading weights:  71%|███████   | 284/399 [00:02<00:00, 146.75it/s]Loading weights:  75%|███████▌  | 301/399 [00:02<00:00, 149.37it/s]Loading weights:  79%|███████▉  | 316/399 [00:02<00:00, 145.27it/s]Loading weights:  84%|████████▎ | 334/399 [00:02<00:00, 150.84it/s]Loading weights:  88%|████████▊ | 350/399 [00:02<00:00, 148.27it/s]Loading weights:  92%|█████████▏| 367/399 [00:03<00:00, 150.64it/s]Loading weights:  96%|█████████▌| 383/399 [00:03<00:00, 147.46it/s]Loading weights: 100%|██████████| 399/399 [00:03<00:00, 124.28it/s]
+[model] LoRA target modules: ['k_proj', 'o_proj', 'q_proj', 'v_proj']
+[model] 已在 transformer block 32/35 上安装层输出捕获器
+========================================================================================
+[model] trainable parameter tensors: 288 | total elements: 15,335,424
+  peft_model.base_model.model.model.layers.0.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.0.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.0.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.0.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.0.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.0.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.0.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.0.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.1.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.1.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.1.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.1.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.1.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.1.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.1.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.1.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.2.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.2.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.2.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.2.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.2.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.2.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.2.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.2.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.3.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.3.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.3.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.3.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.3.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.3.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.3.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.3.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.4.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.4.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.4.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.4.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.4.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.4.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.4.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.4.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.5.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.5.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.5.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.5.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.5.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.5.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.5.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.5.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.6.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.6.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.6.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.6.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.6.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.6.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.6.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.6.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.7.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.7.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.7.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.7.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.7.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.7.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.7.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.7.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.8.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.8.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.8.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.8.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.8.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.8.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.8.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.8.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.9.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.9.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.9.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.9.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.9.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.9.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.9.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.9.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.10.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.10.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.10.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.10.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.10.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.10.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.10.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.10.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.11.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.11.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.11.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.11.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.11.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.11.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.11.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.11.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.12.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.12.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.12.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.12.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.12.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.12.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.12.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.12.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.13.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.13.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.13.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.13.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.13.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.13.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.13.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.13.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.14.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.14.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.14.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.14.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.14.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.14.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.14.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.14.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.15.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.15.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.15.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.15.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.15.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.15.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.15.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.15.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.16.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.16.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.16.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.16.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.16.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.16.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.16.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.16.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.17.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.17.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.17.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.17.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.17.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.17.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.17.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.17.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.18.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.18.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.18.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.18.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.18.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.18.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.18.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.18.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.19.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.19.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.19.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.19.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.19.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.19.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.19.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.19.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.20.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.20.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.20.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.20.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.20.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.20.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.20.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.20.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.21.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.21.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.21.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.21.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.21.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.21.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.21.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.21.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.22.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.22.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.22.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.22.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.22.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.22.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.22.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.22.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.23.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.23.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.23.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.23.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.23.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.23.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.23.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.23.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.24.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.24.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.24.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.24.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.24.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.24.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.24.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.24.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.25.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.25.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.25.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.25.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.25.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.25.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.25.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.25.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.26.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.26.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.26.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.26.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.26.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.26.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.26.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.26.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.27.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.27.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.27.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.27.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.27.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.27.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.27.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.27.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.28.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.28.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.28.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.28.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.28.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.28.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.28.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.28.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.29.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.29.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.29.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.29.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.29.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.29.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.29.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.29.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.30.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.30.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.30.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.30.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.30.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.30.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.30.self_attn.o_proj.lora_A.default.weight       65,536
+/home/amax/miniconda3/envs/tuning/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py:1298: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+/home/amax/miniconda3/envs/tuning/lib/python3.10/site-packages/torch/autograd/graph.py:882: UserWarning: The AccumulateGrad node's stream does not match the stream of the node that produced the incoming gradient. This may incur unnecessary synchronization and break CUDA graph capture if the AccumulateGrad node's stream is the default stream. This mismatch is caused by an AccumulateGrad node created prior to the current iteration being kept alive. This can happen if the autograd graph is still being kept alive by tensors such as the loss, or if you are using DDP, which will stash a reference to the node. To resolve the mismatch, delete all references to the autograd graph or ensure that DDP initialization is performed under the same stream as subsequent forwards. If the mismatch is intentional, you can use torch.autograd.graph.set_warn_on_accumulate_grad_stream_mismatch(False) to suppress this warning. (Triggered internally at /pytorch/torch/csrc/autograd/input_buffer.cpp:240.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  peft_model.base_model.model.model.layers.30.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.31.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.31.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.31.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.31.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.31.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.31.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.31.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.31.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.32.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.32.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.32.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.32.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.32.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.32.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.32.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.32.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.33.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.33.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.33.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.33.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.33.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.33.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.33.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.33.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.34.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.34.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.34.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.34.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.34.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.34.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.34.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.34.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.35.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.35.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.35.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.35.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.35.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.35.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.35.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.35.self_attn.o_proj.lora_B.default.weight       65,536
+========================================================================================
+========================================================================================
+[optim] lora     lr=1.00e-04 params=15,335,424
+========================================================================================
+[train] starting training
+[train] epoch=1/2 step=10 loss=3.2724 gen=3.2724 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=20 loss=4.6925 gen=4.6925 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=30 loss=1.1329 gen=1.1329 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=40 loss=2.4842 gen=2.4842 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=50 loss=1.6870 gen=1.6870 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=60 loss=2.9580 gen=2.9580 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=70 loss=2.9681 gen=2.9681 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=80 loss=1.8908 gen=1.8908 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=90 loss=1.3290 gen=1.3290 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=100 loss=4.6725 gen=4.6725 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=110 loss=1.8622 gen=1.8622 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=120 loss=2.3108 gen=2.3108 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=130 loss=1.8739 gen=1.8739 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=140 loss=1.7689 gen=1.7689 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=150 loss=1.9971 gen=1.9971 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=160 loss=1.7411 gen=1.7411 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=170 loss=2.3903 gen=2.3903 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=180 loss=2.3279 gen=2.3279 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=190 loss=0.6913 gen=0.6913 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=200 loss=1.6171 gen=1.6171 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=210 loss=1.2846 gen=1.2846 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=220 loss=2.9228 gen=2.9228 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=230 loss=3.4018 gen=3.4018 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=240 loss=3.3722 gen=3.3722 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=250 loss=1.6624 gen=1.6624 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=260 loss=1.2391 gen=1.2391 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=270 loss=2.2474 gen=2.2474 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=280 loss=1.7729 gen=1.7729 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=290 loss=2.8019 gen=2.8019 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=300 loss=2.0016 gen=2.0016 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=310 loss=2.6273 gen=2.6273 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=320 loss=1.8833 gen=1.8833 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=330 loss=2.4809 gen=2.4809 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=340 loss=1.5188 gen=1.5188 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=350 loss=2.4931 gen=2.4931 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=360 loss=8.6080 gen=8.6080 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=370 loss=2.9977 gen=2.9977 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=380 loss=1.8702 gen=1.8702 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=390 loss=1.7829 gen=1.7829 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=400 loss=1.3021 gen=1.3021 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=410 loss=2.4499 gen=2.4499 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=420 loss=1.7901 gen=1.7901 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=430 loss=2.0246 gen=2.0246 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=440 loss=1.7518 gen=1.7518 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=450 loss=2.3694 gen=2.3694 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=460 loss=1.8197 gen=1.8197 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=470 loss=3.1481 gen=3.1481 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=480 loss=2.0261 gen=2.0261 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=490 loss=2.2636 gen=2.2636 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=500 loss=1.7961 gen=1.7961 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=510 loss=1.9577 gen=1.9577 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=520 loss=2.6875 gen=2.6875 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=530 loss=1.4482 gen=1.4482 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=540 loss=2.2101 gen=2.2101 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=550 loss=3.3216 gen=3.3216 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=560 loss=1.1460 gen=1.1460 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=570 loss=2.1038 gen=2.1038 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=580 loss=2.1623 gen=2.1623 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=590 loss=2.5314 gen=2.5314 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=600 loss=2.0764 gen=2.0764 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=610 loss=1.8943 gen=1.8943 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=620 loss=1.5042 gen=1.5042 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=630 loss=5.3579 gen=5.3579 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=640 loss=3.6388 gen=3.6388 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=650 loss=1.3706 gen=1.3706 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=660 loss=1.2261 gen=1.2261 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=670 loss=3.4447 gen=3.4447 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=680 loss=2.5320 gen=2.5320 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=690 loss=2.2794 gen=2.2794 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=700 loss=2.3228 gen=2.3228 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=710 loss=3.1645 gen=3.1645 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=720 loss=1.8691 gen=1.8691 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=730 loss=3.6630 gen=3.6630 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=740 loss=3.4128 gen=3.4128 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=750 loss=3.0947 gen=3.0947 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=760 loss=2.0078 gen=2.0078 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=770 loss=2.3206 gen=2.3206 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=780 loss=2.8781 gen=2.8781 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=790 loss=1.6153 gen=1.6153 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=800 loss=1.9464 gen=1.9464 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=810 loss=1.2301 gen=1.2301 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=820 loss=2.0756 gen=2.0756 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=830 loss=2.1647 gen=2.1647 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=840 loss=1.6325 gen=1.6325 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=850 loss=1.4613 gen=1.4613 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=860 loss=1.8593 gen=1.8593 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=870 loss=2.1302 gen=2.1302 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=880 loss=3.3277 gen=3.3277 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=890 loss=1.3009 gen=1.3009 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=900 loss=2.2005 gen=2.2005 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=910 loss=0.6960 gen=0.6960 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=920 loss=2.1722 gen=2.1722 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=930 loss=2.1562 gen=2.1562 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=940 loss=3.7725 gen=3.7725 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=950 loss=2.9714 gen=2.9714 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=960 loss=1.9060 gen=1.9060 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=970 loss=2.4725 gen=2.4725 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=980 loss=2.1834 gen=2.1834 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=990 loss=2.9102 gen=2.9102 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1000 loss=1.4191 gen=1.4191 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1010 loss=2.4047 gen=2.4047 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1020 loss=2.1883 gen=2.1883 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1030 loss=1.4470 gen=1.4470 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1040 loss=2.1382 gen=2.1382 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1050 loss=1.5662 gen=1.5662 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1060 loss=1.7409 gen=1.7409 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1070 loss=2.9882 gen=2.9882 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1080 loss=2.4487 gen=2.4487 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1090 loss=6.1454 gen=6.1454 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1100 loss=2.0241 gen=2.0241 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1110 loss=1.6497 gen=1.6497 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1120 loss=3.0664 gen=3.0664 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1130 loss=2.5871 gen=2.5871 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1140 loss=1.2189 gen=1.2189 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1150 loss=1.5827 gen=1.5827 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1160 loss=1.9703 gen=1.9703 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1170 loss=3.0720 gen=3.0720 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1180 loss=1.1154 gen=1.1154 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1190 loss=1.4401 gen=1.4401 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1200 loss=1.6531 gen=1.6531 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1210 loss=1.8074 gen=1.8074 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1220 loss=3.0670 gen=3.0670 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1230 loss=2.3017 gen=2.3017 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1240 loss=2.5789 gen=2.5789 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1250 loss=2.7688 gen=2.7688 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1260 loss=1.6355 gen=1.6355 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1270 loss=2.7901 gen=2.7901 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1280 loss=1.6029 gen=1.6029 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1290 loss=0.5648 gen=0.5648 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1300 loss=1.4145 gen=1.4145 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1310 loss=1.2453 gen=1.2453 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1320 loss=2.0521 gen=2.0521 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1330 loss=2.3447 gen=2.3447 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1340 loss=1.9263 gen=1.9263 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1350 loss=2.9581 gen=2.9581 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1360 loss=2.6598 gen=2.6598 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1370 loss=2.3129 gen=2.3129 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1380 loss=0.8435 gen=0.8435 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1390 loss=5.6617 gen=5.6617 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1400 loss=0.5796 gen=0.5796 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1410 loss=2.5508 gen=2.5508 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1420 loss=1.3916 gen=1.3916 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1430 loss=1.6980 gen=1.6980 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1440 loss=2.0000 gen=2.0000 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1450 loss=1.7876 gen=1.7876 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1460 loss=2.2510 gen=2.2510 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1470 loss=3.6575 gen=3.6575 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1480 loss=1.4407 gen=1.4407 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1490 loss=2.7495 gen=2.7495 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1500 loss=1.6318 gen=1.6318 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1510 loss=2.7166 gen=2.7166 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1520 loss=1.6882 gen=1.6882 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1530 loss=1.6146 gen=1.6146 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1540 loss=1.0550 gen=1.0550 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1550 loss=3.1155 gen=3.1155 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1560 loss=2.2402 gen=2.2402 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1570 loss=1.9303 gen=1.9303 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1580 loss=3.0706 gen=3.0706 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1590 loss=2.2992 gen=2.2992 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1600 loss=2.3064 gen=2.3064 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1610 loss=2.4319 gen=2.4319 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1620 loss=1.8014 gen=1.8014 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1630 loss=0.7627 gen=0.7627 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1640 loss=2.5614 gen=2.5614 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1650 loss=5.2514 gen=5.2514 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1660 loss=3.9385 gen=3.9385 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1670 loss=2.2702 gen=2.2702 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1680 loss=2.5940 gen=2.5940 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1690 loss=1.4314 gen=1.4314 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1700 loss=1.6412 gen=1.6412 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1710 loss=2.0080 gen=2.0080 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1720 loss=2.8227 gen=2.8227 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1730 loss=2.8898 gen=2.8898 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1740 loss=3.5496 gen=3.5496 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1750 loss=1.3218 gen=1.3218 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1760 loss=2.5708 gen=2.5708 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1770 loss=3.5903 gen=3.5903 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1780 loss=2.1588 gen=2.1588 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1790 loss=1.9441 gen=1.9441 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1800 loss=2.1681 gen=2.1681 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1810 loss=1.6357 gen=1.6357 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1820 loss=2.2505 gen=2.2505 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1830 loss=4.7102 gen=4.7102 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1840 loss=1.6204 gen=1.6204 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1850 loss=1.4375 gen=1.4375 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1860 loss=1.9435 gen=1.9435 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1870 loss=2.0960 gen=2.0960 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1880 loss=3.1559 gen=3.1559 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1890 loss=1.7392 gen=1.7392 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1900 loss=2.7211 gen=2.7211 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1910 loss=1.3764 gen=1.3764 orth=0.0000 cls=0.0000 orth_on=no
+[eval] epoch=1 valid_loss=2.0285 valid_ppl=7.60 test_loss=2.0969 test_ppl=8.14
+[save] 新的最佳 checkpoint 已保存到 ./outputs/b2_lora_only
+[train] epoch=2/2 step=1920 loss=1.5633 gen=1.5633 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=1930 loss=3.9652 gen=3.9652 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=1940 loss=2.0337 gen=2.0337 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=1950 loss=3.0005 gen=3.0005 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=1960 loss=2.2927 gen=2.2927 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=1970 loss=2.7413 gen=2.7413 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=1980 loss=2.9275 gen=2.9275 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=1990 loss=1.7150 gen=1.7150 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2000 loss=2.5907 gen=2.5907 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2010 loss=1.6080 gen=1.6080 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2020 loss=2.9906 gen=2.9906 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2030 loss=1.9115 gen=1.9115 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2040 loss=1.9155 gen=1.9155 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2050 loss=2.5216 gen=2.5216 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2060 loss=1.1799 gen=1.1799 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2070 loss=1.8150 gen=1.8150 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2080 loss=1.2720 gen=1.2720 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2090 loss=1.1162 gen=1.1162 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2100 loss=1.7115 gen=1.7115 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2110 loss=1.1309 gen=1.1309 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2120 loss=1.7409 gen=1.7409 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2130 loss=0.6273 gen=0.6273 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2140 loss=1.4542 gen=1.4542 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2150 loss=1.5640 gen=1.5640 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2160 loss=0.9565 gen=0.9565 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2170 loss=1.5350 gen=1.5350 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2180 loss=1.2855 gen=1.2855 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2190 loss=2.6628 gen=2.6628 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2200 loss=2.5137 gen=2.5137 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2210 loss=2.1719 gen=2.1719 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2220 loss=1.1448 gen=1.1448 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2230 loss=1.9343 gen=1.9343 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2240 loss=0.0003 gen=0.0003 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2250 loss=2.1044 gen=2.1044 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2260 loss=0.9629 gen=0.9629 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2270 loss=0.6557 gen=0.6557 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2280 loss=2.0246 gen=2.0246 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2290 loss=1.2863 gen=1.2863 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2300 loss=1.6463 gen=1.6463 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2310 loss=1.8277 gen=1.8277 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2320 loss=3.1663 gen=3.1663 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2330 loss=1.6387 gen=1.6387 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2340 loss=2.7009 gen=2.7009 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2350 loss=2.0263 gen=2.0263 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2360 loss=2.0468 gen=2.0468 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2370 loss=1.7219 gen=1.7219 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2380 loss=2.7900 gen=2.7900 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2390 loss=2.1999 gen=2.1999 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2400 loss=1.9028 gen=1.9028 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2410 loss=1.0043 gen=1.0043 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2420 loss=3.5332 gen=3.5332 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2430 loss=1.9053 gen=1.9053 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2440 loss=1.1845 gen=1.1845 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2450 loss=2.9005 gen=2.9005 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2460 loss=1.9426 gen=1.9426 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2470 loss=2.0388 gen=2.0388 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2480 loss=0.5409 gen=0.5409 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2490 loss=1.1545 gen=1.1545 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2500 loss=1.5923 gen=1.5923 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2510 loss=1.5549 gen=1.5549 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2520 loss=1.3508 gen=1.3508 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2530 loss=2.2612 gen=2.2612 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2540 loss=1.6688 gen=1.6688 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2550 loss=1.9777 gen=1.9777 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2560 loss=1.8619 gen=1.8619 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2570 loss=1.3381 gen=1.3381 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2580 loss=2.4997 gen=2.4997 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2590 loss=2.3766 gen=2.3766 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2600 loss=1.3472 gen=1.3472 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2610 loss=1.7306 gen=1.7306 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2620 loss=2.3580 gen=2.3580 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2630 loss=2.2111 gen=2.2111 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2640 loss=1.0951 gen=1.0951 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2650 loss=1.5745 gen=1.5745 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2660 loss=1.3007 gen=1.3007 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2670 loss=0.8614 gen=0.8614 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2680 loss=1.5846 gen=1.5846 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2690 loss=1.9077 gen=1.9077 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2700 loss=2.1231 gen=2.1231 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2710 loss=2.3842 gen=2.3842 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2720 loss=2.2047 gen=2.2047 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2730 loss=1.6901 gen=1.6901 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2740 loss=0.8508 gen=0.8508 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2750 loss=1.9595 gen=1.9595 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2760 loss=2.1750 gen=2.1750 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2770 loss=1.8029 gen=1.8029 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2780 loss=1.7750 gen=1.7750 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2790 loss=1.9475 gen=1.9475 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2800 loss=2.0943 gen=2.0943 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2810 loss=2.4656 gen=2.4656 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2820 loss=1.5797 gen=1.5797 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2830 loss=2.0887 gen=2.0887 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2840 loss=1.4513 gen=1.4513 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2850 loss=1.4078 gen=1.4078 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2860 loss=1.9595 gen=1.9595 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2870 loss=3.0478 gen=3.0478 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2880 loss=1.6337 gen=1.6337 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2890 loss=1.0472 gen=1.0472 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2900 loss=1.5009 gen=1.5009 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2910 loss=2.4385 gen=2.4385 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2920 loss=2.2631 gen=2.2631 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2930 loss=2.2536 gen=2.2536 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2940 loss=1.2880 gen=1.2880 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2950 loss=2.1287 gen=2.1287 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2960 loss=1.4994 gen=1.4994 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2970 loss=2.8192 gen=2.8192 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2980 loss=1.6047 gen=1.6047 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2990 loss=1.2101 gen=1.2101 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3000 loss=3.7902 gen=3.7902 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3010 loss=2.2302 gen=2.2302 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3020 loss=2.0679 gen=2.0679 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3030 loss=1.9978 gen=1.9978 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3040 loss=1.8797 gen=1.8797 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3050 loss=1.8559 gen=1.8559 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3060 loss=1.4640 gen=1.4640 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3070 loss=2.0340 gen=2.0340 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3080 loss=2.6305 gen=2.6305 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3090 loss=2.2068 gen=2.2068 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3100 loss=1.4911 gen=1.4911 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3110 loss=1.7671 gen=1.7671 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3120 loss=1.5012 gen=1.5012 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3130 loss=1.2756 gen=1.2756 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3140 loss=1.2436 gen=1.2436 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3150 loss=2.5614 gen=2.5614 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3160 loss=1.8177 gen=1.8177 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3170 loss=1.8750 gen=1.8750 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3180 loss=2.6234 gen=2.6234 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3190 loss=1.8435 gen=1.8435 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3200 loss=2.6000 gen=2.6000 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3210 loss=1.6483 gen=1.6483 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3220 loss=1.1387 gen=1.1387 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3230 loss=1.9935 gen=1.9935 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3240 loss=2.4560 gen=2.4560 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3250 loss=1.4320 gen=1.4320 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3260 loss=1.1932 gen=1.1932 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3270 loss=1.6189 gen=1.6189 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3280 loss=1.9766 gen=1.9766 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3290 loss=1.2134 gen=1.2134 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3300 loss=1.5080 gen=1.5080 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3310 loss=2.4438 gen=2.4438 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3320 loss=1.6036 gen=1.6036 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3330 loss=1.2883 gen=1.2883 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3340 loss=2.8332 gen=2.8332 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3350 loss=2.1470 gen=2.1470 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3360 loss=1.0777 gen=1.0777 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3370 loss=1.7621 gen=1.7621 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3380 loss=1.3937 gen=1.3937 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3390 loss=1.5130 gen=1.5130 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3400 loss=1.2461 gen=1.2461 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3410 loss=3.3717 gen=3.3717 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3420 loss=4.4978 gen=4.4978 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3430 loss=4.1873 gen=4.1873 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3440 loss=2.2034 gen=2.2034 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3450 loss=1.9207 gen=1.9207 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3460 loss=1.9724 gen=1.9724 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3470 loss=1.9061 gen=1.9061 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3480 loss=0.8046 gen=0.8046 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3490 loss=1.8675 gen=1.8675 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3500 loss=1.6970 gen=1.6970 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3510 loss=2.8219 gen=2.8219 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3520 loss=2.8934 gen=2.8934 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3530 loss=2.4795 gen=2.4795 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3540 loss=1.4593 gen=1.4593 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3550 loss=1.1481 gen=1.1481 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3560 loss=1.8618 gen=1.8618 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3570 loss=2.1325 gen=2.1325 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3580 loss=2.6386 gen=2.6386 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3590 loss=2.9557 gen=2.9557 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3600 loss=1.4146 gen=1.4146 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3610 loss=1.8827 gen=1.8827 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3620 loss=1.9709 gen=1.9709 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3630 loss=2.1941 gen=2.1941 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3640 loss=3.7362 gen=3.7362 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3650 loss=2.1920 gen=2.1920 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3660 loss=1.4583 gen=1.4583 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3670 loss=1.6535 gen=1.6535 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3680 loss=1.3176 gen=1.3176 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3690 loss=2.6384 gen=2.6384 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3700 loss=1.4111 gen=1.4111 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3710 loss=1.8262 gen=1.8262 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3720 loss=1.7108 gen=1.7108 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3730 loss=1.4173 gen=1.4173 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3740 loss=1.5325 gen=1.5325 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3750 loss=1.9166 gen=1.9166 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3760 loss=1.2713 gen=1.2713 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3770 loss=1.6579 gen=1.6579 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3780 loss=2.7163 gen=2.7163 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3790 loss=1.3806 gen=1.3806 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3800 loss=1.7858 gen=1.7858 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3810 loss=2.5723 gen=2.5723 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3820 loss=1.1530 gen=1.1530 orth=0.0000 cls=0.0000 orth_on=no
+[eval] epoch=2 valid_loss=1.9936 valid_ppl=7.34 test_loss=2.0895 test_ppl=8.08
+[save] 新的最佳 checkpoint 已保存到 ./outputs/b2_lora_only
+[train] finished | prefix_norm_before=17.1696 prefix_norm_after=17.1696
+[done] 所有产物已保存到 ./outputs/b2_lora_only
+[完成] B2 (lora_only) — 20:10:23
+
+[开始] B3 (prefix_only) — 20:10:23
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+========================================================================================
+[config]
+{
+  "model_name_or_path": "/home/amax/PycharmProjects/AINegoProject/src/Models/LLM/Qwen3-8B",
+  "dataset_dir": "./CaSiNo-main/data",
+  "train_file": null,
+  "valid_file": null,
+  "test_file": null,
+  "output_dir": "./outputs/b3_prefix_only",
+  "warm_start_dir": null,
+  "max_length": 512,
+  "context_turns": 6,
+  "max_reason_chars": 180,
+  "include_profile": true,
+  "multi_label_policy": "drop",
+  "exclude_labels": [
+    "non-strategic"
+  ],
+  "max_train_samples": null,
+  "max_valid_samples": null,
+  "max_test_samples": null,
+  "seed": 42,
+  "batch_size": 1,
+  "eval_batch_size": 1,
+  "num_epochs": 2,
+  "lr": 0.0001,
+  "prefix_lr": 0.0005,
+  "weight_decay": 0.0,
+  "grad_clip": 1.0,
+  "eval_every_epoch": true,
+  "save_best_only": true,
+  "adapter_mode": "prefix_only",
+  "trust_remote_code": true,
+  "use_4bit": true,
+  "use_bfloat16": true,
+  "gradient_checkpointing": true,
+  "lora_r": 16,
+  "lora_alpha": 32,
+  "lora_dropout": 0.05,
+  "lora_target_candidates": [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj"
+  ],
+  "num_virtual_tokens": 20,
+  "prefix_init_std": 0.02,
+  "prefix_scale_train": 1.0,
+  "prefix_scale_eval": 1.0,
+  "lambda_orth": 0.0,
+  "orth_alpha": 0.5,
+  "orth_start_step": 0,
+  "orth_every_n_steps": 20,
+  "orth_token_sample_size": 64,
+  "orth_layer_index": -4,
+  "lambda_cls": 0.0,
+  "cls_hidden_dim": 256,
+  "cls_dropout": 0.1,
+  "demo_max_new_tokens": 40,
+  "demo_temperature": 0.0,
+  "demo_num_examples": 5
+}
+========================================================================================
+========================================================================================
+[data] train examples: 1910
+[data] valid examples: 43
+[data] test examples:  239
+[data] strategies: ['elicit-pref', 'no-need', 'other-need', 'promote-coordination', 'self-need', 'showing-empathy', 'small-talk', 'uv-part', 'vouch-fair']
+========================================================================================
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights:   0%|          | 1/399 [00:00<01:26,  4.61it/s]Loading weights:   1%|          | 2/399 [00:00<01:26,  4.61it/s]/home/amax/miniconda3/envs/tuning/lib/python3.10/site-packages/bitsandbytes/backends/cuda/ops.py:213: FutureWarning: _check_is_size will be removed in a future PyTorch release along with guard_size_oblivious.     Use _check(i >= 0) instead.
+  torch._check_is_size(blocksize)
+Loading weights:   2%|▏         | 6/399 [00:00<00:27, 14.16it/s]Loading weights:   7%|▋         | 26/399 [00:00<00:05, 64.40it/s]Loading weights:  10%|▉         | 38/399 [00:00<00:04, 77.92it/s]Loading weights:  14%|█▎        | 54/399 [00:00<00:03, 100.23it/s]Loading weights:  18%|█▊        | 70/399 [00:00<00:02, 116.86it/s]Loading weights:  21%|██        | 83/399 [00:01<00:02, 116.84it/s]Loading weights:  26%|██▌       | 103/399 [00:01<00:02, 136.62it/s]Loading weights:  30%|██▉       | 118/399 [00:01<00:02, 135.76it/s]Loading weights:  34%|███▍      | 136/399 [00:01<00:01, 144.52it/s]Loading weights:  38%|███▊      | 151/399 [00:01<00:01, 141.81it/s]Loading weights:  42%|████▏     | 169/399 [00:01<00:01, 148.44it/s]Loading weights:  46%|████▌     | 184/399 [00:01<00:01, 144.25it/s]Loading weights:  51%|█████     | 202/399 [00:01<00:01, 149.25it/s]Loading weights:  54%|█████▍    | 217/399 [00:01<00:01, 145.29it/s]Loading weights:  59%|█████▉    | 235/399 [00:02<00:01, 150.78it/s]Loading weights:  63%|██████▎   | 251/399 [00:02<00:01, 146.63it/s]Loading weights:  67%|██████▋   | 268/399 [00:02<00:00, 149.28it/s]Loading weights:  71%|███████   | 283/399 [00:02<00:00, 145.41it/s]Loading weights:  75%|███████▌  | 301/399 [00:02<00:00, 150.39it/s]Loading weights:  79%|███████▉  | 317/399 [00:02<00:00, 147.75it/s]Loading weights:  84%|████████▎ | 334/399 [00:02<00:00, 150.33it/s]Loading weights:  88%|████████▊ | 350/399 [00:02<00:00, 147.71it/s]Loading weights:  92%|█████████▏| 367/399 [00:02<00:00, 150.72it/s]Loading weights:  96%|█████████▌| 383/399 [00:03<00:00, 147.84it/s]Loading weights: 100%|██████████| 399/399 [00:03<00:00, 126.08it/s]
+/home/amax/miniconda3/envs/tuning/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py:1298: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+/home/amax/miniconda3/envs/tuning/lib/python3.10/site-packages/torch/autograd/graph.py:882: UserWarning: The AccumulateGrad node's stream does not match the stream of the node that produced the incoming gradient. This may incur unnecessary synchronization and break CUDA graph capture if the AccumulateGrad node's stream is the default stream. This mismatch is caused by an AccumulateGrad node created prior to the current iteration being kept alive. This can happen if the autograd graph is still being kept alive by tensors such as the loss, or if you are using DDP, which will stash a reference to the node. To resolve the mismatch, delete all references to the autograd graph or ensure that DDP initialization is performed under the same stream as subsequent forwards. If the mismatch is intentional, you can use torch.autograd.graph.set_warn_on_accumulate_grad_stream_mismatch(False) to suppress this warning. (Triggered internally at /pytorch/torch/csrc/autograd/input_buffer.cpp:240.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+[model] LoRA target modules: ['k_proj', 'o_proj', 'q_proj', 'v_proj']
+[model] 已在 transformer block 32/35 上安装层输出捕获器
+========================================================================================
+[model] trainable parameter tensors: 1 | total elements: 737,280
+  prefix_bank                                                                 737,280
+========================================================================================
+========================================================================================
+[optim] prefix   lr=5.00e-04 params=737,280
+========================================================================================
+[train] starting training
+[train] epoch=1/2 step=10 loss=4.7357 gen=4.7357 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=20 loss=8.7253 gen=8.7253 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=30 loss=1.9874 gen=1.9874 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=40 loss=3.7877 gen=3.7877 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=50 loss=2.1563 gen=2.1563 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=60 loss=3.4115 gen=3.4115 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=70 loss=3.5412 gen=3.5412 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=80 loss=2.9883 gen=2.9883 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=90 loss=2.3735 gen=2.3735 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=100 loss=5.3741 gen=5.3741 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=110 loss=2.7413 gen=2.7413 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=120 loss=2.7699 gen=2.7699 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=130 loss=2.6774 gen=2.6774 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=140 loss=2.2679 gen=2.2679 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=150 loss=2.4126 gen=2.4126 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=160 loss=3.3112 gen=3.3112 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=170 loss=5.1967 gen=5.1967 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=180 loss=2.5909 gen=2.5909 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=190 loss=0.9044 gen=0.9044 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=200 loss=2.5927 gen=2.5927 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=210 loss=1.4499 gen=1.4499 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=220 loss=3.6533 gen=3.6533 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=230 loss=3.6434 gen=3.6434 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=240 loss=3.6984 gen=3.6984 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=250 loss=1.8340 gen=1.8340 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=260 loss=1.6192 gen=1.6192 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=270 loss=3.0292 gen=3.0292 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=280 loss=2.0953 gen=2.0953 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=290 loss=3.4525 gen=3.4525 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=300 loss=3.2126 gen=3.2126 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=310 loss=3.1833 gen=3.1833 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=320 loss=2.2731 gen=2.2731 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=330 loss=2.5127 gen=2.5127 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=340 loss=2.0431 gen=2.0431 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=350 loss=2.7312 gen=2.7312 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=360 loss=9.6471 gen=9.6471 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=370 loss=3.4759 gen=3.4759 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=380 loss=3.3526 gen=3.3526 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=390 loss=2.4927 gen=2.4927 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=400 loss=1.7551 gen=1.7551 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=410 loss=2.8560 gen=2.8560 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=420 loss=2.1164 gen=2.1164 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=430 loss=3.7699 gen=3.7699 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=440 loss=2.2195 gen=2.2195 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=450 loss=2.7418 gen=2.7418 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=460 loss=1.5772 gen=1.5772 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=470 loss=3.6977 gen=3.6977 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=480 loss=2.4407 gen=2.4407 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=490 loss=2.6606 gen=2.6606 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=500 loss=2.2353 gen=2.2353 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=510 loss=3.1285 gen=3.1285 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=520 loss=2.7348 gen=2.7348 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=530 loss=2.1560 gen=2.1560 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=540 loss=2.5972 gen=2.5972 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=550 loss=5.9420 gen=5.9420 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=560 loss=1.6888 gen=1.6888 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=570 loss=2.4399 gen=2.4399 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=580 loss=2.2549 gen=2.2549 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=590 loss=2.9208 gen=2.9208 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=600 loss=2.8440 gen=2.8440 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=610 loss=2.0273 gen=2.0273 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=620 loss=1.8734 gen=1.8734 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=630 loss=4.3634 gen=4.3634 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=640 loss=3.6578 gen=3.6578 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=650 loss=1.5893 gen=1.5893 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=660 loss=1.2407 gen=1.2407 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=670 loss=3.3497 gen=3.3497 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=680 loss=2.9250 gen=2.9250 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=690 loss=2.4547 gen=2.4547 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=700 loss=2.9059 gen=2.9059 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=710 loss=3.5597 gen=3.5597 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=720 loss=2.0223 gen=2.0223 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=730 loss=5.0978 gen=5.0978 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=740 loss=3.7626 gen=3.7626 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=750 loss=3.1757 gen=3.1757 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=760 loss=2.1980 gen=2.1980 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=770 loss=2.9290 gen=2.9290 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=780 loss=4.4071 gen=4.4071 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=790 loss=1.8896 gen=1.8896 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=800 loss=2.4430 gen=2.4430 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=810 loss=1.4210 gen=1.4210 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=820 loss=2.5553 gen=2.5553 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=830 loss=2.2944 gen=2.2944 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=840 loss=2.1622 gen=2.1622 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=850 loss=2.0135 gen=2.0135 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=860 loss=2.4172 gen=2.4172 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=870 loss=2.4023 gen=2.4023 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=880 loss=3.4363 gen=3.4363 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=890 loss=1.3761 gen=1.3761 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=900 loss=2.9325 gen=2.9325 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=910 loss=0.5437 gen=0.5437 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=920 loss=1.9287 gen=1.9287 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=930 loss=2.7041 gen=2.7041 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=940 loss=4.0237 gen=4.0237 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=950 loss=2.8767 gen=2.8767 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=960 loss=2.2301 gen=2.2301 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=970 loss=2.2308 gen=2.2308 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=980 loss=3.0583 gen=3.0583 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=990 loss=3.0934 gen=3.0934 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1000 loss=1.6391 gen=1.6391 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1010 loss=2.7342 gen=2.7342 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1020 loss=2.5373 gen=2.5373 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1030 loss=1.7921 gen=1.7921 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1040 loss=2.3831 gen=2.3831 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1050 loss=2.4411 gen=2.4411 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1060 loss=2.3239 gen=2.3239 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1070 loss=3.3574 gen=3.3574 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1080 loss=3.0389 gen=3.0389 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1090 loss=8.3009 gen=8.3009 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1100 loss=2.6472 gen=2.6472 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1110 loss=2.2197 gen=2.2197 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1120 loss=3.4095 gen=3.4095 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1130 loss=2.7540 gen=2.7540 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1140 loss=1.9873 gen=1.9873 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1150 loss=2.8131 gen=2.8131 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1160 loss=2.1332 gen=2.1332 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1170 loss=2.9623 gen=2.9623 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1180 loss=1.7631 gen=1.7631 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1190 loss=1.7758 gen=1.7758 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1200 loss=2.0311 gen=2.0311 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1210 loss=2.2451 gen=2.2451 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1220 loss=3.8657 gen=3.8657 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1230 loss=3.3063 gen=3.3063 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1240 loss=2.7543 gen=2.7543 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1250 loss=2.8128 gen=2.8128 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1260 loss=1.7556 gen=1.7556 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1270 loss=2.8855 gen=2.8855 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1280 loss=1.8168 gen=1.8168 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1290 loss=0.6331 gen=0.6331 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1300 loss=1.7110 gen=1.7110 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1310 loss=1.1648 gen=1.1648 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1320 loss=2.0776 gen=2.0776 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1330 loss=2.8635 gen=2.8635 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1340 loss=2.5611 gen=2.5611 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1350 loss=3.7326 gen=3.7326 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1360 loss=2.8935 gen=2.8935 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1370 loss=2.3976 gen=2.3976 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1380 loss=1.1901 gen=1.1901 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1390 loss=5.8514 gen=5.8514 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1400 loss=0.6989 gen=0.6989 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1410 loss=2.7724 gen=2.7724 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1420 loss=1.6427 gen=1.6427 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1430 loss=1.8549 gen=1.8549 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1440 loss=2.2048 gen=2.2048 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1450 loss=1.9416 gen=1.9416 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1460 loss=3.1519 gen=3.1519 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1470 loss=3.5731 gen=3.5731 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1480 loss=1.8136 gen=1.8136 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1490 loss=4.0703 gen=4.0703 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1500 loss=2.4764 gen=2.4764 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1510 loss=2.7864 gen=2.7864 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1520 loss=2.2788 gen=2.2788 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1530 loss=1.4772 gen=1.4772 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1540 loss=1.2390 gen=1.2390 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1550 loss=2.9783 gen=2.9783 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1560 loss=4.0097 gen=4.0097 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1570 loss=2.5361 gen=2.5361 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1580 loss=3.4789 gen=3.4789 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1590 loss=2.4211 gen=2.4211 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1600 loss=2.5606 gen=2.5606 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1610 loss=2.3166 gen=2.3166 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1620 loss=2.4249 gen=2.4249 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1630 loss=0.8771 gen=0.8771 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1640 loss=2.9530 gen=2.9530 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1650 loss=7.1316 gen=7.1316 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1660 loss=7.4265 gen=7.4265 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1670 loss=2.0835 gen=2.0835 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1680 loss=2.8412 gen=2.8412 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1690 loss=1.7011 gen=1.7011 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1700 loss=2.3413 gen=2.3413 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1710 loss=2.1553 gen=2.1553 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1720 loss=3.2973 gen=3.2973 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1730 loss=3.8480 gen=3.8480 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1740 loss=3.5363 gen=3.5363 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1750 loss=1.9301 gen=1.9301 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1760 loss=2.8321 gen=2.8321 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1770 loss=3.9523 gen=3.9523 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1780 loss=2.6607 gen=2.6607 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1790 loss=2.3824 gen=2.3824 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1800 loss=2.7929 gen=2.7929 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1810 loss=1.2153 gen=1.2153 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1820 loss=2.1781 gen=2.1781 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1830 loss=5.5924 gen=5.5924 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1840 loss=2.0678 gen=2.0678 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1850 loss=1.7004 gen=1.7004 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1860 loss=2.3350 gen=2.3350 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1870 loss=1.9589 gen=1.9589 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1880 loss=3.9947 gen=3.9947 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1890 loss=2.0053 gen=2.0053 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1900 loss=2.7416 gen=2.7416 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1910 loss=1.3868 gen=1.3868 orth=0.0000 cls=0.0000 orth_on=no
+[eval] epoch=1 valid_loss=2.4276 valid_ppl=11.33 test_loss=2.6175 test_ppl=13.70
+[save] 新的最佳 checkpoint 已保存到 ./outputs/b3_prefix_only
+[train] epoch=2/2 step=1920 loss=1.8573 gen=1.8573 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=1930 loss=4.8530 gen=4.8530 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=1940 loss=2.3300 gen=2.3300 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=1950 loss=3.3121 gen=3.3121 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=1960 loss=2.6252 gen=2.6252 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=1970 loss=3.0833 gen=3.0833 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=1980 loss=3.8864 gen=3.8864 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=1990 loss=2.1468 gen=2.1468 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2000 loss=3.1893 gen=3.1893 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2010 loss=1.6039 gen=1.6039 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2020 loss=4.3176 gen=4.3176 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2030 loss=3.1692 gen=3.1692 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2040 loss=6.2384 gen=6.2384 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2050 loss=2.9737 gen=2.9737 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2060 loss=1.2705 gen=1.2705 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2070 loss=2.1644 gen=2.1644 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2080 loss=1.9455 gen=1.9455 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2090 loss=2.0571 gen=2.0571 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2100 loss=2.3272 gen=2.3272 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2110 loss=1.3273 gen=1.3273 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2120 loss=2.6982 gen=2.6982 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2130 loss=1.2171 gen=1.2171 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2140 loss=1.6143 gen=1.6143 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2150 loss=1.7051 gen=1.7051 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2160 loss=1.6198 gen=1.6198 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2170 loss=2.2976 gen=2.2976 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2180 loss=1.6249 gen=1.6249 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2190 loss=3.1030 gen=3.1030 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2200 loss=2.7544 gen=2.7544 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2210 loss=2.1796 gen=2.1796 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2220 loss=1.7164 gen=1.7164 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2230 loss=2.5275 gen=2.5275 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2240 loss=3.3756 gen=3.3756 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2250 loss=2.3158 gen=2.3158 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2260 loss=1.7979 gen=1.7979 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2270 loss=0.5412 gen=0.5412 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2280 loss=2.5309 gen=2.5309 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2290 loss=1.6499 gen=1.6499 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2300 loss=2.0210 gen=2.0210 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2310 loss=1.7396 gen=1.7396 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2320 loss=5.4373 gen=5.4373 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2330 loss=1.9239 gen=1.9239 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2340 loss=3.5792 gen=3.5792 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2350 loss=2.3153 gen=2.3153 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2360 loss=3.7181 gen=3.7181 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2370 loss=1.9362 gen=1.9362 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2380 loss=3.2450 gen=3.2450 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2390 loss=2.8069 gen=2.8069 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2400 loss=2.5695 gen=2.5695 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2410 loss=1.3027 gen=1.3027 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2420 loss=3.8742 gen=3.8742 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2430 loss=2.2433 gen=2.2433 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2440 loss=1.7264 gen=1.7264 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2450 loss=3.1207 gen=3.1207 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2460 loss=2.3881 gen=2.3881 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2470 loss=2.1452 gen=2.1452 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2480 loss=0.8209 gen=0.8209 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2490 loss=2.2253 gen=2.2253 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2500 loss=2.2492 gen=2.2492 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2510 loss=2.0158 gen=2.0158 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2520 loss=2.0467 gen=2.0467 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2530 loss=2.4332 gen=2.4332 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2540 loss=1.8604 gen=1.8604 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2550 loss=2.3764 gen=2.3764 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2560 loss=1.9536 gen=1.9536 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2570 loss=1.6512 gen=1.6512 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2580 loss=4.0740 gen=4.0740 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2590 loss=3.0698 gen=3.0698 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2600 loss=2.0409 gen=2.0409 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2610 loss=2.3439 gen=2.3439 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2620 loss=2.5000 gen=2.5000 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2630 loss=2.3522 gen=2.3522 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2640 loss=1.1696 gen=1.1696 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2650 loss=1.8356 gen=1.8356 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2660 loss=1.6434 gen=1.6434 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2670 loss=1.3021 gen=1.3021 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2680 loss=1.6772 gen=1.6772 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2690 loss=2.3906 gen=2.3906 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2700 loss=2.9757 gen=2.9757 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2710 loss=2.7419 gen=2.7419 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2720 loss=2.7474 gen=2.7474 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2730 loss=2.3234 gen=2.3234 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2740 loss=1.6201 gen=1.6201 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2750 loss=1.9128 gen=1.9128 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2760 loss=2.8204 gen=2.8204 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2770 loss=2.2968 gen=2.2968 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2780 loss=1.9000 gen=1.9000 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2790 loss=2.6106 gen=2.6106 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2800 loss=2.8132 gen=2.8132 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2810 loss=3.0241 gen=3.0241 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2820 loss=1.8210 gen=1.8210 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2830 loss=2.4957 gen=2.4957 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2840 loss=2.6375 gen=2.6375 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2850 loss=2.2492 gen=2.2492 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2860 loss=2.3746 gen=2.3746 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2870 loss=3.8375 gen=3.8375 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2880 loss=2.3189 gen=2.3189 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2890 loss=1.1661 gen=1.1661 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2900 loss=1.8163 gen=1.8163 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2910 loss=3.0692 gen=3.0692 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2920 loss=3.2512 gen=3.2512 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2930 loss=2.6393 gen=2.6393 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2940 loss=1.9234 gen=1.9234 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2950 loss=2.5682 gen=2.5682 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2960 loss=1.9924 gen=1.9924 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2970 loss=3.2530 gen=3.2530 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2980 loss=2.2869 gen=2.2869 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2990 loss=1.7192 gen=1.7192 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3000 loss=5.9956 gen=5.9956 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3010 loss=2.6273 gen=2.6273 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3020 loss=2.2775 gen=2.2775 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3030 loss=2.3674 gen=2.3674 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3040 loss=4.9360 gen=4.9360 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3050 loss=2.4936 gen=2.4936 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3060 loss=1.6561 gen=1.6561 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3070 loss=2.4930 gen=2.4930 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3080 loss=2.8083 gen=2.8083 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3090 loss=2.4272 gen=2.4272 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3100 loss=1.7374 gen=1.7374 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3110 loss=2.2597 gen=2.2597 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3120 loss=2.2847 gen=2.2847 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3130 loss=2.3267 gen=2.3267 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3140 loss=1.7177 gen=1.7177 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3150 loss=2.7952 gen=2.7952 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3160 loss=2.0082 gen=2.0082 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3170 loss=1.9781 gen=1.9781 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3180 loss=2.7408 gen=2.7408 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3190 loss=2.3618 gen=2.3618 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3200 loss=2.9512 gen=2.9512 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3210 loss=2.5054 gen=2.5054 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3220 loss=1.3391 gen=1.3391 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3230 loss=2.2954 gen=2.2954 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3240 loss=3.2358 gen=3.2358 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3250 loss=2.4140 gen=2.4140 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3260 loss=1.3984 gen=1.3984 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3270 loss=1.8650 gen=1.8650 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3280 loss=2.3566 gen=2.3566 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3290 loss=1.7775 gen=1.7775 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3300 loss=2.1628 gen=2.1628 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3310 loss=3.5274 gen=3.5274 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3320 loss=1.7886 gen=1.7886 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3330 loss=1.9286 gen=1.9286 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3340 loss=3.3113 gen=3.3113 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3350 loss=2.4811 gen=2.4811 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3360 loss=1.2817 gen=1.2817 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3370 loss=5.2001 gen=5.2001 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3380 loss=2.0337 gen=2.0337 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3390 loss=2.0623 gen=2.0623 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3400 loss=1.7253 gen=1.7253 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3410 loss=4.0029 gen=4.0029 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3420 loss=4.3207 gen=4.3207 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3430 loss=6.0249 gen=6.0249 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3440 loss=3.2110 gen=3.2110 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3450 loss=1.8983 gen=1.8983 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3460 loss=2.8314 gen=2.8314 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3470 loss=2.4775 gen=2.4775 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3480 loss=1.0141 gen=1.0141 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3490 loss=2.1520 gen=2.1520 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3500 loss=1.9274 gen=1.9274 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3510 loss=3.6644 gen=3.6644 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3520 loss=4.5826 gen=4.5826 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3530 loss=2.5518 gen=2.5518 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3540 loss=1.5590 gen=1.5590 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3550 loss=4.2001 gen=4.2001 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3560 loss=2.0043 gen=2.0043 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3570 loss=4.5966 gen=4.5966 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3580 loss=3.3422 gen=3.3422 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3590 loss=3.6103 gen=3.6103 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3600 loss=2.0534 gen=2.0534 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3610 loss=2.2514 gen=2.2514 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3620 loss=2.7148 gen=2.7148 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3630 loss=2.4802 gen=2.4802 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3640 loss=3.8689 gen=3.8689 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3650 loss=2.5126 gen=2.5126 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3660 loss=1.9936 gen=1.9936 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3670 loss=2.2396 gen=2.2396 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3680 loss=2.1923 gen=2.1923 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3690 loss=3.2778 gen=3.2778 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3700 loss=1.8972 gen=1.8972 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3710 loss=3.3874 gen=3.3874 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3720 loss=2.0801 gen=2.0801 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3730 loss=1.5811 gen=1.5811 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3740 loss=1.7952 gen=1.7952 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3750 loss=1.8656 gen=1.8656 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3760 loss=1.3646 gen=1.3646 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3770 loss=2.1314 gen=2.1314 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3780 loss=3.0813 gen=3.0813 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3790 loss=1.7634 gen=1.7634 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3800 loss=2.0348 gen=2.0348 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3810 loss=2.9123 gen=2.9123 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3820 loss=1.2253 gen=1.2253 orth=0.0000 cls=0.0000 orth_on=no
+[eval] epoch=2 valid_loss=2.2626 valid_ppl=9.61 test_loss=2.5156 test_ppl=12.37
+[save] 新的最佳 checkpoint 已保存到 ./outputs/b3_prefix_only
+[train] finished | prefix_norm_before=17.1696 prefix_norm_after=29.5548
+[done] 所有产物已保存到 ./outputs/b3_prefix_only
+[完成] B3 (prefix_only) — 20:57:09
+
+[开始] B6 (dest_rs) — 20:57:09
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+========================================================================================
+[config]
+{
+  "model_name_or_path": "/home/amax/PycharmProjects/AINegoProject/src/Models/LLM/Qwen3-8B",
+  "dataset_dir": "./CaSiNo-main/data",
+  "train_file": null,
+  "valid_file": null,
+  "test_file": null,
+  "output_dir": "./outputs/b6_dest_rs",
+  "warm_start_dir": null,
+  "max_length": 512,
+  "context_turns": 6,
+  "max_reason_chars": 180,
+  "include_profile": true,
+  "multi_label_policy": "drop",
+  "exclude_labels": [
+    "non-strategic"
+  ],
+  "max_train_samples": null,
+  "max_valid_samples": null,
+  "max_test_samples": null,
+  "seed": 42,
+  "batch_size": 1,
+  "eval_batch_size": 1,
+  "num_epochs": 2,
+  "lr": 0.0001,
+  "prefix_lr": 0.0005,
+  "weight_decay": 0.0,
+  "grad_clip": 1.0,
+  "eval_every_epoch": true,
+  "save_best_only": true,
+  "adapter_mode": "dest_rs",
+  "trust_remote_code": true,
+  "use_4bit": true,
+  "use_bfloat16": true,
+  "gradient_checkpointing": true,
+  "lora_r": 16,
+  "lora_alpha": 32,
+  "lora_dropout": 0.05,
+  "lora_target_candidates": [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj"
+  ],
+  "num_virtual_tokens": 20,
+  "prefix_init_std": 0.02,
+  "prefix_scale_train": 1.0,
+  "prefix_scale_eval": 1.0,
+  "lambda_orth": 0.05,
+  "orth_alpha": 0.5,
+  "orth_start_step": 50,
+  "orth_every_n_steps": 20,
+  "orth_token_sample_size": 64,
+  "orth_layer_index": -4,
+  "lambda_cls": 0.2,
+  "cls_hidden_dim": 256,
+  "cls_dropout": 0.1,
+  "demo_max_new_tokens": 40,
+  "demo_temperature": 0.0,
+  "demo_num_examples": 5
+}
+========================================================================================
+========================================================================================
+[data] train examples: 1910
+[data] valid examples: 43
+[data] test examples:  239
+[data] strategies: ['elicit-pref', 'no-need', 'other-need', 'promote-coordination', 'self-need', 'showing-empathy', 'small-talk', 'uv-part', 'vouch-fair']
+========================================================================================
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights:   0%|          | 1/399 [00:00<01:20,  4.94it/s]Loading weights:   1%|          | 2/399 [00:00<01:21,  4.89it/s]/home/amax/miniconda3/envs/tuning/lib/python3.10/site-packages/bitsandbytes/backends/cuda/ops.py:213: FutureWarning: _check_is_size will be removed in a future PyTorch release along with guard_size_oblivious.     Use _check(i >= 0) instead.
+  torch._check_is_size(blocksize)
+Loading weights:   2%|▏         | 9/399 [00:00<00:16, 23.81it/s]Loading weights:   7%|▋         | 26/399 [00:00<00:05, 66.01it/s]Loading weights:  10%|▉         | 38/399 [00:00<00:04, 80.84it/s]Loading weights:  14%|█▍        | 56/399 [00:00<00:03, 109.09it/s]Loading weights:  18%|█▊        | 71/399 [00:00<00:02, 119.01it/s]Loading weights:  22%|██▏       | 89/399 [00:01<00:02, 136.13it/s]Loading weights:  26%|██▌       | 104/399 [00:01<00:02, 137.82it/s]Loading weights:  31%|███       | 122/399 [00:01<00:01, 148.80it/s]Loading weights:  35%|███▍      | 138/399 [00:01<00:01, 142.87it/s]Loading weights:  40%|███▉      | 158/399 [00:01<00:01, 157.38it/s]Loading weights:  44%|████▍     | 175/399 [00:01<00:01, 156.08it/s]Loading weights:  48%|████▊     | 192/399 [00:01<00:01, 154.51it/s]Loading weights:  53%|█████▎    | 210/399 [00:01<00:01, 161.15it/s]Loading weights:  57%|█████▋    | 227/399 [00:01<00:01, 153.47it/s]Loading weights:  62%|██████▏   | 246/399 [00:02<00:00, 162.57it/s]Loading weights:  66%|██████▌   | 263/399 [00:02<00:00, 159.26it/s]Loading weights:  70%|███████   | 280/399 [00:02<00:00, 156.87it/s]Loading weights:  75%|███████▍  | 298/399 [00:02<00:00, 163.04it/s]Loading weights:  79%|███████▉  | 315/399 [00:02<00:00, 154.52it/s]Loading weights:  84%|████████▎ | 334/399 [00:02<00:00, 162.49it/s]Loading weights:  88%|████████▊ | 351/399 [00:02<00:00, 159.46it/s]Loading weights:  92%|█████████▏| 368/399 [00:02<00:00, 157.09it/s]Loading weights:  97%|█████████▋| 386/399 [00:02<00:00, 163.07it/s]Loading weights: 100%|██████████| 399/399 [00:02<00:00, 134.75it/s]
+[model] LoRA target modules: ['k_proj', 'o_proj', 'q_proj', 'v_proj']
+[model] 已在 transformer block 32/35 上安装层输出捕获器
+========================================================================================
+[model] trainable parameter tensors: 293 | total elements: 17,123,849
+  prefix_bank                                                                 737,280
+  peft_model.base_model.model.model.layers.0.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.0.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.0.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.0.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.0.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.0.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.0.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.0.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.1.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.1.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.1.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.1.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.1.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.1.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.1.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.1.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.2.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.2.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.2.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.2.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.2.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.2.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.2.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.2.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.3.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.3.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.3.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.3.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.3.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.3.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.3.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.3.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.4.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.4.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.4.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.4.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.4.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.4.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.4.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.4.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.5.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.5.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.5.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.5.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.5.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.5.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.5.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.5.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.6.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.6.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.6.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.6.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.6.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.6.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.6.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.6.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.7.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.7.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.7.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.7.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.7.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.7.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.7.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.7.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.8.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.8.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.8.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.8.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.8.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.8.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.8.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.8.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.9.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.9.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.9.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.9.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.9.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.9.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.9.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.9.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.10.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.10.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.10.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.10.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.10.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.10.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.10.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.10.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.11.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.11.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.11.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.11.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.11.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.11.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.11.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.11.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.12.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.12.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.12.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.12.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.12.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.12.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.12.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.12.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.13.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.13.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.13.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.13.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.13.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.13.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.13.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.13.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.14.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.14.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.14.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.14.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.14.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.14.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.14.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.14.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.15.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.15.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.15.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.15.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.15.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.15.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.15.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.15.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.16.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.16.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.16.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.16.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.16.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.16.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.16.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.16.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.17.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.17.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.17.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.17.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.17.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.17.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.17.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.17.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.18.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.18.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.18.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.18.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.18.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.18.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.18.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.18.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.19.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.19.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.19.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.19.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.19.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.19.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.19.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.19.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.20.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.20.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.20.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.20.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.20.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.20.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.20.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.20.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.21.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.21.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.21.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.21.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.21.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.21.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.21.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.21.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.22.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.22.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.22.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.22.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.22.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.22.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.22.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.22.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.23.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.23.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.23.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.23.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.23.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.23.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.23.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.23.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.24.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.24.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.24.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.24.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.24.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.24.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.24.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.24.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.25.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.25.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.25.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.25.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.25.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.25.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.25.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.25.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.26.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.26.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.26.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.26.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.26.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.26.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.26.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.26.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.27.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.27.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.27.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.27.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.27.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.27.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.27.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.27.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.28.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.28.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.28.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.28.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.28.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.28.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.28.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.28.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.29.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.29.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.29.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.29.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.29.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.29.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.29.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.29.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.30.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.30.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.30.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.30.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.30.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.30.self_attn.v_proj.lora_B.default.weight       16,384
+/home/amax/miniconda3/envs/tuning/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py:1298: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+/home/amax/miniconda3/envs/tuning/lib/python3.10/site-packages/torch/autograd/graph.py:882: UserWarning: The AccumulateGrad node's stream does not match the stream of the node that produced the incoming gradient. This may incur unnecessary synchronization and break CUDA graph capture if the AccumulateGrad node's stream is the default stream. This mismatch is caused by an AccumulateGrad node created prior to the current iteration being kept alive. This can happen if the autograd graph is still being kept alive by tensors such as the loss, or if you are using DDP, which will stash a reference to the node. To resolve the mismatch, delete all references to the autograd graph or ensure that DDP initialization is performed under the same stream as subsequent forwards. If the mismatch is intentional, you can use torch.autograd.graph.set_warn_on_accumulate_grad_stream_mismatch(False) to suppress this warning. (Triggered internally at /pytorch/torch/csrc/autograd/input_buffer.cpp:240.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  peft_model.base_model.model.model.layers.30.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.30.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.31.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.31.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.31.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.31.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.31.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.31.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.31.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.31.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.32.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.32.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.32.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.32.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.32.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.32.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.32.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.32.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.33.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.33.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.33.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.33.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.33.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.33.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.33.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.33.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.34.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.34.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.34.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.34.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.34.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.34.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.34.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.34.self_attn.o_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.35.self_attn.q_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.35.self_attn.q_proj.lora_B.default.weight       65,536
+  peft_model.base_model.model.model.layers.35.self_attn.k_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.35.self_attn.k_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.35.self_attn.v_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.35.self_attn.v_proj.lora_B.default.weight       16,384
+  peft_model.base_model.model.model.layers.35.self_attn.o_proj.lora_A.default.weight       65,536
+  peft_model.base_model.model.model.layers.35.self_attn.o_proj.lora_B.default.weight       65,536
+  strategy_classifier.1.weight                                              1,048,576
+  strategy_classifier.1.bias                                                      256
+  strategy_classifier.4.weight                                                  2,304
+  strategy_classifier.4.bias                                                        9
+========================================================================================
+========================================================================================
+[optim] prefix   lr=5.00e-04 params=737,280
+[optim] lora     lr=1.00e-04 params=15,335,424
+[optim] cls      lr=1.00e-04 params=1,051,145
+========================================================================================
+[train] starting training
+[train] epoch=1/2 step=10 loss=4.8508 gen=3.2679 orth=0.0000 cls=7.9146 orth_on=no
+[train] epoch=1/2 step=20 loss=5.6992 gen=5.6992 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=30 loss=2.4310 gen=1.1864 orth=0.0000 cls=6.2227 orth_on=no
+[train] epoch=1/2 step=40 loss=2.9703 gen=2.5778 orth=0.0000 cls=1.9627 orth_on=no
+[train] epoch=1/2 step=50 loss=2.3580 gen=1.7425 orth=0.0000 cls=3.0774 orth_on=no
+[train] epoch=1/2 step=60 loss=2.8261 gen=2.7903 orth=0.5319 cls=0.0457 orth_on=yes
+[train] epoch=1/2 step=70 loss=3.4950 gen=3.4232 orth=0.0000 cls=0.3591 orth_on=no
+[train] epoch=1/2 step=80 loss=2.0736 gen=2.0338 orth=0.5215 cls=0.0687 orth_on=yes
+[train] epoch=1/2 step=90 loss=1.1498 gen=1.1496 orth=0.0000 cls=0.0007 orth_on=no
+[train] epoch=1/2 step=100 loss=5.3768 gen=5.0700 orth=0.5056 cls=1.4077 orth_on=yes
+[train] epoch=1/2 step=110 loss=1.9019 gen=1.9016 orth=0.0000 cls=0.0012 orth_on=no
+[train] epoch=1/2 step=120 loss=2.8375 gen=2.6852 orth=0.5253 cls=0.6299 orth_on=yes
+[train] epoch=1/2 step=130 loss=2.4253 gen=2.2048 orth=0.0000 cls=1.1024 orth_on=no
+[train] epoch=1/2 step=140 loss=2.6101 gen=1.9884 orth=0.5388 cls=2.9733 orth_on=yes
+[train] epoch=1/2 step=150 loss=2.0736 gen=1.9370 orth=0.0000 cls=0.6831 orth_on=no
+[train] epoch=1/2 step=160 loss=3.1168 gen=1.9468 orth=0.5192 cls=5.7199 orth_on=yes
+[train] epoch=1/2 step=170 loss=3.0701 gen=3.0260 orth=0.0000 cls=0.2200 orth_on=no
+[train] epoch=1/2 step=180 loss=2.8526 gen=2.2531 orth=0.5161 cls=2.8687 orth_on=yes
+[train] epoch=1/2 step=190 loss=0.7318 gen=0.7283 orth=0.0000 cls=0.0176 orth_on=no
+[train] epoch=1/2 step=200 loss=1.6822 gen=1.6554 orth=0.5360 cls=0.0001 orth_on=yes
+[train] epoch=1/2 step=210 loss=1.3230 gen=1.3006 orth=0.0000 cls=0.1121 orth_on=no
+[train] epoch=1/2 step=220 loss=3.4064 gen=3.3685 orth=0.5368 cls=0.0552 orth_on=yes
+[train] epoch=1/2 step=230 loss=3.4323 gen=3.4323 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=240 loss=3.9836 gen=3.9576 orth=0.5208 cls=0.0000 orth_on=yes
+[train] epoch=1/2 step=250 loss=1.6440 gen=1.6440 orth=0.0000 cls=0.0001 orth_on=no
+[train] epoch=1/2 step=260 loss=1.2187 gen=1.1925 orth=0.5235 cls=0.0000 orth_on=yes
+[train] epoch=1/2 step=270 loss=2.4829 gen=2.4698 orth=0.0000 cls=0.0655 orth_on=no
+[train] epoch=1/2 step=280 loss=1.7987 gen=1.7686 orth=0.5215 cls=0.0203 orth_on=yes
+[train] epoch=1/2 step=290 loss=3.5374 gen=2.8760 orth=0.0000 cls=3.3073 orth_on=no
+[train] epoch=1/2 step=300 loss=2.2959 gen=2.1633 orth=0.5291 cls=0.5305 orth_on=yes
+[train] epoch=1/2 step=310 loss=3.3261 gen=2.7359 orth=0.0000 cls=2.9514 orth_on=no
+[train] epoch=1/2 step=320 loss=1.8610 gen=1.8356 orth=0.5073 cls=0.0005 orth_on=yes
+[train] epoch=1/2 step=330 loss=2.3269 gen=2.3269 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=340 loss=3.1595 gen=1.6188 orth=0.5085 cls=7.5764 orth_on=yes
+[train] epoch=1/2 step=350 loss=2.8275 gen=2.7528 orth=0.0000 cls=0.3733 orth_on=no
+[train] epoch=1/2 step=360 loss=9.5145 gen=9.4877 orth=0.5371 cls=0.0000 orth_on=yes
+[train] epoch=1/2 step=370 loss=2.9183 gen=2.9183 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=380 loss=1.9077 gen=1.8810 orth=0.5336 cls=0.0000 orth_on=yes
+[train] epoch=1/2 step=390 loss=1.8836 gen=1.8835 orth=0.0000 cls=0.0006 orth_on=no
+[train] epoch=1/2 step=400 loss=1.3803 gen=1.3130 orth=0.5830 cls=0.1909 orth_on=yes
+[train] epoch=1/2 step=410 loss=2.6363 gen=2.6363 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=420 loss=2.5343 gen=1.9564 orth=0.5351 cls=2.7558 orth_on=yes
+[train] epoch=1/2 step=430 loss=3.7027 gen=2.9276 orth=0.0000 cls=3.8755 orth_on=no
+[train] epoch=1/2 step=440 loss=2.0271 gen=1.8265 orth=0.5349 cls=0.8693 orth_on=yes
+[train] epoch=1/2 step=450 loss=2.4679 gen=2.4617 orth=0.0000 cls=0.0306 orth_on=no
+[train] epoch=1/2 step=460 loss=1.6359 gen=1.6061 orth=0.5958 cls=0.0004 orth_on=yes
+[train] epoch=1/2 step=470 loss=3.1025 gen=3.1025 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=480 loss=3.2908 gen=3.2638 orth=0.5416 cls=0.0000 orth_on=yes
+[train] epoch=1/2 step=490 loss=2.2919 gen=2.2919 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=500 loss=1.8829 gen=1.8568 orth=0.5097 cls=0.0033 orth_on=yes
+[train] epoch=1/2 step=510 loss=3.9470 gen=2.1058 orth=0.0000 cls=9.2062 orth_on=no
+[train] epoch=1/2 step=520 loss=2.8189 gen=2.7923 orth=0.5268 cls=0.0011 orth_on=yes
+[train] epoch=1/2 step=530 loss=2.6915 gen=2.6613 orth=0.0000 cls=0.1509 orth_on=no
+[train] epoch=1/2 step=540 loss=2.3446 gen=2.3180 orth=0.5321 cls=0.0000 orth_on=yes
+[train] epoch=1/2 step=550 loss=4.4286 gen=3.2805 orth=0.0000 cls=5.7402 orth_on=no
+[train] epoch=1/2 step=560 loss=1.5972 gen=1.4590 orth=0.5205 cls=0.5611 orth_on=yes
+[train] epoch=1/2 step=570 loss=2.1001 gen=2.1000 orth=0.0000 cls=0.0008 orth_on=no
+[train] epoch=1/2 step=580 loss=2.1982 gen=2.1721 orth=0.5157 cls=0.0013 orth_on=yes
+[train] epoch=1/2 step=590 loss=2.8667 gen=2.8667 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=600 loss=2.3809 gen=2.3551 orth=0.5159 cls=0.0000 orth_on=yes
+[train] epoch=1/2 step=610 loss=1.9383 gen=1.9382 orth=0.0000 cls=0.0006 orth_on=no
+[train] epoch=1/2 step=620 loss=1.5336 gen=1.5040 orth=0.5164 cls=0.0192 orth_on=yes
+[train] epoch=1/2 step=630 loss=4.7343 gen=4.7343 orth=0.0000 cls=0.0001 orth_on=no
+[train] epoch=1/2 step=640 loss=3.7674 gen=3.6752 orth=0.5183 cls=0.3316 orth_on=yes
+[train] epoch=1/2 step=650 loss=1.3390 gen=1.3390 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=660 loss=1.5183 gen=1.4927 orth=0.5126 cls=0.0001 orth_on=yes
+[train] epoch=1/2 step=670 loss=3.5615 gen=3.5604 orth=0.0000 cls=0.0056 orth_on=no
+[train] epoch=1/2 step=680 loss=2.6826 gen=2.6558 orth=0.5373 cls=0.0000 orth_on=yes
+[train] epoch=1/2 step=690 loss=2.3508 gen=2.3508 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=700 loss=3.0778 gen=2.3940 orth=0.5193 cls=3.2895 orth_on=yes
+[train] epoch=1/2 step=710 loss=4.2517 gen=4.0897 orth=0.0000 cls=0.8099 orth_on=no
+[train] epoch=1/2 step=720 loss=2.1877 gen=2.1619 orth=0.5155 cls=0.0003 orth_on=yes
+[train] epoch=1/2 step=730 loss=3.3429 gen=3.3429 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=740 loss=3.3570 gen=3.3290 orth=0.5592 cls=0.0001 orth_on=yes
+[train] epoch=1/2 step=750 loss=5.1360 gen=3.1702 orth=0.0000 cls=9.8289 orth_on=no
+[train] epoch=1/2 step=760 loss=2.1543 gen=2.1023 orth=0.5121 cls=0.1321 orth_on=yes
+[train] epoch=1/2 step=770 loss=2.2082 gen=2.2078 orth=0.0000 cls=0.0023 orth_on=no
+[train] epoch=1/2 step=780 loss=4.4248 gen=2.9602 orth=0.5291 cls=7.1905 orth_on=yes
+[train] epoch=1/2 step=790 loss=1.7459 gen=1.7451 orth=0.0000 cls=0.0040 orth_on=no
+[train] epoch=1/2 step=800 loss=2.1044 gen=2.0786 orth=0.5114 cls=0.0012 orth_on=yes
+[train] epoch=1/2 step=810 loss=1.3191 gen=1.3003 orth=0.0000 cls=0.0942 orth_on=no
+[train] epoch=1/2 step=820 loss=2.4399 gen=2.0160 orth=0.5330 cls=1.9859 orth_on=yes
+[train] epoch=1/2 step=830 loss=2.1754 gen=2.1754 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=840 loss=1.6514 gen=1.6258 orth=0.5123 cls=0.0000 orth_on=yes
+[train] epoch=1/2 step=850 loss=1.5684 gen=1.5684 orth=0.0000 cls=0.0002 orth_on=no
+[train] epoch=1/2 step=860 loss=1.8920 gen=1.8664 orth=0.5121 cls=0.0000 orth_on=yes
+[train] epoch=1/2 step=870 loss=2.1937 gen=2.1937 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=880 loss=3.4925 gen=3.1258 orth=0.5168 cls=1.7048 orth_on=yes
+[train] epoch=1/2 step=890 loss=1.3132 gen=1.3132 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=900 loss=2.1787 gen=2.1486 orth=0.6021 cls=0.0000 orth_on=yes
+[train] epoch=1/2 step=910 loss=0.6637 gen=0.6637 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=920 loss=2.0974 gen=2.0716 orth=0.5171 cls=0.0000 orth_on=yes
+[train] epoch=1/2 step=930 loss=2.1329 gen=2.1329 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=940 loss=4.0355 gen=4.0094 orth=0.5151 cls=0.0016 orth_on=yes
+[train] epoch=1/2 step=950 loss=2.9834 gen=2.9834 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=960 loss=2.0489 gen=2.0229 orth=0.5194 cls=0.0000 orth_on=yes
+[train] epoch=1/2 step=970 loss=2.2263 gen=2.2255 orth=0.0000 cls=0.0039 orth_on=no
+[train] epoch=1/2 step=980 loss=2.7055 gen=2.3068 orth=0.5142 cls=1.8648 orth_on=yes
+[train] epoch=1/2 step=990 loss=2.7941 gen=2.7897 orth=0.0000 cls=0.0221 orth_on=no
+[train] epoch=1/2 step=1000 loss=1.4061 gen=1.3804 orth=0.5132 cls=0.0000 orth_on=yes
+[train] epoch=1/2 step=1010 loss=2.6836 gen=2.6817 orth=0.0000 cls=0.0097 orth_on=no
+[train] epoch=1/2 step=1020 loss=2.1860 gen=2.1599 orth=0.5174 cls=0.0012 orth_on=yes
+[train] epoch=1/2 step=1030 loss=1.8144 gen=1.8144 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1040 loss=2.1033 gen=2.0763 orth=0.5160 cls=0.0060 orth_on=yes
+[train] epoch=1/2 step=1050 loss=1.8726 gen=1.5992 orth=0.0000 cls=1.3670 orth_on=no
+[train] epoch=1/2 step=1060 loss=1.7603 gen=1.7339 orth=0.5268 cls=0.0007 orth_on=yes
+[train] epoch=1/2 step=1070 loss=3.1165 gen=3.1165 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1080 loss=2.4747 gen=2.4492 orth=0.5094 cls=0.0002 orth_on=yes
+[train] epoch=1/2 step=1090 loss=6.3525 gen=6.3479 orth=0.0000 cls=0.0229 orth_on=no
+[train] epoch=1/2 step=1100 loss=2.0109 gen=1.9848 orth=0.5222 cls=0.0000 orth_on=yes
+[train] epoch=1/2 step=1110 loss=1.6532 gen=1.6525 orth=0.0000 cls=0.0037 orth_on=no
+[train] epoch=1/2 step=1120 loss=3.1101 gen=3.0829 orth=0.5190 cls=0.0062 orth_on=yes
+[train] epoch=1/2 step=1130 loss=2.6488 gen=2.6486 orth=0.0000 cls=0.0009 orth_on=no
+[train] epoch=1/2 step=1140 loss=1.5370 gen=1.2973 orth=0.5097 cls=1.0708 orth_on=yes
+[train] epoch=1/2 step=1150 loss=1.6873 gen=1.6800 orth=0.0000 cls=0.0363 orth_on=no
+[train] epoch=1/2 step=1160 loss=3.4152 gen=1.9078 orth=0.5344 cls=7.4037 orth_on=yes
+[train] epoch=1/2 step=1170 loss=3.0778 gen=3.0778 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1180 loss=1.3140 gen=1.2887 orth=0.5058 cls=0.0000 orth_on=yes
+[train] epoch=1/2 step=1190 loss=1.4321 gen=1.4321 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1200 loss=1.6163 gen=1.5906 orth=0.5140 cls=0.0000 orth_on=yes
+[train] epoch=1/2 step=1210 loss=1.9095 gen=1.9095 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1220 loss=3.2887 gen=3.2625 orth=0.5229 cls=0.0000 orth_on=yes
+[train] epoch=1/2 step=1230 loss=2.3277 gen=2.3188 orth=0.0000 cls=0.0444 orth_on=no
+[train] epoch=1/2 step=1240 loss=2.5081 gen=2.4815 orth=0.5320 cls=0.0002 orth_on=yes
+[train] epoch=1/2 step=1250 loss=2.7415 gen=2.7415 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1260 loss=1.5910 gen=1.5645 orth=0.5290 cls=0.0000 orth_on=yes
+[train] epoch=1/2 step=1270 loss=2.7948 gen=2.7948 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1280 loss=1.6004 gen=1.5730 orth=0.5169 cls=0.0076 orth_on=yes
+[train] epoch=1/2 step=1290 loss=0.5886 gen=0.5886 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1300 loss=1.7926 gen=1.4228 orth=0.5135 cls=1.7204 orth_on=yes
+[train] epoch=1/2 step=1310 loss=1.2868 gen=1.2868 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1320 loss=2.2784 gen=2.2530 orth=0.5087 cls=0.0000 orth_on=yes
+[train] epoch=1/2 step=1330 loss=2.4199 gen=2.4199 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1340 loss=2.1415 gen=2.0273 orth=0.5126 cls=0.4429 orth_on=yes
+[train] epoch=1/2 step=1350 loss=2.9672 gen=2.9672 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1360 loss=2.6708 gen=2.6406 orth=0.6045 cls=0.0000 orth_on=yes
+[train] epoch=1/2 step=1370 loss=2.3265 gen=2.3265 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1380 loss=0.9187 gen=0.8924 orth=0.5179 cls=0.0018 orth_on=yes
+[train] epoch=1/2 step=1390 loss=5.7325 gen=5.7325 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1400 loss=0.6367 gen=0.6102 orth=0.5304 cls=0.0000 orth_on=yes
+[train] epoch=1/2 step=1410 loss=2.6032 gen=2.6032 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1420 loss=1.4887 gen=1.4611 orth=0.5531 cls=0.0000 orth_on=yes
+[train] epoch=1/2 step=1430 loss=1.5906 gen=1.5906 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1440 loss=2.0935 gen=2.0680 orth=0.5109 cls=0.0000 orth_on=yes
+[train] epoch=1/2 step=1450 loss=1.8950 gen=1.8940 orth=0.0000 cls=0.0051 orth_on=no
+[train] epoch=1/2 step=1460 loss=2.6461 gen=2.1524 orth=0.5100 cls=2.3411 orth_on=yes
+[train] epoch=1/2 step=1470 loss=3.6251 gen=3.6250 orth=0.0000 cls=0.0002 orth_on=no
+[train] epoch=1/2 step=1480 loss=1.4769 gen=1.4509 orth=0.5196 cls=0.0000 orth_on=yes
+[train] epoch=1/2 step=1490 loss=2.8318 gen=2.8318 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1500 loss=1.5857 gen=1.5586 orth=0.5298 cls=0.0034 orth_on=yes
+[train] epoch=1/2 step=1510 loss=2.8136 gen=2.8136 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1520 loss=1.8175 gen=1.7573 orth=0.5249 cls=0.1695 orth_on=yes
+[train] epoch=1/2 step=1530 loss=1.8942 gen=1.6414 orth=0.0000 cls=1.2638 orth_on=no
+[train] epoch=1/2 step=1540 loss=1.0638 gen=1.0380 orth=0.5160 cls=0.0000 orth_on=yes
+[train] epoch=1/2 step=1550 loss=3.1444 gen=3.1444 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1560 loss=2.2052 gen=2.1794 orth=0.5171 cls=0.0000 orth_on=yes
+[train] epoch=1/2 step=1570 loss=1.9349 gen=1.9346 orth=0.0000 cls=0.0014 orth_on=no
+[train] epoch=1/2 step=1580 loss=3.1550 gen=3.1290 orth=0.5196 cls=0.0000 orth_on=yes
+[train] epoch=1/2 step=1590 loss=2.4872 gen=2.4872 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1600 loss=2.2245 gen=2.1988 orth=0.5128 cls=0.0001 orth_on=yes
+[train] epoch=1/2 step=1610 loss=2.4648 gen=2.4648 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1620 loss=1.9012 gen=1.8716 orth=0.5910 cls=0.0000 orth_on=yes
+[train] epoch=1/2 step=1630 loss=0.8474 gen=0.8474 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1640 loss=2.6921 gen=2.5963 orth=0.5216 cls=0.3486 orth_on=yes
+[train] epoch=1/2 step=1650 loss=7.4135 gen=6.0412 orth=0.0000 cls=6.8612 orth_on=no
+[train] epoch=1/2 step=1660 loss=4.4504 gen=4.4219 orth=0.5150 cls=0.0138 orth_on=yes
+[train] epoch=1/2 step=1670 loss=2.1142 gen=2.1142 orth=0.0000 cls=0.0002 orth_on=no
+[train] epoch=1/2 step=1680 loss=3.1248 gen=2.7076 orth=0.5362 cls=1.9522 orth_on=yes
+[train] epoch=1/2 step=1690 loss=1.4732 gen=1.4732 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1700 loss=1.5815 gen=1.5560 orth=0.5086 cls=0.0000 orth_on=yes
+[train] epoch=1/2 step=1710 loss=2.0061 gen=2.0061 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1720 loss=2.8603 gen=2.8349 orth=0.5073 cls=0.0000 orth_on=yes
+[train] epoch=1/2 step=1730 loss=2.9799 gen=2.9799 orth=0.0000 cls=0.0001 orth_on=no
+[train] epoch=1/2 step=1740 loss=4.0438 gen=4.0174 orth=0.5288 cls=0.0000 orth_on=yes
+[train] epoch=1/2 step=1750 loss=1.1364 gen=1.1364 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1760 loss=2.7867 gen=2.7575 orth=0.5271 cls=0.0145 orth_on=yes
+[train] epoch=1/2 step=1770 loss=4.7648 gen=3.7692 orth=0.0000 cls=4.9779 orth_on=no
+[train] epoch=1/2 step=1780 loss=2.3501 gen=2.3245 orth=0.5133 cls=0.0000 orth_on=yes
+[train] epoch=1/2 step=1790 loss=1.9694 gen=1.9694 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1800 loss=2.2247 gen=2.1991 orth=0.5102 cls=0.0000 orth_on=yes
+[train] epoch=1/2 step=1810 loss=1.5389 gen=1.5389 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1820 loss=2.2310 gen=2.2048 orth=0.5239 cls=0.0000 orth_on=yes
+[train] epoch=1/2 step=1830 loss=4.7123 gen=4.7123 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1840 loss=1.6695 gen=1.6439 orth=0.5112 cls=0.0000 orth_on=yes
+[train] epoch=1/2 step=1850 loss=1.5085 gen=1.5085 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1860 loss=1.9883 gen=1.9623 orth=0.5192 cls=0.0000 orth_on=yes
+[train] epoch=1/2 step=1870 loss=2.1251 gen=2.1251 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=1/2 step=1880 loss=3.2864 gen=3.2266 orth=0.5310 cls=0.1660 orth_on=yes
+[train] epoch=1/2 step=1890 loss=1.7390 gen=1.7371 orth=0.0000 cls=0.0096 orth_on=no
+[train] epoch=1/2 step=1900 loss=2.8193 gen=2.7913 orth=0.5598 cls=0.0000 orth_on=yes
+[train] epoch=1/2 step=1910 loss=1.3670 gen=1.3670 orth=0.0000 cls=0.0000 orth_on=no
+[eval] epoch=1 valid_loss=2.0581 valid_ppl=7.83 test_loss=2.1337 test_ppl=8.45
+[save] 新的最佳 checkpoint 已保存到 ./outputs/b6_dest_rs
+[train] epoch=2/2 step=1920 loss=1.8429 gen=1.8171 orth=0.5161 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=1930 loss=4.3738 gen=4.3664 orth=0.0000 cls=0.0369 orth_on=no
+[train] epoch=2/2 step=1940 loss=2.0469 gen=2.0203 orth=0.5317 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=1950 loss=3.2064 gen=3.2064 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=1960 loss=2.3249 gen=2.2988 orth=0.5222 cls=0.0001 orth_on=yes
+[train] epoch=2/2 step=1970 loss=2.6670 gen=2.6670 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=1980 loss=2.9866 gen=2.9609 orth=0.5127 cls=0.0002 orth_on=yes
+[train] epoch=2/2 step=1990 loss=1.8430 gen=1.8430 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2000 loss=2.8128 gen=2.7872 orth=0.5108 cls=0.0003 orth_on=yes
+[train] epoch=2/2 step=2010 loss=1.7361 gen=1.7361 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2020 loss=3.6505 gen=3.6225 orth=0.5599 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2030 loss=2.0077 gen=2.0077 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2040 loss=1.8153 gen=1.7893 orth=0.5204 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2050 loss=2.3161 gen=2.3161 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2060 loss=1.1885 gen=1.1613 orth=0.5427 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2070 loss=1.6915 gen=1.6915 orth=0.0000 cls=0.0003 orth_on=no
+[train] epoch=2/2 step=2080 loss=1.2065 gen=1.1807 orth=0.5157 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2090 loss=1.1247 gen=1.1247 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2100 loss=1.8817 gen=1.8558 orth=0.5171 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2110 loss=1.1478 gen=1.1478 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2120 loss=1.8741 gen=1.8474 orth=0.5335 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2130 loss=2.5899 gen=2.5899 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2140 loss=1.3926 gen=1.3672 orth=0.5073 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2150 loss=1.4277 gen=1.4277 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2160 loss=1.1053 gen=1.0796 orth=0.5146 cls=0.0002 orth_on=yes
+[train] epoch=2/2 step=2170 loss=1.4169 gen=1.4168 orth=0.0000 cls=0.0004 orth_on=no
+[train] epoch=2/2 step=2180 loss=1.2167 gen=1.1912 orth=0.5112 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2190 loss=2.9340 gen=2.9340 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2200 loss=2.6338 gen=2.6082 orth=0.5126 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2210 loss=2.0634 gen=2.0634 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2220 loss=1.3094 gen=1.2825 orth=0.5221 cls=0.0038 orth_on=yes
+[train] epoch=2/2 step=2230 loss=2.0623 gen=2.0623 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2240 loss=0.0542 gen=0.0280 orth=0.5182 cls=0.0012 orth_on=yes
+[train] epoch=2/2 step=2250 loss=2.0148 gen=2.0148 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2260 loss=1.2541 gen=1.2280 orth=0.5220 cls=0.0001 orth_on=yes
+[train] epoch=2/2 step=2270 loss=0.6699 gen=0.6699 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2280 loss=2.1607 gen=2.1350 orth=0.5135 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2290 loss=1.3970 gen=1.3969 orth=0.0000 cls=0.0003 orth_on=no
+[train] epoch=2/2 step=2300 loss=2.8261 gen=1.7576 orth=0.5097 cls=5.2154 orth_on=yes
+[train] epoch=2/2 step=2310 loss=1.6632 gen=1.6632 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2320 loss=3.3243 gen=3.2984 orth=0.5186 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2330 loss=1.6008 gen=1.6008 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2340 loss=2.4199 gen=2.3942 orth=0.5148 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2350 loss=2.0300 gen=2.0300 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2360 loss=1.9760 gen=1.9504 orth=0.5124 cls=0.0001 orth_on=yes
+[train] epoch=2/2 step=2370 loss=1.8751 gen=1.8751 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2380 loss=2.7012 gen=2.6752 orth=0.5200 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2390 loss=1.9448 gen=1.9448 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2400 loss=2.3336 gen=2.3076 orth=0.5113 cls=0.0023 orth_on=yes
+[train] epoch=2/2 step=2410 loss=1.0404 gen=1.0404 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2420 loss=3.3885 gen=3.3630 orth=0.5098 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2430 loss=2.1466 gen=2.1466 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2440 loss=1.5391 gen=1.5133 orth=0.5165 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2450 loss=3.1499 gen=3.1499 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2460 loss=2.0893 gen=2.0639 orth=0.5068 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2470 loss=1.9882 gen=1.9882 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2480 loss=0.6013 gen=0.5744 orth=0.5379 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2490 loss=1.4553 gen=1.4553 orth=0.0000 cls=0.0001 orth_on=no
+[train] epoch=2/2 step=2500 loss=1.5981 gen=1.5724 orth=0.5136 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2510 loss=1.4954 gen=1.4954 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2520 loss=1.2617 gen=1.2351 orth=0.5322 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2530 loss=2.2810 gen=2.2810 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2540 loss=1.6340 gen=1.6079 orth=0.5216 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2550 loss=1.9036 gen=1.9036 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2560 loss=1.9894 gen=1.9640 orth=0.5082 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2570 loss=1.4029 gen=1.4028 orth=0.0000 cls=0.0005 orth_on=no
+[train] epoch=2/2 step=2580 loss=2.7338 gen=2.7075 orth=0.5264 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2590 loss=2.5188 gen=2.5188 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2600 loss=1.5453 gen=1.5190 orth=0.5223 cls=0.0005 orth_on=yes
+[train] epoch=2/2 step=2610 loss=1.7068 gen=1.7068 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2620 loss=2.4816 gen=2.4551 orth=0.5285 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2630 loss=2.2797 gen=2.2796 orth=0.0000 cls=0.0005 orth_on=no
+[train] epoch=2/2 step=2640 loss=1.1088 gen=1.0827 orth=0.5210 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2650 loss=1.6088 gen=1.6088 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2660 loss=1.3422 gen=1.3163 orth=0.5181 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2670 loss=0.8550 gen=0.8541 orth=0.0000 cls=0.0047 orth_on=no
+[train] epoch=2/2 step=2680 loss=1.5571 gen=1.5316 orth=0.5106 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2690 loss=1.7885 gen=1.7885 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2700 loss=2.3396 gen=2.3139 orth=0.5137 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2710 loss=2.3890 gen=2.3815 orth=0.0000 cls=0.0371 orth_on=no
+[train] epoch=2/2 step=2720 loss=2.4085 gen=2.3826 orth=0.5178 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2730 loss=2.0190 gen=1.9743 orth=0.0000 cls=0.2231 orth_on=no
+[train] epoch=2/2 step=2740 loss=0.8786 gen=0.8532 orth=0.5082 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2750 loss=1.8699 gen=1.8699 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2760 loss=2.3099 gen=2.2822 orth=0.5384 cls=0.0039 orth_on=yes
+[train] epoch=2/2 step=2770 loss=1.5357 gen=1.5357 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2780 loss=1.9883 gen=1.9617 orth=0.5318 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2790 loss=2.0405 gen=2.0405 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2800 loss=2.5476 gen=2.5212 orth=0.5279 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2810 loss=2.7279 gen=2.7279 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2820 loss=1.4694 gen=1.4436 orth=0.5167 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2830 loss=2.2845 gen=2.2845 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2840 loss=1.4626 gen=1.4364 orth=0.5230 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2850 loss=1.3837 gen=1.3837 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2860 loss=1.9590 gen=1.9325 orth=0.5301 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2870 loss=2.8430 gen=2.8188 orth=0.0000 cls=0.1208 orth_on=no
+[train] epoch=2/2 step=2880 loss=1.6533 gen=1.6271 orth=0.5229 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2890 loss=0.9726 gen=0.9726 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2900 loss=1.5600 gen=1.5340 orth=0.5195 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2910 loss=2.4102 gen=2.4101 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2920 loss=2.4693 gen=2.4440 orth=0.5069 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2930 loss=2.2278 gen=2.2278 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2940 loss=1.2031 gen=1.1775 orth=0.5114 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2950 loss=2.0522 gen=2.0522 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2960 loss=1.5860 gen=1.5604 orth=0.5128 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2970 loss=2.8532 gen=2.8532 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=2980 loss=1.6177 gen=1.5922 orth=0.5089 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=2990 loss=1.1429 gen=1.1429 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3000 loss=3.8283 gen=3.8026 orth=0.5136 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=3010 loss=2.1613 gen=2.1613 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3020 loss=2.1764 gen=2.1508 orth=0.5116 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=3030 loss=2.1093 gen=2.1084 orth=0.0000 cls=0.0044 orth_on=no
+[train] epoch=2/2 step=3040 loss=2.0991 gen=2.0732 orth=0.5173 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=3050 loss=1.9563 gen=1.9563 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3060 loss=1.5005 gen=1.4742 orth=0.5257 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=3070 loss=4.4619 gen=1.9536 orth=0.0000 cls=12.5412 orth_on=no
+[train] epoch=2/2 step=3080 loss=2.3527 gen=2.3264 orth=0.5263 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=3090 loss=2.1920 gen=2.1920 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3100 loss=1.5932 gen=1.5666 orth=0.5317 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=3110 loss=1.8984 gen=1.8976 orth=0.0000 cls=0.0042 orth_on=no
+[train] epoch=2/2 step=3120 loss=1.5246 gen=1.4989 orth=0.5134 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=3130 loss=1.3849 gen=1.3590 orth=0.0000 cls=0.1296 orth_on=no
+[train] epoch=2/2 step=3140 loss=1.2894 gen=1.2633 orth=0.5228 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=3150 loss=2.3874 gen=2.3874 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3160 loss=1.8171 gen=1.7906 orth=0.5298 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=3170 loss=1.6982 gen=1.6982 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3180 loss=2.4889 gen=2.4633 orth=0.5120 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=3190 loss=2.2129 gen=2.2126 orth=0.0000 cls=0.0012 orth_on=no
+[train] epoch=2/2 step=3200 loss=2.4942 gen=2.4687 orth=0.5102 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=3210 loss=1.9664 gen=1.9664 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3220 loss=1.2688 gen=1.2427 orth=0.5227 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=3230 loss=2.1475 gen=2.1475 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3240 loss=2.6518 gen=2.6260 orth=0.5166 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=3250 loss=1.7406 gen=1.7406 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3260 loss=1.0635 gen=1.0377 orth=0.5152 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=3270 loss=1.5874 gen=1.5874 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3280 loss=1.8960 gen=1.8703 orth=0.5134 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=3290 loss=1.0539 gen=1.0539 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3300 loss=1.8171 gen=1.7914 orth=0.5132 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=3310 loss=2.3872 gen=2.3872 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3320 loss=1.5106 gen=1.4836 orth=0.5390 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=3330 loss=1.3262 gen=1.3262 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3340 loss=3.0231 gen=2.9975 orth=0.5118 cls=0.0001 orth_on=yes
+[train] epoch=2/2 step=3350 loss=2.1187 gen=2.1186 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3360 loss=1.1380 gen=1.1125 orth=0.5104 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=3370 loss=2.1354 gen=2.1354 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3380 loss=1.2696 gen=1.2125 orth=0.5479 cls=0.1483 orth_on=yes
+[train] epoch=2/2 step=3390 loss=1.7070 gen=1.7070 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3400 loss=1.3078 gen=1.2817 orth=0.5227 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=3410 loss=3.4795 gen=3.4795 orth=0.0000 cls=0.0002 orth_on=no
+[train] epoch=2/2 step=3420 loss=4.3007 gen=4.2747 orth=0.5203 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=3430 loss=4.3682 gen=4.3682 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3440 loss=2.5681 gen=2.5425 orth=0.5115 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=3450 loss=1.8497 gen=1.8497 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3460 loss=1.9914 gen=1.9651 orth=0.5267 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=3470 loss=2.1411 gen=2.1411 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3480 loss=0.8617 gen=0.8360 orth=0.5133 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=3490 loss=1.9637 gen=1.8512 orth=0.0000 cls=0.5623 orth_on=no
+[train] epoch=2/2 step=3500 loss=1.8171 gen=1.7907 orth=0.5283 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=3510 loss=2.9157 gen=2.9135 orth=0.0000 cls=0.0110 orth_on=no
+[train] epoch=2/2 step=3520 loss=3.3757 gen=3.3492 orth=0.5281 cls=0.0001 orth_on=yes
+[train] epoch=2/2 step=3530 loss=2.4280 gen=2.4280 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3540 loss=1.4333 gen=1.4076 orth=0.5134 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=3550 loss=1.0780 gen=1.0780 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3560 loss=1.9026 gen=1.8772 orth=0.5080 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=3570 loss=2.1552 gen=2.1552 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3580 loss=2.5087 gen=2.4821 orth=0.5312 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=3590 loss=2.9882 gen=2.9882 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3600 loss=1.1904 gen=1.1643 orth=0.5226 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=3610 loss=1.7608 gen=1.7607 orth=0.0000 cls=0.0001 orth_on=no
+[train] epoch=2/2 step=3620 loss=2.0082 gen=1.9829 orth=0.5067 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=3630 loss=2.2423 gen=2.2423 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3640 loss=3.5279 gen=3.5024 orth=0.5088 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=3650 loss=2.1913 gen=2.1913 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3660 loss=1.4134 gen=1.3875 orth=0.5179 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=3670 loss=1.8721 gen=1.8721 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3680 loss=1.6012 gen=1.5743 orth=0.5373 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=3690 loss=2.6416 gen=2.6416 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3700 loss=1.6084 gen=1.5830 orth=0.5069 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=3710 loss=1.7674 gen=1.7674 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3720 loss=1.8111 gen=1.7855 orth=0.5117 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=3730 loss=1.4255 gen=1.4255 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3740 loss=1.6558 gen=1.6163 orth=0.5115 cls=0.0697 orth_on=yes
+[train] epoch=2/2 step=3750 loss=1.6536 gen=1.6536 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3760 loss=1.1732 gen=1.1468 orth=0.5270 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=3770 loss=1.5043 gen=1.5043 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3780 loss=2.7753 gen=2.7496 orth=0.5126 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=3790 loss=1.5695 gen=1.5695 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3800 loss=1.8479 gen=1.8216 orth=0.5272 cls=0.0000 orth_on=yes
+[train] epoch=2/2 step=3810 loss=2.7346 gen=2.7346 orth=0.0000 cls=0.0000 orth_on=no
+[train] epoch=2/2 step=3820 loss=1.2311 gen=1.2055 orth=0.5111 cls=0.0000 orth_on=yes
+[eval] epoch=2 valid_loss=1.9754 valid_ppl=7.21 test_loss=2.0601 test_ppl=7.85
+[save] 新的最佳 checkpoint 已保存到 ./outputs/b6_dest_rs
+[train] finished | prefix_norm_before=17.1696 prefix_norm_after=28.7592
+[done] 所有产物已保存到 ./outputs/b6_dest_rs
+[完成] B6 (dest_rs) — 21:46:10
+
+阶段 1 结束 — 21:46:10
+
+════════════════════════════════════════════════════════════════════
+ 阶段 2/4：正交性分析
+════════════════════════════════════════════════════════════════════
+
+[开始] B6 正交性分析 — 21:46:10
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights:   0%|          | 1/399 [00:00<01:21,  4.89it/s]Loading weights:   1%|          | 2/399 [00:00<01:20,  4.91it/s]/home/amax/miniconda3/envs/tuning/lib/python3.10/site-packages/bitsandbytes/backends/cuda/ops.py:213: FutureWarning: _check_is_size will be removed in a future PyTorch release along with guard_size_oblivious.     Use _check(i >= 0) instead.
+  torch._check_is_size(blocksize)
+Loading weights:   2%|▏         | 9/399 [00:00<00:16, 23.92it/s]Loading weights:   7%|▋         | 26/399 [00:00<00:05, 66.86it/s]Loading weights:  10%|▉         | 38/399 [00:00<00:04, 82.52it/s]Loading weights:  14%|█▍        | 56/399 [00:00<00:03, 111.26it/s]Loading weights:  18%|█▊        | 71/399 [00:00<00:02, 121.08it/s]Loading weights:  22%|██▏       | 89/399 [00:01<00:02, 136.89it/s]Loading weights:  26%|██▌       | 104/399 [00:01<00:02, 138.74it/s]Loading weights:  31%|███       | 122/399 [00:01<00:01, 150.24it/s]Loading weights:  35%|███▍      | 138/399 [00:01<00:01, 143.93it/s]Loading weights:  40%|███▉      | 158/399 [00:01<00:01, 158.90it/s]Loading weights:  44%|████▍     | 175/399 [00:01<00:01, 156.94it/s]Loading weights:  48%|████▊     | 192/399 [00:01<00:01, 155.18it/s]Loading weights:  53%|█████▎    | 210/399 [00:01<00:01, 162.14it/s]Loading weights:  57%|█████▋    | 227/399 [00:01<00:01, 154.48it/s]Loading weights:  62%|██████▏   | 246/399 [00:01<00:00, 163.63it/s]Loading weights:  66%|██████▌   | 263/399 [00:02<00:00, 159.96it/s]Loading weights:  70%|███████   | 280/399 [00:02<00:00, 157.96it/s]Loading weights:  75%|███████▍  | 298/399 [00:02<00:00, 163.98it/s]Loading weights:  79%|███████▉  | 315/399 [00:02<00:00, 155.30it/s]Loading weights:  84%|████████▎ | 334/399 [00:02<00:00, 162.08it/s]Loading weights:  88%|████████▊ | 351/399 [00:02<00:00, 158.20it/s]Loading weights:  92%|█████████▏| 368/399 [00:02<00:00, 156.43it/s]Loading weights:  97%|█████████▋| 386/399 [00:02<00:00, 162.71it/s]Loading weights: 100%|██████████| 399/399 [00:02<00:00, 135.46it/s]
+[model] 已从 outputs/b6_dest_rs/lora_adapter 加载 LoRA warm start
+[model] 已从 outputs/b6_dest_rs/prefix_bank.pt 加载 prefix bank warm start
+[model] 已在 transformer block 32/35 上安装层输出捕获器
+{
+  "checkpoint_dir": "outputs/b6_dest_rs",
+  "split": "test",
+  "samples": 64,
+  "batches": 64,
+  "tokens": 1339.0,
+  "mean_cosine": 0.13326470002497576,
+  "mean_abs_cosine": 0.15870380169024123,
+  "mean_cosine_squared": 0.03905868046250002,
+  "frobenius_corr": 0.999999963676333,
+  "prefix_delta_norm": 148.92809594790378,
+  "lora_delta_norm": 350.46850854875083
+}
+[完成] B6 正交性分析 — 21:46:44
+
+════════════════════════════════════════════════════════════════════
+ 阶段 3/4：策略可控性评估 (Strategy Accuracy / Macro-F1)
+════════════════════════════════════════════════════════════════════
+
+[开始] 训练策略评估器 — 21:46:44
+epoch=1 valid_acc=0.3256 valid_macro_f1=0.0546
+epoch=2 valid_acc=0.3256 valid_macro_f1=0.0546
+epoch=3 valid_acc=0.3256 valid_macro_f1=0.0546
+epoch=4 valid_acc=0.3256 valid_macro_f1=0.0546
+epoch=5 valid_acc=0.3256 valid_macro_f1=0.0546
+epoch=6 valid_acc=0.3256 valid_macro_f1=0.0546
+epoch=7 valid_acc=0.3256 valid_macro_f1=0.0546
+epoch=8 valid_acc=0.3256 valid_macro_f1=0.0546
+epoch=9 valid_acc=0.3256 valid_macro_f1=0.0546
+epoch=10 valid_acc=0.3256 valid_macro_f1=0.0546
+epoch=11 valid_acc=0.3256 valid_macro_f1=0.0556
+epoch=12 valid_acc=0.3256 valid_macro_f1=0.0556
+epoch=13 valid_acc=0.3256 valid_macro_f1=0.0566
+epoch=14 valid_acc=0.3256 valid_macro_f1=0.0576
+epoch=15 valid_acc=0.3256 valid_macro_f1=0.0576
+epoch=16 valid_acc=0.3256 valid_macro_f1=0.0576
+epoch=17 valid_acc=0.3256 valid_macro_f1=0.0576
+epoch=18 valid_acc=0.3256 valid_macro_f1=0.0610
+epoch=19 valid_acc=0.3256 valid_macro_f1=0.0610
+epoch=20 valid_acc=0.3256 valid_macro_f1=0.0610
+epoch=21 valid_acc=0.3256 valid_macro_f1=0.0610
+epoch=22 valid_acc=0.3256 valid_macro_f1=0.0610
+epoch=23 valid_acc=0.3256 valid_macro_f1=0.0610
+epoch=24 valid_acc=0.3256 valid_macro_f1=0.0610
+epoch=25 valid_acc=0.3256 valid_macro_f1=0.0610
+epoch=26 valid_acc=0.3256 valid_macro_f1=0.0610
+epoch=27 valid_acc=0.3256 valid_macro_f1=0.0610
+epoch=28 valid_acc=0.3256 valid_macro_f1=0.0610
+epoch=29 valid_acc=0.3256 valid_macro_f1=0.0622
+epoch=30 valid_acc=0.3256 valid_macro_f1=0.0622
+{
+  "已保存": "outputs/strategy_evaluator.pt",
+  "验证集": {
+    "accuracy": 0.3255814015865326,
+    "macro_f1": 0.06222222222222223
+  },
+  "测试集": {
+    "accuracy": 0.3891213536262512,
+    "macro_f1": 0.12218941643113967
+  }
+}
+[完成] 训练策略评估器 — 21:46:52
+
+[开始] 策略评估 outputs/b2_lora_only — 21:46:52
+{
+  "strategy_accuracy": 0.1111111119389534,
+  "macro_f1": 0.02222222222222222,
+  "samples": 45
+}
+[完成] 策略评估 outputs/b2_lora_only — 21:46:54
+
+[开始] 策略评估 outputs/b3_prefix_only — 21:46:54
+{
+  "strategy_accuracy": 0.1111111119389534,
+  "macro_f1": 0.02222222222222222,
+  "samples": 45
+}
+[完成] 策略评估 outputs/b3_prefix_only — 21:46:55
+
+[开始] 策略评估 outputs/followup/b4_seed_42 — 21:46:55
+{
+  "strategy_accuracy": 0.1111111119389534,
+  "macro_f1": 0.02222222222222222,
+  "samples": 45
+}
+[完成] 策略评估 outputs/followup/b4_seed_42 — 21:46:57
+
+[开始] 策略评估 outputs/followup/b5_seed_42 — 21:46:57
+{
+  "strategy_accuracy": 0.1111111119389534,
+  "macro_f1": 0.02222222222222222,
+  "samples": 45
+}
+[完成] 策略评估 outputs/followup/b5_seed_42 — 21:46:59
+
+[开始] 策略评估 outputs/b6_dest_rs — 21:46:59
+{
+  "strategy_accuracy": 0.1111111119389534,
+  "macro_f1": 0.02222222222222222,
+  "samples": 45
+}
+[完成] 策略评估 outputs/b6_dest_rs — 21:47:01
+
+阶段 3 结束 — 21:47:01
+
+════════════════════════════════════════════════════════════════════
+ 阶段 4/4：LLM Judge 标注
+════════════════════════════════════════════════════════════════════
+
+[开始] LLM Judge 标注 — 21:47:01
+[1/25] 标注 dialogue=157 turn=0 strategy=elicit-pref
+[2/25] 标注 dialogue=157 turn=0 strategy=self-need
+[3/25] 标注 dialogue=157 turn=0 strategy=other-need
+[4/25] 标注 dialogue=157 turn=0 strategy=promote-coordination
+[5/25] 标注 dialogue=157 turn=0 strategy=vouch-fair
+[6/25] 标注 dialogue=157 turn=1 strategy=elicit-pref
+[7/25] 标注 dialogue=157 turn=1 strategy=self-need
+[8/25] 标注 dialogue=157 turn=1 strategy=other-need
+[9/25] 标注 dialogue=157 turn=1 strategy=promote-coordination
+[10/25] 标注 dialogue=157 turn=1 strategy=vouch-fair
+[11/25] 标注 dialogue=157 turn=2 strategy=elicit-pref
+[12/25] 标注 dialogue=157 turn=2 strategy=self-need
+[13/25] 标注 dialogue=157 turn=2 strategy=other-need
+[重试] 第 1/3 次调用失败：无法从模型输出中解析 JSON：{
+  "b4_match": 0,
+  "b5_match": 0,
+  "which_better": "tie",
+  "judge_note": "两个回复都只表达了自己的需求，没有；2s 后重试
+[重试] 第 2/3 次调用失败：无法从模型输出中解析 JSON：；4s 后重试
+[14/25] 标注 dialogue=157 turn=2 strategy=promote-coordination
+[15/25] 标注 dialogue=157 turn=2 strategy=vouch-fair
+[16/25] 标注 dialogue=157 turn=3 strategy=elicit-pref
+[17/25] 标注 dialogue=157 turn=3 strategy=self-need
+[18/25] 标注 dialogue=157 turn=3 strategy=other-need
+[重试] 第 1/3 次调用失败：无法从模型输出中解析 JSON：；2s 后重试
+[19/25] 标注 dialogue=157 turn=3 strategy=promote-coordination
+[20/25] 标注 dialogue=157 turn=3 strategy=vouch-fair
+[21/25] 标注 dialogue=157 turn=4 strategy=elicit-pref
+[22/25] 标注 dialogue=157 turn=4 strategy=self-need
+[23/25] 标注 dialogue=157 turn=4 strategy=other-need
+[重试] 第 1/3 次调用失败：无法从模型输出中解析 JSON：；2s 后重试
+[24/25] 标注 dialogue=157 turn=4 strategy=promote-coordination
+[25/25] 标注 dialogue=157 turn=4 strategy=vouch-fair
+已完成标注 25 行，结果写入：outputs/judge_b4_vs_b5_seed42_labeled.csv
+[完成] LLM Judge 标注 — 22:01:20
+
+========================================================================
+ 全部结束 — 2026-05-27 22:01:20
+ 失败步骤数: 0
+========================================================================
+
+产出文件检查：
+
+核心消融 metrics：
+  [OK]   outputs/b2_lora_only/metrics.json
+  [OK]   outputs/b3_prefix_only/metrics.json
+  [OK]   outputs/followup/b4_seed_42/metrics.json
+  [OK]   outputs/followup/b5_seed_42/metrics.json
+  [OK]   outputs/b6_dest_rs/metrics.json
+
+正交性分析：
+  [OK]   outputs/b4_seed42_orthogonality_test.json
+  [OK]   outputs/b5_seed42_orthogonality_test.json
+  [OK]   outputs/b6_seed42_orthogonality_test.json
+
+策略可控性评估：
+  [OK]   outputs/strategy_evaluator.pt
+  [OK]   outputs/b2_lora_only/strategy_control.csv
+  [OK]   outputs/b3_prefix_only/strategy_control.csv
+  [OK]   outputs/followup/b4_seed_42/strategy_control.csv
+  [OK]   outputs/followup/b5_seed_42/strategy_control.csv
+  [OK]   outputs/b6_dest_rs/strategy_control.csv
+
+LLM Judge：
+  [OK]   outputs/judge_b4_vs_b5_seed42_labeled.csv
+
+全部步骤成功完成。
+========================================================================

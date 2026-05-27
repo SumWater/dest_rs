@@ -1,0 +1,13 @@
+{
+  "checkpoint_dir": "outputs/b6_dest_rs",
+  "split": "test",
+  "samples": 64,
+  "batches": 64,
+  "tokens": 1339.0,
+  "mean_cosine": 0.13326470002497576,
+  "mean_abs_cosine": 0.15870380169024123,
+  "mean_cosine_squared": 0.03905868046250002,
+  "frobenius_corr": 0.999999963676333,
+  "prefix_delta_norm": 148.92809594790378,
+  "lora_delta_norm": 350.46850854875083
+}
