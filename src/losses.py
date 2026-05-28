@@ -227,7 +227,7 @@ def compute_training_losses(
     cls_loss = torch.zeros((), device=gen_loss.device)
     cls_logits = None
     if should_compute_cls:
-        cls_loss, cls_logits = classification_loss(hybrid, h_both, labels, strategy_ids)
+        cls_loss, cls_logits = classification_loss(hybrid, delta_prefix, labels, strategy_ids)
         cls_loss = cls_loss.to(gen_loss.device)
 
     total_loss = gen_loss + cfg.lambda_orth * orth_loss + cfg.lambda_cls * cls_loss
