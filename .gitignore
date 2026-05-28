@@ -1,6 +1,7 @@
 __pycache__/
 *.pyc
-outputs/
+outputs/*
+!outputs/v2/
 *.pt
 *.bin
 *.safetensors
