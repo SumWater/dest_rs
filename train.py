@@ -9,6 +9,7 @@ from typing import Dict
 import numpy as np
 import torch
 from torch.utils.data import DataLoader
+from tqdm import tqdm
 
 from src.config import TrainConfig, load_config, save_config
 from src.casino_dataset import (
@@ -160,7 +161,8 @@ def main():
         running_total = 0.0
         batches = 0
 
-        for batch in train_loader:
+        pbar = tqdm(train_loader, desc=f"Epoch {epoch + 1}/{cfg.num_epochs}", leave=True)
+        for batch in pbar:
             global_step += 1
             losses = compute_training_losses(
                 hybrid=hybrid,
@@ -193,13 +195,13 @@ def main():
             running_total += total_loss.item()
             batches += 1
 
-            if global_step % 10 == 0:
-                print(
-                    f"[train] epoch={epoch + 1}/{cfg.num_epochs} step={global_step} "
-                    f"loss={total_loss.item():.4f} gen={gen_loss.item():.4f} "
-                    f"orth={orth_loss.item():.4f} cls={cls_loss.item():.4f} "
-                    f"orth_on={'yes' if losses['used_orth'] else 'no'}"
-                )
+            pbar.set_postfix(
+                loss=f"{total_loss.item():.4f}",
+                gen=f"{gen_loss.item():.4f}",
+                orth=f"{orth_loss.item():.4f}",
+                cls=f"{cls_loss.item():.4f}",
+                orth_on="Y" if losses["used_orth"] else "N",
+            )
 
         epoch_record: Dict[str, float] = {
             "epoch": epoch + 1,

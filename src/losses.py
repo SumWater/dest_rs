@@ -70,11 +70,8 @@ def local_global_orth_loss(
 
     prefix_pooled = pool_target_tokens(delta_prefix, target_mask)
     lora_pooled = pool_target_tokens(delta_lora, target_mask)
-    prefix_norm = F.normalize(prefix_pooled, dim=-1)
-    lora_norm = F.normalize(lora_pooled, dim=-1)
-    batch = max(1, prefix_norm.size(0))
-    cross_corr = torch.matmul(prefix_norm.transpose(0, 1), lora_norm) / batch
-    global_loss = torch.norm(cross_corr, p="fro") ** 2
+    cosine_global = F.cosine_similarity(prefix_pooled, lora_pooled, dim=-1)
+    global_loss = (cosine_global ** 2).mean()
 
     alpha = float(cfg.orth_alpha)
     orth_loss = alpha * local_loss + (1.0 - alpha) * global_loss
@@ -227,7 +224,7 @@ def compute_training_losses(
     cls_loss = torch.zeros((), device=gen_loss.device)
     cls_logits = None
     if should_compute_cls:
-        cls_loss, cls_logits = classification_loss(hybrid, h_both, labels, strategy_ids)
+        cls_loss, cls_logits = classification_loss(hybrid, delta_prefix, labels, strategy_ids)
         cls_loss = cls_loss.to(gen_loss.device)
 
     total_loss = gen_loss + cfg.lambda_orth * orth_loss + cfg.lambda_cls * cls_loss

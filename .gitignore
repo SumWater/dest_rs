@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+outputs/*
+!outputs/v2/
+*.pt
+*.bin
+*.safetensors
+.claude/
