@@ -340,6 +340,7 @@ def build_hybrid_model(cfg: TrainConfig, num_strategies: int):
 def freeze_for_adapter_mode(
     hybrid: HybridStrategyModel,
     adapter_mode: str,
+    freeze_prefix: bool = False,
 ) -> Tuple[List[nn.Parameter], List[nn.Parameter], List[nn.Parameter]]:
     for _, param in hybrid.peft_model.named_parameters():
         param.requires_grad = False
@@ -354,7 +355,7 @@ def freeze_for_adapter_mode(
         for name, param in hybrid.peft_model.named_parameters():
             if "lora_" in name.lower():
                 param.requires_grad = True
-    hybrid.prefix_bank.requires_grad = train_prefix
+    hybrid.prefix_bank.requires_grad = train_prefix and (not freeze_prefix)
     if train_cls:
         for _, param in hybrid.strategy_classifier.named_parameters():
             param.requires_grad = True

@@ -87,7 +87,7 @@ def save_label_map(label_space: StrategyLabelSpace, output_dir: str) -> None:
 
 
 def build_optimizer(hybrid, cfg: TrainConfig):
-    prefix_params, lora_params, cls_params = freeze_for_adapter_mode(hybrid, cfg.adapter_mode)
+    prefix_params, lora_params, cls_params = freeze_for_adapter_mode(hybrid, cfg.adapter_mode, cfg.freeze_prefix)
     print_trainable_parameters(hybrid)
     groups = []
     if prefix_params:

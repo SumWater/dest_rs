@@ -15,6 +15,7 @@ class TrainConfig:
     test_file: Optional[str] = None
     output_dir: str = "./outputs/dest_rs_run"
     warm_start_dir: Optional[str] = None
+    freeze_prefix: bool = False
 
     # 数据配置
     max_length: int = 512
