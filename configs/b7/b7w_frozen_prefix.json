@@ -3,7 +3,7 @@
   "dataset_dir": "./CaSiNo-main/data",
   "output_dir": "outputs/b7/b7w_frozen_prefix",
   "adapter_mode": "dest_rs",
-  "warm_start_dir": "outputs/v3/b3v3_prefix_only",
+  "warm_start_dir": "outputs/b3_prefix_only",
   "freeze_prefix": true,
   "multi_label_policy": "drop",
   "exclude_labels": ["non-strategic"],
