@@ -36,10 +36,11 @@ def set_seed(seed: int) -> None:
         torch.cuda.manual_seed_all(seed)
 
 
-def ensure_output_dir(output_dir: str) -> None:
-    os.makedirs(output_dir, exist_ok=True)
-    os.makedirs(os.path.join(output_dir, "tokenizer"), exist_ok=True)
-    os.makedirs(os.path.join(output_dir, "lora_adapter"), exist_ok=True)
+def ensure_output_dirs(cfg: TrainConfig) -> None:
+    os.makedirs(cfg.need_dir, exist_ok=True)
+    os.makedirs(cfg.other_dir, exist_ok=True)
+    os.makedirs(os.path.join(cfg.other_dir, "tokenizer"), exist_ok=True)
+    os.makedirs(os.path.join(cfg.other_dir, "lora_adapter"), exist_ok=True)
 
 
 def build_dataloaders(cfg: TrainConfig, tokenizer):
@@ -108,9 +109,9 @@ def build_optimizer(hybrid, cfg: TrainConfig):
     return optimizer
 
 
-def save_checkpoint(hybrid, tokenizer, cfg: TrainConfig, label_space: StrategyLabelSpace, output_dir: str) -> None:
-    tokenizer.save_pretrained(os.path.join(output_dir, "tokenizer"))
-    hybrid.peft_model.save_pretrained(os.path.join(output_dir, "lora_adapter"))
+def save_checkpoint(hybrid, tokenizer, cfg: TrainConfig, label_space: StrategyLabelSpace) -> None:
+    tokenizer.save_pretrained(os.path.join(cfg.other_dir, "tokenizer"))
+    hybrid.peft_model.save_pretrained(os.path.join(cfg.other_dir, "lora_adapter"))
     torch.save(
         {
             "prefix_bank": hybrid.prefix_bank.detach().cpu(),
@@ -119,19 +120,25 @@ def save_checkpoint(hybrid, tokenizer, cfg: TrainConfig, label_space: StrategyLa
             "labels": label_space.labels,
             "adapter_mode": cfg.adapter_mode,
         },
-        os.path.join(output_dir, "prefix_bank.pt"),
+        os.path.join(cfg.other_dir, "prefix_bank.pt"),
     )
 
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", type=str, required=True)
+    parser.add_argument("--dataset-tag", type=str, default=None)
+    parser.add_argument("--dataset-dir", type=str, default=None)
     args = parser.parse_args()
 
     cfg = load_config(args.config)
+    if args.dataset_tag:
+        cfg.dataset_tag = args.dataset_tag
+    if args.dataset_dir:
+        cfg.dataset_dir = args.dataset_dir
     set_seed(cfg.seed)
-    ensure_output_dir(cfg.output_dir)
-    save_config(cfg, os.path.join(cfg.output_dir, "run_config.json"))
+    ensure_output_dirs(cfg)
+    save_config(cfg, os.path.join(cfg.need_dir, "run_config.json"))
 
     print("=" * 88)
     print("[config]")
@@ -140,7 +147,7 @@ def main():
 
     tokenizer = load_tokenizer(cfg)
     train_loader, valid_loader, test_loader, label_space = build_dataloaders(cfg, tokenizer)
-    save_label_map(label_space, cfg.output_dir)
+    save_label_map(label_space, cfg.need_dir)
 
     hybrid, tokenizer, catcher = build_hybrid_model(cfg, num_strategies=len(label_space.labels))
     optimizer = build_optimizer(hybrid, cfg)
@@ -231,8 +238,8 @@ def main():
 
             if valid_metrics["loss"] < best_valid_loss:
                 best_valid_loss = valid_metrics["loss"]
-                save_checkpoint(hybrid, tokenizer, cfg, label_space, cfg.output_dir)
-                print(f"[save] 新的最佳 checkpoint 已保存到 {cfg.output_dir}")
+                save_checkpoint(hybrid, tokenizer, cfg, label_space)
+                print(f"[save] 新的最佳 checkpoint 已保存到 {cfg.other_dir}")
         history.append(epoch_record)
 
     prefix_norm_after = float(hybrid.prefix_bank.norm().item())
@@ -247,23 +254,24 @@ def main():
         "prefix_norm_before": prefix_norm_before,
         "prefix_norm_after": prefix_norm_after,
     }
-    with open(os.path.join(cfg.output_dir, "metrics.json"), "w", encoding="utf-8") as f:
+    with open(os.path.join(cfg.need_dir, "metrics.json"), "w", encoding="utf-8") as f:
         json.dump(metrics_payload, f, ensure_ascii=False, indent=2)
 
-    save_checkpoint(hybrid, tokenizer, cfg, label_space, cfg.output_dir)
+    save_checkpoint(hybrid, tokenizer, cfg, label_space)
     save_swap_samples(
         hybrid=hybrid,
         tokenizer=tokenizer,
         dataset=valid_loader.dataset,
         label_space=label_space,
         cfg=cfg,
-        output_path=os.path.join(cfg.output_dir, "swap_samples_valid.jsonl"),
+        output_path=os.path.join(cfg.need_dir, "swap_samples_valid.jsonl"),
         num_examples=cfg.demo_num_examples,
         split_name="valid",
     )
 
     catcher.remove()
-    print(f"[done] 所有产物已保存到 {cfg.output_dir}")
+    print(f"[done] 分析数据已保存到 {cfg.need_dir}")
+    print(f"[done] 模型权重已保存到 {cfg.other_dir}")
 
 
 if __name__ == "__main__":

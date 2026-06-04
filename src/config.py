@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 from dataclasses import asdict, dataclass, field
 from typing import List, Optional
 
@@ -13,9 +14,18 @@ class TrainConfig:
     train_file: Optional[str] = None
     valid_file: Optional[str] = None
     test_file: Optional[str] = None
-    output_dir: str = "./outputs/dest_rs_run"
+    dataset_tag: str = "casino_original"
+    experiment_name: str = "default"
     warm_start_dir: Optional[str] = None
     freeze_prefix: bool = False
+
+    @property
+    def need_dir(self) -> str:
+        return os.path.join("output", "need", self.dataset_tag, self.experiment_name)
+
+    @property
+    def other_dir(self) -> str:
+        return os.path.join("output", "other", self.dataset_tag, self.experiment_name)
 
     # 数据配置
     max_length: int = 512

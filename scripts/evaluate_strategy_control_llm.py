@@ -7,8 +7,8 @@ by negotiation strategy. Replaces the BOW linear evaluator.
 Usage:
     python scripts/evaluate_strategy_control_llm.py \
         --model-path /path/to/Qwen3-8B \
-        --jsonl outputs/v3/b6v3_dest_rs/swap_samples_valid.jsonl \
-        --out outputs/v3/b6v3_dest_rs/strategy_eval_llm.json
+        --jsonl output/need/casino_original/b6_dest_rs/swap_samples_valid.jsonl \
+        --out output/need/casino_original/b6_dest_rs/strategy_eval_llm.json
 """
 
 from __future__ import annotations

@@ -1,11 +1,14 @@
 {
   "model_name_or_path": "/home/amax/PycharmProjects/AINegoProject/src/Models/LLM/Qwen3-8B",
   "dataset_dir": "./CaSiNo-main/data",
-  "output_dir": "outputs/b8_dup/p2_prefix_frozen_lora",
+  "dataset_tag": "casino_original",
+  "experiment_name": "b8_p2_prefix_frozen_lora",
   "adapter_mode": "prefix_only",
-  "warm_start_dir": "outputs/b8_dup/p1_lora_only",
-  "multi_label_policy": "duplicate",
-  "exclude_labels": ["non-strategic"],
+  "warm_start_dir": "output/other/casino_original/b2_lora_only",
+  "multi_label_policy": "drop",
+  "exclude_labels": [
+    "non-strategic"
+  ],
   "max_length": 512,
   "context_turns": 6,
   "max_reason_chars": 180,
@@ -24,7 +27,12 @@
   "lora_r": 16,
   "lora_alpha": 32,
   "lora_dropout": 0.05,
-  "lora_target_candidates": ["q_proj", "k_proj", "v_proj", "o_proj"],
+  "lora_target_candidates": [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj"
+  ],
   "num_virtual_tokens": 20,
   "lambda_orth": 0.0,
   "lambda_cls": 0.0,

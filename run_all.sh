@@ -5,8 +5,13 @@ PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$PROJECT_DIR"
 
 MODEL_PATH="${MODEL_PATH:-/home/amax/PycharmProjects/AINegoProject/src/Models/LLM/Qwen3-8B}"
+DATASET_TAG="${DATASET_TAG:-casino_original}"
+DATASET_DIR="${DATASET_DIR:-./CaSiNo-main/data}"
 FAIL_COUNT=0
 TOTAL_START=$(date '+%Y-%m-%d %H:%M:%S')
+
+NEED="output/need/${DATASET_TAG}"
+OTHER="output/other/${DATASET_TAG}"
 
 # ══════════════════════════════════════════════════════════════════════════
 # Helper
@@ -30,37 +35,38 @@ run_step() {
 train_if_needed() {
     local name="$1"
     local config="$2"
-    local out_dir="$3"
-    if [ -f "$out_dir/metrics.json" ]; then
-        echo "[跳过] $name — $out_dir/metrics.json 已存在"
+    local exp_name="$3"
+    if [ -f "${NEED}/${exp_name}/metrics.json" ]; then
+        echo "[跳过] $name — ${NEED}/${exp_name}/metrics.json 已存在"
         return 0
     fi
-    run_step "$name — 训练" python train.py --config "$config"
+    run_step "$name — 训练" python train.py --config "$config" \
+        --dataset-tag "$DATASET_TAG" --dataset-dir "$DATASET_DIR"
 }
 
 llm_eval() {
     local name="$1"
     local config="$2"
-    local out_dir="$3"
-    if [ ! -f "$out_dir/swap_samples_valid.jsonl" ]; then
+    local exp_name="$3"
+    if [ ! -f "${NEED}/${exp_name}/swap_samples_valid.jsonl" ]; then
         echo "[跳过] $name LLM eval — swap_samples_valid.jsonl 不存在"
         return 0
     fi
-    if [ -f "$out_dir/strategy_eval_llm.json" ]; then
+    if [ -f "${NEED}/${exp_name}/strategy_eval_llm.json" ]; then
         echo "[跳过] $name LLM eval — 已存在"
         return 0
     fi
     run_step "$name — LLM eval" python scripts/evaluate_strategy_control_llm.py \
         --model-path "$MODEL_PATH" \
         --config "$config" \
-        --jsonl "$out_dir/swap_samples_valid.jsonl" \
-        --out "$out_dir/strategy_eval_llm.json" \
+        --jsonl "${NEED}/${exp_name}/swap_samples_valid.jsonl" \
+        --out "${NEED}/${exp_name}/strategy_eval_llm.json" \
         --max-samples 45
 }
 
 echo "════════════════════════════════════════════════════════════════════════"
 echo " run_all.sh — 全部实验一键运行"
-echo " 数据集: 重新划分后的 CaSiNo (仅有标注对话, 分层抽样)"
+echo " 数据集标签: ${DATASET_TAG}"
 echo " 开始时间: $TOTAL_START"
 echo "════════════════════════════════════════════════════════════════════════"
 
@@ -69,54 +75,35 @@ echo "════════════════════════�
 # ══════════════════════════════════════════════════════════════════════════
 echo ""
 echo "╔══════════════════════════════════════════════════════════════════════╗"
-echo "║  Phase 1: 基线实验 (B2, B3, B4, B5, B6, B8-P1, B8dup-P1)         ║"
+echo "║  Phase 1: 基线实验 (B2, B3, B4, B5, B6)                          ║"
 echo "╚══════════════════════════════════════════════════════════════════════╝"
 
-train_if_needed "B2 LoRA only"        configs/b2_lora_only.json        outputs/b2_lora_only
-train_if_needed "B3 Prefix only"      configs/b3_prefix_only.json      outputs/b3_prefix_only
-train_if_needed "B4 Prefix+LoRA"      configs/b4_prefix_lora.json      outputs/b4_prefix_lora
-train_if_needed "B5 Prefix+LoRA+Orth" configs/b5_prefix_lora_orth.json outputs/b5_prefix_lora_orth
-train_if_needed "B6 DeSTRS"           configs/b6_dest_rs.json          outputs/b6_dest_rs
-
-train_if_needed "B8 Phase1 LoRA"      configs/b8/b8_p1_lora.json      outputs/b8/p1_lora_only
-# 删除 Phase 1 的随机 prefix_bank.pt，防止 Phase 2 误加载
-if [ -f "outputs/b8/p1_lora_only/prefix_bank.pt" ]; then
-    rm "outputs/b8/p1_lora_only/prefix_bank.pt"
-    echo "  已删除 B8 Phase1 随机 prefix_bank.pt"
-fi
-
-train_if_needed "B8dup Phase1 LoRA"   configs/b8_dup/b8_dup_p1_lora.json outputs/b8_dup/p1_lora_only
-if [ -f "outputs/b8_dup/p1_lora_only/prefix_bank.pt" ]; then
-    rm "outputs/b8_dup/p1_lora_only/prefix_bank.pt"
-    echo "  已删除 B8dup Phase1 随机 prefix_bank.pt"
-fi
+train_if_needed "B2 LoRA only"        configs/b2_lora_only.json        b2_lora_only
+train_if_needed "B3 Prefix only"      configs/b3_prefix_only.json      b3_prefix_only
+train_if_needed "B4 Prefix+LoRA"      configs/b4_prefix_lora.json      b4_prefix_lora
+train_if_needed "B5 Prefix+LoRA+Orth" configs/b5_prefix_lora_orth.json b5_prefix_lora_orth
+train_if_needed "B6 DeSTRS"           configs/b6_dest_rs.json          b6_dest_rs
 
 # ══════════════════════════════════════════════════════════════════════════
 # Phase 2: 有依赖的实验
 # ══════════════════════════════════════════════════════════════════════════
 echo ""
 echo "╔══════════════════════════════════════════════════════════════════════╗"
-echo "║  Phase 2: 依赖实验 (B7, B7w ← B3; B8-P2 ← B8-P1; B8dup-P2)     ║"
+echo "║  Phase 2: 依赖实验 (B7, B9 ← B3; B8 ← B2)                     ║"
 echo "╚══════════════════════════════════════════════════════════════════════╝"
 
-if [ -f "outputs/b3_prefix_only/prefix_bank.pt" ]; then
-    train_if_needed "B7 warm-start"       configs/b7/b7_dest_rs_warm.json    outputs/b7/b7_dest_rs_warm
-    train_if_needed "B7w frozen prefix"   configs/b7/b7w_frozen_prefix.json  outputs/b7/b7w_frozen_prefix
+if [ -f "${OTHER}/b3_prefix_only/prefix_bank.pt" ]; then
+    train_if_needed "B7 warm-start"       configs/b7_dest_rs_warm.json    b7_dest_rs_warm
+    train_if_needed "B9 Prefix→LoRA"      configs/b9_prefix_then_lora.json b9_p2_lora_frozen_prefix
 else
-    echo "[跳过] B7, B7w — B3 的 prefix_bank.pt 不存在 (B3 训练可能失败)"
+    echo "[跳过] B7, B9 — B3 的 prefix_bank.pt 不存在 (B3 训练可能失败)"
     FAIL_COUNT=$((FAIL_COUNT + 1))
 fi
 
-if [ -f "outputs/b8/p1_lora_only/metrics.json" ]; then
-    train_if_needed "B8 Phase2 Prefix"    configs/b8/b8_p2_prefix.json       outputs/b8/p2_prefix_frozen_lora
+if [ -f "${NEED}/b2_lora_only/metrics.json" ]; then
+    train_if_needed "B8 LoRA→Prefix"      configs/b8_lora_then_prefix.json       b8_p2_prefix_frozen_lora
 else
-    echo "[跳过] B8 Phase2 — Phase1 未完成"
-fi
-
-if [ -f "outputs/b8_dup/p1_lora_only/metrics.json" ]; then
-    train_if_needed "B8dup Phase2 Prefix" configs/b8_dup/b8_dup_p2_prefix.json outputs/b8_dup/p2_prefix_frozen_lora
-else
-    echo "[跳过] B8dup Phase2 — Phase1 未完成"
+    echo "[跳过] B8 — B2 未完成"
 fi
 
 # ══════════════════════════════════════════════════════════════════════════
@@ -127,15 +114,14 @@ echo "╔═══════════════════════�
 echo "║  Phase 3: LLM 策略控制评估                                         ║"
 echo "╚══════════════════════════════════════════════════════════════════════╝"
 
-llm_eval "B2"     configs/b2_lora_only.json          outputs/b2_lora_only
-llm_eval "B3"     configs/b3_prefix_only.json        outputs/b3_prefix_only
-llm_eval "B4"     configs/b4_prefix_lora.json        outputs/b4_prefix_lora
-llm_eval "B5"     configs/b5_prefix_lora_orth.json   outputs/b5_prefix_lora_orth
-llm_eval "B6"     configs/b6_dest_rs.json            outputs/b6_dest_rs
-llm_eval "B7"     configs/b7/b7_dest_rs_warm.json    outputs/b7/b7_dest_rs_warm
-llm_eval "B7w"    configs/b7/b7w_frozen_prefix.json  outputs/b7/b7w_frozen_prefix
-llm_eval "B8"     configs/b8/b8_p2_prefix.json       outputs/b8/p2_prefix_frozen_lora
-llm_eval "B8dup"  configs/b8_dup/b8_dup_p2_prefix.json outputs/b8_dup/p2_prefix_frozen_lora
+llm_eval "B2"     configs/b2_lora_only.json          b2_lora_only
+llm_eval "B3"     configs/b3_prefix_only.json        b3_prefix_only
+llm_eval "B4"     configs/b4_prefix_lora.json        b4_prefix_lora
+llm_eval "B5"     configs/b5_prefix_lora_orth.json   b5_prefix_lora_orth
+llm_eval "B6"     configs/b6_dest_rs.json            b6_dest_rs
+llm_eval "B7"     configs/b7_dest_rs_warm.json    b7_dest_rs_warm
+llm_eval "B8"     configs/b8_lora_then_prefix.json       b8_p2_prefix_frozen_lora
+llm_eval "B9"     configs/b9_prefix_then_lora.json b9_p2_lora_frozen_prefix
 
 # ══════════════════════════════════════════════════════════════════════════
 # Summary
@@ -152,16 +138,18 @@ python3 -c "
 import json
 from pathlib import Path
 
+dataset_tag = '${DATASET_TAG}'
+need = Path('output/need') / dataset_tag
+
 experiments = [
-    ('B2  LoRA only',        'outputs/b2_lora_only'),
-    ('B3  Prefix only',      'outputs/b3_prefix_only'),
-    ('B4  Prefix+LoRA',      'outputs/b4_prefix_lora'),
-    ('B5  +Orth',            'outputs/b5_prefix_lora_orth'),
-    ('B6  DeSTRS',           'outputs/b6_dest_rs'),
-    ('B7  warm-start',       'outputs/b7/b7_dest_rs_warm'),
-    ('B7w frozen prefix',    'outputs/b7/b7w_frozen_prefix'),
-    ('B8  2-phase(drop)',    'outputs/b8/p2_prefix_frozen_lora'),
-    ('B8d 2-phase(dup)',     'outputs/b8_dup/p2_prefix_frozen_lora'),
+    ('B2  LoRA only',        'b2_lora_only'),
+    ('B3  Prefix only',      'b3_prefix_only'),
+    ('B4  Prefix+LoRA',      'b4_prefix_lora'),
+    ('B5  +Orth',            'b5_prefix_lora_orth'),
+    ('B6  DeSTRS',           'b6_dest_rs'),
+    ('B7  warm-start',       'b7_dest_rs_warm'),
+    ('B8  LoRA→Prefix',      'b8_p2_prefix_frozen_lora'),
+    ('B9  Prefix→LoRA',      'b9_p2_lora_frozen_prefix'),
 ]
 
 mapping = {
@@ -176,8 +164,8 @@ header = f\"{'实验':<22} {'valid_ppl':>10} {'test_ppl':>10} {'9-class':>10} {'
 print(header)
 print('─' * len(header))
 
-for name, out_dir in experiments:
-    out = Path(out_dir)
+for name, exp_name in experiments:
+    out = need / exp_name
     mf = out / 'metrics.json'
     ef = out / 'strategy_eval_llm.json'
 
@@ -204,5 +192,5 @@ for name, out_dir in experiments:
     print(f'{name:<22} {vppl:>10} {tppl:>10} {acc9:>10} {acc4:>10}')
 
 print()
-print('数据集: 重新划分后的 CaSiNo (396 有标注对话, 分层 80/10/10)')
+print(f'数据集: {dataset_tag}')
 "

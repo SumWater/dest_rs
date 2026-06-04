@@ -117,7 +117,8 @@ def weighted_average(rows: list[dict[str, float]], key: str) -> float:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="分析 checkpoint 中 Prefix/LoRA 表示增量的重合程度。")
-    parser.add_argument("--checkpoint-dir", required=True, help="训练输出目录。")
+    parser.add_argument("--checkpoint-dir", required=True, help="模型权重目录 (output/other/...)。")
+    parser.add_argument("--need-dir", default=None, help="分析数据目录 (output/need/...)。默认从 checkpoint-dir 推导。")
     parser.add_argument("--config", default=None, help="可选：覆盖 checkpoint 中的 run_config.json。")
     parser.add_argument("--split", default="test", choices=["train", "valid", "test"], help="分析哪个数据划分。")
     parser.add_argument("--max-samples", type=int, default=64, help="最多分析多少条样本。")
@@ -126,13 +127,13 @@ def main() -> None:
     args = parser.parse_args()
 
     checkpoint_dir = Path(args.checkpoint_dir)
-    config_path = Path(args.config) if args.config else checkpoint_dir / "run_config.json"
+    need_dir = Path(args.need_dir) if args.need_dir else Path(str(checkpoint_dir).replace("output/other/", "output/need/"))
+    config_path = Path(args.config) if args.config else need_dir / "run_config.json"
     cfg = load_config(str(config_path))
     cfg.warm_start_dir = str(checkpoint_dir)
-    cfg.output_dir = str(checkpoint_dir)
     cfg.eval_batch_size = args.batch_size
 
-    with (checkpoint_dir / "label_map.json").open("r", encoding="utf-8") as f:
+    with (need_dir / "label_map.json").open("r", encoding="utf-8") as f:
         label_space = StrategyLabelSpace.from_json(json.load(f))
 
     tokenizer = None
