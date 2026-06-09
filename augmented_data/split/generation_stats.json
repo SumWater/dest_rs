@@ -1,0 +1,42 @@
+{
+  "generated_dialogues": 329,
+  "generated_turns": 3943,
+  "failed_dialogues": 0,
+  "gen_train_dialogues": 296,
+  "gen_test_dialogues": 33,
+  "combined_train_dialogues": 610,
+  "strategy_counts_before": {
+    "elicit-pref": 144,
+    "self-need": 324,
+    "promote-coordination": 204,
+    "vouch-fair": 210,
+    "small-talk": 616,
+    "showing-empathy": 61,
+    "no-need": 59,
+    "other-need": 74,
+    "uv-part": 41
+  },
+  "strategy_counts_generated": {
+    "small-talk": 329,
+    "elicit-pref": 394,
+    "self-need": 444,
+    "other-need": 435,
+    "uv-part": 463,
+    "promote-coordination": 625,
+    "vouch-fair": 368,
+    "showing-empathy": 444,
+    "no-need": 441
+  },
+  "strategy_counts_final_train": {
+    "small-talk": 912,
+    "elicit-pref": 501,
+    "other-need": 466,
+    "self-need": 722,
+    "showing-empathy": 461,
+    "uv-part": 457,
+    "no-need": 460,
+    "promote-coordination": 766,
+    "vouch-fair": 540
+  },
+  "target_per_strategy": 500
+}
