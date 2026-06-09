@@ -1,0 +1,20 @@
+{
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.489919344919435,
+      "train_gen_loss": 1.4352206112230117,
+      "train_orth_loss": 0.025844369365550866,
+      "train_orth_local_loss": 0.03250076893603389,
+      "train_orth_global_loss": 0.019187969782285225,
+      "train_cls_loss": 0.027220144613435467,
+      "valid_loss": 2.057368471570637,
+      "valid_ppl": 7.825350060335029,
+      "test_loss": 2.0827983742718095,
+      "test_ppl": 8.026899784512851
+    }
+  ],
+  "best_valid_loss": 2.057368471570637,
+  "prefix_norm_before": 17.169635772705078,
+  "prefix_norm_after": 17.93690299987793
+}
