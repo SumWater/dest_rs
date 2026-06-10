@@ -4,3 +4,5 @@ output/other/
 *.bin
 *.safetensors
 .claude/
+.codex/
+.agents/

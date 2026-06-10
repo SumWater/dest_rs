@@ -282,7 +282,11 @@ def load_backbone(cfg: TrainConfig):
 
 
 def attach_lora(base_model, cfg: TrainConfig, warm_start_dir: str | None = None):
-    lora_dir = os.path.join(warm_start_dir, "lora_adapter") if warm_start_dir else None
+    lora_dir = (
+        os.path.join(warm_start_dir, "lora_adapter")
+        if warm_start_dir and cfg.warm_start_lora
+        else None
+    )
     if lora_dir and os.path.exists(lora_dir):
         peft_model = PeftModel.from_pretrained(base_model, lora_dir, is_trainable=True)
         print(f"[model] 已从 {lora_dir} 加载 LoRA warm start")
@@ -320,7 +324,11 @@ def build_hybrid_model(cfg: TrainConfig, num_strategies: int):
     hybrid.prefix_bank.data = hybrid.prefix_bank.data.to(embed_device)
     hybrid.strategy_classifier.to(embed_device)
 
-    prefix_path = os.path.join(cfg.warm_start_dir, "prefix_bank.pt") if cfg.warm_start_dir else None
+    prefix_path = (
+        os.path.join(cfg.warm_start_dir, "prefix_bank.pt")
+        if cfg.warm_start_dir and cfg.warm_start_prefix
+        else None
+    )
     if prefix_path and os.path.exists(prefix_path):
         payload = torch.load(prefix_path, map_location="cpu")
         saved_prefix = payload["prefix_bank"]
@@ -339,23 +347,34 @@ def build_hybrid_model(cfg: TrainConfig, num_strategies: int):
 
 def freeze_for_adapter_mode(
     hybrid: HybridStrategyModel,
-    adapter_mode: str,
-    freeze_prefix: bool = False,
+    cfg: TrainConfig,
 ) -> Tuple[List[nn.Parameter], List[nn.Parameter], List[nn.Parameter]]:
     for _, param in hybrid.peft_model.named_parameters():
         param.requires_grad = False
     for _, param in hybrid.strategy_classifier.named_parameters():
         param.requires_grad = False
 
-    train_prefix = adapter_mode in {"prefix_only", "prefix_lora", "prefix_lora_orth", "dest_rs"}
-    train_lora = adapter_mode in {"lora_only", "prefix_lora", "prefix_lora_orth", "dest_rs"}
-    train_cls = adapter_mode == "dest_rs"
+    train_prefix = (
+        bool(cfg.train_prefix)
+        if cfg.train_prefix is not None
+        else cfg.adapter_mode in {"prefix_only", "prefix_lora", "prefix_lora_orth", "dest_rs"}
+    )
+    train_lora = (
+        bool(cfg.train_lora)
+        if cfg.train_lora is not None
+        else cfg.adapter_mode in {"lora_only", "prefix_lora", "prefix_lora_orth", "dest_rs"}
+    )
+    train_cls = (
+        bool(cfg.train_classifier)
+        if cfg.train_classifier is not None
+        else cfg.adapter_mode == "dest_rs"
+    )
 
     if train_lora:
         for name, param in hybrid.peft_model.named_parameters():
             if "lora_" in name.lower():
                 param.requires_grad = True
-    hybrid.prefix_bank.requires_grad = train_prefix and (not freeze_prefix)
+    hybrid.prefix_bank.requires_grad = train_prefix and (not cfg.freeze_prefix)
     if train_cls:
         for _, param in hybrid.strategy_classifier.named_parameters():
             param.requires_grad = True

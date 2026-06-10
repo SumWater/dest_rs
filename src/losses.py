@@ -15,6 +15,24 @@ def mode_uses_lora(adapter_mode: str) -> bool:
     return adapter_mode in {"lora_only", "prefix_lora", "prefix_lora_orth", "dest_rs"}
 
 
+def cfg_uses_prefix(cfg: TrainConfig) -> bool:
+    if cfg.enable_prefix is not None:
+        return bool(cfg.enable_prefix)
+    return mode_uses_prefix(cfg.adapter_mode)
+
+
+def cfg_uses_lora(cfg: TrainConfig) -> bool:
+    if cfg.enable_lora is not None:
+        return bool(cfg.enable_lora)
+    return mode_uses_lora(cfg.adapter_mode)
+
+
+def cfg_trains_classifier(cfg: TrainConfig) -> bool:
+    if cfg.train_classifier is not None:
+        return bool(cfg.train_classifier)
+    return cfg.adapter_mode == "dest_rs"
+
+
 def causal_lm_loss(logits: torch.Tensor, labels: torch.Tensor) -> torch.Tensor:
     shift_logits = logits[:, :-1, :].contiguous()
     shift_labels = labels[:, 1:].contiguous()
@@ -91,9 +109,9 @@ def compute_training_losses(
     labels = batch["labels"].to(device_in)
     strategy_ids = batch["strategy_id"].to(device_in)
 
-    prefix_on = mode_uses_prefix(cfg.adapter_mode)
-    lora_on = mode_uses_lora(cfg.adapter_mode)
-    should_compute_cls = cfg.lambda_cls > 0.0 and cfg.adapter_mode == "dest_rs"
+    prefix_on = cfg_uses_prefix(cfg)
+    lora_on = cfg_uses_lora(cfg)
+    should_compute_cls = cfg.lambda_cls > 0.0 and cfg_trains_classifier(cfg)
     should_compute_orth = (
         cfg.lambda_orth > 0.0
         and prefix_on

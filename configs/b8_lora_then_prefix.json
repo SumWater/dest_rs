@@ -3,8 +3,15 @@
   "dataset_dir": "./CaSiNo-main/data",
   "dataset_tag": "casino_original",
   "experiment_name": "b8_p2_prefix_frozen_lora",
-  "adapter_mode": "prefix_only",
-  "warm_start_dir": "output/other/casino_original/b2_lora_only",
+  "adapter_mode": "prefix_lora",
+  "enable_prefix": true,
+  "enable_lora": true,
+  "train_prefix": true,
+  "train_lora": false,
+  "train_classifier": false,
+  "warm_start_dir": "auto:b2_lora_only",
+  "warm_start_prefix": false,
+  "warm_start_lora": true,
   "multi_label_policy": "drop",
   "exclude_labels": [
     "non-strategic"

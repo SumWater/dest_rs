@@ -177,6 +177,8 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="LLM-based strategy control evaluator")
     parser.add_argument("--model-path", required=True, help="Path to Qwen3-8B model")
     parser.add_argument("--config", help="Training config (to load dataset)")
+    parser.add_argument("--dataset-tag", default=None)
+    parser.add_argument("--dataset-dir", default=None)
     parser.add_argument("--jsonl", required=True, nargs="+", help="swap_samples JSONL file(s)")
     parser.add_argument("--out", default=None, help="Output JSON file for detailed results")
     parser.add_argument("--max-samples", type=int, default=None)
@@ -231,6 +233,10 @@ def main() -> None:
     few_shot_examples = []
     if args.config:
         cfg = load_config(args.config)
+        if args.dataset_tag:
+            cfg.dataset_tag = args.dataset_tag
+        if args.dataset_dir:
+            cfg.dataset_dir = args.dataset_dir
         train_examples = load_split_examples(cfg, "train")
         label_space = StrategyLabelSpace.fit(train_examples)
         few_shot_examples = load_few_shot_examples(

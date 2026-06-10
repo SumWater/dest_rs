@@ -9,7 +9,7 @@ import torch
 
 from .config import TrainConfig
 from .modeling import HybridStrategyModel, get_embed_device, lora_disabled_ctx
-from .losses import causal_lm_loss, mode_uses_lora, mode_uses_prefix
+from .losses import causal_lm_loss, cfg_uses_lora, cfg_uses_prefix
 
 
 @torch.no_grad()
@@ -22,8 +22,8 @@ def evaluate_generation_loss(
     total_loss = 0.0
     total_batches = 0
     device_in = get_embed_device(hybrid.peft_model)
-    prefix_on = mode_uses_prefix(cfg.adapter_mode)
-    lora_on = mode_uses_lora(cfg.adapter_mode)
+    prefix_on = cfg_uses_prefix(cfg)
+    lora_on = cfg_uses_lora(cfg)
 
     for batch in dataloader:
         if lora_on:
@@ -73,8 +73,8 @@ def greedy_generate(
     device_in = get_embed_device(hybrid.peft_model)
     max_new_tokens = max_new_tokens or cfg.demo_max_new_tokens
     temperature = cfg.demo_temperature if temperature is None else temperature
-    prefix_on = mode_uses_prefix(cfg.adapter_mode)
-    lora_on = mode_uses_lora(cfg.adapter_mode)
+    prefix_on = cfg_uses_prefix(cfg)
+    lora_on = cfg_uses_lora(cfg)
 
     enc = tokenizer(prompt, return_tensors="pt", add_special_tokens=False)
     input_ids = enc["input_ids"].to(device_in)

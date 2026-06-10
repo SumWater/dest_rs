@@ -17,6 +17,8 @@ class TrainConfig:
     dataset_tag: str = "casino_original"
     experiment_name: str = "default"
     warm_start_dir: Optional[str] = None
+    warm_start_prefix: bool = True
+    warm_start_lora: bool = True
     freeze_prefix: bool = False
 
     @property
@@ -53,6 +55,13 @@ class TrainConfig:
     # 实验模式
     # 可选值：lora_only | prefix_only | prefix_lora | prefix_lora_orth | dest_rs
     adapter_mode: str = "dest_rs"
+    # 默认由 adapter_mode 推导。需要两阶段实验时，可显式覆盖：
+    # enable_* 控制前向/生成时是否启用模块，train_* 控制参数是否更新。
+    enable_prefix: Optional[bool] = None
+    enable_lora: Optional[bool] = None
+    train_prefix: Optional[bool] = None
+    train_lora: Optional[bool] = None
+    train_classifier: Optional[bool] = None
 
     # 骨干模型与量化配置
     trust_remote_code: bool = True
@@ -101,6 +110,22 @@ def load_config(path: str) -> TrainConfig:
         if hasattr(cfg, key):
             setattr(cfg, key, value)
     return cfg
+
+
+def resolve_warm_start_dir(cfg: TrainConfig) -> None:
+    if not cfg.warm_start_dir:
+        return
+    value = cfg.warm_start_dir
+    if value.startswith("auto:"):
+        experiment = value.split(":", 1)[1].strip()
+        if not experiment:
+            raise ValueError("warm_start_dir='auto:' 缺少实验名")
+        cfg.warm_start_dir = os.path.join("output", "other", cfg.dataset_tag, experiment)
+        return
+    cfg.warm_start_dir = value.format(
+        dataset_tag=cfg.dataset_tag,
+        experiment_name=cfg.experiment_name,
+    )
 
 
 def save_config(cfg: TrainConfig, path: str) -> None:

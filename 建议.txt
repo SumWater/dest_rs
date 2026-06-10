@@ -132,3 +132,55 @@
   ---
   一句话
   你的开题报告不是枷锁，你的实验发现才是论文真正的素材。 开题报告已经给你留了"做系统实验研究"的退路，你现在的数据完全撑得起一条以"发现问题→分析问题"为主线的硕士论文。去和导师聊聊吧。
+
+
+
+
+  • 跑：
+
+  DATASET_DIR=./augmented_data ./run_all.sh
+
+  大概率会全套都重新跑：B2-B9 都跑。
+
+  原因是脚本会自动设置：
+
+  DATASET_TAG=augmented_data
+
+  然后它会去找：
+
+  output/need/augmented_data/
+  output/other/augmented_data/
+
+  如果这个目录下还没有已有结果，它就会从 B2 开始跑：
+
+  B2 → B3 → B4 → B5 → B6 → B7 → B9 → B8 → LLM eval
+
+  它不会去复用你之前的：
+
+  output/need/casino_augmented/
+  output/other/casino_augmented/
+
+  所以不是只重跑 B7-B9。
+
+  如果你想只基于原来的 casino_augmented 目录继续跑，那要用：
+
+  DATASET_TAG=casino_augmented DATASET_DIR=./augmented_data ./run_all.sh
+
+  但注意：如果 output/need/casino_augmented/b7.../metrics.json 已经存在，脚本会跳过 B7-B9。要强制重跑新版 B7-B9，
+  用：
+
+  FORCE_RETRAIN=1 FORCE_EVAL=1 DATASET_TAG=casino_augmented DATASET_DIR=./augmented_data ./run_all.sh
+
+  不过这个会强制重跑所有实验，不只是 B7-B9。
+
+  如果你想只重跑 B7-B9，不动 B2-B6，现在最简单的方式是手动跑这三个：
+
+  python train.py --config configs/b7_dest_rs_warm.json --dataset-tag casino_augmented --dataset-dir ./
+  augmented_data
+  python train.py --config configs/b8_lora_then_prefix.json --dataset-tag casino_augmented --dataset-dir ./
+  augmented_data
+  python train.py --config configs/b9_prefix_then_lora.json --dataset-tag casino_augmented --dataset-dir ./
+  augmented_data
+
+  然后再分别评估它们。为了避免覆盖旧结果，最好先把三个配置里的 experiment_name 改成新名字，或者我可以继续帮你把脚本
+  加一个 ONLY_PHASE2=1 / EXPERIMENTS=B7,B8,B9 的参数，这样以后就能一键只跑 B7-B9。

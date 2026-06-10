@@ -158,7 +158,11 @@ augmented_data/
 ./run_all.sh
 
 # 第二组：增强数据（生成完成后）
-DATASET_TAG=casino_augmented DATASET_DIR=./augmented_data ./run_all.sh
+DATASET_DIR=./augmented_data ./run_all.sh
 ```
 
 两组实验结果分别保存在 `output/need/casino_original/` 和 `output/need/casino_augmented/` 下，可直接对比。
+
+换新数据集时只改数据路径：
+
+  DATASET_DIR=./你的新数据目录 ./run_all.sh

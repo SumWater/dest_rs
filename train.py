@@ -11,7 +11,7 @@ import torch
 from torch.utils.data import DataLoader
 from tqdm import tqdm
 
-from src.config import TrainConfig, load_config, save_config
+from src.config import TrainConfig, load_config, resolve_warm_start_dir, save_config
 from src.casino_dataset import (
     CasinoStrategyDataset,
     StrategyDataCollator,
@@ -88,7 +88,7 @@ def save_label_map(label_space: StrategyLabelSpace, output_dir: str) -> None:
 
 
 def build_optimizer(hybrid, cfg: TrainConfig):
-    prefix_params, lora_params, cls_params = freeze_for_adapter_mode(hybrid, cfg.adapter_mode, cfg.freeze_prefix)
+    prefix_params, lora_params, cls_params = freeze_for_adapter_mode(hybrid, cfg)
     print_trainable_parameters(hybrid)
     groups = []
     if prefix_params:
@@ -136,6 +136,7 @@ def main():
         cfg.dataset_tag = args.dataset_tag
     if args.dataset_dir:
         cfg.dataset_dir = args.dataset_dir
+    resolve_warm_start_dir(cfg)
     set_seed(cfg.seed)
     ensure_output_dirs(cfg)
     save_config(cfg, os.path.join(cfg.need_dir, "run_config.json"))

@@ -4,7 +4,9 @@
   "dataset_tag": "casino_original",
   "experiment_name": "b7_dest_rs_warm",
   "adapter_mode": "dest_rs",
-  "warm_start_dir": "output/other/casino_original/b3_prefix_only",
+  "warm_start_dir": "auto:b3_prefix_only",
+  "warm_start_prefix": true,
+  "warm_start_lora": false,
   "multi_label_policy": "drop",
   "exclude_labels": [
     "non-strategic"
