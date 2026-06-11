@@ -1,11 +1,11 @@
 {
-  "overall_accuracy": 0.4222222222222222,
+  "overall_accuracy": 0.4,
   "null_predictions": 0,
   "total_samples": 45,
   "by_turn": {
     "0": {
       "n": 9,
-      "accuracy": 0.6666666666666666
+      "accuracy": 0.5555555555555556
     },
     "1": {
       "n": 9,
@@ -128,9 +128,9 @@
       "target_strategy": "vouch-fair",
       "context": "You are generating the next utterance for a negotiation dialogue in the CaSiNo campsite bargaining task.\n\nTarget speaker private profile:\n- High priority item: Water\n  Reason: My family needs to stay hydrated.\n- Medium priority item: Food\n  Reason: We need many snack for energy to hike.\n- Low priority item: Firewood\n  Reason: We can look for firewood around the campsite.\n\nDialogue history:\n(conversation start)\n\nGenerate the target speaker's next utterance.\nResponse:",
       "utterance": "Hi, I think it's fair to split the water and food evenly.",
-      "raw_response": "vouch-fair",
-      "pred_strategy": "vouch-fair",
-      "correct": 1,
+      "raw_response": "promote-coordination",
+      "pred_strategy": "promote-coordination",
+      "correct": 0,
       "source_file": "output/need/casino_augmented/b4_prefix_lora/swap_samples_valid.jsonl"
     },
     {

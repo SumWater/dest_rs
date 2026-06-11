@@ -2,45 +2,45 @@
   "history": [
     {
       "epoch": 1,
-      "train_loss": 1.8884687713115647,
-      "train_gen_loss": 1.8884687713115647,
+      "train_loss": 1.0359919399446949,
+      "train_gen_loss": 1.0359919399446949,
       "train_orth_loss": 0.0,
       "train_orth_local_loss": 0.0,
       "train_orth_global_loss": 0.0,
       "train_cls_loss": 0.0,
-      "valid_loss": 2.4093701002390486,
-      "valid_ppl": 11.126950073969407,
-      "test_loss": 2.45591171027271,
-      "test_ppl": 11.6570565638065
+      "valid_loss": 2.1843571760084317,
+      "valid_ppl": 8.884935267695951,
+      "test_loss": 2.2104893600055746,
+      "test_ppl": 9.120178351728242
     },
     {
       "epoch": 2,
-      "train_loss": 1.600886930268286,
-      "train_gen_loss": 1.600886930268286,
+      "train_loss": 0.9752624642688021,
+      "train_gen_loss": 0.9752624642688021,
       "train_orth_loss": 0.0,
       "train_orth_local_loss": 0.0,
       "train_orth_global_loss": 0.0,
       "train_cls_loss": 0.0,
-      "valid_loss": 2.3573137793851937,
-      "valid_ppl": 10.562539997114563,
-      "test_loss": 2.4071630439904057,
-      "test_ppl": 11.102419349582215
+      "valid_loss": 2.2362296837827436,
+      "valid_ppl": 9.357982138764777,
+      "test_loss": 2.2777275885556985,
+      "test_ppl": 9.754488992643296
     },
     {
       "epoch": 3,
-      "train_loss": 1.5148342916926998,
-      "train_gen_loss": 1.5148342916926998,
+      "train_loss": 0.9436498878940158,
+      "train_gen_loss": 0.9436498878940158,
       "train_orth_loss": 0.0,
       "train_orth_local_loss": 0.0,
       "train_orth_global_loss": 0.0,
       "train_cls_loss": 0.0,
-      "valid_loss": 2.306731728885485,
-      "valid_ppl": 10.0415524508166,
-      "test_loss": 2.3370009244269156,
-      "test_ppl": 10.35014908987961
+      "valid_loss": 2.188564172775849,
+      "valid_ppl": 8.922392898465331,
+      "test_loss": 2.20282848823539,
+      "test_ppl": 9.050576779617215
     }
   ],
-  "best_valid_loss": 2.306731728885485,
+  "best_valid_loss": 2.1843571760084317,
   "prefix_norm_before": 17.169635772705078,
-  "prefix_norm_after": 54.1511116027832
+  "prefix_norm_after": 52.515995025634766
 }

@@ -9,11 +9,11 @@
     },
     "1": {
       "n": 9,
-      "accuracy": 0.4444444444444444
+      "accuracy": 0.3333333333333333
     },
     "2": {
       "n": 9,
-      "accuracy": 0.5555555555555556
+      "accuracy": 0.6666666666666666
     },
     "3": {
       "n": 9,
@@ -128,8 +128,8 @@
       "target_strategy": "vouch-fair",
       "context": "You are generating the next utterance for a negotiation dialogue in the CaSiNo campsite bargaining task.\n\nTarget speaker private profile:\n- High priority item: Water\n  Reason: My family needs to stay hydrated.\n- Medium priority item: Food\n  Reason: We need many snack for energy to hike.\n- Low priority item: Firewood\n  Reason: We can look for firewood around the campsite.\n\nDialogue history:\n(conversation start)\n\nGenerate the target speaker's next utterance.\nResponse:",
       "utterance": "Okay, I can give you 3 food and 1 firewood.",
-      "raw_response": "promote-coordination",
-      "pred_strategy": "promote-coordination",
+      "raw_response": "self-need",
+      "pred_strategy": "self-need",
       "correct": 0,
       "source_file": "output/need/casino_augmented/b3_prefix_only/swap_samples_valid.jsonl"
     },
@@ -236,9 +236,9 @@
       "target_strategy": "vouch-fair",
       "context": "You are generating the next utterance for a negotiation dialogue in the CaSiNo campsite bargaining task.\n\nTarget speaker private profile:\n- High priority item: Water\n  Reason: i have severe dry mouth\n- Medium priority item: Firewood\n  Reason: i can find other sticks\n- Low priority item: Food\n  Reason: i dont eat that much\n\nDialogue history:\nPartner: Hey there fellow camper! How's it going?\n\nGenerate the target speaker's next utterance.\nResponse:",
       "utterance": "I'm doing well, thanks. I'm looking for a fair deal on the items.",
-      "raw_response": "vouch-fair",
-      "pred_strategy": "vouch-fair",
-      "correct": 1,
+      "raw_response": "no-need",
+      "pred_strategy": "no-need",
+      "correct": 0,
       "source_file": "output/need/casino_augmented/b3_prefix_only/swap_samples_valid.jsonl"
     },
     {
@@ -272,9 +272,9 @@
       "target_strategy": "other-need",
       "context": "You are generating the next utterance for a negotiation dialogue in the CaSiNo campsite bargaining task.\n\nTarget speaker private profile:\n- High priority item: Water\n  Reason: My family needs to stay hydrated.\n- Medium priority item: Food\n  Reason: We need many snack for energy to hike.\n- Low priority item: Firewood\n  Reason: We can look for firewood around the campsite.\n\nDialogue history:\nYou: Hey there fellow camper! How's it going?\nPartner: Hey camper buddy! all goes well. and you?\n\nGenerate the target speaker's next utterance.\nResponse:",
       "utterance": "I understand you need the water for your family, so I'll take the food and firewood.",
-      "raw_response": "promote-coordination",
-      "pred_strategy": "promote-coordination",
-      "correct": 0,
+      "raw_response": "other-need",
+      "pred_strategy": "other-need",
+      "correct": 1,
       "source_file": "output/need/casino_augmented/b3_prefix_only/swap_samples_valid.jsonl"
     },
     {
@@ -488,8 +488,8 @@
       "target_strategy": "other-need",
       "context": "You are generating the next utterance for a negotiation dialogue in the CaSiNo campsite bargaining task.\n\nTarget speaker private profile:\n- High priority item: Water\n  Reason: My family needs to stay hydrated.\n- Medium priority item: Food\n  Reason: We need many snack for energy to hike.\n- Low priority item: Firewood\n  Reason: We can look for firewood around the campsite.\n\nDialogue history:\nYou: Hey there fellow camper! How's it going?\nPartner: Hey camper buddy! all goes well. and you?\nYou: All is good. Could you tell me about your package preferences?\nPartner: I need water and firewood. What about you?\n\nGenerate the target speaker's next utterance.\nResponse:",
       "utterance": "I understand you need water and firewood, so I'll take the food packages to ensure we all have enough to eat.",
-      "raw_response": "promote-coordination",
-      "pred_strategy": "promote-coordination",
+      "raw_response": "self-need",
+      "pred_strategy": "self-need",
       "correct": 0,
       "source_file": "output/need/casino_augmented/b3_prefix_only/swap_samples_valid.jsonl"
     },

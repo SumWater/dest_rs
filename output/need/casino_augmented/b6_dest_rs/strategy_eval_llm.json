@@ -1,5 +1,5 @@
 {
-  "overall_accuracy": 0.35555555555555557,
+  "overall_accuracy": 0.3333333333333333,
   "null_predictions": 0,
   "total_samples": 45,
   "by_turn": {
@@ -13,7 +13,7 @@
     },
     "2": {
       "n": 9,
-      "accuracy": 0.4444444444444444
+      "accuracy": 0.3333333333333333
     },
     "3": {
       "n": 9,
@@ -56,8 +56,8 @@
       "target_strategy": "other-need",
       "context": "You are generating the next utterance for a negotiation dialogue in the CaSiNo campsite bargaining task.\n\nTarget speaker private profile:\n- High priority item: Water\n  Reason: My family needs to stay hydrated.\n- Medium priority item: Food\n  Reason: We need many snack for energy to hike.\n- Low priority item: Firewood\n  Reason: We can look for firewood around the campsite.\n\nDialogue history:\n(conversation start)\n\nGenerate the target speaker's next utterance.\nResponse:",
       "utterance": "Hi, I am very excited to go on this camping trip. I have a family of 5 and we need to stay hydrated.",
-      "raw_response": "self-need",
-      "pred_strategy": "self-need",
+      "raw_response": "small-talk",
+      "pred_strategy": "small-talk",
       "correct": 0,
       "source_file": "output/need/casino_augmented/b6_dest_rs/swap_samples_valid.jsonl"
     },
@@ -236,8 +236,8 @@
       "target_strategy": "vouch-fair",
       "context": "You are generating the next utterance for a negotiation dialogue in the CaSiNo campsite bargaining task.\n\nTarget speaker private profile:\n- High priority item: Water\n  Reason: i have severe dry mouth\n- Medium priority item: Firewood\n  Reason: i can find other sticks\n- Low priority item: Food\n  Reason: i dont eat that much\n\nDialogue history:\nPartner: Hey there fellow camper! How's it going?\n\nGenerate the target speaker's next utterance.\nResponse:",
       "utterance": "i am doing well, i am looking for a deal",
-      "raw_response": "no-need",
-      "pred_strategy": "no-need",
+      "raw_response": "small-talk",
+      "pred_strategy": "small-talk",
       "correct": 0,
       "source_file": "output/need/casino_augmented/b6_dest_rs/swap_samples_valid.jsonl"
     },
@@ -284,9 +284,9 @@
       "target_strategy": "promote-coordination",
       "context": "You are generating the next utterance for a negotiation dialogue in the CaSiNo campsite bargaining task.\n\nTarget speaker private profile:\n- High priority item: Water\n  Reason: My family needs to stay hydrated.\n- Medium priority item: Food\n  Reason: We need many snack for energy to hike.\n- Low priority item: Firewood\n  Reason: We can look for firewood around the campsite.\n\nDialogue history:\nYou: Hey there fellow camper! How's it going?\nPartner: Hey camper buddy! all goes well. and you?\n\nGenerate the target speaker's next utterance.\nResponse:",
       "utterance": "I'm doing well. I'm looking for some water and food. Would you be willing to trade some of your supplies for mine?",
-      "raw_response": "promote-coordination",
-      "pred_strategy": "promote-coordination",
-      "correct": 1,
+      "raw_response": "elicit-pref",
+      "pred_strategy": "elicit-pref",
+      "correct": 0,
       "source_file": "output/need/casino_augmented/b6_dest_rs/swap_samples_valid.jsonl"
     },
     {
@@ -452,8 +452,8 @@
       "target_strategy": "vouch-fair",
       "context": "You are generating the next utterance for a negotiation dialogue in the CaSiNo campsite bargaining task.\n\nTarget speaker private profile:\n- High priority item: Water\n  Reason: i have severe dry mouth\n- Medium priority item: Firewood\n  Reason: i can find other sticks\n- Low priority item: Food\n  Reason: i dont eat that much\n\nDialogue history:\nPartner: Hey there fellow camper! How's it going?\nYou: Hey camper buddy! all goes well. and you?\nPartner: All is good. Could you tell me about your package preferences?\n\nGenerate the target speaker's next utterance.\nResponse:",
       "utterance": "i prefer water and firewood",
-      "raw_response": "self-need",
-      "pred_strategy": "self-need",
+      "raw_response": "elicit-pref",
+      "pred_strategy": "elicit-pref",
       "correct": 0,
       "source_file": "output/need/casino_augmented/b6_dest_rs/swap_samples_valid.jsonl"
     },
