@@ -95,6 +95,7 @@ class TrainConfig:
     lambda_cls: float = 0.0
     cls_hidden_dim: int = 256
     cls_dropout: float = 0.1
+    cls_target: str = "h_real"  # 可选值：h_real | delta_prefix
 
     # 生成与样例配置
     demo_max_new_tokens: int = 40

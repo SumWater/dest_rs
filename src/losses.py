@@ -33,6 +33,13 @@ def cfg_trains_classifier(cfg: TrainConfig) -> bool:
     return cfg.adapter_mode == "dest_rs"
 
 
+def cfg_cls_target(cfg: TrainConfig) -> str:
+    target = (cfg.cls_target or "h_real").strip().lower()
+    if target not in {"h_real", "delta_prefix"}:
+        raise ValueError(f"不支持的 cls_target={cfg.cls_target!r}，可选值为 h_real 或 delta_prefix")
+    return target
+
+
 def causal_lm_loss(logits: torch.Tensor, labels: torch.Tensor) -> torch.Tensor:
     shift_logits = logits[:, :-1, :].contiguous()
     shift_labels = labels[:, 1:].contiguous()
@@ -96,6 +103,45 @@ def local_global_orth_loss(
     return orth_loss, local_loss, global_loss
 
 
+def compute_delta_prefix_hidden(
+    hybrid: HybridStrategyModel,
+    catcher: LayerCatcher,
+    input_ids: torch.Tensor,
+    attention_mask: torch.Tensor,
+    strategy_ids: torch.Tensor,
+    cfg: TrainConfig,
+) -> torch.Tensor:
+    catcher.reset()
+    with torch.no_grad():
+        with lora_disabled_ctx(hybrid.peft_model):
+            _ = hybrid(
+                input_ids=input_ids,
+                attention_mask=attention_mask,
+                strategy_ids=strategy_ids,
+                labels=None,
+                prefix_on=False,
+                prefix_scale=cfg.prefix_scale_train,
+                use_cache=False,
+            )
+            h_base = catcher.pop().detach()
+
+    catcher.reset()
+    with lora_disabled_ctx(hybrid.peft_model):
+        _ = hybrid(
+            input_ids=input_ids,
+            attention_mask=attention_mask,
+            strategy_ids=strategy_ids,
+            labels=None,
+            prefix_on=True,
+            prefix_scale=cfg.prefix_scale_train,
+            use_cache=False,
+        )
+        h_prefix = catcher.pop()
+        h_prefix = hybrid.slice_real_tokens(h_prefix, prefix_on=True)
+
+    return h_prefix - h_base
+
+
 def compute_training_losses(
     hybrid: HybridStrategyModel,
     catcher: LayerCatcher,
@@ -112,6 +158,7 @@ def compute_training_losses(
     prefix_on = cfg_uses_prefix(cfg)
     lora_on = cfg_uses_lora(cfg)
     should_compute_cls = cfg.lambda_cls > 0.0 and cfg_trains_classifier(cfg)
+    cls_target = cfg_cls_target(cfg)
     should_compute_orth = (
         cfg.lambda_orth > 0.0
         and prefix_on
@@ -149,7 +196,17 @@ def compute_training_losses(
         cls_loss = torch.zeros((), device=gen_loss.device)
         cls_logits = None
         if should_compute_cls:
-            cls_loss, cls_logits = classification_loss(hybrid, h_real, labels, strategy_ids)
+            cls_hidden = h_real
+            if cls_target == "delta_prefix" and prefix_on:
+                cls_hidden = compute_delta_prefix_hidden(
+                    hybrid=hybrid,
+                    catcher=catcher,
+                    input_ids=input_ids,
+                    attention_mask=attention_mask,
+                    strategy_ids=strategy_ids,
+                    cfg=cfg,
+                )
+            cls_loss, cls_logits = classification_loss(hybrid, cls_hidden, labels, strategy_ids)
             cls_loss = cls_loss.to(gen_loss.device)
         zero = torch.zeros((), device=gen_loss.device)
         total_loss = gen_loss + cfg.lambda_cls * cls_loss
@@ -242,7 +299,8 @@ def compute_training_losses(
     cls_loss = torch.zeros((), device=gen_loss.device)
     cls_logits = None
     if should_compute_cls:
-        cls_loss, cls_logits = classification_loss(hybrid, delta_prefix, labels, strategy_ids)
+        cls_hidden = delta_prefix if cls_target == "delta_prefix" else h_both
+        cls_loss, cls_logits = classification_loss(hybrid, cls_hidden, labels, strategy_ids)
         cls_loss = cls_loss.to(gen_loss.device)
 
     total_loss = gen_loss + cfg.lambda_orth * orth_loss + cfg.lambda_cls * cls_loss

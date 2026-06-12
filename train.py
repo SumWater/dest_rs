@@ -109,9 +109,19 @@ def build_optimizer(hybrid, cfg: TrainConfig):
     return optimizer
 
 
-def save_checkpoint(hybrid, tokenizer, cfg: TrainConfig, label_space: StrategyLabelSpace) -> None:
-    tokenizer.save_pretrained(os.path.join(cfg.other_dir, "tokenizer"))
-    hybrid.peft_model.save_pretrained(os.path.join(cfg.other_dir, "lora_adapter"))
+def save_checkpoint(
+    hybrid,
+    tokenizer,
+    cfg: TrainConfig,
+    label_space: StrategyLabelSpace,
+    output_dir: str | None = None,
+) -> None:
+    output_dir = output_dir or cfg.other_dir
+    os.makedirs(output_dir, exist_ok=True)
+    os.makedirs(os.path.join(output_dir, "tokenizer"), exist_ok=True)
+    os.makedirs(os.path.join(output_dir, "lora_adapter"), exist_ok=True)
+    tokenizer.save_pretrained(os.path.join(output_dir, "tokenizer"))
+    hybrid.peft_model.save_pretrained(os.path.join(output_dir, "lora_adapter"))
     torch.save(
         {
             "prefix_bank": hybrid.prefix_bank.detach().cpu(),
@@ -120,8 +130,25 @@ def save_checkpoint(hybrid, tokenizer, cfg: TrainConfig, label_space: StrategyLa
             "labels": label_space.labels,
             "adapter_mode": cfg.adapter_mode,
         },
-        os.path.join(cfg.other_dir, "prefix_bank.pt"),
+        os.path.join(output_dir, "prefix_bank.pt"),
     )
+
+
+def capture_trainable_state(hybrid) -> Dict[str, torch.Tensor]:
+    return {
+        name: param.detach().cpu().clone()
+        for name, param in hybrid.named_parameters()
+        if param.requires_grad
+    }
+
+
+def restore_trainable_state(hybrid, state: Dict[str, torch.Tensor]) -> None:
+    named_params = dict(hybrid.named_parameters())
+    for name, saved in state.items():
+        if name not in named_params:
+            raise KeyError(f"checkpoint state contains unknown parameter: {name}")
+        param = named_params[name]
+        param.data.copy_(saved.to(param.device, dtype=param.dtype))
 
 
 def main():
@@ -154,6 +181,8 @@ def main():
     optimizer = build_optimizer(hybrid, cfg)
 
     best_valid_loss = float("inf")
+    best_epoch = None
+    best_state = None
     history = []
     global_step = 0
     prefix_norm_before = float(hybrid.prefix_bank.norm().item())
@@ -239,6 +268,8 @@ def main():
 
             if valid_metrics["loss"] < best_valid_loss:
                 best_valid_loss = valid_metrics["loss"]
+                best_epoch = epoch + 1
+                best_state = capture_trainable_state(hybrid)
                 save_checkpoint(hybrid, tokenizer, cfg, label_space)
                 print(f"[save] 新的最佳 checkpoint 已保存到 {cfg.other_dir}")
         history.append(epoch_record)
@@ -252,13 +283,23 @@ def main():
     metrics_payload = {
         "history": history,
         "best_valid_loss": best_valid_loss,
+        "best_epoch": best_epoch,
         "prefix_norm_before": prefix_norm_before,
         "prefix_norm_after": prefix_norm_after,
+        "save_best_only": cfg.save_best_only,
     }
     with open(os.path.join(cfg.need_dir, "metrics.json"), "w", encoding="utf-8") as f:
         json.dump(metrics_payload, f, ensure_ascii=False, indent=2)
 
-    save_checkpoint(hybrid, tokenizer, cfg, label_space)
+    sample_checkpoint = "final"
+    if cfg.save_best_only and best_state is not None:
+        restore_trainable_state(hybrid, best_state)
+        sample_checkpoint = "best"
+        print(f"[restore] 已恢复 epoch {best_epoch} 的最佳 checkpoint，用于生成 swap samples")
+    else:
+        save_checkpoint(hybrid, tokenizer, cfg, label_space)
+        print(f"[save] final checkpoint 已保存到 {cfg.other_dir}")
+
     save_swap_samples(
         hybrid=hybrid,
         tokenizer=tokenizer,
@@ -269,6 +310,9 @@ def main():
         num_examples=cfg.demo_num_examples,
         split_name="valid",
     )
+    metrics_payload["swap_samples_checkpoint"] = sample_checkpoint
+    with open(os.path.join(cfg.need_dir, "metrics.json"), "w", encoding="utf-8") as f:
+        json.dump(metrics_payload, f, ensure_ascii=False, indent=2)
 
     catcher.remove()
     print(f"[done] 分析数据已保存到 {cfg.need_dir}")

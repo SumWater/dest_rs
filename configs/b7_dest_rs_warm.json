@@ -43,6 +43,7 @@
   "orth_token_sample_size": 64,
   "orth_layer_index": -4,
   "lambda_cls": 2.0,
+  "cls_target": "delta_prefix",
   "cls_hidden_dim": 256,
   "cls_dropout": 0.1,
   "demo_max_new_tokens": 40,
