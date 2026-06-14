@@ -2,32 +2,35 @@
   "history": [
     {
       "epoch": 1,
-      "train_loss": 1.5102077540859593,
-      "train_gen_loss": 1.4574195630992908,
-      "train_orth_loss": 0.002652412698874664,
-      "train_orth_local_loss": 0.0029307792900709916,
-      "train_orth_global_loss": 0.0023740461245872263,
-      "train_cls_loss": 0.2632778553941568,
-      "valid_loss": 2.070918801556463,
-      "valid_ppl": 7.9321078037427535,
-      "test_loss": 2.107208850081831,
-      "test_ppl": 8.225251305804111
+      "train_loss": 14.27038323121355,
+      "train_gen_loss": 13.897357546352731,
+      "train_orth_loss": 0.00024290091878201298,
+      "train_orth_local_loss": 0.00019318731304449142,
+      "train_orth_global_loss": 0.00029261452372549273,
+      "train_cls_loss": 1.8650677152135697,
+      "valid_loss": 15.377109933936078,
+      "valid_ppl": 4766438.479278321,
+      "test_loss": 15.442287824039376,
+      "test_ppl": 5087452.764340535
     },
     {
       "epoch": 2,
-      "train_loss": 1.193269841064582,
-      "train_gen_loss": 1.1870324511757666,
-      "train_orth_loss": 0.0015374609685962,
-      "train_orth_local_loss": 0.0019781500938134363,
-      "train_orth_global_loss": 0.001096771835128123,
-      "train_cls_loss": 0.03080258554109255,
-      "valid_loss": 2.089682126822679,
-      "valid_ppl": 8.082345595053619,
-      "test_loss": 2.116896665512735,
-      "test_ppl": 8.305323257217234
+      "train_loss": 17.38268008218583,
+      "train_gen_loss": 17.264597363323116,
+      "train_orth_loss": 4.951194670398159e-05,
+      "train_orth_local_loss": 2.919991394069476e-05,
+      "train_orth_global_loss": 6.982397933996424e-05,
+      "train_cls_loss": 0.5904012844396053,
+      "valid_loss": 15.547489904320758,
+      "valid_ppl": 5651829.772994813,
+      "test_loss": 16.444541631307143,
+      "test_ppl": 13860333.74701243
     }
   ],
-  "best_valid_loss": 2.070918801556463,
+  "best_valid_loss": 15.377109933936078,
+  "best_epoch": 1,
   "prefix_norm_before": 17.169635772705078,
-  "prefix_norm_after": 39.33829116821289
+  "prefix_norm_after": 39.60307312011719,
+  "save_best_only": true,
+  "swap_samples_checkpoint": "best"
 }

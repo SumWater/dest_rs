@@ -63,7 +63,8 @@
   "lambda_cls": 0.0,
   "cls_hidden_dim": 256,
   "cls_dropout": 0.1,
+  "cls_target": "h_real",
   "demo_max_new_tokens": 40,
   "demo_temperature": 0.0,
-  "demo_num_examples": 5
+  "demo_num_examples": 30
 }

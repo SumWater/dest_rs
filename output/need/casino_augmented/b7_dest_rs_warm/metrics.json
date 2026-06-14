@@ -15,6 +15,9 @@
     }
   ],
   "best_valid_loss": 2.081328785419464,
+  "best_epoch": 1,
   "prefix_norm_before": 44.806060791015625,
-  "prefix_norm_after": 45.19002914428711
+  "prefix_norm_after": 45.19002914428711,
+  "save_best_only": true,
+  "swap_samples_checkpoint": "best"
 }
