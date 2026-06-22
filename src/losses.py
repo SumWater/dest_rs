@@ -53,6 +53,44 @@ def causal_lm_loss(logits: torch.Tensor, labels: torch.Tensor) -> torch.Tensor:
     )
 
 
+def sample_wrong_strategies(strategy_ids: torch.Tensor, num_strategies: int) -> torch.Tensor:
+    """每个样本随机选一个不同于当前策略的 ID。"""
+    if num_strategies <= 1:
+        return strategy_ids
+    wrong = torch.randint(0, num_strategies - 1, strategy_ids.shape, device=strategy_ids.device)
+    wrong = torch.where(wrong >= strategy_ids, wrong + 1, wrong)
+    return wrong
+
+
+def compute_contrastive_loss(
+    hybrid: HybridStrategyModel,
+    input_ids: torch.Tensor,
+    attention_mask: torch.Tensor,
+    strategy_ids: torch.Tensor,
+    labels: torch.Tensor,
+    extended_labels: torch.Tensor,
+    gen_loss_right: torch.Tensor,
+    cfg: TrainConfig,
+    num_strategies: int,
+) -> torch.Tensor:
+    """对比生成损失：正确策略的 gen_loss 应低于错误策略。"""
+    wrong_ids = sample_wrong_strategies(strategy_ids, num_strategies)
+    with torch.no_grad():
+        outputs_wrong, ext_labels_wrong, _ = hybrid(
+            input_ids=input_ids,
+            attention_mask=attention_mask,
+            strategy_ids=wrong_ids,
+            labels=labels,
+            prefix_on=True,
+            prefix_scale=cfg.prefix_scale_train,
+            use_cache=False,
+        )
+        gen_loss_wrong = causal_lm_loss(
+            outputs_wrong.logits, ext_labels_wrong.to(outputs_wrong.logits.device)
+        )
+    return F.relu(gen_loss_right - gen_loss_wrong + cfg.contrastive_margin)
+
+
 def pool_target_tokens(hidden_states: torch.Tensor, target_mask: torch.Tensor) -> torch.Tensor:
     mask = target_mask.to(hidden_states.device).unsqueeze(-1).to(hidden_states.dtype)
     denom = mask.sum(dim=1).clamp_min(1.0)
@@ -268,13 +306,27 @@ def compute_training_losses(
             cls_loss, cls_logits = classification_loss(hybrid, cls_hidden, labels, strategy_ids)
             cls_loss = cls_loss.to(gen_loss.device)
         zero = torch.zeros((), device=gen_loss.device)
-        total_loss = gen_loss + cfg.lambda_cls * cls_loss
+        contrastive_loss = zero.clone()
+        if cfg.contrastive_loss:
+            contrastive_loss = compute_contrastive_loss(
+                hybrid=hybrid,
+                input_ids=input_ids,
+                attention_mask=attention_mask,
+                strategy_ids=strategy_ids,
+                labels=labels,
+                extended_labels=extended_labels,
+                gen_loss_right=gen_loss,
+                cfg=cfg,
+                num_strategies=hybrid.num_strategies,
+            )
+        total_loss = gen_loss + cfg.lambda_cls * cls_loss + cfg.lambda_contrastive * contrastive_loss
         return {
             "gen_loss": gen_loss,
             "orth_loss": zero,
             "orth_local_loss": zero,
             "orth_global_loss": zero,
             "cls_loss": cls_loss,
+            "contrastive_loss": contrastive_loss,
             "total_loss": total_loss,
             "used_orth": False,
             "cls_logits": cls_logits,
@@ -366,7 +418,21 @@ def compute_training_losses(
         cls_loss, cls_logits = classification_loss(hybrid, cls_hidden, labels, strategy_ids)
         cls_loss = cls_loss.to(gen_loss.device)
 
-    total_loss = gen_loss + cfg.lambda_orth * orth_loss + cfg.lambda_cls * cls_loss
+    contrastive_loss = torch.zeros((), device=gen_loss.device)
+    if cfg.contrastive_loss:
+        contrastive_loss = compute_contrastive_loss(
+            hybrid=hybrid,
+            input_ids=input_ids,
+            attention_mask=attention_mask,
+            strategy_ids=strategy_ids,
+            labels=labels,
+            extended_labels=extended_labels,
+            gen_loss_right=gen_loss,
+            cfg=cfg,
+            num_strategies=hybrid.num_strategies,
+        )
+
+    total_loss = gen_loss + cfg.lambda_orth * orth_loss + cfg.lambda_cls * cls_loss + cfg.lambda_contrastive * contrastive_loss
     del h_base, h_prefix, h_lora, delta_prefix, delta_lora
     return {
         "gen_loss": gen_loss,
@@ -374,6 +440,7 @@ def compute_training_losses(
         "orth_local_loss": local_loss,
         "orth_global_loss": global_loss,
         "cls_loss": cls_loss,
+        "contrastive_loss": contrastive_loss,
         "total_loss": total_loss,
         "used_orth": True,
         "cls_logits": cls_logits,

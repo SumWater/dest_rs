@@ -195,6 +195,7 @@ def main():
         running_orth_local = 0.0
         running_orth_global = 0.0
         running_cls = 0.0
+        running_contrastive = 0.0
         running_total = 0.0
         batches = 0
 
@@ -213,6 +214,7 @@ def main():
             orth_local_loss = losses["orth_local_loss"]
             orth_global_loss = losses["orth_global_loss"]
             cls_loss = losses["cls_loss"]
+            contrastive_loss = losses.get("contrastive_loss", torch.zeros(()))
             total_loss = losses["total_loss"]
 
             optimizer.zero_grad(set_to_none=True)
@@ -229,16 +231,20 @@ def main():
             running_orth_local += orth_local_loss.item()
             running_orth_global += orth_global_loss.item()
             running_cls += cls_loss.item()
+            running_contrastive += contrastive_loss.item()
             running_total += total_loss.item()
             batches += 1
 
-            pbar.set_postfix(
-                loss=f"{total_loss.item():.4f}",
-                gen=f"{gen_loss.item():.4f}",
-                orth=f"{orth_loss.item():.4f}",
-                cls=f"{cls_loss.item():.4f}",
-                orth_on="Y" if losses["used_orth"] else "N",
-            )
+            postfix = {
+                "loss": f"{total_loss.item():.4f}",
+                "gen": f"{gen_loss.item():.4f}",
+                "orth": f"{orth_loss.item():.4f}",
+                "cls": f"{cls_loss.item():.4f}",
+            }
+            if losses.get("contrastive_loss", torch.zeros(())).item() > 0:
+                postfix["contrast"] = f"{contrastive_loss.item():.4f}"
+            postfix["orth_on"] = "Y" if losses["used_orth"] else "N"
+            pbar.set_postfix(**postfix)
 
         epoch_record: Dict[str, float] = {
             "epoch": epoch + 1,
@@ -248,6 +254,7 @@ def main():
             "train_orth_local_loss": running_orth_local / max(1, batches),
             "train_orth_global_loss": running_orth_global / max(1, batches),
             "train_cls_loss": running_cls / max(1, batches),
+            "train_contrastive_loss": running_contrastive / max(1, batches),
         }
 
         if cfg.eval_every_epoch:

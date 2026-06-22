@@ -100,6 +100,11 @@ class TrainConfig:
     cls_dropout: float = 0.1
     cls_target: str = "h_real"  # 可选值：h_real | delta_prefix
 
+    # 对比生成损失（正确策略 gen_loss 应低于错误策略）
+    contrastive_loss: bool = False
+    lambda_contrastive: float = 1.0
+    contrastive_margin: float = 0.1
+
     # 生成与样例配置
     demo_max_new_tokens: int = 40
     demo_temperature: float = 0.0

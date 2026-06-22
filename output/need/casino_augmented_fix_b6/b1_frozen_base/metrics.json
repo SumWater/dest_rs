@@ -1,0 +1,13 @@
+{
+  "history": [
+    {
+      "epoch": 0,
+      "train_loss": 0,
+      "valid_ppl": "N/A (frozen base)",
+      "test_ppl": "N/A"
+    }
+  ],
+  "best_epoch": 0,
+  "best_valid_loss": Infinity,
+  "note": "B1 frozen base model \u2014 no PEFT training"
+}
