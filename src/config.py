@@ -91,6 +91,9 @@ class TrainConfig:
     orth_token_sample_size: int = 64
     orth_layer_index: int = -4
 
+    # 梯度路由（gen_loss → LoRA only, cls_loss → Prefix only, orth_loss → both detach）
+    grad_routing: bool = False
+
     # 策略分类辅助监督配置
     lambda_cls: float = 0.0
     cls_hidden_dim: int = 256

@@ -143,6 +143,51 @@ def compute_delta_prefix_hidden(
     return h_prefix - h_base
 
 
+def compute_delta_prefix_for_grad_routing(
+    hybrid: HybridStrategyModel,
+    catcher: LayerCatcher,
+    input_ids: torch.Tensor,
+    attention_mask: torch.Tensor,
+    strategy_ids: torch.Tensor,
+    cfg: TrainConfig,
+) -> torch.Tensor:
+    """Prefix-only 前向 + base-only (no_grad) → delta_prefix。
+
+    与 compute_delta_prefix_hidden 的区别：prefix 前向**不包 no_grad**，
+    使 cls_loss 梯度可以通过 delta_prefix 到达 prefix_bank。
+    """
+    catcher.reset()
+    with torch.no_grad():
+        with lora_disabled_ctx(hybrid.peft_model):
+            _ = hybrid(
+                input_ids=input_ids,
+                attention_mask=attention_mask,
+                strategy_ids=strategy_ids,
+                labels=None,
+                prefix_on=False,
+                prefix_scale=cfg.prefix_scale_train,
+                use_cache=False,
+            )
+            h_base = catcher.pop().detach()
+
+    catcher.reset()
+    # 注意：这里没有 torch.no_grad()，梯度会流向 prefix_bank
+    with lora_disabled_ctx(hybrid.peft_model):
+        _ = hybrid(
+            input_ids=input_ids,
+            attention_mask=attention_mask,
+            strategy_ids=strategy_ids,
+            labels=None,
+            prefix_on=True,
+            prefix_scale=cfg.prefix_scale_train,
+            use_cache=False,
+        )
+        h_prefix = catcher.pop()
+    h_prefix = hybrid.slice_real_tokens(h_prefix, prefix_on=True)
+
+    return h_prefix - h_base
+
+
 def compute_training_losses(
     hybrid: HybridStrategyModel,
     catcher: LayerCatcher,
@@ -167,6 +212,7 @@ def compute_training_losses(
         and global_step >= cfg.orth_start_step
         and (global_step % cfg.orth_every_n_steps == 0)
     )
+    grad_routing = bool(cfg.grad_routing)
 
     if not should_compute_orth:
         catcher.reset()
@@ -178,6 +224,7 @@ def compute_training_losses(
                 labels=labels,
                 prefix_on=prefix_on,
                 prefix_scale=cfg.prefix_scale_train,
+                detach_prefix=grad_routing and prefix_on,
                 use_cache=False,
             )
         else:
@@ -189,6 +236,7 @@ def compute_training_losses(
                     labels=labels,
                     prefix_on=prefix_on,
                     prefix_scale=cfg.prefix_scale_train,
+                    detach_prefix=grad_routing and prefix_on,
                     use_cache=False,
                 )
         h_both = catcher.pop()
@@ -199,14 +247,24 @@ def compute_training_losses(
         if should_compute_cls:
             cls_hidden = h_real
             if cls_target == "delta_prefix" and prefix_on:
-                cls_hidden = compute_delta_prefix_hidden(
-                    hybrid=hybrid,
-                    catcher=catcher,
-                    input_ids=input_ids,
-                    attention_mask=attention_mask,
-                    strategy_ids=strategy_ids,
-                    cfg=cfg,
-                )
+                if grad_routing:
+                    cls_hidden = compute_delta_prefix_for_grad_routing(
+                        hybrid=hybrid,
+                        catcher=catcher,
+                        input_ids=input_ids,
+                        attention_mask=attention_mask,
+                        strategy_ids=strategy_ids,
+                        cfg=cfg,
+                    )
+                else:
+                    cls_hidden = compute_delta_prefix_hidden(
+                        hybrid=hybrid,
+                        catcher=catcher,
+                        input_ids=input_ids,
+                        attention_mask=attention_mask,
+                        strategy_ids=strategy_ids,
+                        cfg=cfg,
+                    )
             cls_loss, cls_logits = classification_loss(hybrid, cls_hidden, labels, strategy_ids)
             cls_loss = cls_loss.to(gen_loss.device)
         zero = torch.zeros((), device=gen_loss.device)
@@ -241,6 +299,7 @@ def compute_training_losses(
             h_base = catcher.pop().detach()
 
     # 第 2 次前向：prefix-only，开启 Prefix、关闭 LoRA。
+    # 无 torch.no_grad()：orth_loss 和 cls_loss 梯度可流向 prefix_bank。
     catcher.reset()
     with lora_disabled_ctx(hybrid.peft_model):
         _ = hybrid(
@@ -256,6 +315,7 @@ def compute_training_losses(
         h_prefix = hybrid.slice_real_tokens(h_prefix, prefix_on=True)
 
     # 第 3 次前向：LoRA-only，关闭 Prefix、开启 LoRA。
+    # 无 torch.no_grad()：orth_loss 梯度可流向 LoRA。
     catcher.reset()
     _ = hybrid(
         input_ids=input_ids,
@@ -272,7 +332,8 @@ def compute_training_losses(
     if was_training:
         hybrid.train()
 
-    # 第 4 次前向：both-on，同时开启 Prefix 和 LoRA，用于生成损失与分类损失。
+    # 第 4 次前向：both-on，用于生成损失。
+    # 梯度路由模式下 detach prefix，使 gen_loss 梯度只流向 LoRA。
     catcher.reset()
     outputs, extended_labels, _ = hybrid(
         input_ids=input_ids,
@@ -281,6 +342,7 @@ def compute_training_losses(
         labels=labels,
         prefix_on=True,
         prefix_scale=cfg.prefix_scale_train,
+        detach_prefix=grad_routing,
         use_cache=False,
     )
     h_both = catcher.pop()

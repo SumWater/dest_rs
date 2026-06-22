@@ -106,6 +106,7 @@ class HybridStrategyModel(nn.Module):
         prefix_on: bool = True,
         prefix_scale: float = 1.0,
         prefix_override: torch.Tensor | None = None,
+        detach_prefix: bool = False,
         use_cache: bool = False,
     ):
         embed_layer = self.peft_model.get_input_embeddings()
@@ -125,6 +126,8 @@ class HybridStrategyModel(nn.Module):
                 if strategy_ids.dim() == 0:
                     strategy_ids = strategy_ids.unsqueeze(0)
                 prefix = self.prefix_bank[strategy_ids] * prefix_scale
+            if detach_prefix:
+                prefix = prefix.detach()
             inputs_embeds = torch.cat([prefix, inputs_embeds], dim=1)
 
             batch_size = attention_mask.size(0)
