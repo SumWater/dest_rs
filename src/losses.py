@@ -126,18 +126,19 @@ def compute_delta_prefix_hidden(
             h_base = catcher.pop().detach()
 
     catcher.reset()
-    with lora_disabled_ctx(hybrid.peft_model):
-        _ = hybrid(
-            input_ids=input_ids,
-            attention_mask=attention_mask,
-            strategy_ids=strategy_ids,
-            labels=None,
-            prefix_on=True,
-            prefix_scale=cfg.prefix_scale_train,
-            use_cache=False,
-        )
-        h_prefix = catcher.pop()
-        h_prefix = hybrid.slice_real_tokens(h_prefix, prefix_on=True)
+    with torch.no_grad():
+        with lora_disabled_ctx(hybrid.peft_model):
+            _ = hybrid(
+                input_ids=input_ids,
+                attention_mask=attention_mask,
+                strategy_ids=strategy_ids,
+                labels=None,
+                prefix_on=True,
+                prefix_scale=cfg.prefix_scale_train,
+                use_cache=False,
+            )
+            h_prefix = catcher.pop().detach()
+    h_prefix = hybrid.slice_real_tokens(h_prefix, prefix_on=True)
 
     return h_prefix - h_base
 
