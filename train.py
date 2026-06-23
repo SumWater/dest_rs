@@ -156,6 +156,8 @@ def main():
     parser.add_argument("--config", type=str, required=True)
     parser.add_argument("--dataset-tag", type=str, default=None)
     parser.add_argument("--dataset-dir", type=str, default=None)
+    parser.add_argument("--seed", type=int, default=None, help="覆盖配置文件中的 seed")
+    parser.add_argument("--warm-start-dir", type=str, default=None, help="覆盖 warm_start_dir")
     args = parser.parse_args()
 
     cfg = load_config(args.config)
@@ -163,6 +165,10 @@ def main():
         cfg.dataset_tag = args.dataset_tag
     if args.dataset_dir:
         cfg.dataset_dir = args.dataset_dir
+    if args.seed is not None:
+        cfg.seed = args.seed
+    if args.warm_start_dir is not None:
+        cfg.warm_start_dir = args.warm_start_dir
     resolve_warm_start_dir(cfg)
     set_seed(cfg.seed)
     ensure_output_dirs(cfg)

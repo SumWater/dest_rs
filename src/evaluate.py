@@ -68,6 +68,7 @@ def greedy_generate(
     max_new_tokens: int | None = None,
     temperature: float | None = None,
     prefix_override: torch.Tensor | None = None,
+    strategy_name: str | None = None,
 ) -> str:
     hybrid.eval()
     device_in = get_embed_device(hybrid.peft_model)
@@ -75,6 +76,11 @@ def greedy_generate(
     temperature = cfg.demo_temperature if temperature is None else temperature
     prefix_on = cfg_uses_prefix(cfg)
     lora_on = cfg_uses_lora(cfg)
+
+    # 若需要注入策略文本指令，拼接后再编码
+    if cfg.inject_strategy_text and strategy_name:
+        from .casino_dataset import _make_strategy_instruction
+        prompt = _make_strategy_instruction(strategy_name) + "\n\n" + prompt
 
     enc = tokenizer(prompt, return_tensors="pt", add_special_tokens=False)
     input_ids = enc["input_ids"].to(device_in)
@@ -152,6 +158,7 @@ def save_swap_samples(
                 prompt=prompt,
                 strategy_id=strategy_id,
                 cfg=cfg,
+                strategy_name=strategy_name,
             )
 
         records.append(

@@ -32,6 +32,7 @@
     "v_proj",
     "o_proj"
   ],
+  "inject_strategy_text": true,
   "num_virtual_tokens": 20,
   "lambda_orth": 0.0,
   "lambda_cls": 0.0,

@@ -1,4 +1,15 @@
 #!/usr/bin/env bash
+# ══════════════════════════════════════════════════════════════════════════════
+# run_all.sh — 一键运行全部主实验 (B2-B9)
+#
+# 补充实验脚本:
+#   run_multi_seed.sh              — 多 seed (5.2)
+#   scripts/bootstrap_confidence.py — Bootstrap CI (5.1)
+#   scripts/sample_for_human_eval.py — 人工评估抽样 (5.3)
+#   scripts/analyze_lora_prefix_interference.py — 表示空间分析 (5.5)
+#
+# B2 (lora_only) 已改为公平 baseline：prompt 中注入策略文本指令 (5.4)
+# ══════════════════════════════════════════════════════════════════════════════
 set -uo pipefail
 
 PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"

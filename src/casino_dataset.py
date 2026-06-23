@@ -12,6 +12,26 @@ from torch.utils.data import Dataset
 from .config import TrainConfig
 
 
+# ── 策略文本描述（用于 inject_strategy_text） ──
+STRATEGY_DESCRIPTIONS: Dict[str, str] = {
+    "elicit-pref": "Ask about the other party's preferences, priorities, or situation",
+    "self-need": "Express or emphasize your own needs, wants, or requirements",
+    "other-need": "Acknowledge, discuss, or accommodate the other party's needs",
+    "no-need": "Downplay or deny needing something; signal flexibility",
+    "promote-coordination": "Propose collaboration, compromise, or working together",
+    "showing-empathy": "Express understanding, support, or emotional connection",
+    "small-talk": "Make casual conversation, greetings, or chit-chat",
+    "uv-part": "Emphasize the unique value of items; justify why something matters",
+    "vouch-fair": "Appeal to fairness, equity, or balanced outcomes",
+}
+
+
+def _make_strategy_instruction(strategy_name: str) -> str:
+    """构建单条策略文本指令。"""
+    desc = STRATEGY_DESCRIPTIONS.get(strategy_name, strategy_name)
+    return f"Use the following negotiation strategy: {desc}."
+
+
 OFFICIAL_SPLIT_FILES = {
     "train": "casino_train.json",
     "valid": "casino_valid.json",
@@ -257,7 +277,16 @@ class StrategyDataCollator:
         return input_ids, attention_mask, labels
 
     def __call__(self, batch: Sequence[Dict]) -> Dict[str, torch.Tensor]:
-        encoded = [self.encode_prompt_target(item["prompt"], item["target"]) for item in batch]
+        # 构建 prompt（可选注入策略文本指令）
+        if self.cfg.inject_strategy_text:
+            prompts = [
+                _make_strategy_instruction(item["primary_strategy"]) + "\n\n" + item["prompt"]
+                for item in batch
+            ]
+        else:
+            prompts = [item["prompt"] for item in batch]
+
+        encoded = [self.encode_prompt_target(p, item["target"]) for p, item in zip(prompts, batch)]
         max_seq = max(len(x[0]) for x in encoded)
         pad_id = self.tokenizer.pad_token_id
 

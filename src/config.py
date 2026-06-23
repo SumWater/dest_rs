@@ -30,6 +30,7 @@ class TrainConfig:
         return os.path.join("output", "other", self.dataset_tag, self.experiment_name)
 
     # 数据配置
+    inject_strategy_text: bool = False  # B2 公平 baseline：prompt 中显式注入策略指令
     max_length: int = 512
     context_turns: int = 6
     max_reason_chars: int = 180
