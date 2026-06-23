@@ -1,0 +1,38 @@
+{
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.8649662236352658,
+      "train_gen_loss": 1.8649662236352658,
+      "train_orth_loss": 0.0,
+      "train_orth_local_loss": 0.0,
+      "train_orth_global_loss": 0.0,
+      "train_cls_loss": 0.0,
+      "train_contrastive_loss": 0.0,
+      "valid_loss": 2.459163246984067,
+      "valid_ppl": 11.695021600075927,
+      "test_loss": 2.5210085722036237,
+      "test_ppl": 12.441138124123611
+    },
+    {
+      "epoch": 2,
+      "train_loss": 1.603787650963399,
+      "train_gen_loss": 1.603787650963399,
+      "train_orth_loss": 0.0,
+      "train_orth_local_loss": 0.0,
+      "train_orth_global_loss": 0.0,
+      "train_cls_loss": 0.0,
+      "train_contrastive_loss": 0.0,
+      "valid_loss": 2.3659699991993284,
+      "valid_ppl": 10.654368535739886,
+      "test_loss": 2.384116264409894,
+      "test_ppl": 10.849470363921517
+    }
+  ],
+  "best_valid_loss": 2.3659699991993284,
+  "best_epoch": 2,
+  "prefix_norm_before": 17.172836303710938,
+  "prefix_norm_after": 44.62236785888672,
+  "save_best_only": true,
+  "swap_samples_checkpoint": "best"
+}

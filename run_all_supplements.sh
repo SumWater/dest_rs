@@ -203,10 +203,10 @@ echo "$(bold '══════════════════════
 echo ""
 
 if [ "$DUAL_GPU" = "1" ]; then
-    # B2, B3, B4 三者独立，丢到 4 个槽位里自动调度
+    # B2/B3/B4 独立，轮询分配到双卡（避免 GPU0 堆两个 GPU1 空着）
     train_job "$GPU0" "$BASE_TAG" configs/b2_lora_only.json   b2_lora_only
-    train_job "$GPU0" "$BASE_TAG" configs/b3_prefix_only.json b3_prefix_only
-    train_job "$GPU1" "$BASE_TAG" configs/b4_prefix_lora.json b4_prefix_lora
+    train_job "$GPU1" "$BASE_TAG" configs/b3_prefix_only.json b3_prefix_only
+    train_job "$GPU0" "$BASE_TAG" configs/b4_prefix_lora.json b4_prefix_lora
     wait_all_jobs || FAIL_COUNT=$((FAIL_COUNT + 1))
 
     # B7/B9 依赖 B3
@@ -261,29 +261,37 @@ echo "$(bold '══════════════════════
 echo ""
 
 if [ "$DUAL_GPU" = "1" ]; then
-    # ── 双卡：跨 seed 并行，所有 seed 的 B3+B4 一起塞进槽位 ──
+    # ── 双卡：跨 seed 并行，B3/B4 轮询分配到双卡 ──
     echo "  提交所有 seed 的 B3 + B4（独立任务，填满 4 槽）..."
+    _idx=0
     for seed in $SEEDS; do
         SEED_TAG="${BASE_TAG}_seed${seed}"
-        train_job "$GPU0" "$SEED_TAG" configs/b3_prefix_only.json b3_prefix_only --seed "$seed"
-        train_job "$GPU1" "$SEED_TAG" configs/b4_prefix_lora.json b4_prefix_lora --seed "$seed"
+        gpu_a=$(( _idx % 2 == 0 ? GPU0 : GPU1 ))
+        gpu_b=$(( _idx % 2 == 0 ? GPU1 : GPU0 ))
+        train_job "$gpu_a" "$SEED_TAG" configs/b3_prefix_only.json b3_prefix_only --seed "$seed"
+        train_job "$gpu_b" "$SEED_TAG" configs/b4_prefix_lora.json b4_prefix_lora --seed "$seed"
+        _idx=$((_idx + 1))
     done
     wait_all_jobs || FAIL_COUNT=$((FAIL_COUNT + 1))
 
     # ── B7/B9 依赖各自 seed 的 B3 ──
     echo ""
     echo "  提交所有 seed 的 B7 + B9（依赖 B3）..."
+    _idx=0
     for seed in $SEEDS; do
         SEED_TAG="${BASE_TAG}_seed${seed}"
         B3_SEED_PREFIX="${PROJECT_DIR}/output/other/${SEED_TAG}/b3_prefix_only/prefix_bank.pt"
+        gpu_a=$(( _idx % 2 == 0 ? GPU0 : GPU1 ))
+        gpu_b=$(( _idx % 2 == 0 ? GPU1 : GPU0 ))
         if [ -f "$B3_SEED_PREFIX" ]; then
             B3_SEED_OTHER="${PROJECT_DIR}/output/other/${SEED_TAG}/b3_prefix_only"
-            train_job "$GPU0" "$SEED_TAG" configs/b7_dest_rs_warm.json    b7_dest_rs_warm    --seed "$seed" --warm-start-dir "$B3_SEED_OTHER"
-            train_job "$GPU1" "$SEED_TAG" configs/b9_prefix_then_lora.json b9_prefix_then_lora --seed "$seed" --warm-start-dir "$B3_SEED_OTHER"
+            train_job "$gpu_a" "$SEED_TAG" configs/b7_dest_rs_warm.json    b7_dest_rs_warm    --seed "$seed" --warm-start-dir "$B3_SEED_OTHER"
+            train_job "$gpu_b" "$SEED_TAG" configs/b9_prefix_then_lora.json b9_prefix_then_lora --seed "$seed" --warm-start-dir "$B3_SEED_OTHER"
         else
             echo "  $(red "B3 seed=${seed} 缺失，跳过 B7/B9")"
             FAIL_COUNT=$((FAIL_COUNT + 1))
         fi
+        _idx=$((_idx + 1))
     done
     wait_all_jobs || FAIL_COUNT=$((FAIL_COUNT + 1))
 else
