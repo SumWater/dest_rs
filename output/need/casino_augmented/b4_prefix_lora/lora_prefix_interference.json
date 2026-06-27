@@ -1,0 +1,69 @@
+{
+  "checkpoint_dir": "/home/amax/桌面/Dynamic-Prefix+LoRA-Joint-Training/dest_rs/output/other/casino_augmented/b4_prefix_lora",
+  "split": "valid",
+  "n_samples": 60,
+  "overall": {
+    "mean_cosine": 0.2650549256124106,
+    "mean_norm_ratio": 0.91746309823491,
+    "mean_clean_norm": 231.57655877679565,
+    "mean_lora_norm": 200.06792813220073
+  },
+  "per_strategy": {
+    "elicit-pref": {
+      "n_samples": 12,
+      "mean_cosine": 0.2854631500566016,
+      "mean_norm_ratio": 0.8285989549564707,
+      "mean_clean_norm": 220.7005599801123,
+      "mean_lora_norm": 187.05791449903288
+    },
+    "self-need": {
+      "n_samples": 10,
+      "mean_cosine": 0.27207402104449335,
+      "mean_norm_ratio": 0.8163221105136189,
+      "mean_clean_norm": 232.51001208455568,
+      "mean_lora_norm": 187.66896237802874
+    },
+    "other-need": {
+      "n_samples": 2,
+      "mean_cosine": 0.34981975688579237,
+      "mean_norm_ratio": 0.8177429014380942,
+      "mean_clean_norm": 265.88030470178484,
+      "mean_lora_norm": 224.83242444789155
+    },
+    "no-need": {
+      "n_samples": 3,
+      "mean_cosine": 0.26747176058160405,
+      "mean_norm_ratio": 0.8172971210294393,
+      "mean_clean_norm": 228.86043265514576,
+      "mean_lora_norm": 186.08614698933488
+    },
+    "promote-coordination": {
+      "n_samples": 7,
+      "mean_cosine": 0.17358088201710156,
+      "mean_norm_ratio": 0.6794437316911561,
+      "mean_clean_norm": 307.9811548287528,
+      "mean_lora_norm": 194.19180204119002
+    },
+    "showing-empathy": {
+      "n_samples": 2,
+      "mean_cosine": 0.2655705891609192,
+      "mean_norm_ratio": 0.7892431715011596,
+      "mean_clean_norm": 223.43653920898439,
+      "mean_lora_norm": 175.63915346679687
+    },
+    "small-talk": {
+      "n_samples": 21,
+      "mean_cosine": 0.27078340647988924,
+      "mean_norm_ratio": 1.111649298080573,
+      "mean_clean_norm": 219.6225226625751,
+      "mean_lora_norm": 222.6019692175909
+    },
+    "vouch-fair": {
+      "n_samples": 3,
+      "mean_cosine": 0.27022026222717915,
+      "mean_norm_ratio": 1.1559854979756512,
+      "mean_clean_norm": 181.49973714321476,
+      "mean_lora_norm": 192.0459118613714
+    }
+  }
+}

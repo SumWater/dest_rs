@@ -1,0 +1,35 @@
+{
+  "labels": [
+    "elicit-pref",
+    "no-need",
+    "other-need",
+    "promote-coordination",
+    "self-need",
+    "showing-empathy",
+    "small-talk",
+    "uv-part",
+    "vouch-fair"
+  ],
+  "label_to_id": {
+    "elicit-pref": 0,
+    "no-need": 1,
+    "other-need": 2,
+    "promote-coordination": 3,
+    "self-need": 4,
+    "showing-empathy": 5,
+    "small-talk": 6,
+    "uv-part": 7,
+    "vouch-fair": 8
+  },
+  "id_to_label": {
+    "0": "elicit-pref",
+    "1": "no-need",
+    "2": "other-need",
+    "3": "promote-coordination",
+    "4": "self-need",
+    "5": "showing-empathy",
+    "6": "small-talk",
+    "7": "uv-part",
+    "8": "vouch-fair"
+  }
+}

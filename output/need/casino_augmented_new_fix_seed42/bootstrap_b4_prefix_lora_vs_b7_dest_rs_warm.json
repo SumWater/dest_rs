@@ -1,0 +1,88 @@
+{
+  "label_a": "b4_prefix_lora",
+  "label_b": "b7_dest_rs_warm",
+  "overall_a": {
+    "mean": 0.37174721189591076,
+    "ci_low": 0.3159851301115242,
+    "ci_high": 0.4275092936802974,
+    "n": 269
+  },
+  "per_strategy": {
+    "elicit-pref": {
+      "mean_diff": -0.27026666666666666,
+      "ci_low": -0.5,
+      "ci_high": -0.033333333333333326,
+      "p_a_greater_b": 0.0122,
+      "p_b_greater_a": 0.9785
+    },
+    "self-need": {
+      "mean_diff": -0.03200000000000001,
+      "ci_low": -0.2333333333333334,
+      "ci_high": 0.16666666666666674,
+      "p_a_greater_b": 0.3108,
+      "p_b_greater_a": 0.5603
+    },
+    "other-need": {
+      "mean_diff": 0.03269999999999999,
+      "ci_low": 0.0,
+      "ci_high": 0.1,
+      "p_a_greater_b": 0.6326,
+      "p_b_greater_a": 0.0
+    },
+    "no-need": {
+      "mean_diff": 0.030773333333333337,
+      "ci_low": -0.20000000000000007,
+      "ci_high": 0.2666666666666667,
+      "p_a_greater_b": 0.5523,
+      "p_b_greater_a": 0.3422
+    },
+    "promote-coordination": {
+      "mean_diff": -0.13466333333333336,
+      "ci_low": -0.3333333333333333,
+      "ci_high": 0.033333333333333354,
+      "p_a_greater_b": 0.0497,
+      "p_b_greater_a": 0.8972
+    },
+    "showing-empathy": {
+      "mean_diff": -0.13676,
+      "ci_low": -0.3666666666666667,
+      "ci_high": 0.10000000000000003,
+      "p_a_greater_b": 0.113,
+      "p_b_greater_a": 0.8296
+    },
+    "small-talk": {
+      "mean_diff": 0.053417126436781606,
+      "ci_low": -0.21609195402298842,
+      "ci_high": 0.3195402298850574,
+      "p_a_greater_b": 0.6496,
+      "p_b_greater_a": 0.3504
+    },
+    "uv-part": {
+      "mean_diff": 0.03256666666666666,
+      "ci_low": -0.1,
+      "ci_high": 0.16666666666666669,
+      "p_a_greater_b": 0.5921,
+      "p_b_greater_a": 0.2442
+    },
+    "vouch-fair": {
+      "mean_diff": 0.0001599999999999995,
+      "ci_low": -0.2,
+      "ci_high": 0.2,
+      "p_a_greater_b": 0.439,
+      "p_b_greater_a": 0.4397
+    }
+  },
+  "difference": {
+    "mean_diff": -0.04660831474597274,
+    "ci_low": -0.12841800908715406,
+    "ci_high": 0.03493046950296019,
+    "p_a_greater_b": 0.1357,
+    "p_b_greater_a": 0.8643
+  },
+  "overall_b": {
+    "mean": 0.4185185185185185,
+    "ci_low": 0.3592592592592593,
+    "ci_high": 0.4777777777777778,
+    "n": 270
+  }
+}

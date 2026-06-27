@@ -19,5 +19,6 @@
   "best_epoch": 1,
   "prefix_norm_before": 44.73447799682617,
   "prefix_norm_after": 45.12107849121094,
-  "save_best_only": true
+  "save_best_only": true,
+  "swap_samples_checkpoint": "best"
 }

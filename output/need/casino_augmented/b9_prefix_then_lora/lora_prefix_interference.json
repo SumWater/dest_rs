@@ -1,0 +1,69 @@
+{
+  "checkpoint_dir": "/home/amax/桌面/Dynamic-Prefix+LoRA-Joint-Training/dest_rs/output/other/casino_augmented/b9_prefix_then_lora",
+  "split": "valid",
+  "n_samples": 60,
+  "overall": {
+    "mean_cosine": 0.9999999916166227,
+    "mean_norm_ratio": 0.9999999916166227,
+    "mean_clean_norm": 124.01721851811517,
+    "mean_lora_norm": 124.01721851811517
+  },
+  "per_strategy": {
+    "elicit-pref": {
+      "n_samples": 12,
+      "mean_cosine": 0.9999999848236195,
+      "mean_norm_ratio": 0.9999999848236195,
+      "mean_clean_norm": 134.47484159176037,
+      "mean_lora_norm": 134.47484159176037
+    },
+    "self-need": {
+      "n_samples": 10,
+      "mean_cosine": 0.9999999904799663,
+      "mean_norm_ratio": 0.9999999904799663,
+      "mean_clean_norm": 109.67832603159096,
+      "mean_lora_norm": 109.67832603159096
+    },
+    "other-need": {
+      "n_samples": 2,
+      "mean_cosine": 1.0,
+      "mean_norm_ratio": 1.0,
+      "mean_clean_norm": 140.73117978522117,
+      "mean_lora_norm": 140.73117978522117
+    },
+    "no-need": {
+      "n_samples": 3,
+      "mean_cosine": 0.9999999784468481,
+      "mean_norm_ratio": 0.9999999784468481,
+      "mean_clean_norm": 111.81681678151917,
+      "mean_lora_norm": 111.81681678151917
+    },
+    "promote-coordination": {
+      "n_samples": 7,
+      "mean_cosine": 0.9999999917404992,
+      "mean_norm_ratio": 0.9999999917404992,
+      "mean_clean_norm": 134.60970067705426,
+      "mean_lora_norm": 134.60970067705426
+    },
+    "showing-empathy": {
+      "n_samples": 2,
+      "mean_cosine": 1.0,
+      "mean_norm_ratio": 1.0,
+      "mean_clean_norm": 102.2138060546875,
+      "mean_lora_norm": 102.2138060546875
+    },
+    "small-talk": {
+      "n_samples": 21,
+      "mean_cosine": 0.9999999950399718,
+      "mean_norm_ratio": 0.9999999950399718,
+      "mean_clean_norm": 130.37492123846172,
+      "mean_lora_norm": 130.37492123846172
+    },
+    "vouch-fair": {
+      "n_samples": 3,
+      "mean_cosine": 1.0,
+      "mean_norm_ratio": 1.0,
+      "mean_clean_norm": 112.61731614704374,
+      "mean_lora_norm": 112.61731614704374
+    }
+  }
+}
