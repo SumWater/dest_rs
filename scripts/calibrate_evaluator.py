@@ -177,6 +177,8 @@ def main():
         response = tokenizer.decode(outputs[0][inputs.input_ids.size(1):], skip_special_tokens=True)
         pred = extract_strategy(response)
 
+        sample["pred"] = pred
+
         total += 1
         gold = sample["gold_strategy"]
         per_strat[gold]["total"] += 1
@@ -211,6 +213,21 @@ def main():
     print(f"  Top confusions:")
     for pair, cnt in sorted(confusion.items(), key=lambda x: -x[1])[:15]:
         print(f"    {pair}: {cnt}")
+
+    # 保存逐条预测结果
+    out_path = Path("output/evaluator_calibration_results.json")
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    results = []
+    for s in samples:
+        results.append({
+            "dialogue_id": s["dialogue_id"],
+            "gold": s["gold_strategy"],
+            "pred": s.get("pred"),
+            "utterance": s["utterance"][:120],
+        })
+    with open(out_path, "w", encoding="utf-8") as f:
+        json.dump(results, f, indent=2, ensure_ascii=False)
+    print(f"\n  Per-sample results saved to {out_path}")
 
 
 if __name__ == "__main__":

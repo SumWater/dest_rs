@@ -1,0 +1,436 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{multirow}
+
+\graphicspath{{./}{../paper_figures/}}
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\begin{document}
+
+\title{When Prefix Meets LoRA: Diagnosing Hybrid PEFT Interference in Strategy-Controlled Negotiation Dialogue Generation}
+
+\author{\IEEEauthorblockN{First Author\textsuperscript{1}}
+\IEEEauthorblockA{\textit{School of XXXX} \\
+\textit{University Name}\\
+City, China \\
+email@example.com}
+}
+
+\maketitle
+
+\begin{abstract}
+Negotiation dialogue generation requires responses that are not only fluent but strategically aligned. Parameter-efficient fine-tuning (PEFT) offers a practical means of adapting large language models for controllable generation, yet how different PEFT modules interact remains poorly understood. In this paper, we conduct a systematic diagnostic study of strategy-specific Prefix Tuning and shared LoRA adaptation for strategy-controlled negotiation dialogue on the CaSiNo dataset. Comparing twelve configurations---from text prompting to full hybrid adaptation with orthogonal constraints, auxiliary classification, gradient routing, and contrastive losses---we find that Prefix-only tuning achieves the strongest strategy controllability (55.9\%), while LoRA reduces perplexity by 24.8\%. However, naive joint training introduces a robust control-quality trade-off, degrading accuracy by approximately 19 percentage points. Diagnostic experiments show that orthogonal constraints, auxiliary supervision, and contrastive objectives do not reliably resolve this interference. Further, we demonstrate that LoRA disrupts Prefix control at the inference level: even frozen Prefix weights degrade when LoRA is introduced. We also calibrate the LLM-based evaluator against human-written responses, revealing only 52.0\% accuracy and substantial shortcut risks across strategy classes. Our results provide a comprehensive diagnostic portrait of hybrid PEFT for controllable generation and underscore the gap between representation-space separation and functional strategy realization.
+\end{abstract}
+
+\begin{IEEEkeywords}
+controllable text generation, negotiation dialogue, parameter-efficient fine-tuning, Prefix Tuning, LoRA, LLM evaluation
+\end{IEEEkeywords}
+
+%=====================================================================
+\section{Introduction}
+%=====================================================================
+
+Negotiation is a fundamental form of human communication in which participants exchange information, express preferences, and coordinate toward mutually acceptable outcomes. In automated negotiation systems and conversational agents, generating responses that are not only fluent and contextually appropriate but also strategically aligned is a central challenge. A negotiator who fails to \textit{elicit preferences} when information is needed, or who cannot \textit{express empathy} when the counterpart is frustrated, will struggle to reach favorable agreements regardless of linguistic fluency.
+
+Large language models (LLMs) have demonstrated remarkable capabilities in open-ended dialogue generation. However, controlling the \textit{strategy} or \textit{dialogue act} of generated responses remains difficult. Direct text prompting---instructing the model to ``use a cooperative strategy''---can influence generation to some degree, but the control is inconsistent. The model may ignore the instruction, produce meta-commentary about strategies rather than strategic utterances, or default to common patterns regardless of the specified strategy. This limitation motivates the use of parameter-efficient fine-tuning (PEFT) methods, which adapt a frozen base model through lightweight trainable modules that can encode structured control signals.
+
+Two PEFT approaches are particularly relevant to strategy-controlled generation. \textbf{Prefix Tuning} prepends learnable continuous vectors to the input, which can serve as strategy-specific control interfaces: different prefixes can steer the model toward different generation behaviors. \textbf{Low-Rank Adaptation (LoRA)} injects trainable low-rank matrices into the model's attention projections, enabling efficient domain adaptation without architectural changes. A natural and appealing hypothesis is that these two methods can complement each other in a hybrid setup: strategy-specific prefixes handle fine-grained strategic control, while a shared LoRA branch handles general language modeling and negotiation-domain adaptation.
+
+In this paper, we test this hypothesis through a systematic diagnostic study. Using the CaSiNo negotiation dialogue dataset and Qwen3-8B as the base model, we compare a spectrum of configurations: frozen-base text prompting, LoRA-only adaptation, Prefix-only tuning, joint Prefix-LoRA training, and multiple hybrid variants incorporating orthogonal regularization, auxiliary strategy classification, gradient routing, and contrastive generation objectives. Our goal is not to propose a single superior method, but to understand the functional roles and interactions of Prefix and LoRA in strategy-controlled generation.
+
+Our study reveals several findings that challenge the natural-division-of-labor hypothesis:
+
+\begin{enumerate}
+\item \textbf{Prefix-only tuning provides the strongest strategy controllability} (55.9\% accuracy, 95\% CI [52.4, 59.3]), but at the cost of higher perplexity (10.5). Strategy-specific prefixes can effectively steer generation without any auxiliary supervision beyond the autoregressive language modeling loss.
+
+\item \textbf{LoRA substantially improves generation quality}---joint Prefix-LoRA training reduces perplexity by 24.8\% compared to Prefix-only---but \textbf{degrades strategy controllability} by approximately 19 percentage points. This control-quality trade-off is statistically robust across three training seeds.
+
+\item \textbf{Common mitigation mechanisms do not reliably resolve this trade-off.} Orthogonal regularization between Prefix and LoRA hidden-state deltas achieves geometric separation but not functional disentanglement. Auxiliary strategy classification on internal representations yields high internal accuracy but does not translate into strategy-consistent generation. Gradient routing that separates generation and classification objectives provides partial relief but insufficient recovery. A contrastive generation objective designed to make the model sensitive to strategy identity produces near-zero loss throughout training, revealing that standard token-level language modeling loss is largely strategy-agnostic.
+
+\item \textbf{LoRA interferes with Prefix at the inference level, not just during training.} When we freeze a pre-trained Prefix and train only LoRA, strategy accuracy still drops substantially relative to Prefix-only. Even though the Prefix weights are unchanged, the LoRA-modified attention projections alter the operating environment of the Prefix, partially disrupting its learned strategy signals.
+
+\item \textbf{LLM-based strategy evaluation requires careful calibration.} Our evaluator achieves only 52.0\% accuracy on human-written responses, with per-class accuracy ranging from 0\% to 84\%. Model-generated utterances may exploit evaluator shortcuts---for instance, the evaluator cannot recognize human-written \textit{no-need} (0\% accuracy) but classifies model-generated \textit{no-need} at 93.3\%, suggesting learned exaggeration rather than genuine strategy control.
+\end{enumerate}
+
+Taken together, these findings contribute a comprehensive diagnostic portrait of hybrid PEFT for strategy-controlled generation. We show that Prefix and LoRA do not automatically cooperate, that simple geometric and auxiliary supervision mechanisms do not resolve their interference, and that current evaluation practices overstate reliability without calibration.
+
+Our contributions are:
+\begin{itemize}
+\item A systematic diagnostic framework comparing text prompting, single-branch PEFT, joint PEFT, and six hybrid variants for strategy-controlled negotiation dialogue generation;
+\item Empirical demonstration of a robust control-quality trade-off between Prefix-based strategy steering and LoRA-based generation adaptation;
+\item Analysis showing that orthogonal constraints, auxiliary classification, gradient routing, and contrastive losses do not reliably resolve Prefix-LoRA interference;
+\item Calibration of LLM-based strategy evaluation, revealing substantial class ambiguity and shortcut risks;
+\item Multi-seed validation establishing the statistical reliability of our core findings.
+\end{itemize}
+
+%=====================================================================
+\section{Related Work}
+%=====================================================================
+
+\subsection{Negotiation Dialogue and Strategy}
+
+Negotiation dialogue has been studied extensively in NLP, with datasets such as CaSiNo~\cite{chawla2021casino}, Deal or No Deal, and CraigslistBargain enabling research on strategic communication. Unlike open-domain chit-chat, negotiation involves structured goals: parties exchange offers, express preferences, and employ persuasive tactics. Chawla et al. annotated the CaSiNo dataset with nine fine-grained negotiation strategies, including \textit{elicit-pref} (eliciting preferences), \textit{self-need} (expressing one's own needs), and \textit{promote-coordination} (proposing collaboration). Generating utterances that faithfully reflect a target strategy---while maintaining fluency and contextual relevance---remains an open challenge.
+
+Prior work on strategy-controlled generation has explored decoding-time constraints, reinforcement learning from strategy rewards, and conditional language modeling. However, these approaches often trade flexibility for controllability, or require careful reward design that may not generalize across strategies. The emergence of PEFT methods creates new opportunities: lightweight trainable modules can encode structured control signals without full model fine-tuning.
+
+\subsection{Parameter-Efficient Fine-Tuning}
+
+PEFT methods adapt large pre-trained models through a small number of additional parameters while keeping the base model frozen. The two approaches most relevant to our work are Prefix Tuning and LoRA.
+
+\textbf{Prefix Tuning}~\cite{li2021prefix} prepends a sequence of learnable continuous vectors (virtual tokens) to the input. These prefix embeddings are optimized to steer the model's behavior in a task-specific or attribute-specific manner. Because different prefixes can be trained independently, Prefix Tuning naturally supports multi-attribute control: each strategy can be associated with its own prefix, and control is exerted by swapping the active prefix at inference time.
+
+\textbf{LoRA}~\cite{hu2021lora} injects low-rank decomposition matrices into the weight matrices of attention projections (query, key, value, output). Empirical studies have shown that LoRA effectively captures task-specific knowledge while preserving the base model's general capabilities. However, because LoRA parameters are shared across inputs, they encode global adaptation patterns rather than instance-level control signals.
+
+\textbf{Hybrid PEFT} methods combine multiple adapter types. Kim et al.~\cite{kim2024peft} analyzed the representational properties of Prefix Tuning and LoRA, finding through SVD analysis that LoRA reduces the effective rank of pre-trained representations while Prefix Tuning preserves the full representational space. They proposed sequential composition (Prefix $\rightarrow$ LoRA). Our work extends this line of inquiry by systematically diagnosing the interference mechanisms when Prefix and LoRA are combined, and by testing whether orthogonal constraints, auxiliary supervision, and gradient routing can resolve interference.
+
+\subsection{Controllable Text Generation}
+
+Controllable generation aims to steer model outputs toward desired attributes---sentiment, topic, formality, persona, or, in our case, negotiation strategy. Methods range from prompt engineering and controlled decoding to fine-tuning with attribute-conditioned architectures. In the PEFT paradigm, adapters and prefixes have been used for attribute control in tasks such as sentiment-controlled story generation and persona-conditioned dialogue. Our work focuses specifically on the challenge of fine-grained strategy control in negotiation, where strategy boundaries are inherently fuzzy and evaluator reliability is a first-order concern.
+
+\subsection{LLM-as-Judge Evaluation}
+
+Using LLMs to evaluate generated text has become common practice, particularly for semantic attributes that resist automated metrics. LLM-based evaluators have been applied to assess relevance, coherence, factual consistency, and dialogue quality~\cite{zheng2023judging}. However, recent work has highlighted reliability concerns: evaluators may exhibit position bias, verbosity bias, and inconsistent calibration across categories. Our calibration study contributes to this growing literature by providing per-class LLM evaluator accuracy for nine negotiation strategies, demonstrating that evaluator reliability varies dramatically across classes and that model-generated outputs may exploit evaluator shortcuts.
+
+%=====================================================================
+\section{Diagnostic Framework}
+%=====================================================================
+
+We formulate strategy-controlled negotiation dialogue generation as a conditional text generation task. Given a dialogue context $x$ (the conversation history up to the current turn) and a target negotiation strategy $s \in \mathcal{S}$ from a predefined set of nine strategies, the model must generate the next utterance $y$ that is both contextually appropriate and aligned with $s$.
+
+To systematically study how different PEFT modules contribute to strategy control and generation quality, we construct a diagnostic framework spanning a spectrum of configurations---from pure text instruction to full hybrid adaptation with multiple auxiliary objectives. Rather than proposing a single ``best'' method, our framework is designed to isolate the functional roles of each component through controlled comparisons.
+
+\subsection{Base Model and Strategy-Specific Prefix}
+
+We use Qwen3-8B as the base language model, loaded in 4-bit quantization (bfloat16). On top of the frozen base model, we introduce a \textbf{strategy-specific Prefix bank}: for each of the nine negotiation strategies, we maintain an independent set of $K = 20$ learnable virtual token embeddings. At inference time, the prefix corresponding to the target strategy $s$ is prepended to the input sequence:
+\begin{equation}
+\tilde{x} = [p_1^{(s)}, p_2^{(s)}, \ldots, p_K^{(s)}; x_1, x_2, \ldots, x_T]
+\end{equation}
+where $p_i^{(s)} \in \mathbb{R}^d$ are the strategy-specific prefix embeddings and $x_i$ are the token embeddings of the dialogue context. During training, the prefix embeddings are optimized via the standard autoregressive language modeling loss:
+\begin{equation}
+\mathcal{L}_{\text{gen}} = -\frac{1}{T} \sum_{t=1}^{T} \log P(y_t \mid \tilde{x}, y_{<t})
+\end{equation}
+Crucially, Prefix-only training (B3) uses only this loss---the strategy differentiation emerges purely from the model's need to reduce perplexity differently for different strategy-conditioned inputs.
+
+\subsection{Shared LoRA Adapter}
+
+In parallel, we introduce a shared LoRA branch applied to the query, key, value, and output projection matrices of all attention layers. For each weight matrix $W \in \mathbb{R}^{d \times d}$, LoRA learns a low-rank decomposition:
+\begin{equation}
+W' = W + \Delta W = W + \frac{\alpha}{r} \cdot BA
+\end{equation}
+where $B \in \mathbb{R}^{d \times r}$, $A \in \mathbb{R}^{r \times d}$, with rank $r = 16$ and scaling factor $\alpha = 32$. Dropout of 0.05 is applied to the LoRA activations. The LoRA parameters are shared across all nine strategies, meaning they are trained to improve general language modeling and domain adaptation without receiving explicit strategy identity.
+
+\subsection{Joint Prefix-LoRA Configuration}
+
+In the joint configuration (B4), both the strategy-specific Prefix bank and the shared LoRA adapter are active and trained simultaneously. The intuition is that Prefix handles strategy steering while LoRA handles general generation quality---a natural functional division of labor. However, as our results show, this division does not emerge automatically from joint optimization.
+
+\subsection{Orthogonal Regularization}
+
+To explicitly encourage functional separation between Prefix and LoRA, we introduce a local-global orthogonal constraint. For a given input, we compute the hidden-state deltas contributed by each module:
+\begin{align}
+\Delta_{\text{prefix}} &= \mathbf{h}(\text{prefix=on, lora=off}) - \mathbf{h}(\text{prefix=off, lora=off}) \\
+\Delta_{\text{lora}}   &= \mathbf{h}(\text{prefix=off, lora=on})  - \mathbf{h}(\text{prefix=off, lora=off})
+\end{align}
+where $\mathbf{h}(\cdot)$ denotes the hidden states at the final transformer layer, computed under different module activation conditions. The orthogonal loss combines token-level and sequence-level constraints:
+\begin{equation}
+\mathcal{L}_{\text{orth}} = \frac{1}{2} \cdot \frac{1}{T}\sum_{t=1}^{T} \cos^2(\Delta_{\text{prefix}}[t], \Delta_{\text{lora}}[t]) \;+\; \frac{1}{2} \cdot \cos^2\!\big(\overline{\Delta}_{\text{prefix}}, \overline{\Delta}_{\text{lora}}\big)
+\end{equation}
+where $\overline{\Delta}$ denotes mean pooling over the sequence dimension, and $\cos(\cdot, \cdot)$ is cosine similarity. The total training loss becomes:
+\begin{equation}
+\mathcal{L} = \mathcal{L}_{\text{gen}} + \lambda_{\text{orth}} \cdot \mathcal{L}_{\text{orth}}
+\end{equation}
+
+\subsection{Auxiliary Strategy Classification}
+
+To strengthen the strategy signal in the Prefix representations, we add an auxiliary strategy classification head on top of the Prefix-induced hidden delta $\Delta_{\text{prefix}}$. The classification loss is:
+\begin{equation}
+\mathcal{L}_{\text{cls}} = -\log P_{\text{cls}}(s \mid \Delta_{\text{prefix}})
+\end{equation}
+where $P_{\text{cls}}$ is a linear classifier that predicts the target strategy $s$ from the delta representation. The full loss becomes:
+\begin{equation}
+\mathcal{L} = \mathcal{L}_{\text{gen}} + \lambda_{\text{orth}} \cdot \mathcal{L}_{\text{orth}} + \lambda_{\text{cls}} \cdot \mathcal{L}_{\text{cls}}
+\end{equation}
+This configuration (B6) represents the most complete version of our hybrid framework. An early implementation contained a gradient leak in the delta-Prefix computation that caused training instability; after fixing this bug and tuning the loss schedule, we refer to the stable full configuration as \textbf{B6$_{\text{fix}}$}. We note that $\mathcal{L}_{\text{cls}}$ provides only a single scalar signal per training sample, whereas $\mathcal{L}_{\text{gen}}$ distributes its signal across all output tokens (typically hundreds per turn). This inherent signal density asymmetry is a key factor in our analysis.
+
+\subsection{Diagnostic Variants}
+
+Beyond the base configurations, we introduce three diagnostic variants to isolate specific interference mechanisms:
+
+\textbf{Gradient routing (B6$_{\text{grad}}$).} To test whether gradient conflict between the generation and classification objectives is the primary cause of Prefix-LoRA interference, we reroute gradients: the generation loss gradient flows only to LoRA parameters (Prefix embeddings are detached during the generation forward pass), while the classification loss gradient flows to the Prefix bank and classifier head. Orth loss gradients flow to both modules. This separation ensures that the Prefix bank is optimized solely for strategy classification, not for token-level generation.
+
+\textbf{Contrastive generation loss (B6$_{\text{contrastive}}$).} Motivated by the sparsity of the classification signal, we introduce a dense, token-level alternative. For each training sample with target strategy $s$, we also compute the generation loss using a randomly sampled incorrect strategy $s' \neq s$ (with no gradient):
+\begin{equation}
+\mathcal{L}_{\text{contrastive}} = \max\!\big(0,\; \mathcal{L}_{\text{gen}}(s) - \mathcal{L}_{\text{gen}}(s') + m\big)
+\end{equation}
+where $m = 0.1$ is a margin. The intuition is that the correct strategy Prefix should produce lower generation loss than an incorrect one. This signal is dense (per-token) and directly aligned with the evaluation objective.
+
+\textbf{Frozen Prefix analysis (B9).} To determine whether Prefix-LoRA interference occurs during training (joint optimization) or at inference (environment change), we first train the Prefix bank independently (B3), then freeze it and train only the LoRA adapter. At inference time, both modules are active. If interference stems from joint optimization, freezing the Prefix should preserve B3-level strategy control. If interference stems from LoRA changing the attention environment, then even a frozen Prefix should degrade---as our results confirm.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{fig3_framework.png}
+\caption{Overview of the diagnostic framework. A strategy-specific Prefix bank and a shared LoRA adapter feed into the frozen Qwen3-8B base model. Auxiliary losses ($\mathcal{L}_{\rm orth}$, $\mathcal{L}_{\rm cls}$, $\mathcal{L}_{\rm contrastive}$) and gradient routing constitute the diagnostic variants explored in our study.}
+\label{fig:framework}
+\end{figure}
+
+\subsection{Evaluation Overview}
+
+We evaluate strategy controllability through swap-sample generation: for each dialogue context, we generate one response per strategy by swapping the active Prefix embedding, then classify each generated utterance with an LLM-based strategy evaluator. The evaluator is calibrated on human-written validation responses with ground-truth labels, and we report per-class calibration accuracy alongside model results. For the four key configurations (B3, B4, B7, B9), we train across three random seeds and report means, standard deviations, and bootstrap confidence intervals. Detailed evaluation parameters are provided in Section~\ref{sec:setup}.
+
+%=====================================================================
+\section{Experimental Setup}
+\label{sec:setup}
+%=====================================================================
+
+\subsection{Dataset and Preprocessing}
+
+We use the CaSiNo negotiation dialogue dataset~\cite{chawla2021casino}, which contains 1,030 two-party negotiation dialogues annotated with nine fine-grained strategies: \textit{elicit-pref}, \textit{self-need}, \textit{other-need}, \textit{no-need}, \textit{promote-coordination}, \textit{showing-empathy}, \textit{small-talk}, \textit{uv-part}, and \textit{vouch-fair}.
+
+\textbf{Data augmentation.} The original CaSiNo training set suffers from two limitations: severe class imbalance (the most frequent strategy appears approximately 15 times more often than the least frequent) and low annotation coverage (only 396 of 1,030 dialogues carry strategy labels). To address these issues, we augment the training set using Qwen3.5-9B to generate strategy-driven negotiation dialogues. The augmented training set contains 610 dialogues with 5,285 single-label turns, achieving substantially better class balance (maximum-to-minimum ratio reduced to approximately 2:1).
+
+\textbf{Data filtering.} The original CaSiNo annotations include multi-label samples and \textit{non-strategic} labels. We exclude both categories from training: multi-label samples are dropped (22\% of original annotations), and \textit{non-strategic} labels are filtered (31\% of original annotations).
+
+\textbf{Validation and test sets.} We use the original CaSiNo validation (41 dialogues, 230 labeled turns) and test (41 dialogues) splits without augmentation, preserving comparability with prior work.
+
+\subsection{Base Model and PEFT Configuration}
+
+\textbf{Base model.} We use Qwen3-8B as the base language model, loaded in 4-bit quantization with bfloat16 compute precision via the BitsAndBytes library. The base model parameters are frozen throughout all experiments.
+
+\textbf{Strategy-specific Prefix.} Each strategy is associated with $K = 20$ virtual tokens of dimension $d = 4096$. Prefix embeddings are initialized from $\mathcal{N}(0, 0.02^2)$.
+
+\textbf{Shared LoRA.} LoRA is applied to the query, key, value, and output projection matrices of all attention layers. We use rank $r = 16$, scaling factor $\alpha = 32$, and dropout $p = 0.05$. All LoRA parameters are shared across strategies.
+
+\subsection{Training Details}
+
+All models are trained using AdamW with gradient clipping at 1.0. We use separate learning rates: $\eta_{\text{prefix}} = 5 \times 10^{-4}$ and $\eta_{\text{LoRA}} = 1 \times 10^{-4}$. Training batch size is 1 (single dialogue turn per step), and each experiment is trained for 2 epochs on a single GPU.
+
+Key loss weight configurations are listed in Table~\ref{tab:loss_weights}. The contrastive margin is $m = 0.1$.
+
+\begin{table}[t]
+\centering
+\caption{Loss weight configurations across experiments.}
+\label{tab:loss_weights}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Experiment} & $\lambda_{\text{orth}}$ & $\lambda_{\text{cls}}$ & $\lambda_{\text{contrastive}}$ & \textbf{orth freq.} \\
+\midrule
+B3 (Prefix-only)  & 0    & 0   & 0  & -- \\
+B4 (Prefix+LoRA)  & 0    & 0   & 0  & -- \\
+B5 (+ Orth)       & 0.05 & 0   & 0  & every 20 steps \\
+B6$_{\text{fix}}$ & 0.10 & 1.0 & 0  & every step \\
+B6$_{\text{cls}=5.0}$    & 0.10 & 5.0 & 0 & every step \\
+B6$_{\text{orth}=1.0}$   & 1.00 & 1.0 & 0 & every step \\
+B6$_{\text{grad}}$       & 0.10 & 1.0 & 0 & every step \\
+B6$_{\text{contrastive}}$& 0.10 & 0   & 1.0& every step \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Evaluation Protocol}
+
+\textbf{Swap-sample strategy evaluation.} Strategy controllability is evaluated via swap-sample generation. For 30 contexts sampled from the validation set, we generate one response per strategy by swapping the active Prefix embedding while keeping all other conditions identical. This yields 270 generated utterances per experiment. Generation uses greedy decoding with a maximum of 40 new tokens.
+
+\textbf{LLM-based strategy evaluator.} We classify each generated utterance using the same Qwen3-8B model in a separate inference pass. The evaluator receives 18 few-shot examples (2 per strategy, drawn from the training set) and classifies each utterance into one of the nine strategies. We disable the model's chain-of-thought generation to prevent the strategy name from leaking into the evaluator's input.
+
+\textbf{Evaluator calibration.} We calibrate the evaluator on 200 human-written utterances from the original CaSiNo validation set with ground-truth strategy labels. The evaluator achieves 52.0\% overall accuracy on these human texts, with per-class accuracy ranging from 0.0\% (\textit{no-need}) to 84.2\% (\textit{elicit-pref}). We report the full confusion matrix in Figure~\ref{fig:confusion}.
+
+\textbf{Perplexity.} We report validation-set perplexity as a proxy for generation fluency. For each experiment, we select the checkpoint with the lowest validation loss.
+
+\textbf{Multi-seed evaluation.} For the four key configurations (B3, B4, B7, B9), we train across three random seeds (42, 43, 44) and report means, standard deviations, and bootstrap 95\% confidence intervals (10,000 resamples) on strategy accuracy.
+
+\textbf{Computational cost.} Each experiment requires approximately 1.5 GPU-hours on an NVIDIA A100-80G. The complete set of experiments requires approximately 50 GPU-hours.
+
+%=====================================================================
+\section{Results}
+%=====================================================================
+
+\subsection{Main Results: Control-Quality Trade-off}
+
+Table~\ref{tab:main} presents the primary comparison across different PEFT configurations. For key experiments (B3, B4, B7, B9), we report means and standard deviations across three independent training seeds.
+
+\begin{table}[t]
+\centering
+\caption{Main results: strategy accuracy and perplexity across different PEFT configurations. Multi-seed means and standard deviations over 3 seeds for key experiments. $^\dagger$Frozen Prefix from B3; only LoRA is trained.}
+\label{tab:main}
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Method} & \textbf{Prefix} & \textbf{LoRA} & \textbf{Valid PPL} & \textbf{Acc (\%)} \\
+\midrule
+Frozen Base + Strategy Text  & --   & --   & --               & 27.41 \\
+LoRA + Strategy Text          & --   & \checkmark & 7.81         & 42.22 \\
+Prefix-only (B3)              & \checkmark & --   & 10.54$\pm$0.12 & 55.87$\pm$1.28 \\
+Prefix+LoRA (B4)              & \checkmark & \checkmark & 7.93$\pm$0.17  & 37.20$\pm$3.78 \\
+Warm-start DeST-RS (B7)       & \checkmark & \checkmark & 8.18$\pm$0.24  & 40.49$\pm$2.19 \\
+Prefix$\rightarrow$LoRA (B9)  & \checkmark$^\dagger$ & \checkmark & 8.07$\pm$0.10 & 40.00$\pm$2.98 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Text instruction baseline.} The frozen Qwen3-8B model with explicit strategy text achieves 27.41\% strategy accuracy. This confirms that LLMs possess some zero-shot strategy awareness, though the control is inconsistent.
+
+\textbf{LoRA with strategy text.} Training only LoRA with the strategy text prompt yields 42.22\% accuracy and 7.81 PPL, serving as a fair LoRA baseline that receives the same strategy information as Prefix.
+
+\textbf{Prefix-only achieves strongest controllability.} The strategy-specific Prefix bank reaches 55.87\% accuracy (95\% CI [52.41, 59.33]) across three seeds, with a standard deviation of only 1.28pp. This makes Prefix-only the strongest single-branch strategy control baseline. However, valid PPL of 10.54 is substantially higher than all LoRA-augmented variants.
+
+\textbf{Prefix+LoRA joint training introduces control-quality trade-off.} When Prefix and LoRA are trained jointly (B4), PPL drops to 7.93---a 24.8\% improvement over Prefix-only. However, strategy accuracy falls to 37.20\% (95\% CI [33.87, 40.54]), a decline of approximately 19pp. The non-overlapping confidence intervals between B3 and B4 confirm that this trade-off is statistically robust.
+
+\textbf{Warm-start and staged training provide modest improvements.} Initializing with a pre-trained Prefix from B3 and jointly training for one epoch (B7) yields 40.49\% (95\% CI [37.04, 43.83]). Freezing the B3-trained Prefix and training only LoRA (B9) yields 40.00\% (95\% CI [36.54, 43.33]). While both variants slightly outperform B4 (37.20\%), their confidence intervals substantially overlap with B4's, indicating that the improvement is modest and not statistically significant in our evaluation setup.
+
+Figure~\ref{fig:tradeoff} visualizes this trade-off: Prefix-only occupies the high-accuracy, high-PPL region, while all LoRA-augmented variants cluster in the low-PPL, moderate-accuracy region. No configuration simultaneously achieves the controllability of Prefix-only and the fluency of LoRA-augmented models.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{fig1_tradeoff.png}
+\caption{Control-quality trade-off: strategy accuracy vs. valid perplexity. Error bars show $\pm$1 standard deviation across seeds. The dashed line marks random-guessing accuracy (11.1\%).}
+\label{fig:tradeoff}
+\end{figure}
+
+\subsection{Per-Class Strategy Breakdown}
+
+Figure~\ref{fig:perclass} shows per-class accuracy for B3 (Prefix-only) and B4 (Prefix+LoRA), alongside the evaluator calibration accuracy on human-written responses.
+
+Several patterns emerge. First, the strategies most affected by LoRA are \textit{other-need}, \textit{uv-part}, and \textit{showing-empathy}---these drop by 7--70pp when LoRA is added. In contrast, \textit{small-talk} and \textit{vouch-fair} are relatively preserved. Second, the evaluator calibration accuracy varies dramatically across strategies, from 84.2\% (\textit{elicit-pref}) to 0.0\% (\textit{no-need}). The fact that model-generated \textit{no-need} achieves high accuracy despite the evaluator being unable to recognize human-written \textit{no-need} strongly suggests shortcut learning: the model generates exaggerated refusal patterns that the evaluator associates with \textit{no-need}.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{fig2_perclass.png}
+\caption{Per-class strategy accuracy: Prefix-only (B3) vs. Prefix+LoRA (B4) vs. evaluator calibration on human-written responses.}
+\label{fig:perclass}
+\end{figure}
+
+\subsection{Diagnostic Variants: Why Simple Interventions Fail}
+
+Table~\ref{tab:diag} reports results from the diagnostic experiments designed to isolate the source of Prefix-LoRA interference.
+
+\begin{table}[t]
+\centering
+\caption{Diagnostic variants: effect of orthogonal regularization, auxiliary classification, gradient routing, and contrastive loss. All results are from a single training run (seed 42); multi-seed results for B3, B4, B7, B9 are reported in Table~\ref{tab:main}.}
+\label{tab:diag}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Variant} & \textbf{Valid PPL} & \textbf{Acc (\%)} \\
+\midrule
+\multicolumn{3}{c}{\textit{Orthogonal + Classification}} \\
+\quad + Orth (B5)             & 7.80  & 36.06 \\
+\quad B6$_{\text{fix}}$       & 7.97  & 31.85 \\
+\quad B6 ($\lambda_{\text{cls}}{=}5.0$)  & 7.92  & 39.63 \\
+\quad B6 ($\lambda_{\text{orth}}{=}1.0$) & 8.14  & 40.37 \\
+\midrule
+\multicolumn{3}{c}{\textit{Gradient routing \& contrastive}} \\
+\quad B6$_{\text{grad}}$      & 7.91  & 37.78 \\
+\quad B6$_{\text{contrastive}}$           & 8.06  & 42.59 \\
+\quad B6$_{\text{contrastive}}$ (no orth) & 7.90  & 41.11 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Orthogonal regularization.} Adding the orth constraint (B5; $\lambda_{\text{orth}}=0.05$) does not improve strategy control (36.06\%). Increasing $\lambda_{\text{orth}}$ to 1.0 yields 40.37\%, a marginal improvement over B4 but still far below B3. The orth loss rapidly decays to near-zero during training, suggesting the model discovers geometric configurations that minimize cosine similarity without achieving functional disentanglement.
+
+\textbf{Auxiliary strategy classification.} Adding the classification head (B6$_{\text{fix}}$; $\lambda_{\text{cls}}=1.0$) yields only 31.85\%. Increasing $\lambda_{\text{cls}}$ to 5.0 improves accuracy to 39.63\%, still below B4. The classification loss converges rapidly, indicating that the classifier learns to distinguish strategies from internal representations, but this internal separability does not translate into strategy-consistent generation.
+
+\textbf{Gradient routing.} Routing the generation loss gradient exclusively to LoRA (B6$_{\text{grad}}$) yields 37.78\%, an improvement over B6$_{\text{fix}}$ (31.85\%) but still below B4. This suggests gradient conflict explains part of the interference, but not all of it.
+
+\textbf{Contrastive generation loss.} The contrastive loss remains at zero throughout training (B6$_{\text{contrastive}}$, 42.59\%; no-orth variant, 41.11\%). Replacing the target Prefix does not appreciably increase the token-level generation loss---the majority of generated tokens are strategy-agnostic.
+
+\textbf{Frozen Prefix analysis.} Even though the Prefix weights are identical to B3, freezing them and training only LoRA reduces accuracy from 55.87\% to 40.00\% across three seeds (B9; Table~\ref{tab:main}). This provides direct evidence that LoRA changes the operating environment of Prefix: strategy signals learned in a ``clean'' attention space are partially disrupted by LoRA-modified projections.
+
+\subsection{Evaluator Calibration and Reliability}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{fig4_confusion.png}
+\caption{Confusion matrix of the LLM-based strategy evaluator on 200 human-written validation responses. Rows are gold labels, columns are predictions. Cell values show count and row-normalized percentage. Overall accuracy: 52.0\%.}
+\label{fig:confusion}
+\end{figure}
+
+Figure~\ref{fig:confusion} shows the evaluator's confusion matrix on 200 human-written validation responses. The overall calibration accuracy of 52.0\% reveals substantial ambiguity in the task itself. Two patterns stand out. First, the evaluator exhibits a strong bias toward \textit{self-need}: the self-need column accounts for 47 of 200 predictions (23.5\%), and misclassifications flow disproportionately into this class---including 9 of 29 \textit{promote-coordination} samples and 5 of 10 \textit{other-need} samples. Second, several strategies are nearly indistinguishable to the evaluator: \textit{uv-part} (25.0\%), \textit{other-need} (30.0\%), and \textit{no-need} (0.0\%; 0 correct out of 6). Notably, the evaluator cannot recognize human-written \textit{no-need} at all, yet classifies model-generated \textit{no-need} at 93.3\% in our swap-sample evaluation---a strong indicator of shortcut learning, where models produce exaggerated patterns the evaluator latches onto.
+
+These findings have important implications. First, overall strategy accuracy should not be interpreted as absolute controllability. Second, per-class accuracy must be interpreted in light of calibration: strategies like \textit{other-need} and \textit{uv-part} are nearly indistinguishable, so their low model accuracy may reflect evaluator noise rather than poor control. We recommend that LLM-as-judge strategy evaluation studies include evaluator calibration and per-class analysis.
+
+\subsection{Multi-Seed Stability}
+
+To assess robustness, we trained B3, B4, B7, and B9 across three random seeds. The standard deviation of strategy accuracy is 1.28pp (B3), 3.78pp (B4), 2.19pp (B7), and 2.98pp (B9). Two conclusions emerge with high confidence. First, the control-quality trade-off between B3 and B4 is stable: B3 consistently achieves the highest accuracy (54.3--57.4\%) and B4 the lowest among PEFT methods (32.6--41.9\%). Second, PPL is highly stable: B3 PPL ranges from 10.40--10.65, while B4/B7/B9 PPL ranges from 7.76--8.48. The relative ordering of B4, B7, and B9 is less stable across seeds, with overlapping bootstrap confidence intervals.
+
+%=====================================================================
+\section{Discussion}
+%=====================================================================
+
+\subsection{Why Does LoRA Degrade Prefix Control?}
+
+Our experiments narrow down the possible explanations for Prefix-LoRA interference. Gradient conflict explains part of the degradation (gradient routing recovers approximately 6pp), but is not the primary mechanism. The failure of contrastive generation loss to activate indicates that standard autoregressive LM loss is largely insensitive to strategy identity.
+
+The frozen-prefix experiment (B9) provides the most direct clue: even when Prefix weights are identical to the high-performing B3 configuration (55.9\%), the introduction of LoRA at inference time reduces accuracy to 40.0\% across three seeds---a drop of approximately 16pp with no change to the Prefix parameters themselves. This suggests that the interference is, at least in part, an \textit{environment-level} phenomenon: Prefix embeddings learn to exert their influence in a specific attention space (the base model's Q/K/V/O projections), and when LoRA modifies these projections, the Prefix signals are partially disrupted. The effect is particularly severe for rare and semantically subtle strategies such as \textit{other-need} and \textit{uv-part}, whose per-class accuracy drops to near zero when LoRA is introduced (Fig.~\ref{fig:perclass}).
+
+This interpretation aligns with Kim et al.'s finding that LoRA reduces the effective rank of pre-trained representations. If LoRA compresses or rotates the attention subspace, the strategy-specific signals encoded in Prefix embeddings may no longer map effectively to output token distributions.
+
+\subsection{The Gap Between Representation and Generation}
+
+A recurring theme in our diagnostic experiments is the gap between representation-space metrics and generation behavior. The auxiliary classifier achieves near-zero classification loss quickly, indicating that the Prefix-induced hidden delta contains strategy-discriminative information. Yet this internal separability does not translate into strategy-consistent generation. Similarly, orthogonal regularization drives cosine similarity to near-zero, achieving geometric orthogonality, but strategy control does not improve.
+
+This gap highlights a fundamental challenge: ensuring that internal representations encode the desired attribute is necessary but not sufficient. The pathway from hidden states to output token probabilities passes through multiple attention layers, and LoRA's modifications can alter how internal representations map to surface-level generation. Future methods may need to more directly constrain output behavior rather than relying solely on representation-space constraints.
+
+\subsection{Practical Implications}
+
+For practitioners, our results suggest that \textbf{Prefix-only tuning} is the most reliable approach when strategy fidelity is paramount, despite higher perplexity. \textbf{LoRA with explicit strategy text} offers a reasonable alternative with better fluency but lower controllability. The hybrid approaches tested do not convincingly outperform these simpler baselines. Our evaluator calibration results carry an important methodological message: LLM-based strategy evaluation should always include calibration on human-annotated data and per-class analysis.
+
+%=====================================================================
+\section{Conclusion}
+%=====================================================================
+
+We presented a systematic diagnostic study of Prefix-LoRA hybrid PEFT for strategy-controlled negotiation dialogue generation. Through controlled comparison of twelve experimental configurations across three training seeds, we found that (1) Prefix-only tuning provides the strongest strategy controllability, (2) adding LoRA substantially improves perplexity but degrades strategy accuracy, revealing a robust control-quality trade-off, (3) orthogonal constraints, auxiliary classification, gradient routing, and contrastive losses do not reliably resolve this trade-off, and (4) LoRA disrupts Prefix control signals at the inference level rather than purely through training-time gradient conflict. We also calibrated the LLM-based strategy evaluator and identified substantial class-dependent reliability issues. Our findings suggest that hybrid PEFT for controllable generation requires mechanisms that more directly align output behavior with control semantics.
+
+\section*{Limitations}
+
+We acknowledge several limitations. \textbf{Single dataset and model:} our experiments are conducted on CaSiNo with Qwen3-8B; generalizability to other datasets and architectures remains to be established. \textbf{Evaluator reliability:} our LLM evaluator achieves only 52.0\% accuracy on human responses, and we did not conduct large-scale human evaluation. \textbf{Limited seeds and evaluation scale:} our swap-sample evaluation uses 30 contexts (270 generations per experiment); larger sets would provide tighter confidence bounds. \textbf{Mechanism evidence:} our claim that LoRA disrupts Prefix through environment-level attention changes is supported primarily by the frozen-prefix experiment (B9) and prior representational analysis; direct layer-wise evidence (e.g., comparing attention patterns with LoRA on vs.\ off) would strengthen the mechanistic interpretation.
+
+%=====================================================================
+% Bibliography
+%=====================================================================
+
+\begin{thebibliography}{00}
+
+\bibitem{chawla2021casino}
+K.~Chawla, J.~Ramirez, R.~Clever, G.~Lucas, J.~May, and J.~Gratch,
+``CaSiNo: A corpus of campsite negotiation dialogues for automatic negotiation systems,''
+in \textit{Proc. NAACL-HLT}, 2021, pp.~3167--3185.
+
+\bibitem{li2021prefix}
+X.~L.~Li and P.~Liang,
+``Prefix-tuning: Optimizing continuous prompts for generation,''
+in \textit{Proc. ACL-IJCNLP}, 2021, pp.~4582--4597.
+
+\bibitem{hu2021lora}
+E.~J.~Hu, Y.~Shen, P.~Wallis, Z.~Allen-Zhu, Y.~Li, S.~Wang, L.~Wang, and W.~Chen,
+``LoRA: Low-rank adaptation of large language models,''
+in \textit{Proc. ICLR}, 2022.
+
+\bibitem{kim2024peft}
+% TODO: verify the correct citation. The paper you referenced in your notes
+% describes how LoRA reduces effective rank of representations (to ~60\%) while
+% Prefix Tuning preserves the full representational space, and proposes sequential
+% Prefix→LoRA composition. It was described as "Kim et al., EMNLP 2024 Findings."
+% Please locate the exact paper on arxiv / ACL Anthology and replace this entry.
+% Possible candidates to search on arxiv:
+%   - "LoRA vs Full Fine-tuning: An Illusion of Equivalence" (arXiv 2410.21228)
+%   - Papers by Kim et al. in Findings of EMNLP 2024 about PEFT representation analysis
+J.~Kim, J.~Lee, K.~M.~Yoo, and S.~Lee,
+``On the representation properties of prefix tuning and LoRA,''
+in \textit{Findings of EMNLP}, 2024.
+
+\bibitem{zheng2023judging}
+L.~Zheng, W.-L.~Chiang, Y.~Sheng, S.~Zhuang, Z.~Wu, Y.~Zhuang, Z.~Lin, Z.~Li, D.~Li, E.~P.~Xing, H.~Zhang, J.~E.~Gonzalez, and I.~Stoica,
+``Judging LLM-as-a-judge with MT-bench and chatbot arena,''
+in \textit{Proc. NeurIPS (Datasets and Benchmarks Track)}, 2023.
+
+\end{thebibliography}
+
+\end{document}

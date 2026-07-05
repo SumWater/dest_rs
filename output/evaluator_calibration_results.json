@@ -1,0 +1,1202 @@
+[
+  {
+    "dialogue_id": 546,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "Hey there fellow camper! How's it going?"
+  },
+  {
+    "dialogue_id": 546,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "Hey camper buddy! all goes well. and you?"
+  },
+  {
+    "dialogue_id": 546,
+    "gold": "elicit-pref",
+    "pred": "elicit-pref",
+    "utterance": "All is good. Could you tell me about your package preferences?"
+  },
+  {
+    "dialogue_id": 546,
+    "gold": "elicit-pref",
+    "pred": "elicit-pref",
+    "utterance": "I need water and firewood. What about you?"
+  },
+  {
+    "dialogue_id": 546,
+    "gold": "promote-coordination",
+    "pred": "self-need",
+    "utterance": "Ahh I need water and food... I'd be willing to give you all 3 firewood and 1 water for 2 water and 3 food. What do you t"
+  },
+  {
+    "dialogue_id": 546,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "Awesome! 🙂 What else will you do on your trip?"
+  },
+  {
+    "dialogue_id": 546,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "i hunt hehe"
+  },
+  {
+    "dialogue_id": 546,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "Nice. We will do some fishing and hiking."
+  },
+  {
+    "dialogue_id": 546,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "i hear the fishing is great around here"
+  },
+  {
+    "dialogue_id": 120,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "hi 🙂"
+  },
+  {
+    "dialogue_id": 120,
+    "gold": "promote-coordination",
+    "pred": "promote-coordination",
+    "utterance": "I was thinking that you could give me 3 food packages and i will give you 3 water? What do you think?"
+  },
+  {
+    "dialogue_id": 120,
+    "gold": "elicit-pref",
+    "pred": "elicit-pref",
+    "utterance": "Why do you need all 3 firewoods?"
+  },
+  {
+    "dialogue_id": 120,
+    "gold": "self-need",
+    "pred": "self-need",
+    "utterance": "I get cold pretty easily. Extra firewood would help me stay warm. And if I give up all food, I'll need another way to ke"
+  },
+  {
+    "dialogue_id": 120,
+    "gold": "vouch-fair",
+    "pred": "promote-coordination",
+    "utterance": "okay how about if i only get 2 food packages and i give you 2 firewood. So we both gets something to help us/ Because i "
+  },
+  {
+    "dialogue_id": 120,
+    "gold": "self-need",
+    "pred": "self-need",
+    "utterance": "How about you get 2 of the waters an i would take 1 of them? I need some water to stay hydrated"
+  },
+  {
+    "dialogue_id": 128,
+    "gold": "elicit-pref",
+    "pred": "elicit-pref",
+    "utterance": "Hello. Is there a reason you prefer more water and firewood to food?"
+  },
+  {
+    "dialogue_id": 128,
+    "gold": "self-need",
+    "pred": "showing-empathy",
+    "utterance": "The 2 packages of food and 2 waters. I get thristy a lot too."
+  },
+  {
+    "dialogue_id": 128,
+    "gold": "vouch-fair",
+    "pred": "vouch-fair",
+    "utterance": "I think this would be a good even split of resources and would allow each of us to have extra supplies. 🙂"
+  },
+  {
+    "dialogue_id": 128,
+    "gold": "small-talk",
+    "pred": "vouch-fair",
+    "utterance": "All that is left is to submit our deal. Nice working with you!"
+  },
+  {
+    "dialogue_id": 172,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "Hello! I am looking forward to the camping trip but could use a few more supplies!"
+  },
+  {
+    "dialogue_id": 172,
+    "gold": "promote-coordination",
+    "pred": "small-talk",
+    "utterance": "hello, me too, i guess we can share"
+  },
+  {
+    "dialogue_id": 172,
+    "gold": "elicit-pref",
+    "pred": "elicit-pref",
+    "utterance": "Sounds good, I need food the most, what is your most needed item?"
+  },
+  {
+    "dialogue_id": 172,
+    "gold": "self-need",
+    "pred": "self-need",
+    "utterance": "Ok, other than food I could use some firewood. Maybe you could take 2 food and I could take 2 firewood?"
+  },
+  {
+    "dialogue_id": 172,
+    "gold": "self-need",
+    "pred": "self-need",
+    "utterance": "no it is not enough for me, i need more water"
+  },
+  {
+    "dialogue_id": 177,
+    "gold": "elicit-pref",
+    "pred": "elicit-pref",
+    "utterance": "we both have the same high value priority. what is number 2 for you? thanks"
+  },
+  {
+    "dialogue_id": 177,
+    "gold": "self-need",
+    "pred": "uv-part",
+    "utterance": "exactly, and forgot some of my extra wood at the house again."
+  },
+  {
+    "dialogue_id": 177,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "Have a nice camping trip 🙂"
+  },
+  {
+    "dialogue_id": 177,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "you as well"
+  },
+  {
+    "dialogue_id": 468,
+    "gold": "other-need",
+    "pred": "other-need",
+    "utterance": "I have a bunch of kids and need extra water. I can give you 2 food packs instead."
+  },
+  {
+    "dialogue_id": 468,
+    "gold": "showing-empathy",
+    "pred": "showing-empathy",
+    "utterance": "If you need water for a medical issue the of course you can have two waters."
+  },
+  {
+    "dialogue_id": 468,
+    "gold": "vouch-fair",
+    "pred": "vouch-fair",
+    "utterance": "That sounds fair. The kids can bathe in the stream. We are good with 2 food packs."
+  },
+  {
+    "dialogue_id": 468,
+    "gold": "no-need",
+    "pred": "self-need",
+    "utterance": "Everything sounds good except you and your family take 2 of the food, i need to lose weight anyway."
+  },
+  {
+    "dialogue_id": 468,
+    "gold": "small-talk",
+    "pred": "vouch-fair",
+    "utterance": "We have a deal, enjoy the camping trip with the family, the best memories"
+  },
+  {
+    "dialogue_id": 167,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "Hi how are you today?"
+  },
+  {
+    "dialogue_id": 167,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "am fine and you?"
+  },
+  {
+    "dialogue_id": 167,
+    "gold": "other-need",
+    "pred": "self-need",
+    "utterance": "I as well would need some extra food and water. I have a large family and they eat a ton. 3 kids..."
+  },
+  {
+    "dialogue_id": 167,
+    "gold": "promote-coordination",
+    "pred": "promote-coordination",
+    "utterance": "ohh that's would be really difficult.However we can still sort things out"
+  },
+  {
+    "dialogue_id": 167,
+    "gold": "promote-coordination",
+    "pred": "promote-coordination",
+    "utterance": "If i gveyou one then you have to spare me all water food with 2 water deal?"
+  },
+  {
+    "dialogue_id": 167,
+    "gold": "promote-coordination",
+    "pred": "self-need",
+    "utterance": "i said if am going to spare you a water then i will have 2 waters and 3 foods and no firewood"
+  },
+  {
+    "dialogue_id": 101,
+    "gold": "elicit-pref",
+    "pred": "small-talk",
+    "utterance": "Hi! What sort of packages are you looking for today?"
+  },
+  {
+    "dialogue_id": 101,
+    "gold": "self-need",
+    "pred": "uv-part",
+    "utterance": "That does not work for me. I need at least one package of firewood. I'm sure you understand, because it seems like we ha"
+  },
+  {
+    "dialogue_id": 101,
+    "gold": "showing-empathy",
+    "pred": "vouch-fair",
+    "utterance": "I do understand. That will work for me."
+  },
+  {
+    "dialogue_id": 101,
+    "gold": "elicit-pref",
+    "pred": "elicit-pref",
+    "utterance": "Could you tell me about why you want water?"
+  },
+  {
+    "dialogue_id": 101,
+    "gold": "self-need",
+    "pred": "uv-part",
+    "utterance": "I want water so I can keep hydrated during this camping trip. It's important for me to drink bottled water vs. getting w"
+  },
+  {
+    "dialogue_id": 614,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "Hi, how are you?"
+  },
+  {
+    "dialogue_id": 614,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "I am doing very well. Have you planned your camping trip?"
+  },
+  {
+    "dialogue_id": 614,
+    "gold": "small-talk",
+    "pred": "promote-coordination",
+    "utterance": "A bit and you? I'm looking forward to figuring out a deal that helps us both!"
+  },
+  {
+    "dialogue_id": 614,
+    "gold": "elicit-pref",
+    "pred": "elicit-pref",
+    "utterance": "Nice! What are your highest priority items?"
+  },
+  {
+    "dialogue_id": 614,
+    "gold": "promote-coordination",
+    "pred": "promote-coordination",
+    "utterance": "We need a moderate amount of everything and I think we can work something out successfully."
+  },
+  {
+    "dialogue_id": 614,
+    "gold": "no-need",
+    "pred": "self-need",
+    "utterance": "Okay. we brought some of our own food so I don't need much of that either."
+  },
+  {
+    "dialogue_id": 614,
+    "gold": "elicit-pref",
+    "pred": "self-need",
+    "utterance": "do you want more water then? perhaps 2?"
+  },
+  {
+    "dialogue_id": 35,
+    "gold": "elicit-pref",
+    "pred": "elicit-pref",
+    "utterance": "Hello! What camping supplies are you looking for the most?"
+  },
+  {
+    "dialogue_id": 35,
+    "gold": "elicit-pref",
+    "pred": "elicit-pref",
+    "utterance": "Hello! I would like more packages of food the most. What are you looking for?"
+  },
+  {
+    "dialogue_id": 35,
+    "gold": "self-need",
+    "pred": "promote-coordination",
+    "utterance": "That would be amazing! So I could take all 3 packages of the food and you could have all 3 packages of the water. Now, w"
+  },
+  {
+    "dialogue_id": 35,
+    "gold": "self-need",
+    "pred": "showing-empathy",
+    "utterance": "Awesome! That does sound like a deal. I wish we had more firewood to split because I am afraid it might get cold."
+  },
+  {
+    "dialogue_id": 35,
+    "gold": "no-need",
+    "pred": "vouch-fair",
+    "utterance": "I agree. I am feeling generous and I did buy a new axe for this camping trip. So, I could stick to the prior agreement a"
+  },
+  {
+    "dialogue_id": 35,
+    "gold": "small-talk",
+    "pred": "showing-empathy",
+    "utterance": "You are welcome! 🙂 I am happy that we reached an agreement! Did you happen to see any dry looking trees on along your wa"
+  },
+  {
+    "dialogue_id": 35,
+    "gold": "small-talk",
+    "pred": "showing-empathy",
+    "utterance": "Thank you! Stay safe out there! If you need anything else, let me know."
+  },
+  {
+    "dialogue_id": 35,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "You as well! Have fun!"
+  },
+  {
+    "dialogue_id": 529,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "Hello, I was hoping we can chat."
+  },
+  {
+    "dialogue_id": 529,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "Hi there."
+  },
+  {
+    "dialogue_id": 529,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "So why did you decide to come camping?🙂"
+  },
+  {
+    "dialogue_id": 529,
+    "gold": "self-need",
+    "pred": "elicit-pref",
+    "utterance": "I was hoping for food as I forgot a bag at of stuff at home. I also was hoping to star gaze but I may not have enough wo"
+  },
+  {
+    "dialogue_id": 529,
+    "gold": "elicit-pref",
+    "pred": "elicit-pref",
+    "utterance": "What are your current requirements on food so I can better understand your situation?"
+  },
+  {
+    "dialogue_id": 529,
+    "gold": "self-need",
+    "pred": "elicit-pref",
+    "utterance": "☹️ I forgot most the food I was going to bring and only have enough for less than half the planned trip."
+  },
+  {
+    "dialogue_id": 529,
+    "gold": "small-talk",
+    "pred": "showing-empathy",
+    "utterance": "I let my two girls bring their friend. Its their first overnight trip for more than a night. We also had a week planned."
+  },
+  {
+    "dialogue_id": 529,
+    "gold": "small-talk",
+    "pred": "showing-empathy",
+    "utterance": "My kids really eat a lot. But then yours probably to as well!"
+  },
+  {
+    "dialogue_id": 529,
+    "gold": "showing-empathy",
+    "pred": "promote-coordination",
+    "utterance": "Okay, how about this. I understand that you have more kids than me and there are only limited resources. Let's agree tha"
+  },
+  {
+    "dialogue_id": 609,
+    "gold": "self-need",
+    "pred": "self-need",
+    "utterance": "well i do need alot of firewood since i need it to start a fire"
+  },
+  {
+    "dialogue_id": 609,
+    "gold": "self-need",
+    "pred": "self-need",
+    "utterance": "Okay, so you can take all the firewood and I take all the food. I will also need at least two waters because I had a lim"
+  },
+  {
+    "dialogue_id": 609,
+    "gold": "self-need",
+    "pred": "self-need",
+    "utterance": "no, i will need 2 water because i need to drink it and there not much water around me"
+  },
+  {
+    "dialogue_id": 609,
+    "gold": "vouch-fair",
+    "pred": "self-need",
+    "utterance": "i am already giving you all 3 food which i also need to eat"
+  },
+  {
+    "dialogue_id": 609,
+    "gold": "promote-coordination",
+    "pred": "promote-coordination",
+    "utterance": "Would you be willing to trade a piece of firewood for an extra water bottle? That will save me some time from chopping d"
+  },
+  {
+    "dialogue_id": 609,
+    "gold": "vouch-fair",
+    "pred": "self-need",
+    "utterance": "no, best i can offer is i get 3 firewood, 2 water and 1 food"
+  },
+  {
+    "dialogue_id": 609,
+    "gold": "vouch-fair",
+    "pred": "no-need",
+    "utterance": "No thanks.☹️"
+  },
+  {
+    "dialogue_id": 609,
+    "gold": "vouch-fair",
+    "pred": "vouch-fair",
+    "utterance": "That sound fair to me since I will need plenty food and water for my climb."
+  },
+  {
+    "dialogue_id": 589,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "Hi there, how are you doing?"
+  },
+  {
+    "dialogue_id": 589,
+    "gold": "other-need",
+    "pred": "self-need",
+    "utterance": "I could use some extra food, I'll be hosting a get-together at my campsite later and will need some to entertain the gue"
+  },
+  {
+    "dialogue_id": 589,
+    "gold": "self-need",
+    "pred": "vouch-fair",
+    "utterance": "Absolutely! I don't think I'll be needing any extra firewood, you can have all three! The only other thing I'd like is 2"
+  },
+  {
+    "dialogue_id": 589,
+    "gold": "promote-coordination",
+    "pred": "promote-coordination",
+    "utterance": "Sure. 🙂 I'd like to take 2 waters for my hike and 2 food for my get-together later. You would have 3 firewood, 1 water a"
+  },
+  {
+    "dialogue_id": 589,
+    "gold": "small-talk",
+    "pred": "elicit-pref",
+    "utterance": "I hope you have a use for all of the wood! What do you plan on using it for?"
+  },
+  {
+    "dialogue_id": 589,
+    "gold": "small-talk",
+    "pred": "uv-part",
+    "utterance": "I am going to cook fish that i catch and boil any extra water I can find."
+  },
+  {
+    "dialogue_id": 589,
+    "gold": "small-talk",
+    "pred": "showing-empathy",
+    "utterance": "You sound very resourceful! 🙂Sounds like we have a deal then, yes?"
+  },
+  {
+    "dialogue_id": 93,
+    "gold": "self-need",
+    "pred": "self-need",
+    "utterance": "My spouse calls me a water buffalo so I'm pretty water dependent if you couldn't tell."
+  },
+  {
+    "dialogue_id": 93,
+    "gold": "showing-empathy",
+    "pred": "promote-coordination",
+    "utterance": "That's good.  Best way to stay healthy is with water.  How about you take 1 water and all the firewood?"
+  },
+  {
+    "dialogue_id": 93,
+    "gold": "promote-coordination",
+    "pred": "promote-coordination",
+    "utterance": "Agree, I think after I send this message it will unlock, for me to have 2 water, 2 food and 0 firewood.  Thanks for work"
+  },
+  {
+    "dialogue_id": 480,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "Hello there 🙂"
+  },
+  {
+    "dialogue_id": 480,
+    "gold": "no-need",
+    "pred": "showing-empathy",
+    "utterance": "Yes I think we have the same preferences.  I do not get cold easily and will bring a heavy sleeping bag."
+  },
+  {
+    "dialogue_id": 480,
+    "gold": "promote-coordination",
+    "pred": "self-need",
+    "utterance": "That is not a bad offer.  However, I would like at least 1 water for myself.  I would be willing to allow you 2 of the 3"
+  },
+  {
+    "dialogue_id": 480,
+    "gold": "vouch-fair",
+    "pred": "vouch-fair",
+    "utterance": "That is quite fair.  I would agree to that :)  Should we go ahead and submit it?"
+  },
+  {
+    "dialogue_id": 16,
+    "gold": "small-talk",
+    "pred": "self-need",
+    "utterance": "Hi, this is my first time camping and I want to make sure I have enough stuff.  I would like three food, three firewood,"
+  },
+  {
+    "dialogue_id": 16,
+    "gold": "elicit-pref",
+    "pred": "elicit-pref",
+    "utterance": "Since I have never been camping before, why do you think you need 2 firewood?"
+  },
+  {
+    "dialogue_id": 16,
+    "gold": "self-need",
+    "pred": "uv-part",
+    "utterance": "Unfortunately, I have arthritis so being sure to keep warm and the dampness away in the evening, heat is important for m"
+  },
+  {
+    "dialogue_id": 16,
+    "gold": "self-need",
+    "pred": "uv-part",
+    "utterance": "Ok.  I am worried about animals and bugs so I would prefer 2 firewood.  But I am happy with the 3 food🙂"
+  },
+  {
+    "dialogue_id": 16,
+    "gold": "no-need",
+    "pred": "uv-part",
+    "utterance": "Good thought on finding your own firewood.  I appreciate the offer of 2 firewood.  I can cut back on water for washing/c"
+  },
+  {
+    "dialogue_id": 16,
+    "gold": "small-talk",
+    "pred": "showing-empathy",
+    "utterance": "Great, thanks for understanding and working with me....and enjoy your first time camping🙂"
+  },
+  {
+    "dialogue_id": 137,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "Hello how are you today? 🙂"
+  },
+  {
+    "dialogue_id": 137,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "Fine."
+  },
+  {
+    "dialogue_id": 137,
+    "gold": "self-need",
+    "pred": "other-need",
+    "utterance": "Water if very important to me as well. I'm on a medication where I get dehydrated very quickly and I need to make sure t"
+  },
+  {
+    "dialogue_id": 137,
+    "gold": "self-need",
+    "pred": "self-need",
+    "utterance": "I really need that water. I'm going camping in the desert where firewood will be vital for me as well. How about I take "
+  },
+  {
+    "dialogue_id": 137,
+    "gold": "small-talk",
+    "pred": "promote-coordination",
+    "utterance": "Sounds good. It was nice working with you. 🙂"
+  },
+  {
+    "dialogue_id": 161,
+    "gold": "self-need",
+    "pred": "self-need",
+    "utterance": "I could too, I am a little short on a few things!"
+  },
+  {
+    "dialogue_id": 161,
+    "gold": "self-need",
+    "pred": "self-need",
+    "utterance": "My biggest concern is water.  I could really use more.  That and some extra food."
+  },
+  {
+    "dialogue_id": 161,
+    "gold": "self-need",
+    "pred": "self-need",
+    "utterance": "I'm going to need quite a bit more water, at least 2 packages.  I would like at least 1 food. What do you think?"
+  },
+  {
+    "dialogue_id": 161,
+    "gold": "self-need",
+    "pred": "uv-part",
+    "utterance": "OK, great, I forgot my fishing pole so the extra food will really help!"
+  },
+  {
+    "dialogue_id": 530,
+    "gold": "promote-coordination",
+    "pred": "elicit-pref",
+    "utterance": "Hello, well what do you think its the most important for you? i would like to take the food as my important and i can ge"
+  },
+  {
+    "dialogue_id": 601,
+    "gold": "other-need",
+    "pred": "self-need",
+    "utterance": "I really need food and firewood. Could you do 3 firewood and 3 food packages? My son has a problem with poor sugar level"
+  },
+  {
+    "dialogue_id": 601,
+    "gold": "promote-coordination",
+    "pred": "promote-coordination",
+    "utterance": "If you give me 3 firewood, I'll give you 2 firewood and we can split the water. That's about where I'm at."
+  },
+  {
+    "dialogue_id": 601,
+    "gold": "promote-coordination",
+    "pred": "uv-part",
+    "utterance": "I don't think we can split three firewood into five unless it was a typo?   I could give you 1 firewood, 2 food since I "
+  },
+  {
+    "dialogue_id": 595,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "Good morning! Are you excited to go camping this weekend?"
+  },
+  {
+    "dialogue_id": 595,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "Yes, how about you! We are headed to Joshua Tree NP to do some rock climbing and hiking."
+  },
+  {
+    "dialogue_id": 595,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "Ooh rock climbing! I'm definitely scared of heights, so that's out for me. I'm heading to the Puget Sound to camp near t"
+  },
+  {
+    "dialogue_id": 595,
+    "gold": "promote-coordination",
+    "pred": "self-need",
+    "utterance": "😮 I see.  I am wiling to give you the firewood, but I also really need the food.  I could take the waters and two food, "
+  },
+  {
+    "dialogue_id": 595,
+    "gold": "promote-coordination",
+    "pred": "promote-coordination",
+    "utterance": "I am willing to make that deal."
+  },
+  {
+    "dialogue_id": 595,
+    "gold": "small-talk",
+    "pred": "promote-coordination",
+    "utterance": "Perfect! Let's plan on this between the two of us. Thank you for working so well with me. You made good points and I app"
+  },
+  {
+    "dialogue_id": 595,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "Your welcome.  Have fun at the Puget Sound!🙂🙂"
+  },
+  {
+    "dialogue_id": 445,
+    "gold": "small-talk",
+    "pred": "showing-empathy",
+    "utterance": "I am excited too and looking forward to making a deal that works well for both of us!"
+  },
+  {
+    "dialogue_id": 445,
+    "gold": "vouch-fair",
+    "pred": "self-need",
+    "utterance": "I need water also but firewood is my second highest priority item. Maybe you could take more of the water and I could ta"
+  },
+  {
+    "dialogue_id": 445,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "I find it a good deal, however before making a deal, I like to talk to people, get to know them better. I plan to go to "
+  },
+  {
+    "dialogue_id": 445,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "Yes, I am going with my wife and two teenage sons. We are planning on doing a lot of fishing!"
+  },
+  {
+    "dialogue_id": 445,
+    "gold": "small-talk",
+    "pred": "promote-coordination",
+    "utterance": "What do you think if in the camp we get together and have a meeting between your family and mine? We can have a small pa"
+  },
+  {
+    "dialogue_id": 445,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "Sounds great!"
+  },
+  {
+    "dialogue_id": 445,
+    "gold": "promote-coordination",
+    "pred": "promote-coordination",
+    "utterance": "Ok, my proposal is to give you all the firewood you need, on the condition that you give me all the water I need. And re"
+  },
+  {
+    "dialogue_id": 163,
+    "gold": "self-need",
+    "pred": "self-need",
+    "utterance": "I need some firewood because I did not bring enough, I was thinking I could take 2 firewood, 1 food, and 2 water. What d"
+  },
+  {
+    "dialogue_id": 163,
+    "gold": "promote-coordination",
+    "pred": "promote-coordination",
+    "utterance": "Would you be willing to let me have all the firewood and you could take 2 of the food and 2 of the water?"
+  },
+  {
+    "dialogue_id": 559,
+    "gold": "self-need",
+    "pred": "self-need",
+    "utterance": "Hi 🙂 I'd like to have more water because the location that I'm going to is really dry. I'll need water to stay hydrated."
+  },
+  {
+    "dialogue_id": 559,
+    "gold": "promote-coordination",
+    "pred": "promote-coordination",
+    "utterance": "Sure you can give me firewood in place of water"
+  },
+  {
+    "dialogue_id": 559,
+    "gold": "self-need",
+    "pred": "self-need",
+    "utterance": "Thank you 🙂 That works for me. I'm also in my first trimester so I'll need a bit of extra food since I'm feeding my litt"
+  },
+  {
+    "dialogue_id": 559,
+    "gold": "showing-empathy",
+    "pred": "self-need",
+    "utterance": "Woah... You can take more food as well"
+  },
+  {
+    "dialogue_id": 559,
+    "gold": "vouch-fair",
+    "pred": "showing-empathy",
+    "utterance": "Thank you dear! :D I really appreciate that. Are you okay with how everything is divided up then?"
+  },
+  {
+    "dialogue_id": 559,
+    "gold": "small-talk",
+    "pred": "no-need",
+    "utterance": "Sure... I will be going with friends, I can manage with that."
+  },
+  {
+    "dialogue_id": 559,
+    "gold": "small-talk",
+    "pred": "vouch-fair",
+    "utterance": "Thank you, sounds like a deal to me! Just make sure everything looks good on the table on the left side, and we're good "
+  },
+  {
+    "dialogue_id": 559,
+    "gold": "small-talk",
+    "pred": "showing-empathy",
+    "utterance": "You too... Be safe"
+  },
+  {
+    "dialogue_id": 582,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "hello. so what are you thinking about this whole situation?"
+  },
+  {
+    "dialogue_id": 582,
+    "gold": "small-talk",
+    "pred": "self-need",
+    "utterance": "Hey, I think that this is nice, we get to go camping and get extra stuff. But definitely need more food and firewood"
+  },
+  {
+    "dialogue_id": 582,
+    "gold": "promote-coordination",
+    "pred": "promote-coordination",
+    "utterance": "In that case, I would be fine trading the extra food for a water. so you would get 2 waters and 2 foods"
+  },
+  {
+    "dialogue_id": 582,
+    "gold": "small-talk",
+    "pred": "no-need",
+    "utterance": "Oh, yeah, sorry, mistyped that. Okay, let's do it then. Was good talking."
+  },
+  {
+    "dialogue_id": 11,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "hi how are you are you ready for your trip"
+  },
+  {
+    "dialogue_id": 11,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "I'm ready, I just would like to have a little extra stuff. How about you?"
+  },
+  {
+    "dialogue_id": 11,
+    "gold": "other-need",
+    "pred": "self-need",
+    "utterance": "yes I could use some extra food since i am hiking with my kids and they all have a friend that comes along...lol"
+  },
+  {
+    "dialogue_id": 11,
+    "gold": "promote-coordination",
+    "pred": "promote-coordination",
+    "utterance": "well I am sure between you and me we will find a way...."
+  },
+  {
+    "dialogue_id": 11,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "Okay, that is great. Have fun!"
+  },
+  {
+    "dialogue_id": 469,
+    "gold": "promote-coordination",
+    "pred": "small-talk",
+    "utterance": "Hello there. I'd like to discuss making a deal."
+  },
+  {
+    "dialogue_id": 469,
+    "gold": "elicit-pref",
+    "pred": "small-talk",
+    "utterance": "yes, what would you like?"
+  },
+  {
+    "dialogue_id": 469,
+    "gold": "vouch-fair",
+    "pred": "self-need",
+    "utterance": "that's not going to work for me. I need to keep at least 2 foods and 1 firewood but you can have all the water."
+  },
+  {
+    "dialogue_id": 469,
+    "gold": "elicit-pref",
+    "pred": "elicit-pref",
+    "utterance": "Are you most interested in the food? 😮"
+  },
+  {
+    "dialogue_id": 469,
+    "gold": "self-need",
+    "pred": "showing-empathy",
+    "utterance": "yeah I didn't pack enough for my trip, so I'm a little worried about my supplies."
+  },
+  {
+    "dialogue_id": 469,
+    "gold": "showing-empathy",
+    "pred": "showing-empathy",
+    "utterance": "I see. I wouldn't want you to go hungry. ☹️"
+  },
+  {
+    "dialogue_id": 469,
+    "gold": "small-talk",
+    "pred": "promote-coordination",
+    "utterance": "I'm glad we seem to have come to an agreement. This camping trip is going to be fun!"
+  },
+  {
+    "dialogue_id": 506,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "Hello, How are you? My children love to eat and have fires daily. I hope this deal works for you.🙂"
+  },
+  {
+    "dialogue_id": 506,
+    "gold": "self-need",
+    "pred": "other-need",
+    "utterance": "Hello, I'm fine. I understand your need. I have health issue I can't stand without food and water.I hope you will unders"
+  },
+  {
+    "dialogue_id": 506,
+    "gold": "showing-empathy",
+    "pred": "showing-empathy",
+    "utterance": "I completely understand where you are coming from. How much food do you need?"
+  },
+  {
+    "dialogue_id": 506,
+    "gold": "vouch-fair",
+    "pred": "self-need",
+    "utterance": "I need at least 2 package of food and 3 package of water. Please do favor for me."
+  },
+  {
+    "dialogue_id": 506,
+    "gold": "small-talk",
+    "pred": "self-need",
+    "utterance": "I have young teenagers who eat and drink like crazy. I will need atleast 1 package of water, I may be able to work on th"
+  },
+  {
+    "dialogue_id": 506,
+    "gold": "showing-empathy",
+    "pred": "showing-empathy",
+    "utterance": "I can also understand your family situation. I'll give 1 package of water.🙂"
+  },
+  {
+    "dialogue_id": 506,
+    "gold": "promote-coordination",
+    "pred": "promote-coordination",
+    "utterance": "That works for me.🙂 Are you able to share the food if I give you 1 firewood?"
+  },
+  {
+    "dialogue_id": 506,
+    "gold": "promote-coordination",
+    "pred": "self-need",
+    "utterance": "I think our dealing is going good. You take all the firewood.As I already said, I have some health issue.  Can you help "
+  },
+  {
+    "dialogue_id": 15,
+    "gold": "elicit-pref",
+    "pred": "elicit-pref",
+    "utterance": "Hi. Why do you need so many food packages?"
+  },
+  {
+    "dialogue_id": 15,
+    "gold": "other-need",
+    "pred": "self-need",
+    "utterance": "Well, I have two teenage boys who will be with me.  In normal circumstances they go through a lot of food.  While campin"
+  },
+  {
+    "dialogue_id": 15,
+    "gold": "self-need",
+    "pred": "self-need",
+    "utterance": "Well I will definitely need 2 packages of food and 2 of firewood for survival."
+  },
+  {
+    "dialogue_id": 15,
+    "gold": "elicit-pref",
+    "pred": "elicit-pref",
+    "utterance": "I am definitely ok with giving you two of the firewood!!  Why do you need 2 packages of food?"
+  },
+  {
+    "dialogue_id": 416,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "Hello, how are you today?"
+  },
+  {
+    "dialogue_id": 416,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "Good!  How are you?  Ready to go camping?"
+  },
+  {
+    "dialogue_id": 416,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "I'm doing well. I can't wait to go camping"
+  },
+  {
+    "dialogue_id": 416,
+    "gold": "small-talk",
+    "pred": "uv-part",
+    "utterance": "I am usually not much of a camper!  I will start with an offer if that is ok with you."
+  },
+  {
+    "dialogue_id": 65,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "Hello!  Great to see another camper here going for a hike.  My family is looking forward to a great weekend here.🙂"
+  },
+  {
+    "dialogue_id": 65,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "Mine too! Camping is one of my favorite things to do with my family."
+  },
+  {
+    "dialogue_id": 65,
+    "gold": "self-need",
+    "pred": "uv-part",
+    "utterance": "Sounds good on the food.  I was really hoping for doing roasting lots of marshmellows for s'mores eachnight along with s"
+  },
+  {
+    "dialogue_id": 65,
+    "gold": "other-need",
+    "pred": "uv-part",
+    "utterance": "I have a kid obsessed with fire. He was really looking forward to a fire every night and marshmallows. I don't think I c"
+  },
+  {
+    "dialogue_id": 65,
+    "gold": "small-talk",
+    "pred": "showing-empathy",
+    "utterance": "Yep. 🙂 I hope you have a great trip!"
+  },
+  {
+    "dialogue_id": 602,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "Hi! Are you excited to go camping?"
+  },
+  {
+    "dialogue_id": 602,
+    "gold": "small-talk",
+    "pred": "small-talk",
+    "utterance": "absolutely! the kids are absolutely looking forward to it. It's their first time"
+  },
+  {
+    "dialogue_id": 602,
+    "gold": "other-need",
+    "pred": "other-need",
+    "utterance": "So do we. My kids are on meds so they need a lot of water and food"
+  },
+  {
+    "dialogue_id": 602,
+    "gold": "elicit-pref",
+    "pred": "elicit-pref",
+    "utterance": "Which one do you prefer most?"
+  },
+  {
+    "dialogue_id": 602,
+    "gold": "other-need",
+    "pred": "other-need",
+    "utterance": "They sort of need more water for their meds"
+  },
+  {
+    "dialogue_id": 602,
+    "gold": "self-need",
+    "pred": "uv-part",
+    "utterance": "I can give you one firewood. I need more to boil the water from the river since you will get more water. How about that?"
+  },
+  {
+    "dialogue_id": 521,
+    "gold": "other-need",
+    "pred": "small-talk",
+    "utterance": "Howdy! Looking for firewood, water and food--really trying to get 3 packages of each, want to make sure my family has en"
+  },
+  {
+    "dialogue_id": 521,
+    "gold": "small-talk",
+    "pred": "showing-empathy",
+    "utterance": "Alright, I think that's agreeable to me too. I really appreciate it, that means a lot to me and my family."
+  },
+  {
+    "dialogue_id": 521,
+    "gold": "small-talk",
+    "pred": "elicit-pref",
+    "utterance": "How many family members do you have?"
+  },
+  {
+    "dialogue_id": 521,
+    "gold": "small-talk",
+    "pred": "other-need",
+    "utterance": "Me, my wife and our two kids."
+  },
+  {
+    "dialogue_id": 521,
+    "gold": "uv-part",
+    "pred": "self-need",
+    "utterance": "I could use 1 package of firewood if your family has other heating options like a butane food cooker."
+  },
+  {
+    "dialogue_id": 426,
+    "gold": "self-need",
+    "pred": "uv-part",
+    "utterance": "Well I had a really great day fishing today and I would like to have some extra firewood so I can cook all of this fish."
+  },
+  {
+    "dialogue_id": 426,
+    "gold": "promote-coordination",
+    "pred": "self-need",
+    "utterance": "Your right,😮  I didn't think about that. But will probably only need 1 extra package of water so, in exchange I will off"
+  },
+  {
+    "dialogue_id": 426,
+    "gold": "small-talk",
+    "pred": "showing-empathy",
+    "utterance": "You know that is very impressive.  I admire your determination and effort you put into your class.  You must be very pas"
+  },
+  {
+    "dialogue_id": 426,
+    "gold": "small-talk",
+    "pred": "showing-empathy",
+    "utterance": "I am. My favorite personality is Neil DeGrasse Tyson. He's amazing, funny and incredibly smart. I'm hoping to get an int"
+  },
+  {
+    "dialogue_id": 426,
+    "gold": "promote-coordination",
+    "pred": "self-need",
+    "utterance": "I'm glad you understand my problem. But I really need those 3 firewood packages. I'd be happy to give you 2 water packag"
+  },
+  {
+    "dialogue_id": 426,
+    "gold": "uv-part",
+    "pred": "elicit-pref",
+    "utterance": "Didn't you bring any firewood at all with you?"
+  },
+  {
+    "dialogue_id": 426,
+    "gold": "vouch-fair",
+    "pred": "promote-coordination",
+    "utterance": "Ahh, I forgot about that. OK. I'll take 2 packages of firewood, give you 2 waters, and 1 food packages as you do have so"
+  },
+  {
+    "dialogue_id": 133,
+    "gold": "self-need",
+    "pred": "self-need",
+    "utterance": "I need prefer water the most since my mouth is dry a lot. I need 3 water, 1 firewood ,and 0 food packages"
+  },
+  {
+    "dialogue_id": 133,
+    "gold": "showing-empathy",
+    "pred": "vouch-fair",
+    "utterance": "I agree water is needed. I can do 2 water 2 firewood and 0 food"
+  },
+  {
+    "dialogue_id": 133,
+    "gold": "uv-part",
+    "pred": "uv-part",
+    "utterance": "you consider me giving one of your water package and collect food package, if you are lucky you can get liquid foods too"
+  },
+  {
+    "dialogue_id": 133,
+    "gold": "showing-empathy",
+    "pred": "promote-coordination",
+    "utterance": "yeah i can understand buddy, but the fact is we can share some items. you are not getting food packages and getting pack"
+  },
+  {
+    "dialogue_id": 133,
+    "gold": "no-need",
+    "pred": "self-need",
+    "utterance": "sounds good. but how much firewood will i get ? because i don't need it much"
+  },
+  {
+    "dialogue_id": 133,
+    "gold": "promote-coordination",
+    "pred": "self-need",
+    "utterance": "Do you want to trade firewood for food?"
+  },
+  {
+    "dialogue_id": 133,
+    "gold": "promote-coordination",
+    "pred": "uv-part",
+    "utterance": "yeah, am trying to make trade but not for firewood, for water !☹️"
+  },
+  {
+    "dialogue_id": 133,
+    "gold": "self-need",
+    "pred": "self-need",
+    "utterance": "I only need water right now. so is the 2 water, 1 firewood ,and 1 food package still good ?"
+  },
+  {
+    "dialogue_id": 133,
+    "gold": "self-need",
+    "pred": "self-need",
+    "utterance": "Sorry I can't do that 1 water is not enough for me."
+  },
+  {
+    "dialogue_id": 463,
+    "gold": "uv-part",
+    "pred": "other-need",
+    "utterance": "Are you sure you need all of the water? It would be nice to have some extra."
+  },
+  {
+    "dialogue_id": 463,
+    "gold": "vouch-fair",
+    "pred": "vouch-fair",
+    "utterance": "Well, we do need the water pretty badly. But I guess wanting all the water is stingy so I will pack extra water since we"
+  },
+  {
+    "dialogue_id": 463,
+    "gold": "promote-coordination",
+    "pred": "self-need",
+    "utterance": "If you feel you absolutely need the 3 waters, I will let you have them provided I can have 2 firewoods along with the 3 "
+  }
+]

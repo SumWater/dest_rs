@@ -1,0 +1,80 @@
+
+\begin{table}[t]
+\centering
+\caption{Main results: strategy accuracy and perplexity across different PEFT configurations.
+         Multi-seed means and standard deviations over 3 seeds (42/43/44) are reported for
+         key experiments.}
+\label{tab:main}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Method} & \textbf{Prefix} & \textbf{LoRA} & \textbf{Valid PPL} & \textbf{Strategy Acc (\%)} \\
+\midrule
+Frozen Base + Strategy Text   & --  & --  & --   & 27.41 \\
+LoRA + Strategy Text           & --  & \cmark & 7.81 & 42.22 \\
+Prefix-only (B3)               & \cmark & --  & 10.54$\pm$0.12 & 55.87$\pm$1.28 \\
+Prefix+LoRA (B4)               & \cmark & \cmark & 7.93$\pm$0.17 & 37.20$\pm$3.78 \\
+Warm-start DeST-RS (B7)        & \cmark & \cmark & 8.18$\pm$0.24 & 40.49$\pm$2.19 \\
+Prefix$\rightarrow$LoRA (B9)   & \cmark$^\dagger$ & \cmark & 8.07$\pm$0.10 & 40.00$\pm$2.98 \\
+\midrule
+\multicolumn{5}{l}{\footnotesize $^\dagger$Frozen Prefix from B3; only LoRA is trained.} \\
+\multicolumn{5}{l}{\footnotesize Multi-seed: mean$\pm$std over seeds 42/43/44 for PPL and accuracy.} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\begin{table}[t]
+\centering
+\caption{Diagnostic variants: effect of orthogonal regularization, auxiliary classification,
+         gradient routing, and contrastive loss.}
+\label{tab:diag}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Variant} & \textbf{Valid PPL} & \textbf{Strategy Acc (\%)} \\
+\midrule
+\multicolumn{3}{c}{\textit{Baselines (reference)}} \\
+\quad Prefix-only (B3)        & 10.40 & 55.93 \\
+\quad Prefix+LoRA (B4)        & 7.76  & 37.17 \\
+\midrule
+\multicolumn{3}{c}{\textit{Orthogonal + Classification}} \\
+\quad + Orth (B5)             & 7.80  & 36.06 \\
+\quad + Orth + Cls (B6$_{\text{fix}}$) & 7.97 & 31.85 \\
+\quad + Orth + Cls ($\lambda_{\text{cls}}{=}5.0$) & 7.92 & 39.63 \\
+\quad + Orth + Cls ($\lambda_{\text{orth}}{=}1.0$) & 8.14 & 40.37 \\
+\midrule
+\multicolumn{3}{c}{\textit{Gradient Routing \& Contrastive}} \\
+\quad Gradient Routing        & 7.91  & 37.78 \\
+\quad Contrastive Loss        & 8.06  & 42.59 \\
+\quad Contrastive (no orth)   & 7.90  & 41.11 \\
+\midrule
+\multicolumn{3}{c}{\textit{Staged Training}} \\
+\quad Frozen Prefix + LoRA (B9) & 8.06 & 44.44 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\begin{table}[t]
+\centering
+\caption{LLM evaluator calibration on human-written validation responses.
+         The evaluator achieves 52.0\% overall accuracy, revealing substantial
+         class ambiguity.}
+\label{tab:calib}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Strategy} & \textbf{Calibration Acc (\%)} & \textbf{Notes} \\
+\midrule
+elicit-pref         & 84.2 & Relatively reliable \\
+small-talk          & 57.7 & Often confused with empathy \\
+promote-coordination& 51.7 & Confused with self-need \\
+self-need           & 51.4 & Evaluator bias toward this class \\
+showing-empathy     & 40.0 & Moderate reliability \\
+vouch-fair          & 35.7 & Difficult to distinguish \\
+other-need          & 30.0 & Unreliable \\
+uv-part             & 25.0 & Unreliable \\
+no-need             & 0.0  & Shortcut risk: evaluator cannot recognize \\
+\midrule
+Overall             & 52.0 & Substantial ambiguity \\
+\bottomrule
+\end{tabular}
+\end{table}
