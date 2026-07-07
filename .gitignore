@@ -6,3 +6,5 @@ output/other/
 .claude/
 .codex/
 .agents/
+solutions/output/logs/
+logs/

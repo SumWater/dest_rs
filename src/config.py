@@ -11,6 +11,7 @@ class TrainConfig:
     # 路径配置
     model_name_or_path: str = "/replace/with/your/local/qwen/path"
     dataset_dir: str = "/replace/with/your/local/casino/data/or/split/path"
+    output_root: str = "output"  # 输出根目录，solutions 实验设为 "solutions/output"
     train_file: Optional[str] = None
     valid_file: Optional[str] = None
     test_file: Optional[str] = None
@@ -23,11 +24,11 @@ class TrainConfig:
 
     @property
     def need_dir(self) -> str:
-        return os.path.join("output", "need", self.dataset_tag, self.experiment_name)
+        return os.path.join(self.output_root, "need", self.dataset_tag, self.experiment_name)
 
     @property
     def other_dir(self) -> str:
-        return os.path.join("output", "other", self.dataset_tag, self.experiment_name)
+        return os.path.join(self.output_root, "other", self.dataset_tag, self.experiment_name)
 
     # 数据配置
     inject_strategy_text: bool = False  # B2 公平 baseline：prompt 中显式注入策略指令
@@ -84,13 +85,18 @@ class TrainConfig:
     prefix_scale_train: float = 1.0
     prefix_scale_eval: float = 1.0
 
-    # 正交约束配置
+    # 正交约束配置（hidden-state 层面）
     lambda_orth: float = 0.0
     orth_alpha: float = 0.5
     orth_start_step: int = 0
     orth_every_n_steps: int = 20
     orth_token_sample_size: int = 64
     orth_layer_index: int = -4
+
+    # S2: 参数级正交约束（parameter-level orthogonality）
+    lambda_param_orth_qk: float = 0.0       # Q-K 正交强度
+    lambda_param_orth_vo: float = 0.0       # V-O 正交强度
+    param_orth_every_n_steps: int = 1       # 每 N 步计算一次参数正交损失
 
     # 梯度路由（gen_loss → LoRA only, cls_loss → Prefix only, orth_loss → both detach）
     grad_routing: bool = False

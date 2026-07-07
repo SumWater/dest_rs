@@ -1,0 +1,42 @@
+{
+  "_comment": "S1: Reverse Curriculum - Train LoRA first, then freeze + train Prefix only",
+  "_rationale": "Prefix learns to navigate the LoRA-modified attention space from scratch, rather than having its pre-learned signals distorted.",
+  "_training_order": "Stage 1: LoRA only (2 epochs) → Stage 2: freeze LoRA + Base, train Prefix (2 epochs)",
+
+  "model_name_or_path": "/home/amax/PycharmProjects/AINegoProject/src/Models/LLM/Qwen3-8B",
+  "dataset_dir": "augmented_data/split",
+  "dataset_tag": "casino_augmented",
+  "output_root": "solutions/output",
+
+  "experiment_name": "s1_reverse_lora_first",
+  "adapter_mode": "prefix_only",
+  "enable_lora": true,
+  "enable_prefix": true,
+  "inject_strategy_text": false,
+
+  "multi_label_policy": "drop",
+  "exclude_labels": ["non-strategic"],
+  "max_length": 512,
+  "context_turns": 6,
+
+  "batch_size": 1,
+  "num_epochs": 2,
+  "lr": 1e-4,
+  "prefix_lr": 5e-4,
+
+  "use_4bit": true,
+  "lora_r": 16,
+  "lora_alpha": 32,
+  "lora_dropout": 0.05,
+  "num_virtual_tokens": 20,
+  "prefix_init_std": 0.02,
+
+  "lambda_orth": 0.0,
+  "lambda_cls": 0.0,
+  "lambda_contrastive": 0.0,
+  "orth_every_n_steps": 0,
+  "orth_start_step": 0,
+
+  "demo_max_new_tokens": 40,
+  "seed": 42
+}

@@ -200,6 +200,8 @@ def main():
         running_orth = 0.0
         running_orth_local = 0.0
         running_orth_global = 0.0
+        running_param_orth_qk = 0.0
+        running_param_orth_vo = 0.0
         running_cls = 0.0
         running_contrastive = 0.0
         running_total = 0.0
@@ -219,6 +221,8 @@ def main():
             orth_loss = losses["orth_loss"]
             orth_local_loss = losses["orth_local_loss"]
             orth_global_loss = losses["orth_global_loss"]
+            param_orth_qk_loss = losses.get("param_orth_qk", torch.zeros(()))
+            param_orth_vo_loss = losses.get("param_orth_vo", torch.zeros(()))
             cls_loss = losses["cls_loss"]
             contrastive_loss = losses.get("contrastive_loss", torch.zeros(()))
             total_loss = losses["total_loss"]
@@ -236,6 +240,8 @@ def main():
             running_orth += orth_loss.item()
             running_orth_local += orth_local_loss.item()
             running_orth_global += orth_global_loss.item()
+            running_param_orth_qk += param_orth_qk_loss.item()
+            running_param_orth_vo += param_orth_vo_loss.item()
             running_cls += cls_loss.item()
             running_contrastive += contrastive_loss.item()
             running_total += total_loss.item()
@@ -249,6 +255,10 @@ def main():
             }
             if losses.get("contrastive_loss", torch.zeros(())).item() > 0:
                 postfix["contrast"] = f"{contrastive_loss.item():.4f}"
+            if param_orth_qk_loss.item() > 0:
+                postfix["o_qk"] = f"{param_orth_qk_loss.item():.6f}"
+            if param_orth_vo_loss.item() > 0:
+                postfix["o_vo"] = f"{param_orth_vo_loss.item():.6f}"
             postfix["orth_on"] = "Y" if losses["used_orth"] else "N"
             pbar.set_postfix(**postfix)
 
@@ -259,6 +269,8 @@ def main():
             "train_orth_loss": running_orth / max(1, batches),
             "train_orth_local_loss": running_orth_local / max(1, batches),
             "train_orth_global_loss": running_orth_global / max(1, batches),
+            "train_param_orth_qk": running_param_orth_qk / max(1, batches),
+            "train_param_orth_vo": running_param_orth_vo / max(1, batches),
             "train_cls_loss": running_cls / max(1, batches),
             "train_contrastive_loss": running_contrastive / max(1, batches),
         }

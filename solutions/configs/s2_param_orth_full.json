@@ -1,0 +1,45 @@
+{
+  "_comment": "S2: Full Parameter-Level Orthogonality - Both Q-K and V-O constraints",
+  "_rationale": "Simultaneously protect both the Prefix→Query and Prefix→Output pathways from LoRA interference.",
+
+  "model_name_or_path": "/home/amax/PycharmProjects/AINegoProject/src/Models/LLM/Qwen3-8B",
+  "dataset_dir": "augmented_data/split",
+  "dataset_tag": "casino_augmented",
+  "output_root": "solutions/output",
+
+  "experiment_name": "s2_clean_param_orth_full",
+  "adapter_mode": "dest_rs",
+  "enable_lora": true,
+  "enable_prefix": true,
+  "inject_strategy_text": false,
+
+  "multi_label_policy": "drop",
+  "exclude_labels": ["non-strategic"],
+  "max_length": 512,
+  "context_turns": 6,
+
+  "batch_size": 1,
+  "num_epochs": 2,
+  "lr": 1e-4,
+  "prefix_lr": 5e-4,
+
+  "use_4bit": true,
+  "lora_r": 16,
+  "lora_alpha": 32,
+  "lora_dropout": 0.05,
+  "num_virtual_tokens": 20,
+  "prefix_init_std": 0.02,
+
+  "lambda_orth": 0.05,
+  "lambda_cls": 0.5,
+  "lambda_contrastive": 0.0,
+  "orth_every_n_steps": 1,
+  "orth_start_step": 0,
+
+  "lambda_param_orth_qk": 1.0,
+  "lambda_param_orth_vo": 1.0,
+  "param_orth_every_n_steps": 10,
+
+  "demo_max_new_tokens": 40,
+  "seed": 42
+}

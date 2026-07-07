@@ -6,6 +6,14 @@ import torch.nn.functional as F
 from .config import TrainConfig
 from .modeling import HybridStrategyModel, LayerCatcher, get_embed_device, lora_disabled_ctx
 
+# S2: parameter-level orthogonality loss (solutions/src/losses_param_orth.py)
+try:
+    from solutions.src.losses_param_orth import param_orth_losses
+    _PARAM_ORTH_AVAILABLE = True
+except ImportError:
+    param_orth_losses = None
+    _PARAM_ORTH_AVAILABLE = False
+
 
 def mode_uses_prefix(adapter_mode: str) -> bool:
     return adapter_mode in {"prefix_only", "prefix_lora", "prefix_lora_orth", "dest_rs"}
@@ -320,11 +328,28 @@ def compute_training_losses(
                 num_strategies=hybrid.num_strategies,
             )
         total_loss = gen_loss + cfg.lambda_cls * cls_loss + cfg.lambda_contrastive * contrastive_loss
+
+        # S2: parameter-level orthogonality (batch-independent, computed on all strategies)
+        param_orth_qk_loss = zero.clone()
+        param_orth_vo_loss = zero.clone()
+        if _PARAM_ORTH_AVAILABLE and (cfg.lambda_param_orth_qk > 0 or cfg.lambda_param_orth_vo > 0):
+            if global_step % cfg.param_orth_every_n_steps == 0:
+                po_losses = param_orth_losses(
+                    hybrid, cfg,
+                    enabled_qk=cfg.lambda_param_orth_qk > 0,
+                    enabled_vo=cfg.lambda_param_orth_vo > 0,
+                )
+                param_orth_qk_loss = po_losses['qk'] * cfg.lambda_param_orth_qk
+                param_orth_vo_loss = po_losses['vo'] * cfg.lambda_param_orth_vo
+                total_loss = total_loss + param_orth_qk_loss + param_orth_vo_loss
+
         return {
             "gen_loss": gen_loss,
             "orth_loss": zero,
             "orth_local_loss": zero,
             "orth_global_loss": zero,
+            "param_orth_qk": param_orth_qk_loss,
+            "param_orth_vo": param_orth_vo_loss,
             "cls_loss": cls_loss,
             "contrastive_loss": contrastive_loss,
             "total_loss": total_loss,
@@ -433,12 +458,29 @@ def compute_training_losses(
         )
 
     total_loss = gen_loss + cfg.lambda_orth * orth_loss + cfg.lambda_cls * cls_loss + cfg.lambda_contrastive * contrastive_loss
+
+    # S2: parameter-level orthogonality (batch-independent, computed on all strategies)
+    param_orth_qk_loss = torch.zeros((), device=gen_loss.device)
+    param_orth_vo_loss = torch.zeros((), device=gen_loss.device)
+    if _PARAM_ORTH_AVAILABLE and (cfg.lambda_param_orth_qk > 0 or cfg.lambda_param_orth_vo > 0):
+        if global_step % cfg.param_orth_every_n_steps == 0:
+            po_losses = param_orth_losses(
+                hybrid, cfg,
+                enabled_qk=cfg.lambda_param_orth_qk > 0,
+                enabled_vo=cfg.lambda_param_orth_vo > 0,
+            )
+            param_orth_qk_loss = po_losses['qk'] * cfg.lambda_param_orth_qk
+            param_orth_vo_loss = po_losses['vo'] * cfg.lambda_param_orth_vo
+            total_loss = total_loss + param_orth_qk_loss + param_orth_vo_loss
+
     del h_base, h_prefix, h_lora, delta_prefix, delta_lora
     return {
         "gen_loss": gen_loss,
         "orth_loss": orth_loss,
         "orth_local_loss": local_loss,
         "orth_global_loss": global_loss,
+        "param_orth_qk": param_orth_qk_loss,
+        "param_orth_vo": param_orth_vo_loss,
         "cls_loss": cls_loss,
         "contrastive_loss": contrastive_loss,
         "total_loss": total_loss,
