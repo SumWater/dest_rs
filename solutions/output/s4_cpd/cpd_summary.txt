@@ -1,0 +1,16 @@
+CPD Evaluation Summary
+============================================================
+Checkpoint: output/other/casino_augmented_new_fix_seed42/b4_prefix_lora
+Samples: 50
+Alphas: [0.0, 0.5, 1.0, 2.0, 3.0, 5.0]
+Logit overlap (top-10): 0.900
+
+Generated files for external LLM evaluation:
+  alpha=0.0: /home/amax/桌面/Dynamic-Prefix+LoRA-Joint-Training/dest_rs/solutions/output/s4_cpd/generations_alpha0.0.jsonl
+  alpha=0.5: /home/amax/桌面/Dynamic-Prefix+LoRA-Joint-Training/dest_rs/solutions/output/s4_cpd/generations_alpha0.5.jsonl
+  alpha=1.0: /home/amax/桌面/Dynamic-Prefix+LoRA-Joint-Training/dest_rs/solutions/output/s4_cpd/generations_alpha1.0.jsonl
+  alpha=2.0: /home/amax/桌面/Dynamic-Prefix+LoRA-Joint-Training/dest_rs/solutions/output/s4_cpd/generations_alpha2.0.jsonl
+  alpha=3.0: /home/amax/桌面/Dynamic-Prefix+LoRA-Joint-Training/dest_rs/solutions/output/s4_cpd/generations_alpha3.0.jsonl
+  alpha=5.0: /home/amax/桌面/Dynamic-Prefix+LoRA-Joint-Training/dest_rs/solutions/output/s4_cpd/generations_alpha5.0.jsonl
+
+Full results: /home/amax/桌面/Dynamic-Prefix+LoRA-Joint-Training/dest_rs/solutions/output/s4_cpd/cpd_results.json

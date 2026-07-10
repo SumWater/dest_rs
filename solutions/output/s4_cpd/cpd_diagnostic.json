@@ -1,0 +1,486 @@
+{
+  "avg_overlap_top10": 0.6987500000000003,
+  "num_comparisons": 80,
+  "results": [
+    {
+      "dialogue_id": 431,
+      "target": "promote-coordination",
+      "wrong": "elicit-pref",
+      "overlap_top10": 0.9
+    },
+    {
+      "dialogue_id": 431,
+      "target": "promote-coordination",
+      "wrong": "no-need",
+      "overlap_top10": 0.8
+    },
+    {
+      "dialogue_id": 431,
+      "target": "promote-coordination",
+      "wrong": "other-need",
+      "overlap_top10": 0.9
+    },
+    {
+      "dialogue_id": 431,
+      "target": "promote-coordination",
+      "wrong": "self-need",
+      "overlap_top10": 0.8
+    },
+    {
+      "dialogue_id": 431,
+      "target": "promote-coordination",
+      "wrong": "showing-empathy",
+      "overlap_top10": 0.6
+    },
+    {
+      "dialogue_id": 431,
+      "target": "promote-coordination",
+      "wrong": "small-talk",
+      "overlap_top10": 0.7
+    },
+    {
+      "dialogue_id": 431,
+      "target": "promote-coordination",
+      "wrong": "uv-part",
+      "overlap_top10": 0.7
+    },
+    {
+      "dialogue_id": 431,
+      "target": "promote-coordination",
+      "wrong": "vouch-fair",
+      "overlap_top10": 0.9
+    },
+    {
+      "dialogue_id": 431,
+      "target": "self-need",
+      "wrong": "elicit-pref",
+      "overlap_top10": 0.9
+    },
+    {
+      "dialogue_id": 431,
+      "target": "self-need",
+      "wrong": "no-need",
+      "overlap_top10": 0.8
+    },
+    {
+      "dialogue_id": 431,
+      "target": "self-need",
+      "wrong": "other-need",
+      "overlap_top10": 0.7
+    },
+    {
+      "dialogue_id": 431,
+      "target": "self-need",
+      "wrong": "promote-coordination",
+      "overlap_top10": 0.9
+    },
+    {
+      "dialogue_id": 431,
+      "target": "self-need",
+      "wrong": "showing-empathy",
+      "overlap_top10": 0.8
+    },
+    {
+      "dialogue_id": 431,
+      "target": "self-need",
+      "wrong": "small-talk",
+      "overlap_top10": 0.8
+    },
+    {
+      "dialogue_id": 431,
+      "target": "self-need",
+      "wrong": "uv-part",
+      "overlap_top10": 0.7
+    },
+    {
+      "dialogue_id": 431,
+      "target": "self-need",
+      "wrong": "vouch-fair",
+      "overlap_top10": 0.9
+    },
+    {
+      "dialogue_id": 431,
+      "target": "promote-coordination",
+      "wrong": "elicit-pref",
+      "overlap_top10": 0.8
+    },
+    {
+      "dialogue_id": 431,
+      "target": "promote-coordination",
+      "wrong": "no-need",
+      "overlap_top10": 0.7
+    },
+    {
+      "dialogue_id": 431,
+      "target": "promote-coordination",
+      "wrong": "other-need",
+      "overlap_top10": 0.6
+    },
+    {
+      "dialogue_id": 431,
+      "target": "promote-coordination",
+      "wrong": "self-need",
+      "overlap_top10": 0.9
+    },
+    {
+      "dialogue_id": 431,
+      "target": "promote-coordination",
+      "wrong": "showing-empathy",
+      "overlap_top10": 0.5
+    },
+    {
+      "dialogue_id": 431,
+      "target": "promote-coordination",
+      "wrong": "small-talk",
+      "overlap_top10": 0.8
+    },
+    {
+      "dialogue_id": 431,
+      "target": "promote-coordination",
+      "wrong": "uv-part",
+      "overlap_top10": 0.7
+    },
+    {
+      "dialogue_id": 431,
+      "target": "promote-coordination",
+      "wrong": "vouch-fair",
+      "overlap_top10": 0.8
+    },
+    {
+      "dialogue_id": 431,
+      "target": "small-talk",
+      "wrong": "elicit-pref",
+      "overlap_top10": 0.6
+    },
+    {
+      "dialogue_id": 431,
+      "target": "small-talk",
+      "wrong": "no-need",
+      "overlap_top10": 0.6
+    },
+    {
+      "dialogue_id": 431,
+      "target": "small-talk",
+      "wrong": "other-need",
+      "overlap_top10": 0.5
+    },
+    {
+      "dialogue_id": 431,
+      "target": "small-talk",
+      "wrong": "promote-coordination",
+      "overlap_top10": 0.7
+    },
+    {
+      "dialogue_id": 431,
+      "target": "small-talk",
+      "wrong": "self-need",
+      "overlap_top10": 0.7
+    },
+    {
+      "dialogue_id": 431,
+      "target": "small-talk",
+      "wrong": "showing-empathy",
+      "overlap_top10": 0.4
+    },
+    {
+      "dialogue_id": 431,
+      "target": "small-talk",
+      "wrong": "uv-part",
+      "overlap_top10": 0.8
+    },
+    {
+      "dialogue_id": 431,
+      "target": "small-talk",
+      "wrong": "vouch-fair",
+      "overlap_top10": 0.6
+    },
+    {
+      "dialogue_id": 597,
+      "target": "elicit-pref",
+      "wrong": "no-need",
+      "overlap_top10": 0.6
+    },
+    {
+      "dialogue_id": 597,
+      "target": "elicit-pref",
+      "wrong": "other-need",
+      "overlap_top10": 1.0
+    },
+    {
+      "dialogue_id": 597,
+      "target": "elicit-pref",
+      "wrong": "promote-coordination",
+      "overlap_top10": 0.8
+    },
+    {
+      "dialogue_id": 597,
+      "target": "elicit-pref",
+      "wrong": "self-need",
+      "overlap_top10": 0.8
+    },
+    {
+      "dialogue_id": 597,
+      "target": "elicit-pref",
+      "wrong": "showing-empathy",
+      "overlap_top10": 0.5
+    },
+    {
+      "dialogue_id": 597,
+      "target": "elicit-pref",
+      "wrong": "small-talk",
+      "overlap_top10": 0.7
+    },
+    {
+      "dialogue_id": 597,
+      "target": "elicit-pref",
+      "wrong": "uv-part",
+      "overlap_top10": 0.7
+    },
+    {
+      "dialogue_id": 597,
+      "target": "elicit-pref",
+      "wrong": "vouch-fair",
+      "overlap_top10": 0.7
+    },
+    {
+      "dialogue_id": 597,
+      "target": "self-need",
+      "wrong": "elicit-pref",
+      "overlap_top10": 0.7
+    },
+    {
+      "dialogue_id": 597,
+      "target": "self-need",
+      "wrong": "no-need",
+      "overlap_top10": 0.5
+    },
+    {
+      "dialogue_id": 597,
+      "target": "self-need",
+      "wrong": "other-need",
+      "overlap_top10": 0.8
+    },
+    {
+      "dialogue_id": 597,
+      "target": "self-need",
+      "wrong": "promote-coordination",
+      "overlap_top10": 0.8
+    },
+    {
+      "dialogue_id": 597,
+      "target": "self-need",
+      "wrong": "showing-empathy",
+      "overlap_top10": 0.4
+    },
+    {
+      "dialogue_id": 597,
+      "target": "self-need",
+      "wrong": "small-talk",
+      "overlap_top10": 0.8
+    },
+    {
+      "dialogue_id": 597,
+      "target": "self-need",
+      "wrong": "uv-part",
+      "overlap_top10": 0.6
+    },
+    {
+      "dialogue_id": 597,
+      "target": "self-need",
+      "wrong": "vouch-fair",
+      "overlap_top10": 0.7
+    },
+    {
+      "dialogue_id": 597,
+      "target": "self-need",
+      "wrong": "elicit-pref",
+      "overlap_top10": 0.8
+    },
+    {
+      "dialogue_id": 597,
+      "target": "self-need",
+      "wrong": "no-need",
+      "overlap_top10": 0.5
+    },
+    {
+      "dialogue_id": 597,
+      "target": "self-need",
+      "wrong": "other-need",
+      "overlap_top10": 0.7
+    },
+    {
+      "dialogue_id": 597,
+      "target": "self-need",
+      "wrong": "promote-coordination",
+      "overlap_top10": 0.8
+    },
+    {
+      "dialogue_id": 597,
+      "target": "self-need",
+      "wrong": "showing-empathy",
+      "overlap_top10": 0.5
+    },
+    {
+      "dialogue_id": 597,
+      "target": "self-need",
+      "wrong": "small-talk",
+      "overlap_top10": 0.7
+    },
+    {
+      "dialogue_id": 597,
+      "target": "self-need",
+      "wrong": "uv-part",
+      "overlap_top10": 0.5
+    },
+    {
+      "dialogue_id": 597,
+      "target": "self-need",
+      "wrong": "vouch-fair",
+      "overlap_top10": 0.8
+    },
+    {
+      "dialogue_id": 597,
+      "target": "small-talk",
+      "wrong": "elicit-pref",
+      "overlap_top10": 0.7
+    },
+    {
+      "dialogue_id": 597,
+      "target": "small-talk",
+      "wrong": "no-need",
+      "overlap_top10": 0.5
+    },
+    {
+      "dialogue_id": 597,
+      "target": "small-talk",
+      "wrong": "other-need",
+      "overlap_top10": 0.6
+    },
+    {
+      "dialogue_id": 597,
+      "target": "small-talk",
+      "wrong": "promote-coordination",
+      "overlap_top10": 0.7
+    },
+    {
+      "dialogue_id": 597,
+      "target": "small-talk",
+      "wrong": "self-need",
+      "overlap_top10": 0.6
+    },
+    {
+      "dialogue_id": 597,
+      "target": "small-talk",
+      "wrong": "showing-empathy",
+      "overlap_top10": 0.6
+    },
+    {
+      "dialogue_id": 597,
+      "target": "small-talk",
+      "wrong": "uv-part",
+      "overlap_top10": 0.7
+    },
+    {
+      "dialogue_id": 597,
+      "target": "small-talk",
+      "wrong": "vouch-fair",
+      "overlap_top10": 0.7
+    },
+    {
+      "dialogue_id": 597,
+      "target": "vouch-fair",
+      "wrong": "elicit-pref",
+      "overlap_top10": 0.7
+    },
+    {
+      "dialogue_id": 597,
+      "target": "vouch-fair",
+      "wrong": "no-need",
+      "overlap_top10": 0.6
+    },
+    {
+      "dialogue_id": 597,
+      "target": "vouch-fair",
+      "wrong": "other-need",
+      "overlap_top10": 0.7
+    },
+    {
+      "dialogue_id": 597,
+      "target": "vouch-fair",
+      "wrong": "promote-coordination",
+      "overlap_top10": 0.7
+    },
+    {
+      "dialogue_id": 597,
+      "target": "vouch-fair",
+      "wrong": "self-need",
+      "overlap_top10": 0.7
+    },
+    {
+      "dialogue_id": 597,
+      "target": "vouch-fair",
+      "wrong": "showing-empathy",
+      "overlap_top10": 0.3
+    },
+    {
+      "dialogue_id": 597,
+      "target": "vouch-fair",
+      "wrong": "small-talk",
+      "overlap_top10": 0.7
+    },
+    {
+      "dialogue_id": 597,
+      "target": "vouch-fair",
+      "wrong": "uv-part",
+      "overlap_top10": 0.6
+    },
+    {
+      "dialogue_id": 597,
+      "target": "promote-coordination",
+      "wrong": "elicit-pref",
+      "overlap_top10": 0.8
+    },
+    {
+      "dialogue_id": 597,
+      "target": "promote-coordination",
+      "wrong": "no-need",
+      "overlap_top10": 0.7
+    },
+    {
+      "dialogue_id": 597,
+      "target": "promote-coordination",
+      "wrong": "other-need",
+      "overlap_top10": 0.8
+    },
+    {
+      "dialogue_id": 597,
+      "target": "promote-coordination",
+      "wrong": "self-need",
+      "overlap_top10": 0.8
+    },
+    {
+      "dialogue_id": 597,
+      "target": "promote-coordination",
+      "wrong": "showing-empathy",
+      "overlap_top10": 0.4
+    },
+    {
+      "dialogue_id": 597,
+      "target": "promote-coordination",
+      "wrong": "small-talk",
+      "overlap_top10": 0.8
+    },
+    {
+      "dialogue_id": 597,
+      "target": "promote-coordination",
+      "wrong": "uv-part",
+      "overlap_top10": 0.7
+    },
+    {
+      "dialogue_id": 597,
+      "target": "promote-coordination",
+      "wrong": "vouch-fair",
+      "overlap_top10": 0.9
+    }
+  ]
+}

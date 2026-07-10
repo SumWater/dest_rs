@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import argparse
 import json
@@ -98,7 +98,7 @@ def build_optimizer(hybrid, cfg: TrainConfig):
     if cls_params:
         groups.append({"params": cls_params, "lr": cfg.lr, "name": "cls"})
     if not groups:
-        raise ValueError(f"褰撳墠 adapter_mode={cfg.adapter_mode} 娌℃湁鍙缁冨弬鏁?)
+        raise ValueError(f"当前 adapter_mode={cfg.adapter_mode} 没有可训练参数")
     optimizer = torch.optim.AdamW(groups, weight_decay=cfg.weight_decay)
     print("=" * 88)
     for idx, group in enumerate(optimizer.param_groups):
@@ -156,8 +156,8 @@ def main():
     parser.add_argument("--config", type=str, required=True)
     parser.add_argument("--dataset-tag", type=str, default=None)
     parser.add_argument("--dataset-dir", type=str, default=None)
-    parser.add_argument("--seed", type=int, default=None, help="瑕嗙洊閰嶇疆鏂囦欢涓殑 seed")
-    parser.add_argument("--warm-start-dir", type=str, default=None, help="瑕嗙洊 warm_start_dir")
+    parser.add_argument("--seed", type=int, default=None, help="覆盖配置文件中的 seed")
+    parser.add_argument("--warm-start-dir", type=str, default=None, help="覆盖 warm_start_dir")
     args = parser.parse_args()
 
     cfg = load_config(args.config)
@@ -333,7 +333,7 @@ def main():
                 best_epoch = epoch + 1
                 best_state = capture_trainable_state(hybrid)
                 save_checkpoint(hybrid, tokenizer, cfg, label_space)
-                print(f"[save] 鏂扮殑鏈€浣?checkpoint 宸蹭繚瀛樺埌 {cfg.other_dir}")
+                print(f"[save] 新的最佳 checkpoint 已保存到 {cfg.other_dir}")
         history.append(epoch_record)
 
     prefix_norm_after = float(hybrid.prefix_bank.norm().item())
@@ -357,10 +357,10 @@ def main():
     if cfg.save_best_only and best_state is not None:
         restore_trainable_state(hybrid, best_state)
         sample_checkpoint = "best"
-        print(f"[restore] 宸叉仮澶?epoch {best_epoch} 鐨勬渶浣?checkpoint锛岀敤浜庣敓鎴?swap samples")
+        print(f"[restore] 已恢复 epoch {best_epoch} 的最佳 checkpoint，用于生成 swap samples")
     else:
         save_checkpoint(hybrid, tokenizer, cfg, label_space)
-        print(f"[save] final checkpoint 宸蹭繚瀛樺埌 {cfg.other_dir}")
+        print(f"[save] final checkpoint 已保存到 {cfg.other_dir}")
 
     save_swap_samples(
         hybrid=hybrid,
@@ -377,11 +377,9 @@ def main():
         json.dump(metrics_payload, f, ensure_ascii=False, indent=2)
 
     catcher.remove()
-    print(f"[done] 鍒嗘瀽鏁版嵁宸蹭繚瀛樺埌 {cfg.need_dir}")
-    print(f"[done] 妯″瀷鏉冮噸宸蹭繚瀛樺埌 {cfg.other_dir}")
+    print(f"[done] 分析数据已保存到 {cfg.need_dir}")
+    print(f"[done] 模型权重已保存到 {cfg.other_dir}")
 
 
 if __name__ == "__main__":
     main()
-
-
