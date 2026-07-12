@@ -9,7 +9,7 @@ import torch
 
 from .config import TrainConfig
 from .modeling import HybridStrategyModel, get_embed_device, lora_disabled_ctx
-from .losses import causal_lm_loss, cfg_uses_lora, cfg_uses_prefix
+from .losses import align_labels_and_response_mask, response_nll_stats, cfg_uses_lora, cfg_uses_prefix
 
 
 @torch.no_grad()
@@ -19,8 +19,8 @@ def evaluate_generation_loss(
     cfg: TrainConfig,
 ) -> Dict[str, float]:
     hybrid.eval()
-    total_loss = 0.0
-    total_batches = 0
+    total_nll = 0.0
+    total_tokens = 0
     device_in = get_embed_device(hybrid.peft_model)
     prefix_on = cfg_uses_prefix(cfg)
     lora_on = cfg_uses_lora(cfg)
@@ -47,14 +47,24 @@ def evaluate_generation_loss(
                     prefix_scale=cfg.prefix_scale_eval,
                     use_cache=False,
                 )
-        loss = causal_lm_loss(outputs.logits, extended_labels.to(outputs.logits.device))
-        total_loss += loss.item()
-        total_batches += 1
+        aligned_labels, aligned_mask = align_labels_and_response_mask(
+            batch["labels"].to(outputs.logits.device),
+            batch["response_mask"].to(outputs.logits.device),
+            num_virtual_tokens=cfg.num_virtual_tokens if prefix_on else 0,
+            logits_sequence_length=outputs.logits.size(1),
+        )
+        nll_sums, counts = response_nll_stats(outputs.logits, aligned_labels, aligned_mask)
+        total_nll += float(nll_sums.sum().item())
+        total_tokens += int(counts.sum().item())
 
-    mean_loss = total_loss / max(1, total_batches)
+    if total_tokens == 0:
+        raise ValueError("Evaluation contains zero response tokens")
+    mean_loss = total_nll / total_tokens
     return {
         "loss": mean_loss,
         "perplexity": math.exp(min(20.0, mean_loss)),
+        "response_tokens": total_tokens,
+        "nll_sum": total_nll,
     }
 
 

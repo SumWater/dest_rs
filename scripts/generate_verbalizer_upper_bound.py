@@ -7,30 +7,31 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import sys
 from pathlib import Path
 
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 
-STRATEGIES = [
-    "small-talk", "self-need", "other-need", "no-need", "uv-part",
-    "elicit-pref", "showing-empathy", "promote-coordination", "vouch-fair",
-]
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from src.strategy_labels import CANONICAL_LABELS
+
+STRATEGIES = list(CANONICAL_LABELS)
 DEFINITIONS = {
     "small-talk": "Use a social greeting or casual conversation rather than negotiating needs.",
     "self-need": "State the current speaker's own need or reason for wanting an item.",
-    "other-need": "State or acknowledge the other participant's concrete need or reason.",
+    "other-need": "State a concrete item need for someone associated with the current speaker other than the speaker, such as the speaker's children, family, friends, or group members.",
     "no-need": "State that the current speaker does not need or has low need for an item.",
     "uv-part": "Argue that an item or allocation is less valuable or necessary to the partner.",
-    "elicit-pref": "Ask the partner about preferences, priorities, or reasons.",
+    "elicit-pref": "Ask which negotiated item the partner prefers or prioritizes most.",
     "showing-empathy": "Express understanding of or sympathy for the partner's situation.",
-    "promote-coordination": "Encourage joint problem solving, compromise, or working together.",
-    "vouch-fair": "Claim that an offer, split, or bargaining position is fair or balanced.",
+    "promote-coordination": "Propose an explicit trade, mutual concession, exchange, or joint effort to reach a deal.",
+    "vouch-fair": "Appeal to fairness or call out an allocation imbalance for personal benefit.",
 }
 EXAMPLES = {
     "small-talk": "Hi there, how is your camping trip going?",
     "self-need": "I need the water because my group must stay hydrated.",
-    "other-need": "I understand that you need the food to feed your group.",
+    "other-need": "My children need the food for our camping trip.",
     "no-need": "I do not need much firewood, so you can have it.",
     "uv-part": "Since you already brought drinks, the water is less important for you.",
     "elicit-pref": "Which supplies matter most to you, and why?",

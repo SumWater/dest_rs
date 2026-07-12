@@ -10,19 +10,20 @@ import torch
 from torch.utils.data import Dataset
 
 from .config import TrainConfig
+from .strategy_labels import CANONICAL_LABELS, assert_exact_label_order, validate_observed_labels
 
 
 # ── 策略文本描述（用于 inject_strategy_text） ──
 STRATEGY_DESCRIPTIONS: Dict[str, str] = {
-    "elicit-pref": "Ask about the other party's preferences, priorities, or situation",
-    "self-need": "Express or emphasize your own needs, wants, or requirements",
-    "other-need": "Acknowledge, discuss, or accommodate the other party's needs",
-    "no-need": "Downplay or deny needing something; signal flexibility",
-    "promote-coordination": "Propose collaboration, compromise, or working together",
-    "showing-empathy": "Express understanding, support, or emotional connection",
-    "small-talk": "Make casual conversation, greetings, or chit-chat",
-    "uv-part": "Emphasize the unique value of items; justify why something matters",
-    "vouch-fair": "Appeal to fairness, equity, or balanced outcomes",
+    "elicit-pref": "Discover the negotiation partner's preference order or item priorities",
+    "self-need": "Establish the current speaker's own personal need or reason for an item",
+    "other-need": "Establish an item need for someone associated with the speaker other than the speaker",
+    "no-need": "State that the current speaker does not need, has low need for, or has enough of an item",
+    "promote-coordination": "Promote a trade, mutual concession, exchange, or joint effort to reach a deal",
+    "showing-empathy": "Positively acknowledge the negotiation partner's personal context",
+    "small-talk": "Use social conversation outside negotiation and item allocation to build rapport",
+    "uv-part": "Undervalue or question the negotiation partner's need or need strength for an item",
+    "vouch-fair": "Appeal to fairness or call out an allocation imbalance for personal benefit",
 }
 
 
@@ -226,12 +227,25 @@ class StrategyLabelSpace:
         labels = payload.get("labels")
         if not labels:
             labels = [label for label, _ in sorted(payload["label_to_id"].items(), key=lambda x: x[1])]
+        assert_exact_label_order(labels, CANONICAL_LABELS, source="serialized label map")
         return cls(labels)
+
+    @classmethod
+    def canonical(cls, labels: Sequence[str]) -> "StrategyLabelSpace":
+        return cls(labels)
+
+    def validate_examples(self, examples: Sequence[StrategyExample], *, require_all: bool, source: str) -> None:
+        validate_observed_labels(
+            (ex.primary_strategy for ex in examples), self.labels, require_all=require_all, source=source
+        )
 
 
 class CasinoStrategyDataset(Dataset):
     def __init__(self, examples: Sequence[StrategyExample], label_space: StrategyLabelSpace):
-        self.examples = [ex for ex in examples if ex.primary_strategy in label_space.label_to_id]
+        unknown = sorted({ex.primary_strategy for ex in examples} - set(label_space.labels))
+        if unknown:
+            raise ValueError(f"Unknown strategies passed to CasinoStrategyDataset: {unknown}")
+        self.examples = list(examples)
         self.label_space = label_space
 
     def __len__(self) -> int:
@@ -258,7 +272,7 @@ class StrategyDataCollator:
         if self.tokenizer.pad_token_id is None:
             self.tokenizer.pad_token = self.tokenizer.eos_token
 
-    def encode_prompt_target(self, prompt: str, target: str) -> Tuple[List[int], List[int], List[int]]:
+    def encode_prompt_target(self, prompt: str, target: str) -> Tuple[List[int], List[int], List[int], List[int]]:
         prompt_ids = self.tokenizer(prompt, add_special_tokens=False)["input_ids"]
         target_text = target + (self.tokenizer.eos_token or "")
         target_ids = self.tokenizer(target_text, add_special_tokens=False)["input_ids"]
@@ -273,8 +287,9 @@ class StrategyDataCollator:
 
         input_ids = prompt_ids + target_ids
         labels = [-100] * len(prompt_ids) + target_ids
+        response_mask = [0] * len(prompt_ids) + [1] * len(target_ids)
         attention_mask = [1] * len(input_ids)
-        return input_ids, attention_mask, labels
+        return input_ids, attention_mask, labels, response_mask
 
     def __call__(self, batch: Sequence[Dict]) -> Dict[str, torch.Tensor]:
         # 构建 prompt（可选注入策略文本指令）
@@ -293,13 +308,15 @@ class StrategyDataCollator:
         input_ids_list = []
         attention_mask_list = []
         labels_list = []
+        response_mask_list = []
         strategy_ids = []
         meta = []
-        for item, (input_ids, attention_mask, labels) in zip(batch, encoded):
+        for item, (input_ids, attention_mask, labels, response_mask) in zip(batch, encoded):
             pad_len = max_seq - len(input_ids)
             input_ids_list.append(input_ids + [pad_id] * pad_len)
             attention_mask_list.append(attention_mask + [0] * pad_len)
             labels_list.append(labels + [-100] * pad_len)
+            response_mask_list.append(response_mask + [0] * pad_len)
             strategy_ids.append(item["strategy_id"])
             meta.append(
                 {
@@ -317,6 +334,7 @@ class StrategyDataCollator:
             "input_ids": torch.tensor(input_ids_list, dtype=torch.long),
             "attention_mask": torch.tensor(attention_mask_list, dtype=torch.long),
             "labels": torch.tensor(labels_list, dtype=torch.long),
+            "response_mask": torch.tensor(response_mask_list, dtype=torch.bool),
             "strategy_id": torch.tensor(strategy_ids, dtype=torch.long),
             "meta": meta,
         }

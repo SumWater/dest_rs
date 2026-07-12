@@ -48,17 +48,80 @@ def cfg_cls_target(cfg: TrainConfig) -> str:
     return target
 
 
-def causal_lm_loss(logits: torch.Tensor, labels: torch.Tensor) -> torch.Tensor:
+def align_labels_and_response_mask(
+    labels: torch.Tensor,
+    response_mask: torch.Tensor,
+    *,
+    num_virtual_tokens: int,
+    logits_sequence_length: int,
+) -> tuple[torch.Tensor, torch.Tensor]:
+    if labels.ndim != 2 or response_mask.ndim != 2 or labels.shape != response_mask.shape:
+        raise ValueError(f"labels/response_mask shape mismatch: {labels.shape} vs {response_mask.shape}")
+    if num_virtual_tokens < 0:
+        raise ValueError(f"num_virtual_tokens must be non-negative, got {num_virtual_tokens}")
+    response_mask = response_mask.to(torch.bool)
+    if num_virtual_tokens:
+        labels = torch.cat([
+            torch.full((labels.size(0), num_virtual_tokens), -100, dtype=labels.dtype, device=labels.device),
+            labels,
+        ], dim=1)
+        response_mask = torch.cat([
+            torch.zeros((response_mask.size(0), num_virtual_tokens), dtype=torch.bool, device=response_mask.device),
+            response_mask,
+        ], dim=1)
+    if labels.size(1) != logits_sequence_length or response_mask.size(1) != logits_sequence_length:
+        raise ValueError(
+            f"Aligned length mismatch: labels={labels.shape}, mask={response_mask.shape}, "
+            f"logits_sequence_length={logits_sequence_length}"
+        )
+    if torch.any(response_mask & labels.eq(-100)):
+        raise ValueError("response_mask selects ignored labels")
+    if torch.any(labels.ne(-100) & ~response_mask):
+        raise ValueError("supervised labels exist outside response_mask")
+    return labels, response_mask
+
+
+def response_nll_stats(
+    logits: torch.Tensor, aligned_labels: torch.Tensor, aligned_response_mask: torch.Tensor
+) -> tuple[torch.Tensor, torch.Tensor]:
+    if logits.ndim != 3 or aligned_labels.shape != aligned_response_mask.shape:
+        raise ValueError("Invalid logits/labels/mask ranks or shapes")
+    if aligned_labels.size(1) != logits.size(1):
+        raise ValueError("Aligned labels and logits lengths differ")
     shift_logits = logits[:, :-1, :].contiguous()
-    shift_labels = labels[:, 1:].contiguous()
-    valid = shift_labels.ne(-100)
-    if valid.sum().item() == 0:
-        return (shift_logits * 0.0).sum()
-    return F.cross_entropy(
-        shift_logits.view(-1, shift_logits.size(-1)),
-        shift_labels.view(-1),
-        ignore_index=-100,
+    shift_labels = aligned_labels[:, 1:].contiguous()
+    shift_mask = aligned_response_mask[:, 1:].to(torch.bool).contiguous()
+    if shift_labels.shape != shift_mask.shape or shift_labels.size(1) != shift_logits.size(1):
+        raise ValueError("Causal-shift alignment mismatch")
+    counts = shift_mask.sum(dim=1)
+    if torch.any(counts == 0):
+        raise ValueError(f"response token count is zero after causal shift: {counts.tolist()}")
+    safe_labels = shift_labels.masked_fill(~shift_mask, 0)
+    selected = F.log_softmax(shift_logits.float(), dim=-1).gather(
+        -1, safe_labels.unsqueeze(-1)
+    ).squeeze(-1)
+    nll_sums = -(selected * shift_mask).sum(dim=1)
+    if not torch.isfinite(nll_sums).all():
+        raise FloatingPointError("NaN or Inf in response NLL")
+    return nll_sums, counts
+
+
+def causal_lm_loss(
+    logits: torch.Tensor,
+    labels: torch.Tensor,
+    response_mask: torch.Tensor | None = None,
+    *,
+    num_virtual_tokens: int = 0,
+) -> torch.Tensor:
+    if response_mask is None:
+        response_mask = labels.ne(-100)
+    aligned_labels, aligned_mask = align_labels_and_response_mask(
+        labels, response_mask,
+        num_virtual_tokens=num_virtual_tokens,
+        logits_sequence_length=logits.size(1),
     )
+    nll_sums, counts = response_nll_stats(logits, aligned_labels, aligned_mask)
+    return nll_sums.sum() / counts.sum()
 
 
 def sample_wrong_strategies(strategy_ids: torch.Tensor, num_strategies: int) -> torch.Tensor:
@@ -245,6 +308,7 @@ def compute_training_losses(
     input_ids = batch["input_ids"].to(device_in)
     attention_mask = batch["attention_mask"].to(device_in)
     labels = batch["labels"].to(device_in)
+    response_mask = batch["response_mask"].to(device_in)
     strategy_ids = batch["strategy_id"].to(device_in)
 
     prefix_on = cfg_uses_prefix(cfg)
@@ -287,7 +351,12 @@ def compute_training_losses(
                 )
         h_both = catcher.pop()
         h_real = hybrid.slice_real_tokens(h_both, prefix_on=prefix_on)
-        gen_loss = causal_lm_loss(outputs.logits, extended_labels.to(outputs.logits.device))
+        gen_loss = causal_lm_loss(
+            outputs.logits,
+            labels.to(outputs.logits.device),
+            response_mask.to(outputs.logits.device),
+            num_virtual_tokens=hybrid.num_virtual_tokens if prefix_on else 0,
+        )
         cls_loss = torch.zeros((), device=gen_loss.device)
         cls_logits = None
         if should_compute_cls:
@@ -425,7 +494,12 @@ def compute_training_losses(
     h_both = catcher.pop()
     logits = outputs.logits
     extended_labels = extended_labels.to(logits.device)
-    gen_loss = causal_lm_loss(logits, extended_labels)
+    gen_loss = causal_lm_loss(
+        logits,
+        labels.to(logits.device),
+        response_mask.to(logits.device),
+        num_virtual_tokens=hybrid.num_virtual_tokens,
+    )
     h_both = hybrid.slice_real_tokens(h_both, prefix_on=True)
 
     delta_prefix = h_prefix - h_base

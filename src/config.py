@@ -21,6 +21,11 @@ class TrainConfig:
     warm_start_prefix: bool = True
     warm_start_lora: bool = True
     freeze_prefix: bool = False
+    strategy_label_space_path: str = "configs/strategy_label_space.json"
+    # New-mainline safety: any explicitly requested warm start is mandatory.
+    require_warm_start_prefix: bool = True
+    require_warm_start_lora: bool = True
+    enforce_prefix_only_trainable: bool = False
 
     @property
     def need_dir(self) -> str:
@@ -122,9 +127,11 @@ def load_config(path: str) -> TrainConfig:
     with open(path, "r", encoding="utf-8") as f:
         raw = json.load(f)
     cfg = TrainConfig()
+    unknown = sorted(set(raw) - set(cfg.__dict__))
+    if unknown:
+        raise ValueError(f"Unknown configuration keys in {path}: {unknown}")
     for key, value in raw.items():
-        if hasattr(cfg, key):
-            setattr(cfg, key, value)
+        setattr(cfg, key, value)
     return cfg
 
 

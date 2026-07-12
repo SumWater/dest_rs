@@ -1,0 +1,14 @@
+{
+  "version": "strategy-protocol-v1",
+  "labels": [
+    "elicit-pref",
+    "no-need",
+    "other-need",
+    "promote-coordination",
+    "self-need",
+    "showing-empathy",
+    "small-talk",
+    "uv-part",
+    "vouch-fair"
+  ]
+}

@@ -15,15 +15,15 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 SYSTEM = "You are an expert in negotiation dialogue analysis. Your task is to classify the negotiation strategy used in an utterance."
 
 STRATEGY_DEFINITIONS = """Negotiation strategies (from CaSiNo):
-- elicit-pref: Ask about the other party's preferences, priorities, or situation
-- self-need: Express or emphasize your own needs, wants, or requirements
-- other-need: Acknowledge, discuss, or accommodate the other party's needs
-- no-need: Downplay or deny needing something; signal flexibility
-- promote-coordination: Propose collaboration, compromise, or working together
-- showing-empathy: Express understanding, support, or emotional connection
-- small-talk: Casual conversation, greetings, chit-chat unrelated to negotiation
-- uv-part: Emphasize unique value of items; justify why something matters to you
-- vouch-fair: Appeal to fairness, equity, or balanced outcomes"""
+- elicit-pref: Discover the negotiation partner's preference order or item priorities
+- self-need: Establish the current speaker's own personal need or reason for an item
+- other-need: Establish an item need for someone associated with the current speaker other than the speaker
+- no-need: State that the current speaker does not need, has low need for, or has enough of an item
+- promote-coordination: Promote a trade, mutual concession, exchange, or joint effort to reach a deal
+- showing-empathy: Positively acknowledge the negotiation partner's personal context
+- small-talk: Social conversation outside negotiation and item allocation used to build rapport
+- uv-part: Undervalue or question the negotiation partner's need or need strength for an item
+- vouch-fair: Appeal to fairness or call out an allocation imbalance for personal benefit"""
 
 FEW_SHOT_TEMPLATE = """Here are examples of negotiation utterances and their strategies:
 {few_shot}"""

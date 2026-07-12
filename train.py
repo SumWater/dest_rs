@@ -21,11 +21,14 @@ from src.casino_dataset import (
 from src.evaluate import evaluate_generation_loss, save_swap_samples
 from src.losses import compute_training_losses
 from src.modeling import (
+    assert_optimizer_matches_trainable,
+    assert_trainable_partition,
     build_hybrid_model,
     freeze_for_adapter_mode,
     load_tokenizer,
     print_trainable_parameters,
 )
+from src.strategy_labels import load_canonical_labels
 
 
 def set_seed(seed: int) -> None:
@@ -48,7 +51,11 @@ def build_dataloaders(cfg: TrainConfig, tokenizer):
     valid_examples = load_split_examples(cfg, "valid")
     test_examples = load_split_examples(cfg, "test")
 
-    label_space = StrategyLabelSpace.fit(train_examples)
+    canonical_labels = load_canonical_labels(cfg.strategy_label_space_path)
+    label_space = StrategyLabelSpace.canonical(canonical_labels)
+    label_space.validate_examples(train_examples, require_all=True, source="train split")
+    label_space.validate_examples(valid_examples, require_all=False, source="valid split")
+    label_space.validate_examples(test_examples, require_all=False, source="test split")
     print("=" * 88)
     print(f"[data] train examples: {len(train_examples)}")
     print(f"[data] valid examples: {len(valid_examples)}")
@@ -100,6 +107,7 @@ def build_optimizer(hybrid, cfg: TrainConfig):
     if not groups:
         raise ValueError(f"当前 adapter_mode={cfg.adapter_mode} 没有可训练参数")
     optimizer = torch.optim.AdamW(groups, weight_decay=cfg.weight_decay)
+    assert_optimizer_matches_trainable(hybrid, optimizer)
     print("=" * 88)
     for idx, group in enumerate(optimizer.param_groups):
         name = group.get("name", f"group_{idx}")
@@ -183,8 +191,14 @@ def main():
     train_loader, valid_loader, test_loader, label_space = build_dataloaders(cfg, tokenizer)
     save_label_map(label_space, cfg.need_dir)
 
-    hybrid, tokenizer, catcher = build_hybrid_model(cfg, num_strategies=len(label_space.labels))
+    hybrid, tokenizer, catcher = build_hybrid_model(
+        cfg, num_strategies=len(label_space.labels), expected_labels=label_space.labels
+    )
     optimizer = build_optimizer(hybrid, cfg)
+    if cfg.enforce_prefix_only_trainable:
+        assert_trainable_partition(
+            hybrid, base=0, lora=0, classifier=0, prefix_positive=True
+        )
 
     best_valid_loss = float("inf")
     best_epoch = None

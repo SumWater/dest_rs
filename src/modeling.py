@@ -10,6 +10,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 from peft import LoraConfig, PeftModel, get_peft_model, prepare_model_for_kbit_training
 
 from .config import TrainConfig
+from .strategy_labels import assert_exact_label_order
 
 
 def get_embed_device(model) -> torch.device:
@@ -290,11 +291,20 @@ def attach_lora(base_model, cfg: TrainConfig, warm_start_dir: str | None = None)
         if warm_start_dir and cfg.warm_start_lora
         else None
     )
-    if lora_dir and os.path.exists(lora_dir):
+    if lora_dir and os.path.isdir(lora_dir):
+        adapter_config = os.path.join(lora_dir, "adapter_config.json")
+        adapter_weights = [
+            os.path.join(lora_dir, "adapter_model.safetensors"),
+            os.path.join(lora_dir, "adapter_model.bin"),
+        ]
+        if not os.path.isfile(adapter_config) or not any(os.path.isfile(x) for x in adapter_weights):
+            raise FileNotFoundError(f"Incomplete required LoRA adapter directory: {lora_dir}")
         peft_model = PeftModel.from_pretrained(base_model, lora_dir, is_trainable=True)
         print(f"[model] 已从 {lora_dir} 加载 LoRA warm start")
         return peft_model
 
+    if warm_start_dir and cfg.warm_start_lora and cfg.require_warm_start_lora:
+        raise FileNotFoundError(f"Required LoRA warm start does not exist: {lora_dir}")
     targets = detect_lora_targets(base_model, cfg.lora_target_candidates)
     print(f"[model] LoRA target modules: {targets}")
     lora_cfg = LoraConfig(
@@ -309,7 +319,7 @@ def attach_lora(base_model, cfg: TrainConfig, warm_start_dir: str | None = None)
     return peft_model
 
 
-def build_hybrid_model(cfg: TrainConfig, num_strategies: int):
+def build_hybrid_model(cfg: TrainConfig, num_strategies: int, expected_labels: List[str] | None = None):
     tokenizer = load_tokenizer(cfg)
     base_model = load_backbone(cfg)
     peft_model = attach_lora(base_model, cfg, cfg.warm_start_dir)
@@ -339,10 +349,22 @@ def build_hybrid_model(cfg: TrainConfig, num_strategies: int):
             raise ValueError(
                 f"Warm-start prefix 形状不匹配：期望 {tuple(hybrid.prefix_bank.shape)}，实际 {tuple(saved_prefix.shape)}"
             )
+        if expected_labels is not None:
+            saved_labels = payload.get("labels")
+            if not isinstance(saved_labels, list):
+                raise ValueError(f"Prefix checkpoint has no ordered labels list: {prefix_path}")
+            assert_exact_label_order(saved_labels, expected_labels, source=prefix_path)
         hybrid.prefix_bank.data.copy_(saved_prefix.to(hybrid.prefix_bank.device, dtype=hybrid.prefix_bank.dtype))
         if "strategy_classifier" in payload:
-            hybrid.strategy_classifier.load_state_dict(payload["strategy_classifier"], strict=False)
+            incompatible = hybrid.strategy_classifier.load_state_dict(payload["strategy_classifier"], strict=False)
+            if incompatible.missing_keys or incompatible.unexpected_keys:
+                raise ValueError(
+                    f"Strategy classifier state mismatch in {prefix_path}: "
+                    f"missing={incompatible.missing_keys}, unexpected={incompatible.unexpected_keys}"
+                )
         print(f"[model] 已从 {prefix_path} 加载 prefix bank warm start")
+    elif cfg.warm_start_dir and cfg.warm_start_prefix and cfg.require_warm_start_prefix:
+        raise FileNotFoundError(f"Required Prefix warm start does not exist: {prefix_path}")
 
     catcher = build_layer_catcher(peft_model, cfg.orth_layer_index)
     return hybrid, tokenizer, catcher
@@ -405,3 +427,45 @@ def print_trainable_parameters(hybrid: HybridStrategyModel) -> None:
     for name, numel in trainable:
         print(f"  {name:<70} {numel:>12,}")
     print("=" * 88)
+
+
+def trainable_partition(hybrid: HybridStrategyModel) -> dict[str, list[tuple[str, nn.Parameter]]]:
+    groups = {"prefix": [], "lora": [], "classifier": [], "base": []}
+    for name, param in hybrid.named_parameters():
+        if not param.requires_grad:
+            continue
+        lowered = name.lower()
+        if "prefix_bank" in lowered:
+            groups["prefix"].append((name, param))
+        elif "lora_" in lowered:
+            groups["lora"].append((name, param))
+        elif "strategy_classifier" in lowered:
+            groups["classifier"].append((name, param))
+        else:
+            groups["base"].append((name, param))
+    return groups
+
+
+def assert_trainable_partition(
+    hybrid: HybridStrategyModel, *, base: int, lora: int, classifier: int, prefix_positive: bool
+) -> dict[str, int]:
+    groups = trainable_partition(hybrid)
+    counts = {key: sum(param.numel() for _, param in values) for key, values in groups.items()}
+    if counts["base"] != base or counts["lora"] != lora or counts["classifier"] != classifier:
+        names = {key: [name for name, _ in value] for key, value in groups.items()}
+        raise RuntimeError(f"Trainable parameter partition mismatch: counts={counts}, names={names}")
+    if prefix_positive and counts["prefix"] <= 0:
+        raise RuntimeError(f"Expected trainable Prefix parameters, got counts={counts}")
+    return counts
+
+
+def assert_optimizer_matches_trainable(hybrid: HybridStrategyModel, optimizer) -> None:
+    expected = {id(param): name for name, param in hybrid.named_parameters() if param.requires_grad}
+    actual: list[nn.Parameter] = [param for group in optimizer.param_groups for param in group["params"]]
+    actual_ids = [id(param) for param in actual]
+    if len(actual_ids) != len(set(actual_ids)):
+        raise RuntimeError("Optimizer contains duplicate parameter references")
+    if set(actual_ids) != set(expected):
+        missing = [name for ident, name in expected.items() if ident not in set(actual_ids)]
+        extra = [ident for ident in actual_ids if ident not in expected]
+        raise RuntimeError(f"Optimizer/trainable mismatch: missing={missing}, extra_parameter_ids={extra}")

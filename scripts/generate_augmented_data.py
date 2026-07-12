@@ -50,31 +50,31 @@ STRATEGIES = {
         "guidance": "Acknowledge the other party's feelings or situation. Show genuine care.",
     },
     "elicit-pref": {
-        "definition": "Ask about the other party's preferences, priorities, or situation to gather information.",
+        "definition": "Attempt to discover the other party's preference order or priority among the negotiated items.",
         "examples": [
             "What items are most important to you for this trip?",
             "Do you have a strong preference for any particular resource?",
-            "What reasons do you have for needing those?",
+            "Which item is your highest priority?",
         ],
-        "guidance": "Ask a question about what the other person wants or needs. Do NOT state your own needs.",
+        "guidance": "Ask which negotiated item the other person prefers or prioritizes. Generic personal questions do not qualify.",
     },
     "self-need": {
         "definition": "Express or emphasize your own needs, wants, or requirements.",
         "examples": [
             "I really need extra water because we'll be hiking in the heat all day.",
             "Firewood is critical for me — it gets freezing cold at night where I'm camping.",
-            "I need all the food I can get, I have a large group to feed.",
+            "I need all the water I can get because I become dehydrated quickly.",
         ],
         "guidance": "State why YOU need a specific item. Be specific about your situation.",
     },
     "other-need": {
-        "definition": "Acknowledge, discuss, or accommodate the other party's needs.",
+        "definition": "Establish an item need for someone associated with the current speaker other than the speaker.",
         "examples": [
-            "I see you need water for your group. That makes sense.",
-            "Since you mentioned you have kids, I understand you'd want extra food.",
-            "You're right that firewood is important for staying warm.",
+            "My kids need extra food for the trip.",
+            "My family needs more firewood because the children get cold at night.",
+            "The friends camping with me need enough water for the hike.",
         ],
-        "guidance": "Reference what the OTHER person needs. Show you listened to them.",
+        "guidance": "State a concrete item need for your children, family, friends, group members, or companions. Do not describe the negotiation partner's need.",
     },
     "no-need": {
         "definition": "Downplay or deny needing something to signal flexibility or enable a trade.",
@@ -86,13 +86,13 @@ STRATEGIES = {
         "guidance": "State that you do NOT need much of a specific item. Explain why briefly.",
     },
     "uv-part": {
-        "definition": "Emphasize the unique value of items or justify why something matters specifically to you.",
+        "definition": "Undervalue or question the negotiation partner's need or need strength for an item.",
         "examples": [
-            "Having extra firewood means I can cook meals AND stay warm — it serves double duty.",
-            "Water is irreplaceable out here. You can find food in nature, but clean water is essential.",
-            "The firewood here is premium dry oak — it burns much longer than regular wood.",
+            "You already have basic firewood, so you probably do not need extra bundles.",
+            "There may be a store near your campsite where you can get more supplies.",
+            "Since you brought enough drinks, the extra water is less necessary for your group.",
         ],
-        "guidance": "Highlight what makes an item especially valuable or versatile. Go beyond basic need.",
+        "guidance": "Semantically target the negotiation partner and weaken their claim of needing an item. Do not explain why the item matters to you.",
     },
     "promote-coordination": {
         "definition": "Propose collaboration, compromise, or working together toward a deal.",

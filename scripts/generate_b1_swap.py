@@ -20,15 +20,15 @@ ALL_STRATEGIES = [
 ]
 
 STRATEGY_DESC = {
-    "elicit-pref": "Ask about the other party's preferences or priorities",
-    "self-need": "Express your own needs, wants, or requirements",
-    "other-need": "Acknowledge or accommodate the other party's needs",
-    "no-need": "Downplay needing something; signal flexibility",
-    "promote-coordination": "Propose collaboration or compromise",
-    "showing-empathy": "Express understanding or emotional support",
-    "small-talk": "Casual conversation, greetings, chit-chat",
-    "uv-part": "Emphasize unique value of items; justify importance",
-    "vouch-fair": "Appeal to fairness, equity, or balanced outcomes",
+    "elicit-pref": "Discover the negotiation partner's preference order or item priorities",
+    "self-need": "Establish your own personal need or reason for an item",
+    "other-need": "Establish an item need for your children, family, friends, group, or companions",
+    "no-need": "State that you do not need, have low need for, or have enough of an item",
+    "promote-coordination": "Promote a trade, mutual concession, exchange, or joint deal",
+    "showing-empathy": "Positively acknowledge the negotiation partner's personal context",
+    "small-talk": "Use social conversation outside negotiation and item allocation",
+    "uv-part": "Undervalue or question the negotiation partner's need for an item",
+    "vouch-fair": "Appeal to fairness or call out an allocation imbalance",
 }
 
 

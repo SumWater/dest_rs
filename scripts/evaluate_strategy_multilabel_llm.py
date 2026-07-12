@@ -9,28 +9,29 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import sys
 from collections import Counter
 from pathlib import Path
 
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from src.strategy_labels import CANONICAL_LABELS
 
-STRATEGIES = [
-    "small-talk", "self-need", "other-need", "no-need", "uv-part",
-    "elicit-pref", "showing-empathy", "promote-coordination", "vouch-fair",
-]
+
+STRATEGIES = list(CANONICAL_LABELS)
 
 DEFINITIONS = {
     "small-talk": "social greeting or casual conversation not directly negotiating needs",
-    "self-need": "states the current speaker's own need or reason for wanting an item",
-    "other-need": "states or acknowledges the other participant's concrete need or reason",
-    "no-need": "states that the current speaker does not need or has low need for an item",
+    "self-need": "establishes the current speaker's own personal need or reason for an item",
+    "other-need": "establishes an item need for someone associated with the current speaker other than the speaker, such as the speaker's children, family, friends, or group members",
+    "no-need": "states that the current speaker does not need, has low need for, or already has enough of an item; concession alone is insufficient",
     "uv-part": "undervaluing the partner's allocation or arguing that the partner needs an item less",
-    "elicit-pref": "asks the partner about preferences, priorities, or reasons",
-    "showing-empathy": "expresses understanding of or sympathy for the partner's situation",
-    "promote-coordination": "encourages joint problem solving, compromise, or working together",
-    "vouch-fair": "claims that an offer, split, or bargaining position is fair or balanced",
+    "elicit-pref": "attempts to discover the partner's preference order or item priorities; generic questions are insufficient",
+    "showing-empathy": "positively acknowledges the partner's personal context; a context-free formulaic acknowledgment is insufficient",
+    "promote-coordination": "promotes an explicit trade, mutual concession, exchange, or joint effort to reach a deal",
+    "vouch-fair": "appeals to fairness or calls out an allocation imbalance for personal benefit; compromise alone is insufficient",
 }
 
 SYSTEM = """You are an expert annotator of negotiation dialogue strategies.
