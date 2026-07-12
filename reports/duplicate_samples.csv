@@ -1,0 +1,109 @@
+﻿normalized_text,occurrences,dialogue_ids,splits,labels
+hey there hope you re doing well and ready for the trip,5,10068|10088|10156|10259|10289,train,small-talk
+hey there hope your day is going well,21,10028|10050|10056|10113|10123|10149|10152|10163|10193|10210|10212|10238|10258|10276|10280|10296|10301|10316|10317|10320|10325,train,small-talk
+hi how are you,10,179|185|23|427|466|477|487|588|614|73,dev|test|train,small-talk
+submit deal,30,141|143|156|179|419|437|443|451|472|497|503|551|557|57|570|590|603|61|66|69|71|74|76|87|88|92,test|train,non-strategic|other-need|promote-coordination|self-need|small-talk|uv-part|vouch-fair
+reject deal,19,141|143|156|179|437|443|472|551|570|590|603|61|66|74|76|87|92,train,non-strategic|promote-coordination|self-need|showing-empathy|small-talk|uv-part|vouch-fair
+hey there how are you,2,505|55,train,small-talk
+i actually don t need much firewood since i brought my own stove so feel free to take all three packages to ensure you stay warm,2,10134,train,no-need
+hello how are you doing today,7,169|493|495|501|7|98|99,train,small-talk
+hi how are you today,6,107|151|167|425|449|556,dev|train,small-talk
+hi there hope your camping trip is off to a great start,2,10033|10128,train,small-talk
+hello,47,10|107|108|112|126|136|151|153|167|169|173|186|216|32|33|34|420|431|444|447|458|46|489|505|515|519|530|547|564|574|580|588|591|594|598|611|612|69|7|72|80|81|82|92,dev|test|train,non-strategic|small-talk
+since the firewood here is premium dry oak that burns all night it serves double duty by keeping us warm and allowing you to cook your meals later,2,10130,train,uv-part
+hey there hope you re having a great time getting ready for the trip,9,10053|10126|10137|10203|10209|10221|10232|10278|10288,train,small-talk
+water is truly irreplaceable out here while you can forage for food clean water is essential for hydration and preparing those meals we ll be sharing,2,10221,train,uv-part
+hey there hope you re ready for an awesome camping trip,3,10063|10200|10314,train,small-talk
+hi there hope your day is going well,12,10003|10020|10023|10055|10165|10204|10206|10229|10248|10263|10309|52,train,small-talk
+deal,7,121|459|483|537|546|554|584,dev|train,non-strategic
+hi there hope you re having a great time getting settled at the campsite,2,10124|10197,train,small-talk
+hey there hope you re ready for a great adventure in the mountains,2,10047|10179,train,small-talk
+sure,5,185|32|416|417|559,dev|train,non-strategic
+hey there hope you re ready for a great camping trip,5,10057|10107|10183|10269|10313,train,small-talk
+hello how are you,15,1|122|148|19|217|22|32|424|484|486|518|606|608|74|83,test|train,small-talk
+that sounds fair,2,67|94,test|train,vouch-fair
+yes that sounds good to me,2,109|86,train,non-strategic
+how much food do you need,2,115|430,train,elicit-pref|non-strategic
+ok,12,115|165|39|427|467|477|495|497|568|613|75,test|train,non-strategic
+okay you have a deal,2,130|550,train,non-strategic
+hello how are you today,9,110|137|17|416|422|45|514|524|9,dev|test|train,small-talk
+good how are you,3,39|45|9,train,small-talk
+hey there i hope you re doing well and that your camping trip is off to a great start,2,10087|10300,train,small-talk
+i completely agree that water is essential but i have to be honest i need all three packages of firewood because my priority is high without enough wood i won t be able to boil the stream water i so desperately need to drink,2,10300,train,self-need|uv-part
+hey there hope you re having a great time setting up camp,4,10064|10125|10160|10188,train,small-talk
+hey there hope your camping trip is off to a great start,7,10004|10027|10040|10228|10237|10295|10308,train,small-talk
+hello how are you doing,3,38|455|538,train,small-talk
+hi,14,120|134|136|142|23|24|33|34|462|504|572|604|72,dev|test|train,non-strategic|small-talk
+since you re getting all the water i think it s fair that i get most of the firewood to balance our contributions,2,10038|10261,train,vouch-fair
+hi there hope your day is going well and you re ready for the trip,2,10009|10046,train,small-talk
+i really need the firewood because it gets freezing cold at night and i need it to stay warm,2,10208|10240,train,self-need
+great,3,164|171|89,train,non-strategic
+i don t really need much firewood since i have my own stash so let s make sure you get all the water packages you need,2,10143,train,no-need
+hey there i hope you re having a great time setting up camp,3,10105|10148|10312,train,small-talk
+hello there,7,173|19|24|431|466|480|87,dev|test|train,non-strategic|small-talk
+hey how are you,2,28|547,train,small-talk
+yes that is correct,2,187|49,train,non-strategic
+ok thank you,2,127|46,train,non-strategic
+hi there how are you,3,102|539|593,train,small-talk
+that sounds good to me,5,129|163|446|488|575,dev|train,non-strategic
+i agree,2,146|522,train,non-strategic|small-talk
+hi there how are you today,2,39|512,train,small-talk
+okay deal,2,39|537,train,non-strategic
+hey there hope your day is going well how about yourself,3,10006|10187|10302,train,small-talk
+since we have kids with us i really need all three packages of food to make sure they have enough to eat regularly,2,10006|10073,train,self-need
+water is irreplaceable out here we could scavenge some food from the forest but finding clean drinking water that safe is almost impossible in the heat,2,10006,train,uv-part
+hi there,8,108|20|458|514|529|610|612|83,dev|train,non-strategic|small-talk
+okay that works for me,2,158|514,train,non-strategic
+i don t really need much firewood since we have a nice sleeping bag so i m totally fine if you take all three packages for yourself,2,10253,train,no-need
+yes,8,124|144|164|448|495|515|571|614,dev|test|train,non-strategic
+i don t actually need much more firewood since we ve already gathered enough to keep us warm so let s split the food evenly and leave the last package behind,2,10259,train,no-need
+sure we can do that,2,102|217,train,non-strategic
+sure that works,2,487|604,train,non-strategic
+hey how s it going,2,446|498,train,small-talk
+hey there,2,168|2,dev|train,non-strategic
+i m curious what items are most important to you for this trip,3,10018|10263|10266,train,elicit-pref
+that s a deal,3,3|538|601,dev|test|train,non-strategic
+hey there hope you re having a great time getting settled at the campsite,4,10042|10129|10141|10168,train,small-talk
+sounds great,3,445|504|551,dev|test|train,non-strategic|small-talk
+that sounds like a solid plan to get me the water i need most and i m happy to let you take the majority of the food in exchange let s lock in that trade now so we can both leave with the supplies that matter most to our specific priorities,2,10326,train,promote-coordination
+i don t actually need much firewood since the weather is warm and i won t be using the fire for cooking so i m happy to give you my share if we can keep the water split evenly,2,10328,train,no-need
+i don t actually need much firewood since i have a strong portable stove so i m willing to give you those packages if you can share a water package with me,2,10313,train,no-need
+you too,2,520|9,train,small-talk
+i don t really need much firewood since our kids are handling the cooking well so i m totally flexible on that and happy to let you keep it,2,10302,train,no-need
+hey there hope you re doing well and that your camping trip is off to a great start,3,10052|10274|10282,train,small-talk
+hey there hope your camping trip is going well so far,2,10049|10287,train,small-talk
+hello there how are you,2,558|591,test|train,small-talk
+firewood is absolutely critical for me since we re camping in a cold mountain area and need fires every night to stay warm,2,10005|10097,train,self-need
+sounds good to me,3,171|470|541,train,non-strategic
+what items are most important to you for this trip,2,10244|10281,train,elicit-pref
+hi there how s it going,2,436|569,train,small-talk
+hi how are you ready for the big camping trip,2,47|509,train,small-talk
+that,2,454|70,train,non-strategic
+hi how is your camping trip going,2,113|61,train,small-talk
+hi how are you doing today,2,51|574,train,small-talk
+hey there i hope you re having a great time getting ready for the trip,4,10217|10233|10293|10319,train,small-talk
+that works for me,2,15|77,dev|train,non-strategic
+hi there fellow camper,2,438|484,test|train,small-talk
+hey there hope you re doing well and ready for a great camping trip,3,10172|10265|10294,train,small-talk
+yes i am,2,476|78,train,small-talk
+i totally get it being out in nature without enough supplies can be stressful,3,10011|10238|10245,train,showing-empathy
+hi there hope your day is going well how about yourself,4,10025|10067|10079|10230,train,small-talk
+perfect,4,136|473|520|78,test|train,non-strategic
+i don t really need much firewood since i m planning to do a lot of hiking and will be using our own stoves for the big meal so i can definitely trade that for the water you need,2,10084,train,no-need
+hello which item do you need the most,2,103|58,train,elicit-pref
+i really need all the water we have because my group is large and we ll need it for drinking and cooking throughout the trip,2,10077|10278,train,self-need
+how much firewood do you need,2,561|580,train,non-strategic
+i don t really need much food since we have a good supply left in the car so i m happy to let you take all three packages,2,10054,train,no-need
+okie dokie,2,530|83,dev|train,non-strategic
+i don t actually need much firewood since the sun is still out and we re not expecting to freeze yet so i m totally flexible on that while you keep the water,2,10089,train,no-need
+okay i accept the deal,2,156|421,train,non-strategic|showing-empathy
+sure i can do that,2,145|420,dev|train,non-strategic
+that sounds like a good deal to me,2,11|117,dev|train,non-strategic
+hey there i m really looking forward to this camping trip how have you been doing lately,2,10031|10184,train,small-talk
+i think we have a deal,2,420|46,dev|train,non-strategic
+no problem,2,16|588,dev|train,non-strategic
+that sounds incredibly fair to me since you re securing all the firewood you need for warmth and cooking in exchange i can have all three water packages to address my medical requirements so we d both walk away with exactly what we value most,2,10183,train,vouch-fair
+i don t need much firewood since the weather is warm so i m totally flexible to give you some or let you have the main stash,2,10249,train,no-need
+i don t actually need much of the food since i can easily manage with just a few bites so feel free to keep those for your group,2,10085,train,no-need
+same here,2,495,train,small-talk
+sounds good,2,128|139,dev|test,non-strategic

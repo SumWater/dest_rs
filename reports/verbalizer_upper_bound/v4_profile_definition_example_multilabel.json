@@ -1,0 +1,4903 @@
+{
+  "metrics": {
+    "total_samples": 270,
+    "parse_failures": 0,
+    "target_strategy_presence": 0.8777777777777778,
+    "primary_strategy_accuracy": 0.8629629629629629,
+    "macro_f1": 0.814307213184136,
+    "per_class": {
+      "small-talk": {
+        "precision": 1.0,
+        "recall": 0.9666666666666667,
+        "f1": 0.983050847457627,
+        "support": 30,
+        "tp": 29,
+        "fp": 0,
+        "fn": 1
+      },
+      "self-need": {
+        "precision": 0.8387096774193549,
+        "recall": 0.8666666666666667,
+        "f1": 0.8524590163934426,
+        "support": 30,
+        "tp": 26,
+        "fp": 5,
+        "fn": 4
+      },
+      "other-need": {
+        "precision": 0.5757575757575758,
+        "recall": 0.6333333333333333,
+        "f1": 0.6031746031746033,
+        "support": 30,
+        "tp": 19,
+        "fp": 14,
+        "fn": 11
+      },
+      "no-need": {
+        "precision": 0.7837837837837838,
+        "recall": 0.9666666666666667,
+        "f1": 0.8656716417910447,
+        "support": 30,
+        "tp": 29,
+        "fp": 8,
+        "fn": 1
+      },
+      "uv-part": {
+        "precision": 0.7142857142857143,
+        "recall": 0.6666666666666666,
+        "f1": 0.689655172413793,
+        "support": 30,
+        "tp": 20,
+        "fp": 8,
+        "fn": 10
+      },
+      "elicit-pref": {
+        "precision": 0.7837837837837838,
+        "recall": 0.9666666666666667,
+        "f1": 0.8656716417910447,
+        "support": 30,
+        "tp": 29,
+        "fp": 8,
+        "fn": 1
+      },
+      "showing-empathy": {
+        "precision": 0.5490196078431373,
+        "recall": 0.9333333333333333,
+        "f1": 0.6913580246913581,
+        "support": 30,
+        "tp": 28,
+        "fp": 23,
+        "fn": 2
+      },
+      "promote-coordination": {
+        "precision": 0.725,
+        "recall": 0.9666666666666667,
+        "f1": 0.8285714285714285,
+        "support": 30,
+        "tp": 29,
+        "fp": 11,
+        "fn": 1
+      },
+      "vouch-fair": {
+        "precision": 0.9655172413793104,
+        "recall": 0.9333333333333333,
+        "f1": 0.9491525423728815,
+        "support": 30,
+        "tp": 28,
+        "fp": 1,
+        "fn": 2
+      }
+    },
+    "mean_off_target_strategy_count": 0.28888888888888886,
+    "prediction_distribution": {
+      "small-talk": 29,
+      "self-need": 31,
+      "other-need": 33,
+      "no-need": 37,
+      "uv-part": 28,
+      "elicit-pref": 37,
+      "showing-empathy": 51,
+      "promote-coordination": 40,
+      "vouch-fair": 29
+    },
+    "primary_prediction_distribution": {
+      "small-talk": 28,
+      "self-need": 27,
+      "other-need": 31,
+      "no-need": 36,
+      "uv-part": 19,
+      "elicit-pref": 30,
+      "showing-empathy": 39,
+      "promote-coordination": 32,
+      "vouch-fair": 28
+    }
+  },
+  "details": [
+    {
+      "dialogue_id": 546,
+      "turn_index": 0,
+      "target_strategy": "small-talk",
+      "utterance": "Hi there, how's your camping trip going?",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 0,
+      "target_strategy": "self-need",
+      "utterance": "I need the water because my family must stay hydrated.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 0,
+      "target_strategy": "other-need",
+      "utterance": "I see that you need the water for your family to stay hydrated.",
+      "present_strategies": [
+        "other-need"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 0,
+      "target_strategy": "no-need",
+      "utterance": "I don’t need much firewood, so you can have it.",
+      "present_strategies": [
+        "no-need"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 0,
+      "target_strategy": "uv-part",
+      "utterance": "Since you already have plenty of snacks, the food isn’t as crucial for you.",
+      "present_strategies": [
+        "uv-part"
+      ],
+      "primary_strategy": "uv-part",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"uv-part\"], \"primary_strategy\": \"uv-part\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 0,
+      "target_strategy": "elicit-pref",
+      "utterance": "What items are most important to you, and why?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 0,
+      "target_strategy": "showing-empathy",
+      "utterance": "I can see how keeping your family hydrated is such a priority — it’s so important to stay strong for the hike.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 0,
+      "target_strategy": "promote-coordination",
+      "utterance": "Let's find a way to share the water so we both stay hydrated, and maybe trade some snacks to make sure we have enough for the hike.",
+      "present_strategies": [
+        "promote-coordination"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 0,
+      "target_strategy": "vouch-fair",
+      "utterance": "An even split of the water and food would be fair, while the firewood can be gathered as needed.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 1,
+      "target_strategy": "small-talk",
+      "utterance": "Hi there, how's your camping trip going?",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 1,
+      "target_strategy": "self-need",
+      "utterance": "I need the water because I have a severe dry mouth and need to stay hydrated.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 1,
+      "target_strategy": "other-need",
+      "utterance": "I hear you're really needing that water — it's important to stay hydrated with that dry mouth.",
+      "present_strategies": [
+        "other-need"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 1,
+      "target_strategy": "no-need",
+      "utterance": "I don’t need much food, so you can have it.",
+      "present_strategies": [
+        "no-need"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 1,
+      "target_strategy": "uv-part",
+      "utterance": "Since you already have drinks, the water isn't as crucial for you right now.",
+      "present_strategies": [
+        "other-need"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "other-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 1,
+      "target_strategy": "elicit-pref",
+      "utterance": "What's most important to you when it comes to supplies, and why?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 1,
+      "target_strategy": "showing-empathy",
+      "utterance": "I can see how staying hydrated is really important with that dry mouth — hope you can find some water soon.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 1,
+      "target_strategy": "promote-coordination",
+      "utterance": "Let's team up to gather some water and firewood—since we both need them, maybe we can split the effort and make sure we're both comfortable.",
+      "present_strategies": [
+        "promote-coordination"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 1,
+      "target_strategy": "vouch-fair",
+      "utterance": "An even split of the water and firewood would be fair, since the water is a top priority and the firewood is more readily available than the food.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 2,
+      "target_strategy": "small-talk",
+      "utterance": "Hey there, how's your camping trip going?",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 2,
+      "target_strategy": "self-need",
+      "utterance": "I need the water because my family needs to stay hydrated.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 2,
+      "target_strategy": "other-need",
+      "utterance": "I hear you—keeping your family hydrated is really important.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 2,
+      "target_strategy": "no-need",
+      "utterance": "I don’t need much firewood, so you can have it.",
+      "present_strategies": [
+        "no-need",
+        "uv-part"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "uv-part"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\", \"uv-part\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 2,
+      "target_strategy": "uv-part",
+      "utterance": "Since you already have plenty of snacks, the food isn’t as crucial for you.",
+      "present_strategies": [
+        "uv-part"
+      ],
+      "primary_strategy": "uv-part",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"uv-part\"], \"primary_strategy\": \"uv-part\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 2,
+      "target_strategy": "elicit-pref",
+      "utterance": "What items are most important to you and why?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 2,
+      "target_strategy": "showing-empathy",
+      "utterance": "I can see how keeping your family hydrated is a top priority — it’s so important to stay refreshed for the hike.",
+      "present_strategies": [
+        "other-need"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "other-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 2,
+      "target_strategy": "promote-coordination",
+      "utterance": "Let's team up to find a solution that works for both of us—maybe we can share some water and snacks, and I can help gather firewood while we're at it.",
+      "present_strategies": [
+        "promote-coordination"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 2,
+      "target_strategy": "vouch-fair",
+      "utterance": "Sure, let's split the water and food evenly—since both are essential, and the firewood can wait.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 3,
+      "target_strategy": "small-talk",
+      "utterance": "Hey there! The campfire’s nice and warm, right?",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 3,
+      "target_strategy": "self-need",
+      "utterance": "I need the water because I have a severe dry mouth and need to stay hydrated.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 3,
+      "target_strategy": "other-need",
+      "utterance": "I understand that you need the water to relieve your dry mouth.",
+      "present_strategies": [
+        "other-need"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 3,
+      "target_strategy": "no-need",
+      "utterance": "I don’t need much food, so you can have it.",
+      "present_strategies": [
+        "no-need"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 3,
+      "target_strategy": "uv-part",
+      "utterance": "Since you already have drinks, the water isn't as crucial for you.",
+      "present_strategies": [
+        "uv-part"
+      ],
+      "primary_strategy": "uv-part",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"uv-part\"], \"primary_strategy\": \"uv-part\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 3,
+      "target_strategy": "elicit-pref",
+      "utterance": "What items are most important to you, and why?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 3,
+      "target_strategy": "showing-empathy",
+      "utterance": "I can see how staying hydrated is a top priority with that dry mouth — hope you're getting enough to drink.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 3,
+      "target_strategy": "promote-coordination",
+      "utterance": "Sure, let's work together to split the water and firewood so we both get what we need.",
+      "present_strategies": [
+        "promote-coordination"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 3,
+      "target_strategy": "vouch-fair",
+      "utterance": "Sure, here's a response that clearly follows the target strategy:\n\n\"An even split of the remaining supplies would be fair to both of us.\"",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 4,
+      "target_strategy": "small-talk",
+      "utterance": "Hey there! Enjoying the campsite? The view is amazing here.",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 4,
+      "target_strategy": "self-need",
+      "utterance": "I need the water because my family needs to stay hydrated.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 4,
+      "target_strategy": "other-need",
+      "utterance": "I see that you need the water for your family to stay hydrated.",
+      "present_strategies": [
+        "other-need"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 4,
+      "target_strategy": "no-need",
+      "utterance": "I don’t need much firewood, so you can have it.",
+      "present_strategies": [
+        "no-need",
+        "uv-part"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "uv-part"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\", \"uv-part\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 4,
+      "target_strategy": "uv-part",
+      "utterance": "Since you already have plenty of drinks, the water isn't as crucial for you.",
+      "present_strategies": [
+        "uv-part"
+      ],
+      "primary_strategy": "uv-part",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"uv-part\"], \"primary_strategy\": \"uv-part\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 4,
+      "target_strategy": "elicit-pref",
+      "utterance": "What's most important to you when it comes to supplies, and why?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 4,
+      "target_strategy": "showing-empathy",
+      "utterance": "I can see how keeping your family hydrated is a top priority — it’s so important to stay refreshed on a hike.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 4,
+      "target_strategy": "promote-coordination",
+      "utterance": "Let's see if we can find a way to share the water and split the firewood so we both get what we need.",
+      "present_strategies": [
+        "promote-coordination"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 4,
+      "target_strategy": "vouch-fair",
+      "utterance": "Sure, let's split the water and food evenly, and I'll take the firewood. That should balance our needs fairly.",
+      "present_strategies": [
+        "vouch-fair",
+        "promote-coordination"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "promote-coordination"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\", \"promote-coordination\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 6,
+      "target_strategy": "small-talk",
+      "utterance": "Hey there! Enjoying the campsite? The sunset’s pretty amazing here.",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 6,
+      "target_strategy": "self-need",
+      "utterance": "I need the water because my family needs to stay hydrated.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 6,
+      "target_strategy": "other-need",
+      "utterance": "I understand that you need the water to keep your family hydrated.",
+      "present_strategies": [
+        "other-need"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 6,
+      "target_strategy": "no-need",
+      "utterance": "I don’t need much firewood, so you can have it.",
+      "present_strategies": [
+        "no-need"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 6,
+      "target_strategy": "uv-part",
+      "utterance": "Since you already have plenty of drinks, the water isn't as crucial for you.",
+      "present_strategies": [
+        "uv-part"
+      ],
+      "primary_strategy": "uv-part",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"uv-part\"], \"primary_strategy\": \"uv-part\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 6,
+      "target_strategy": "elicit-pref",
+      "utterance": "Why is water your top priority, and how does that affect what you're looking for in a trade?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 6,
+      "target_strategy": "showing-empathy",
+      "utterance": "I can see how keeping your family hydrated is a top priority — it’s so important to stay strong for the hike.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 6,
+      "target_strategy": "promote-coordination",
+      "utterance": "Let's make sure we both have enough to stay hydrated and energized—how about we split the water and food in a way that works for both of us?",
+      "present_strategies": [
+        "promote-coordination"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 6,
+      "target_strategy": "vouch-fair",
+      "utterance": "This trade ensures we both stay hydrated and energized for the hike, and it leaves us with enough firewood to keep things warm and comfortable.",
+      "present_strategies": [
+        "promote-coordination"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "promote-coordination"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 7,
+      "target_strategy": "small-talk",
+      "utterance": "Hey there! Enjoying the campfire and the stars? 🌟",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 7,
+      "target_strategy": "self-need",
+      "utterance": "I need the water because I have a severe dry mouth and need to stay hydrated.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 7,
+      "target_strategy": "other-need",
+      "utterance": "I can see that water is a top priority for you, especially with the dry mouth.",
+      "present_strategies": [
+        "other-need"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 7,
+      "target_strategy": "no-need",
+      "utterance": "I don’t need much food, so you can have it.",
+      "present_strategies": [
+        "no-need"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 7,
+      "target_strategy": "uv-part",
+      "utterance": "I’m all set with the water since I already have enough for the trip, so the extra isn’t as crucial for me.",
+      "present_strategies": [
+        "no-need"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "no-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 7,
+      "target_strategy": "elicit-pref",
+      "utterance": "Why is water your top priority, and how does that affect what you need from me?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 7,
+      "target_strategy": "showing-empathy",
+      "utterance": "I can see how staying hydrated is a top priority when you're feeling that dry mouth — it’s definitely the most important thing right now.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 7,
+      "target_strategy": "promote-coordination",
+      "utterance": "Let’s make sure we both have enough water and firewood—maybe I can trade you some food in exchange for extra sticks?",
+      "present_strategies": [
+        "promote-coordination"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 7,
+      "target_strategy": "vouch-fair",
+      "utterance": "Splitting the supplies evenly would be fair to both of us.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 8,
+      "target_strategy": "small-talk",
+      "utterance": "Hey, sounds like you're having a great time! 🌲 Are you looking for any specific spots to hunt around here?",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 8,
+      "target_strategy": "self-need",
+      "utterance": "I need the water because my family needs to stay hydrated.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 8,
+      "target_strategy": "other-need",
+      "utterance": "I hear you need the water to keep your family hydrated.",
+      "present_strategies": [
+        "other-need"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 8,
+      "target_strategy": "no-need",
+      "utterance": "I don’t need much firewood, so you can have it.",
+      "present_strategies": [
+        "no-need"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 8,
+      "target_strategy": "uv-part",
+      "utterance": "I already have plenty of snacks, so food isn’t as big a priority for me.",
+      "present_strategies": [
+        "no-need"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "no-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 8,
+      "target_strategy": "elicit-pref",
+      "utterance": "What's most important to you when it comes to supplies, and why?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 8,
+      "target_strategy": "showing-empathy",
+      "utterance": "I can see how keeping your family hydrated is such a top priority — it’s so important to stay strong for the hike.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 8,
+      "target_strategy": "promote-coordination",
+      "utterance": "Let’s make sure we both have enough water and food to stay energized for the hike—maybe we can share the firewood and save some for later.",
+      "present_strategies": [
+        "promote-coordination"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 8,
+      "target_strategy": "vouch-fair",
+      "utterance": "Sounds like we've found a good balance—water, food, and firewood are all shared in a way that keeps everyone hydrated, energized, and warm.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 9,
+      "target_strategy": "small-talk",
+      "utterance": "Hey, the fireflies here are amazing—have you seen them?",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 9,
+      "target_strategy": "self-need",
+      "utterance": "My mouth is really dry, so I really need the water.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 9,
+      "target_strategy": "other-need",
+      "utterance": "I can see that water is really important for you, especially with the dry mouth.",
+      "present_strategies": [
+        "other-need",
+        "showing-empathy"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\", \"showing-empathy\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 9,
+      "target_strategy": "no-need",
+      "utterance": "I don’t need much food, so you can have it.",
+      "present_strategies": [
+        "no-need"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 9,
+      "target_strategy": "uv-part",
+      "utterance": "I already have enough food, so you don’t need to worry about it.",
+      "present_strategies": [
+        "no-need"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "no-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 9,
+      "target_strategy": "elicit-pref",
+      "utterance": "Why is water your top priority, and can you share more about what you're looking for in firewood?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 9,
+      "target_strategy": "showing-empathy",
+      "utterance": "I can see how staying hydrated is a top priority when you're feeling that dry mouth — it’s definitely important to keep things comfortable out here.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 9,
+      "target_strategy": "promote-coordination",
+      "utterance": "Let's make sure we both have enough water and firewood to last the trip—maybe we can split the supplies so we're both comfortable and ready for the adventure.",
+      "present_strategies": [
+        "promote-coordination",
+        "showing-empathy"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\", \"showing-empathy\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 9,
+      "target_strategy": "vouch-fair",
+      "utterance": "The way we split the supplies feels fair—both of us get what we need most, and there's still enough for the journey ahead.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 0,
+      "target_strategy": "small-talk",
+      "utterance": "Hey there! Enjoying the camp so far? The fire's nice and warm, right?",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 0,
+      "target_strategy": "self-need",
+      "utterance": "I need the food because I have a high metabolism and need to keep my energy up.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 0,
+      "target_strategy": "other-need",
+      "utterance": "I see that you need the food to keep up your energy since you have a high metabolism.",
+      "present_strategies": [
+        "other-need"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 0,
+      "target_strategy": "no-need",
+      "utterance": "I don’t need much firewood, so you can have it.",
+      "present_strategies": [
+        "no-need"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 0,
+      "target_strategy": "uv-part",
+      "utterance": "Since you already have food, the water isn’t as crucial for you.",
+      "present_strategies": [
+        "uv-part"
+      ],
+      "primary_strategy": "uv-part",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"uv-part\"], \"primary_strategy\": \"uv-part\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 0,
+      "target_strategy": "elicit-pref",
+      "utterance": "What items are most important to you, and why?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 0,
+      "target_strategy": "showing-empathy",
+      "utterance": "I can see how staying hydrated is important for keeping up your energy.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 0,
+      "target_strategy": "promote-coordination",
+      "utterance": "How about we find a way to share the food and water so we can both stay energized and hydrated, while I can help gather some firewood if needed?",
+      "present_strategies": [
+        "promote-coordination"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 0,
+      "target_strategy": "vouch-fair",
+      "utterance": "An even split of the food and water would be fair, considering both of our needs and the effort we've both put in.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 1,
+      "target_strategy": "small-talk",
+      "utterance": "Hi there, how’s your camping trip going?",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 1,
+      "target_strategy": "self-need",
+      "utterance": "I need the food because I have to find my extra family that came along.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 1,
+      "target_strategy": "other-need",
+      "utterance": "I understand that you need the food to help find your extra family that camped along.",
+      "present_strategies": [
+        "other-need"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 1,
+      "target_strategy": "no-need",
+      "utterance": "I don’t need much water, so you can have it.",
+      "present_strategies": [
+        "no-need"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 1,
+      "target_strategy": "uv-part",
+      "utterance": "Since you already have water for cooking, the water is less important for you.",
+      "present_strategies": [
+        "uv-part"
+      ],
+      "primary_strategy": "uv-part",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"uv-part\"], \"primary_strategy\": \"uv-part\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 1,
+      "target_strategy": "elicit-pref",
+      "utterance": "Which items are most important to you, and why?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 1,
+      "target_strategy": "showing-empathy",
+      "utterance": "I can see how important it is to keep your family warm and safe.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 1,
+      "target_strategy": "promote-coordination",
+      "utterance": "Let’s see if we can find a way to share the food and split the firewood so we can both stay warm and help find your family.",
+      "present_strategies": [
+        "promote-coordination"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 1,
+      "target_strategy": "vouch-fair",
+      "utterance": "An even split of the food and firewood would be fair, as both are essential for our survival and the comfort of our family.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 3,
+      "target_strategy": "small-talk",
+      "utterance": "Hey there! Enjoying the campsite? The fire looks cozy!",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 3,
+      "target_strategy": "self-need",
+      "utterance": "I need the firewood because I need to cook and stay warm while waiting for my family.",
+      "present_strategies": [
+        "other-need"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "other-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 3,
+      "target_strategy": "other-need",
+      "utterance": "I understand that you need the food to help find your extra family that camped along.",
+      "present_strategies": [
+        "other-need"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 3,
+      "target_strategy": "no-need",
+      "utterance": "I don’t need much water, so you can have it.",
+      "present_strategies": [
+        "no-need"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 3,
+      "target_strategy": "uv-part",
+      "utterance": "Since you already have enough water for bathing, the water is less important to you.",
+      "present_strategies": [
+        "uv-part"
+      ],
+      "primary_strategy": "uv-part",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"uv-part\"], \"primary_strategy\": \"uv-part\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 3,
+      "target_strategy": "elicit-pref",
+      "utterance": "What's most important to you in this trade, and why?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 3,
+      "target_strategy": "showing-empathy",
+      "utterance": "I can see how important it is to have enough food to keep your family safe and warm.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 3,
+      "target_strategy": "promote-coordination",
+      "utterance": "How about we split the food and firewood so we can both stay warm and keep moving toward finding my family?",
+      "present_strategies": [
+        "promote-coordination",
+        "showing-empathy"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\", \"showing-empathy\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 3,
+      "target_strategy": "vouch-fair",
+      "utterance": "An even exchange of three food for three water, plus three firewood for three food, would balance our needs fairly.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 4,
+      "target_strategy": "small-talk",
+      "utterance": "Hey there! The campsite’s pretty cozy, right? Have you found a good spot to set up?",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 4,
+      "target_strategy": "self-need",
+      "utterance": "I need the firewood because I naturally generate a lot of body heat and want to stay warm.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 4,
+      "target_strategy": "other-need",
+      "utterance": "I see that you need the firewood to stay warm, but since you're already trading food for water, maybe we can find a way to balance what everyone needs.",
+      "present_strategies": [
+        "promote-coordination",
+        "showing-empathy"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "promote-coordination",
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 2,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\", \"showing-empathy\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 4,
+      "target_strategy": "no-need",
+      "utterance": "I don’t need much firewood, so you can have it.",
+      "present_strategies": [
+        "no-need"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 4,
+      "target_strategy": "uv-part",
+      "utterance": "I already have enough to stay warm, so firewood isn’t as important to me.",
+      "present_strategies": [
+        "no-need",
+        "uv-part"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "no-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\", \"uv-part\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 4,
+      "target_strategy": "elicit-pref",
+      "utterance": "What's most important to you in this trade, and why?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 4,
+      "target_strategy": "showing-empathy",
+      "utterance": "I can see how staying warm is important to you, especially with your high metabolism.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 4,
+      "target_strategy": "promote-coordination",
+      "utterance": "How about we split the food and water so we both get what we need, and I can help gather the firewood if you're up for it?",
+      "present_strategies": [
+        "promote-coordination",
+        "elicit-pref"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "elicit-pref"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\", \"elicit-pref\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 4,
+      "target_strategy": "vouch-fair",
+      "utterance": "Trading three food for three water and three firewood is a balanced exchange that meets both our needs fairly.",
+      "present_strategies": [
+        "vouch-fair",
+        "promote-coordination"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "promote-coordination"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\", \"promote-coordination\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 5,
+      "target_strategy": "small-talk",
+      "utterance": "Hey there! How’s the campsite treating you?",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 5,
+      "target_strategy": "self-need",
+      "utterance": "I need the firewood because I get cold easily and it helps me stay warm, especially when cooking and keeping the campsite comfortable.",
+      "present_strategies": [
+        "self-need",
+        "showing-empathy"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\", \"showing-empathy\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 5,
+      "target_strategy": "other-need",
+      "utterance": "I understand that you need the firewood to stay warm and cook, especially since you're looking for your family.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 5,
+      "target_strategy": "no-need",
+      "utterance": "I don’t need much water, so you can have it.",
+      "present_strategies": [
+        "no-need"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 5,
+      "target_strategy": "uv-part",
+      "utterance": "I already have enough water for bathing and cooking, so it's not as important to me as the food and firewood.",
+      "present_strategies": [
+        "self-need",
+        "no-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need",
+        "no-need"
+      ],
+      "off_target_strategy_count": 2,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\", \"no-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 5,
+      "target_strategy": "elicit-pref",
+      "utterance": "What's most important to you in this trade, and why?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 5,
+      "target_strategy": "showing-empathy",
+      "utterance": "I can see how important it is to stay warm and take care of your family — that’s a big responsibility.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 5,
+      "target_strategy": "promote-coordination",
+      "utterance": "How about we split the food and firewood in a way that both of us can stay warm and fed? Let's find a fair balance that works for both of us.",
+      "present_strategies": [
+        "promote-coordination",
+        "vouch-fair"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "vouch-fair"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\", \"vouch-fair\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 5,
+      "target_strategy": "vouch-fair",
+      "utterance": "Trading three food packages for three water and three firewood seems balanced—each of us gets what we need to stay warm and prepared.",
+      "present_strategies": [
+        "vouch-fair",
+        "showing-empathy"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\", \"showing-empathy\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 7,
+      "target_strategy": "small-talk",
+      "utterance": "Hey there, the weather’s been pretty chilly tonight—have you been keeping warm?",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 7,
+      "target_strategy": "self-need",
+      "utterance": "I need the firewood because it helps me stay warm and cook, which is important for both survival and keeping my family safe.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 7,
+      "target_strategy": "other-need",
+      "utterance": "I understand that you need the firewood to stay warm and cook, especially since you're looking for your family.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 7,
+      "target_strategy": "no-need",
+      "utterance": "I don’t need much water, so you can have it.",
+      "present_strategies": [
+        "no-need"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 7,
+      "target_strategy": "uv-part",
+      "utterance": "I already have enough water for bathing and cooking, so it's not as important to me as the food and firewood.",
+      "present_strategies": [
+        "no-need",
+        "uv-part"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "no-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\", \"uv-part\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 7,
+      "target_strategy": "elicit-pref",
+      "utterance": "What's most important to you in this trade, and why?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 7,
+      "target_strategy": "showing-empathy",
+      "utterance": "I can see how important it is to stay warm and take care of your family, and I understand the need to have enough firewood to keep both you and them safe.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 7,
+      "target_strategy": "promote-coordination",
+      "utterance": "How about we split the food and firewood so we both have enough to stay warm and feed our families, and I can help you gather more water while we're at it?",
+      "present_strategies": [
+        "promote-coordination",
+        "showing-empathy"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\", \"showing-empathy\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 7,
+      "target_strategy": "vouch-fair",
+      "utterance": "An even split of the supplies would ensure both of us are prepared for the journey ahead.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 1,
+      "target_strategy": "small-talk",
+      "utterance": "Hi there, how's the weather treating you? I'm trying to stay cool and keep my energy up with the snacks—I'm not sure I'll make it through the day without them!",
+      "present_strategies": [
+        "small-talk",
+        "self-need"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\", \"self-need\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 1,
+      "target_strategy": "self-need",
+      "utterance": "I need the food because I have a hard time keeping my energy up without eating small snacks throughout the day.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 1,
+      "target_strategy": "other-need",
+      "utterance": "I understand that you need the food to keep your energy up throughout the day.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 1,
+      "target_strategy": "no-need",
+      "utterance": "I don’t need much firewood, so you can have it.",
+      "present_strategies": [
+        "no-need"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 1,
+      "target_strategy": "uv-part",
+      "utterance": "Since you already have water, the extra packages aren’t as important to you.",
+      "present_strategies": [
+        "uv-part"
+      ],
+      "primary_strategy": "uv-part",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"uv-part\"], \"primary_strategy\": \"uv-part\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 1,
+      "target_strategy": "elicit-pref",
+      "utterance": "What's most important to you when it comes to supplies, and why?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 1,
+      "target_strategy": "showing-empathy",
+      "utterance": "I can see how staying hydrated and keeping your energy up is so important, especially with all that activity outdoors.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 1,
+      "target_strategy": "promote-coordination",
+      "utterance": "How about we find a way to share the food and water so we both stay energized and hydrated, while we figure out a lighter arrangement for the firewood?",
+      "present_strategies": [
+        "promote-coordination"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 1,
+      "target_strategy": "vouch-fair",
+      "utterance": "An offer that balances our needs fairly would be to split the food and water equally, while I take the firewood to stay comfortable in the heat.",
+      "present_strategies": [
+        "vouch-fair",
+        "promote-coordination"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "promote-coordination"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\", \"promote-coordination\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 3,
+      "target_strategy": "small-talk",
+      "utterance": "Hey there, enjoying the campsite? The weather’s been pretty nice lately—hope you’re staying cool!",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 3,
+      "target_strategy": "self-need",
+      "utterance": "I need the food because I have a hard time keeping my energy up without eating small snacks often.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 3,
+      "target_strategy": "other-need",
+      "utterance": "I understand that you need the water to stay hydrated while you're out.",
+      "present_strategies": [
+        "other-need",
+        "showing-empathy"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\", \"showing-empathy\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 3,
+      "target_strategy": "no-need",
+      "utterance": "I don’t need much firewood, so you can have it.",
+      "present_strategies": [
+        "no-need",
+        "uv-part"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "uv-part"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\", \"uv-part\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 3,
+      "target_strategy": "uv-part",
+      "utterance": "I noticed you already have a supply of drinks, so water might not be as crucial for you right now.",
+      "present_strategies": [
+        "other-need"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "other-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 3,
+      "target_strategy": "elicit-pref",
+      "utterance": "I understand you need more water and firewood. Do you have a specific reason for preferring more firewood, or is it mainly about staying comfortable in the heat?",
+      "present_strategies": [
+        "other-need",
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "other-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\", \"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 3,
+      "target_strategy": "showing-empathy",
+      "utterance": "I can see how staying hydrated and staying warm are important to you, especially with all the activity outdoors.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 3,
+      "target_strategy": "promote-coordination",
+      "utterance": "How about we find a balance that ensures we both have enough water and food, while keeping the firewood to a comfortable amount for you?",
+      "present_strategies": [
+        "promote-coordination"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 3,
+      "target_strategy": "vouch-fair",
+      "utterance": "I think splitting the supplies in a way that reflects our needs would be fair—more water and food for you, and less firewood for me.",
+      "present_strategies": [
+        "vouch-fair",
+        "promote-coordination"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "promote-coordination"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\", \"promote-coordination\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 7,
+      "target_strategy": "small-talk",
+      "utterance": "Hey, the weather’s been nice today—hope you’re staying comfortable!",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 7,
+      "target_strategy": "self-need",
+      "utterance": "I need the food because I need to keep my energy up all day.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 7,
+      "target_strategy": "other-need",
+      "utterance": "I understand that you need the food to keep your energy up throughout the day.",
+      "present_strategies": [
+        "other-need"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 7,
+      "target_strategy": "no-need",
+      "utterance": "I don’t need much firewood, so you can have it.",
+      "present_strategies": [
+        "no-need"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 7,
+      "target_strategy": "uv-part",
+      "utterance": "Since you already have the water, it's not as crucial for you anymore.",
+      "present_strategies": [
+        "uv-part"
+      ],
+      "primary_strategy": "uv-part",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"uv-part\"], \"primary_strategy\": \"uv-part\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 7,
+      "target_strategy": "elicit-pref",
+      "utterance": "Why do you need more firewood compared to food or water?",
+      "present_strategies": [
+        "other-need"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "other-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 7,
+      "target_strategy": "showing-empathy",
+      "utterance": "I can see how staying hydrated and staying cool are so important to you.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 7,
+      "target_strategy": "promote-coordination",
+      "utterance": "Let's make sure we both stay energized and comfortable—how about we split the food and water so we can both keep going, and I'll bring the firewood to keep things cool?",
+      "present_strategies": [
+        "promote-coordination",
+        "elicit-pref"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "elicit-pref"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\", \"elicit-pref\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 7,
+      "target_strategy": "vouch-fair",
+      "utterance": "The split reflects our needs fairly — you get the essentials for energy and hydration, and I get what I need to stay warm and comfortable.",
+      "present_strategies": [
+        "vouch-fair",
+        "showing-empathy"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\", \"showing-empathy\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 9,
+      "target_strategy": "small-talk",
+      "utterance": "Hey, the weather’s been nice today—hope you’re staying cool! 😊",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 9,
+      "target_strategy": "self-need",
+      "utterance": "I need the food because I need to keep my energy up all day with small snacks.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 9,
+      "target_strategy": "other-need",
+      "utterance": "I can see how staying hydrated is important for you, especially with all the activity.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 9,
+      "target_strategy": "no-need",
+      "utterance": "I don’t need much firewood, so you can have it.",
+      "present_strategies": [
+        "no-need"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 9,
+      "target_strategy": "uv-part",
+      "utterance": "Since you already have the water, it's not as crucial for you anymore.",
+      "present_strategies": [
+        "uv-part"
+      ],
+      "primary_strategy": "uv-part",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"uv-part\"], \"primary_strategy\": \"uv-part\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 9,
+      "target_strategy": "elicit-pref",
+      "utterance": "Why do you need the firewood, and how does it fit into your plans for the day?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 9,
+      "target_strategy": "showing-empathy",
+      "utterance": "I can see how staying hydrated and fueled is so important for you, especially with all the activity.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 9,
+      "target_strategy": "promote-coordination",
+      "utterance": "Let's make sure we're both comfortable and prepared for the day ahead—how about we check in on our needs as the morning comes?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "elicit-pref"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 9,
+      "target_strategy": "vouch-fair",
+      "utterance": "This arrangement ensures both of us have what we need without overextending, and it feels like a fair balance for our priorities.",
+      "present_strategies": [
+        "vouch-fair",
+        "promote-coordination"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "promote-coordination"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\", \"promote-coordination\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 0,
+      "target_strategy": "small-talk",
+      "utterance": "Hi there, how's the trip treating you?",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 0,
+      "target_strategy": "self-need",
+      "utterance": "I need the food because I’m worried there won’t be enough for the entire trip.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 0,
+      "target_strategy": "other-need",
+      "utterance": "I understand that you're concerned about having enough food for the entire trip.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 0,
+      "target_strategy": "no-need",
+      "utterance": "I don’t need much water, so you can have it.",
+      "present_strategies": [
+        "no-need"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 0,
+      "target_strategy": "uv-part",
+      "utterance": "Since you already have plenty of water, it’s not as important for you to prioritize finding more.",
+      "present_strategies": [
+        "uv-part"
+      ],
+      "primary_strategy": "uv-part",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"uv-part\"], \"primary_strategy\": \"uv-part\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 0,
+      "target_strategy": "elicit-pref",
+      "utterance": "What's most important to you when it comes to supplies, and why?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 0,
+      "target_strategy": "showing-empathy",
+      "utterance": "I can see how worrying about food for the whole trip would be stressful — it’s definitely a big concern when you’re out in the wild.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 0,
+      "target_strategy": "promote-coordination",
+      "utterance": "Let's find a way to share the food so we both have enough, and I can help gather some firewood while we're at it.",
+      "present_strategies": [
+        "promote-coordination"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 0,
+      "target_strategy": "vouch-fair",
+      "utterance": "We should split the food equally since it's the most important item, and the firewood can be shared fairly based on need.",
+      "present_strategies": [
+        "promote-coordination",
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "promote-coordination"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\", \"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 1,
+      "target_strategy": "small-talk",
+      "utterance": "Hi there, how’s the trip treating you?",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 1,
+      "target_strategy": "self-need",
+      "utterance": "I need the water because my family is hungry and we have no water left.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 1,
+      "target_strategy": "other-need",
+      "utterance": "I understand that you need the food to feed your group and the water to stay hydrated.",
+      "present_strategies": [
+        "other-need"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 1,
+      "target_strategy": "no-need",
+      "utterance": "I don’t need much firewood, so you can have it.",
+      "present_strategies": [
+        "no-need",
+        "uv-part"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "uv-part"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\", \"uv-part\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 1,
+      "target_strategy": "uv-part",
+      "utterance": "I brought plenty of drinks, so water isn’t as important for me.",
+      "present_strategies": [
+        "uv-part"
+      ],
+      "primary_strategy": "uv-part",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"uv-part\"], \"primary_strategy\": \"uv-part\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 1,
+      "target_strategy": "elicit-pref",
+      "utterance": "What items are most important to you, and why?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 1,
+      "target_strategy": "showing-empathy",
+      "utterance": "I can see how important it is to keep your family warm and fed, especially with the cold and the situation you're in.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 1,
+      "target_strategy": "promote-coordination",
+      "utterance": "Let's work together to find a way to share the food and water so we can both take care of our family's needs.",
+      "present_strategies": [
+        "promote-coordination"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 1,
+      "target_strategy": "vouch-fair",
+      "utterance": "An even split of the remaining supplies would be fair to both of us.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 2,
+      "target_strategy": "small-talk",
+      "utterance": "Hi there, how’s the campsite treating you so far?",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 2,
+      "target_strategy": "self-need",
+      "utterance": "I need more food because I’m worried I won’t have enough for the entire trip.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 2,
+      "target_strategy": "other-need",
+      "utterance": "I understand that you need the food to feed your group.",
+      "present_strategies": [
+        "other-need"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 2,
+      "target_strategy": "no-need",
+      "utterance": "I don’t need much water, so you can have it.",
+      "present_strategies": [
+        "no-need",
+        "uv-part"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "uv-part"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\", \"uv-part\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 2,
+      "target_strategy": "uv-part",
+      "utterance": "I already brought plenty of water from home, so I’m not as worried about it.",
+      "present_strategies": [
+        "no-need"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "no-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 2,
+      "target_strategy": "elicit-pref",
+      "utterance": "Which supplies are most important to you, and why?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 2,
+      "target_strategy": "showing-empathy",
+      "utterance": "I can see how worrying about food for the whole trip would be stressful — I’d want to make sure we’re prepared too.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 2,
+      "target_strategy": "promote-coordination",
+      "utterance": "Let's see if we can find a way to share the firewood and maybe split the food so we both feel prepared.",
+      "present_strategies": [
+        "promote-coordination"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 2,
+      "target_strategy": "vouch-fair",
+      "utterance": "I think splitting the food and firewood equally would be fair, since we both need them and I don’t have enough of either.",
+      "present_strategies": [
+        "vouch-fair",
+        "self-need",
+        "other-need"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "self-need",
+        "other-need"
+      ],
+      "off_target_strategy_count": 2,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\", \"self-need\", \"other-need\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 4,
+      "target_strategy": "small-talk",
+      "utterance": "Hi there, how’s the campsite setup looking?",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 4,
+      "target_strategy": "self-need",
+      "utterance": "I need the food because I’m worried I don’t have enough for the entire trip.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 4,
+      "target_strategy": "other-need",
+      "utterance": "I understand that you need the food to feed your group.",
+      "present_strategies": [
+        "other-need",
+        "showing-empathy"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\", \"showing-empathy\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 4,
+      "target_strategy": "no-need",
+      "utterance": "I don’t need much water, so you can have it.",
+      "present_strategies": [
+        "uv-part"
+      ],
+      "primary_strategy": "uv-part",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "uv-part"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"uv-part\"], \"primary_strategy\": \"uv-part\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 4,
+      "target_strategy": "uv-part",
+      "utterance": "Since you already brought plenty of water, it’s not as important for you.",
+      "present_strategies": [
+        "uv-part"
+      ],
+      "primary_strategy": "uv-part",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"uv-part\"], \"primary_strategy\": \"uv-part\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 4,
+      "target_strategy": "elicit-pref",
+      "utterance": "What's most important to you, and why?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 4,
+      "target_strategy": "showing-empathy",
+      "utterance": "I can see why food is so important to you — it’s easy to worry about staying full when you’re out in the wild.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 4,
+      "target_strategy": "promote-coordination",
+      "utterance": "Let's see if we can find a way to share the food and gather some firewood together—maybe we can split the cost or help each other out.",
+      "present_strategies": [
+        "promote-coordination"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 4,
+      "target_strategy": "vouch-fair",
+      "utterance": "We both need food the most, so splitting the supplies equally would be fair.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 7,
+      "target_strategy": "small-talk",
+      "utterance": "Hey, it's great to meet! How's your trip treating you?",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 7,
+      "target_strategy": "self-need",
+      "utterance": "I need the water because my family is thirsty and we lost our water supply.",
+      "present_strategies": [
+        "other-need"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "other-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 7,
+      "target_strategy": "other-need",
+      "utterance": "I understand that you need the food to feed your family and the water to stay hydrated.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 7,
+      "target_strategy": "no-need",
+      "utterance": "I don’t need much water, so you can have it.",
+      "present_strategies": [
+        "no-need"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 7,
+      "target_strategy": "uv-part",
+      "utterance": "Since I already have water, it's not as urgent for me anymore.",
+      "present_strategies": [
+        "other-need"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "other-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 7,
+      "target_strategy": "elicit-pref",
+      "utterance": "Why do you need firewood so much, and how does it help your family right now?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 7,
+      "target_strategy": "showing-empathy",
+      "utterance": "I can see how important it is to keep your family warm and fed, especially with the cold and the situation you're in.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 7,
+      "target_strategy": "promote-coordination",
+      "utterance": "How about we split the food and water so we both have enough to last the night, and then we can gather more firewood together?",
+      "present_strategies": [
+        "promote-coordination"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 7,
+      "target_strategy": "vouch-fair",
+      "utterance": "This split ensures both of our needs are met fairly—food for hunger, water for survival, and firewood for warmth.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 2,
+      "target_strategy": "small-talk",
+      "utterance": "Hi there, how's the hiking going? I'm trying to stay hydrated and keep up with the trail!",
+      "present_strategies": [
+        "showing-empathy",
+        "self-need"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "showing-empathy",
+        "self-need"
+      ],
+      "off_target_strategy_count": 2,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\", \"self-need\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 2,
+      "target_strategy": "self-need",
+      "utterance": "I need the water because I'll be hiking a lot and need to stay hydrated throughout the day.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 2,
+      "target_strategy": "other-need",
+      "utterance": "I hear you about the water — it's important to stay hydrated, especially with all the hiking you have planned.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 2,
+      "target_strategy": "no-need",
+      "utterance": "I don’t need much food, so you can have some.",
+      "present_strategies": [
+        "no-need"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 2,
+      "target_strategy": "uv-part",
+      "utterance": "I brought a few extra bottles already, so maybe we can focus on food since you mentioned you forgot some at home.",
+      "present_strategies": [
+        "self-need",
+        "other-need"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need",
+        "other-need"
+      ],
+      "off_target_strategy_count": 2,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\", \"other-need\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 2,
+      "target_strategy": "elicit-pref",
+      "utterance": "What's most important to you when it comes to supplies, and why?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 2,
+      "target_strategy": "showing-empathy",
+      "utterance": "I can see how staying hydrated is a top priority for you, especially with all the hiking ahead. It’s smart to prepare for that — I’ve found myself in the same situation before.",
+      "present_strategies": [
+        "showing-empathy",
+        "other-need"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 1,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "other-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\", \"other-need\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 2,
+      "target_strategy": "promote-coordination",
+      "utterance": "Let's see if we can split the water so we both have enough, and maybe share some food too—since you need extra and I might have a few extra snacks. What do you think?",
+      "present_strategies": [
+        "promote-coordination",
+        "elicit-pref"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "elicit-pref"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\", \"elicit-pref\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 2,
+      "target_strategy": "vouch-fair",
+      "utterance": "An even split of the water and food would work for both of us.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 8,
+      "target_strategy": "small-talk",
+      "utterance": "Hey, looks like we're both off to a great start! Enjoy the hike and the fresh air — hope you're well hydrated! 🍻",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 8,
+      "target_strategy": "self-need",
+      "utterance": "I need the water because I’ll be hiking a lot and need to stay hydrated throughout the day.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 8,
+      "target_strategy": "other-need",
+      "utterance": "I understand that you need the food to keep your energy up for all the hiking.",
+      "present_strategies": [
+        "other-need"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 8,
+      "target_strategy": "no-need",
+      "utterance": "I need very little firewood, so you can take it.",
+      "present_strategies": [
+        "no-need",
+        "uv-part"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "uv-part"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\", \"uv-part\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 8,
+      "target_strategy": "uv-part",
+      "utterance": "I already brought extra drinks, so the water isn’t as crucial for me.",
+      "present_strategies": [
+        "no-need"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "no-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 8,
+      "target_strategy": "elicit-pref",
+      "utterance": "What's most important to you when it comes to sharing supplies, and why?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 8,
+      "target_strategy": "showing-empathy",
+      "utterance": "I can see how the extra food would make a big difference for your hikes, and it makes sense you’d need more firewood to go along with it.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 8,
+      "target_strategy": "promote-coordination",
+      "utterance": "Let’s make sure we’re both covered for the hike—maybe we can split the water and food in a way that gives us both what we need without overloading either of us.",
+      "present_strategies": [
+        "promote-coordination",
+        "elicit-pref"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "elicit-pref"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\", \"elicit-pref\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 8,
+      "target_strategy": "vouch-fair",
+      "utterance": "This arrangement feels balanced and practical for both of us.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 9,
+      "target_strategy": "small-talk",
+      "utterance": "Hey, looks like we're both trying to keep things balanced around the campfire! 🔥 How's the weather treating you?",
+      "present_strategies": [
+        "showing-empathy",
+        "small-talk"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\", \"small-talk\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 9,
+      "target_strategy": "self-need",
+      "utterance": "I need the water because I get dehydrated quickly and need more of it to stay comfortable.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 9,
+      "target_strategy": "other-need",
+      "utterance": "I see that you need the extra food to keep your group well-fed.",
+      "present_strategies": [
+        "other-need"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 9,
+      "target_strategy": "no-need",
+      "utterance": "I don’t need much water, so you can have it.",
+      "present_strategies": [
+        "no-need"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 9,
+      "target_strategy": "uv-part",
+      "utterance": "Since you already have plenty of food, the extra package isn’t as crucial for you.",
+      "present_strategies": [
+        "uv-part"
+      ],
+      "primary_strategy": "uv-part",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"uv-part\"], \"primary_strategy\": \"uv-part\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 9,
+      "target_strategy": "elicit-pref",
+      "utterance": "Why is water your top priority, and how does that affect how we split the supplies?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 9,
+      "target_strategy": "showing-empathy",
+      "utterance": "I can see how the extra food would mean more wood, and I appreciate you keeping track of what you need.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 9,
+      "target_strategy": "promote-coordination",
+      "utterance": "Let’s make sure we both have enough to stay comfortable and happy—how about we split the water and food in a way that covers your needs and mine?",
+      "present_strategies": [
+        "promote-coordination",
+        "elicit-pref"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "elicit-pref"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\", \"elicit-pref\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 9,
+      "target_strategy": "vouch-fair",
+      "utterance": "An arrangement where we both contribute equally to the essentials would feel balanced and fair.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 10,
+      "target_strategy": "small-talk",
+      "utterance": "Hey, hope you're having a great time out there! 🌲💧",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 10,
+      "target_strategy": "self-need",
+      "utterance": "I need the water because I’ll be hiking a lot and need to stay hydrated.",
+      "present_strategies": [
+        "other-need"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "other-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 10,
+      "target_strategy": "other-need",
+      "utterance": "I understand that you need the extra food to keep your energy up for the hiking.",
+      "present_strategies": [
+        "other-need"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 10,
+      "target_strategy": "no-need",
+      "utterance": "I don’t need much firewood, so you can have it.",
+      "present_strategies": [
+        "no-need"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 10,
+      "target_strategy": "uv-part",
+      "utterance": "Since you already have extra wood, the firewood isn’t as crucial for you anymore.",
+      "present_strategies": [
+        "uv-part"
+      ],
+      "primary_strategy": "uv-part",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"uv-part\"], \"primary_strategy\": \"uv-part\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 10,
+      "target_strategy": "elicit-pref",
+      "utterance": "Which items are most important to you, and why?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 10,
+      "target_strategy": "showing-empathy",
+      "utterance": "I can see how important it is to have enough water for all the hiking you’ve planned — it’s definitely the top priority.",
+      "present_strategies": [
+        "other-need"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "other-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 10,
+      "target_strategy": "promote-coordination",
+      "utterance": "Let’s make sure we both have what we need without overloading either of us—maybe we can split the water and food evenly and keep the firewood light, since you’ve got some extra.",
+      "present_strategies": [
+        "promote-coordination",
+        "elicit-pref"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "elicit-pref"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\", \"elicit-pref\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 10,
+      "target_strategy": "vouch-fair",
+      "utterance": "An even split of the supplies would work well for both of us.",
+      "present_strategies": [
+        "promote-coordination"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "promote-coordination"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 468,
+      "turn_index": 2,
+      "target_strategy": "small-talk",
+      "utterance": "Hi there, how’s the campfire going? It’s great having a warm glow for the kids—makes the dark feel friendlier!",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 468,
+      "turn_index": 2,
+      "target_strategy": "self-need",
+      "utterance": "I need the water because my kids are messy and I want to make sure we stay hydrated while setting up camp.",
+      "present_strategies": [
+        "other-need"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "other-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 468,
+      "turn_index": 2,
+      "target_strategy": "other-need",
+      "utterance": "I understand that you need the water to keep your kids hydrated and clean.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 468,
+      "turn_index": 2,
+      "target_strategy": "no-need",
+      "utterance": "I don’t need much water, so you can have the second one.",
+      "present_strategies": [
+        "no-need",
+        "uv-part"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "uv-part"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\", \"uv-part\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 468,
+      "turn_index": 2,
+      "target_strategy": "uv-part",
+      "utterance": "I already have a full canteen, so the extra water isn’t as crucial for me.",
+      "present_strategies": [
+        "uv-part"
+      ],
+      "primary_strategy": "uv-part",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"uv-part\"], \"primary_strategy\": \"uv-part\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 468,
+      "turn_index": 2,
+      "target_strategy": "elicit-pref",
+      "utterance": "Why is water a higher priority for you, and how does that affect what you need from the campsite?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 468,
+      "turn_index": 2,
+      "target_strategy": "showing-empathy",
+      "utterance": "I can see how keeping your family comfortable and safe is a top priority, especially with the kids. Let me make sure we both have what we need.",
+      "present_strategies": [
+        "showing-empathy",
+        "promote-coordination"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "promote-coordination"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\", \"promote-coordination\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 468,
+      "turn_index": 2,
+      "target_strategy": "promote-coordination",
+      "utterance": "Let's see if we can find a way to share the water so we both have enough, and maybe adjust the firewood to make sure we're both comfortable with the light.",
+      "present_strategies": [
+        "promote-coordination"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 468,
+      "turn_index": 2,
+      "target_strategy": "vouch-fair",
+      "utterance": "Sure, here's a response that clearly follows the target strategy:\n\n\"Splitting the supplies evenly would be fair, as it balances the needs of both of us.\"",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 468,
+      "turn_index": 4,
+      "target_strategy": "small-talk",
+      "utterance": "Hi there, how’s the campfire going? It’s nice having a warm glow like this.",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 468,
+      "turn_index": 4,
+      "target_strategy": "self-need",
+      "utterance": "I need the firewood so my kids can stay warm and feel safe at night.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 468,
+      "turn_index": 4,
+      "target_strategy": "other-need",
+      "utterance": "I understand that you need the water for your kids, and I appreciate you considering my situation.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 468,
+      "turn_index": 4,
+      "target_strategy": "no-need",
+      "utterance": "I don’t need much water, so you can have it.",
+      "present_strategies": [
+        "no-need"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 468,
+      "turn_index": 4,
+      "target_strategy": "uv-part",
+      "utterance": "I already have plenty of water, so the extra isn’t as important to me.",
+      "present_strategies": [
+        "uv-part"
+      ],
+      "primary_strategy": "uv-part",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"uv-part\"], \"primary_strategy\": \"uv-part\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 468,
+      "turn_index": 4,
+      "target_strategy": "elicit-pref",
+      "utterance": "I can see the importance of water for your family. Are there any other items that are especially important for your kids?",
+      "present_strategies": [
+        "showing-empathy",
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\", \"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 468,
+      "turn_index": 4,
+      "target_strategy": "showing-empathy",
+      "utterance": "I can see how important it is to keep your family comfortable and safe, especially with the kids. Let's go with the two waters and the extra food.",
+      "present_strategies": [
+        "showing-empathy",
+        "promote-coordination"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "promote-coordination"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\", \"promote-coordination\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 468,
+      "turn_index": 4,
+      "target_strategy": "promote-coordination",
+      "utterance": "Let's make sure we both have what we need—maybe I can trade one of the food packs for an extra water bottle to help cover your priority.",
+      "present_strategies": [
+        "promote-coordination",
+        "elicit-pref"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "elicit-pref"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\", \"elicit-pref\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    },
+    {
+      "dialogue_id": 468,
+      "turn_index": 4,
+      "target_strategy": "vouch-fair",
+      "utterance": "An even split of the remaining supplies would be fair to both of us.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "reports/verbalizer_upper_bound/v4_profile_definition_example.jsonl"
+    }
+  ]
+}

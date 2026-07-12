@@ -1,0 +1,1057 @@
+{
+  "metrics": {
+    "tasks": 90,
+    "top1_target_presence": 0.43333333333333335,
+    "oracle_at_4": 0.6555555555555556,
+    "oracle_at_8": 0.7555555555555555,
+    "rerank_at_8": 0.7555555555555555,
+    "per_class": {
+      "elicit-pref": {
+        "n": 10,
+        "oracle4": 1.0,
+        "oracle8": 1.0,
+        "rerank8": 1.0
+      },
+      "no-need": {
+        "n": 10,
+        "oracle4": 1.0,
+        "oracle8": 1.0,
+        "rerank8": 1.0
+      },
+      "other-need": {
+        "n": 10,
+        "oracle4": 0.2,
+        "oracle8": 0.4,
+        "rerank8": 0.4
+      },
+      "promote-coordination": {
+        "n": 10,
+        "oracle4": 0.4,
+        "oracle8": 0.7,
+        "rerank8": 0.7
+      },
+      "self-need": {
+        "n": 10,
+        "oracle4": 1.0,
+        "oracle8": 1.0,
+        "rerank8": 1.0
+      },
+      "showing-empathy": {
+        "n": 10,
+        "oracle4": 0.8,
+        "oracle8": 0.8,
+        "rerank8": 0.8
+      },
+      "small-talk": {
+        "n": 10,
+        "oracle4": 0.8,
+        "oracle8": 0.8,
+        "rerank8": 0.8
+      },
+      "uv-part": {
+        "n": 10,
+        "oracle4": 0.2,
+        "oracle8": 0.3,
+        "rerank8": 0.3
+      },
+      "vouch-fair": {
+        "n": 10,
+        "oracle4": 0.5,
+        "oracle8": 0.8,
+        "rerank8": 0.8
+      }
+    }
+  },
+  "chosen": [
+    {
+      "key": [
+        546,
+        0,
+        "elicit-pref"
+      ],
+      "candidate_rank": 8,
+      "utterance": "What items are most important to you?",
+      "target_present": 1,
+      "primary_strategy": "elicit-pref"
+    },
+    {
+      "key": [
+        546,
+        0,
+        "no-need"
+      ],
+      "candidate_rank": 2,
+      "utterance": "I don't need much firewood since I can find some around the campsite.",
+      "target_present": 1,
+      "primary_strategy": "no-need"
+    },
+    {
+      "key": [
+        546,
+        0,
+        "other-need"
+      ],
+      "candidate_rank": 5,
+      "utterance": "Hello, i am from japan and we are going on a hiking trip and we need as much water as possible.",
+      "target_present": 1,
+      "primary_strategy": "other-need"
+    },
+    {
+      "key": [
+        546,
+        0,
+        "promote-coordination"
+      ],
+      "candidate_rank": 3,
+      "utterance": "Hello, I would like to trade 1 water for 1 firewood, so I can have 2 water and you will have 2 firewood. How does that work?",
+      "target_present": 1,
+      "primary_strategy": "self-need"
+    },
+    {
+      "key": [
+        546,
+        0,
+        "self-need"
+      ],
+      "candidate_rank": 2,
+      "utterance": "I need three packages of water because my family needs to stay hydrated.",
+      "target_present": 1,
+      "primary_strategy": "self-need"
+    },
+    {
+      "key": [
+        546,
+        0,
+        "showing-empathy"
+      ],
+      "candidate_rank": 8,
+      "utterance": "I completely understand how important it is to have enough water when you're out in nature, especially when you're worried about your family staying hydrated.",
+      "target_present": 1,
+      "primary_strategy": "showing-empathy"
+    },
+    {
+      "key": [
+        546,
+        0,
+        "small-talk"
+      ],
+      "candidate_rank": 4,
+      "utterance": "Hi, how are you?",
+      "target_present": 1,
+      "primary_strategy": "small-talk"
+    },
+    {
+      "key": [
+        546,
+        0,
+        "uv-part"
+      ],
+      "candidate_rank": 1,
+      "utterance": "Water is irreplaceable out here; while we can find firewood or food, having clean water is essential for our family's survival.",
+      "target_present": 0,
+      "primary_strategy": "other-need"
+    },
+    {
+      "key": [
+        546,
+        0,
+        "vouch-fair"
+      ],
+      "candidate_rank": 3,
+      "utterance": "Hello. I'm hoping we can reach a fair deal where we each get two of the most important items.",
+      "target_present": 1,
+      "primary_strategy": "vouch-fair"
+    },
+    {
+      "key": [
+        546,
+        1,
+        "elicit-pref"
+      ],
+      "candidate_rank": 4,
+      "utterance": "How much do you need for each item?",
+      "target_present": 1,
+      "primary_strategy": "elicit-pref"
+    },
+    {
+      "key": [
+        546,
+        1,
+        "no-need"
+      ],
+      "candidate_rank": 2,
+      "utterance": "I dont need much firewood, so i can give you two.",
+      "target_present": 1,
+      "primary_strategy": "no-need"
+    },
+    {
+      "key": [
+        546,
+        1,
+        "other-need"
+      ],
+      "candidate_rank": 4,
+      "utterance": "I need 3 water because I have severe dry mouth.",
+      "target_present": 0,
+      "primary_strategy": "self-need"
+    },
+    {
+      "key": [
+        546,
+        1,
+        "promote-coordination"
+      ],
+      "candidate_rank": 8,
+      "utterance": "I'm doing great! What do you need?",
+      "target_present": 0,
+      "primary_strategy": "elicit-pref"
+    },
+    {
+      "key": [
+        546,
+        1,
+        "self-need"
+      ],
+      "candidate_rank": 1,
+      "utterance": "I am going to need 3 water because i have severe dry mouth",
+      "target_present": 1,
+      "primary_strategy": "self-need"
+    },
+    {
+      "key": [
+        546,
+        1,
+        "showing-empathy"
+      ],
+      "candidate_rank": 8,
+      "utterance": "Hello fellow camper! I'm doing well.",
+      "target_present": 0,
+      "primary_strategy": "small-talk"
+    },
+    {
+      "key": [
+        546,
+        1,
+        "small-talk"
+      ],
+      "candidate_rank": 1,
+      "utterance": "hi, i am good, what about you?",
+      "target_present": 1,
+      "primary_strategy": "small-talk"
+    },
+    {
+      "key": [
+        546,
+        1,
+        "uv-part"
+      ],
+      "candidate_rank": 1,
+      "utterance": "I need water because I have severe dry mouth.",
+      "target_present": 0,
+      "primary_strategy": "self-need"
+    },
+    {
+      "key": [
+        546,
+        1,
+        "vouch-fair"
+      ],
+      "candidate_rank": 4,
+      "utterance": "I'm doing great. I'm hoping to get 3 water, and 2 food.",
+      "target_present": 0,
+      "primary_strategy": "self-need"
+    },
+    {
+      "key": [
+        546,
+        2,
+        "elicit-pref"
+      ],
+      "candidate_rank": 8,
+      "utterance": "What item do you need the most?",
+      "target_present": 1,
+      "primary_strategy": "elicit-pref"
+    },
+    {
+      "key": [
+        546,
+        2,
+        "no-need"
+      ],
+      "candidate_rank": 8,
+      "utterance": "I don't need much firewood, so I'm flexible on that.",
+      "target_present": 1,
+      "primary_strategy": "no-need"
+    },
+    {
+      "key": [
+        546,
+        2,
+        "other-need"
+      ],
+      "candidate_rank": 7,
+      "utterance": "We need many water for our family.",
+      "target_present": 1,
+      "primary_strategy": "other-need"
+    },
+    {
+      "key": [
+        546,
+        2,
+        "promote-coordination"
+      ],
+      "candidate_rank": 7,
+      "utterance": "We need to keep this fun and safe! So i think I can give you one package of water if you give me two packages of food. What do you think?",
+      "target_present": 1,
+      "primary_strategy": "elicit-pref"
+    },
+    {
+      "key": [
+        546,
+        2,
+        "self-need"
+      ],
+      "candidate_rank": 3,
+      "utterance": "I need 3 packages of water. My family needs to stay hydrated.",
+      "target_present": 1,
+      "primary_strategy": "self-need"
+    },
+    {
+      "key": [
+        546,
+        2,
+        "showing-empathy"
+      ],
+      "candidate_rank": 2,
+      "utterance": "I understand that being out in nature without enough supplies can be stressful, so I'm glad we're here to make sure everyone stays comfortable.",
+      "target_present": 1,
+      "primary_strategy": "showing-empathy"
+    },
+    {
+      "key": [
+        546,
+        2,
+        "small-talk"
+      ],
+      "candidate_rank": 1,
+      "utterance": "I'm doing great! My family and I are getting ready for the camping trip.",
+      "target_present": 1,
+      "primary_strategy": "small-talk"
+    },
+    {
+      "key": [
+        546,
+        2,
+        "uv-part"
+      ],
+      "candidate_rank": 3,
+      "utterance": "We need a lot of water to stay hydrated.",
+      "target_present": 0,
+      "primary_strategy": "self-need"
+    },
+    {
+      "key": [
+        546,
+        2,
+        "vouch-fair"
+      ],
+      "candidate_rank": 7,
+      "utterance": "We can try to be fair here.",
+      "target_present": 1,
+      "primary_strategy": "vouch-fair"
+    },
+    {
+      "key": [
+        546,
+        3,
+        "elicit-pref"
+      ],
+      "candidate_rank": 2,
+      "utterance": "What item is the most important to you?",
+      "target_present": 1,
+      "primary_strategy": "elicit-pref"
+    },
+    {
+      "key": [
+        546,
+        3,
+        "no-need"
+      ],
+      "candidate_rank": 7,
+      "utterance": "i dont need much firewood, i can find other sticks.",
+      "target_present": 1,
+      "primary_strategy": "no-need"
+    },
+    {
+      "key": [
+        546,
+        3,
+        "other-need"
+      ],
+      "candidate_rank": 5,
+      "utterance": "i need 2 water, 1 firewood and 0 food",
+      "target_present": 0,
+      "primary_strategy": "self-need"
+    },
+    {
+      "key": [
+        546,
+        3,
+        "promote-coordination"
+      ],
+      "candidate_rank": 1,
+      "utterance": "i like water more. can we split 2 water and 2 firewood?",
+      "target_present": 1,
+      "primary_strategy": "elicit-pref"
+    },
+    {
+      "key": [
+        546,
+        3,
+        "self-need"
+      ],
+      "candidate_rank": 6,
+      "utterance": "I really need 3 waters. I have a severe dry mouth.",
+      "target_present": 1,
+      "primary_strategy": "self-need"
+    },
+    {
+      "key": [
+        546,
+        3,
+        "showing-empathy"
+      ],
+      "candidate_rank": 7,
+      "utterance": "sure. I have severe dry mouth, so water is my highest priority.",
+      "target_present": 0,
+      "primary_strategy": "self-need"
+    },
+    {
+      "key": [
+        546,
+        3,
+        "small-talk"
+      ],
+      "candidate_rank": 2,
+      "utterance": "i would like 2 water, 1 firewood and 1 food",
+      "target_present": 0,
+      "primary_strategy": "self-need"
+    },
+    {
+      "key": [
+        546,
+        3,
+        "uv-part"
+      ],
+      "candidate_rank": 2,
+      "utterance": "i need 2 water and 1 food. i have severe dry mouth.",
+      "target_present": 0,
+      "primary_strategy": "self-need"
+    },
+    {
+      "key": [
+        546,
+        3,
+        "vouch-fair"
+      ],
+      "candidate_rank": 4,
+      "utterance": "I am very happy to let you know. I have a great deal in the water, so I think it's fair to give you the food and firewood",
+      "target_present": 1,
+      "primary_strategy": "vouch-fair"
+    },
+    {
+      "key": [
+        546,
+        4,
+        "elicit-pref"
+      ],
+      "candidate_rank": 2,
+      "utterance": "Me too. What do you need the most?",
+      "target_present": 1,
+      "primary_strategy": "elicit-pref"
+    },
+    {
+      "key": [
+        546,
+        4,
+        "no-need"
+      ],
+      "candidate_rank": 8,
+      "utterance": "I don't need firewood since I can look for it around the campsite.",
+      "target_present": 1,
+      "primary_strategy": "no-need"
+    },
+    {
+      "key": [
+        546,
+        4,
+        "other-need"
+      ],
+      "candidate_rank": 3,
+      "utterance": "We need water and food. We can look for firewood.",
+      "target_present": 1,
+      "primary_strategy": "self-need"
+    },
+    {
+      "key": [
+        546,
+        4,
+        "promote-coordination"
+      ],
+      "candidate_rank": 8,
+      "utterance": "Water is my first priority. So I think we can agree on that. But I would like some food and firewood.",
+      "target_present": 1,
+      "primary_strategy": "self-need"
+    },
+    {
+      "key": [
+        546,
+        4,
+        "self-need"
+      ],
+      "candidate_rank": 6,
+      "utterance": "I need water, food and firewood.",
+      "target_present": 1,
+      "primary_strategy": "self-need"
+    },
+    {
+      "key": [
+        546,
+        4,
+        "showing-empathy"
+      ],
+      "candidate_rank": 5,
+      "utterance": "I completely understand why you need the water and firewood.",
+      "target_present": 1,
+      "primary_strategy": "showing-empathy"
+    },
+    {
+      "key": [
+        546,
+        4,
+        "small-talk"
+      ],
+      "candidate_rank": 4,
+      "utterance": "I prefer water, food, and firewood.",
+      "target_present": 0,
+      "primary_strategy": "self-need"
+    },
+    {
+      "key": [
+        546,
+        4,
+        "uv-part"
+      ],
+      "candidate_rank": 2,
+      "utterance": "Since I need water and food, I need to take all the water and food packages. Firewood is not so important for me.",
+      "target_present": 1,
+      "primary_strategy": "self-need"
+    },
+    {
+      "key": [
+        546,
+        4,
+        "vouch-fair"
+      ],
+      "candidate_rank": 8,
+      "utterance": "Since you're going to get 3 water and 2 firewood, I think I should get 2 food and 1 water.",
+      "target_present": 1,
+      "primary_strategy": "vouch-fair"
+    },
+    {
+      "key": [
+        546,
+        6,
+        "elicit-pref"
+      ],
+      "candidate_rank": 8,
+      "utterance": "Alright, so you want 1 water and 3 firewood? What's the reason for your choice?",
+      "target_present": 1,
+      "primary_strategy": "elicit-pref"
+    },
+    {
+      "key": [
+        546,
+        6,
+        "no-need"
+      ],
+      "candidate_rank": 2,
+      "utterance": "I don't really need any firewood. I can look around the campsite for more.",
+      "target_present": 1,
+      "primary_strategy": "no-need"
+    },
+    {
+      "key": [
+        546,
+        6,
+        "other-need"
+      ],
+      "candidate_rank": 1,
+      "utterance": "Okay, so that's settled. I hope that we both enjoy our camping trip!",
+      "target_present": 0,
+      "primary_strategy": "showing-empathy"
+    },
+    {
+      "key": [
+        546,
+        6,
+        "promote-coordination"
+      ],
+      "candidate_rank": 4,
+      "utterance": "Great! So I'll have all 3 food and 1 water while you have all 3 firewood and 2 water. Is that alright with you?",
+      "target_present": 1,
+      "primary_strategy": "promote-coordination"
+    },
+    {
+      "key": [
+        546,
+        6,
+        "self-need"
+      ],
+      "candidate_rank": 8,
+      "utterance": "Ok, I need to inform you that I will need all the water because my family needs to stay hydrated during the hike.",
+      "target_present": 1,
+      "primary_strategy": "self-need"
+    },
+    {
+      "key": [
+        546,
+        6,
+        "showing-empathy"
+      ],
+      "candidate_rank": 4,
+      "utterance": "That's great to hear. Let me know if you need anything else.",
+      "target_present": 1,
+      "primary_strategy": "showing-empathy"
+    },
+    {
+      "key": [
+        546,
+        6,
+        "small-talk"
+      ],
+      "candidate_rank": 6,
+      "utterance": "Great! I hope you have a great time camping!",
+      "target_present": 1,
+      "primary_strategy": "small-talk"
+    },
+    {
+      "key": [
+        546,
+        6,
+        "uv-part"
+      ],
+      "candidate_rank": 7,
+      "utterance": "You need water to survive. So, it's better if you take all the water and I take all the food.",
+      "target_present": 1,
+      "primary_strategy": "uv-part"
+    },
+    {
+      "key": [
+        546,
+        6,
+        "vouch-fair"
+      ],
+      "candidate_rank": 3,
+      "utterance": "I think that's a fair deal.",
+      "target_present": 1,
+      "primary_strategy": "vouch-fair"
+    },
+    {
+      "key": [
+        546,
+        7,
+        "elicit-pref"
+      ],
+      "candidate_rank": 2,
+      "utterance": "relax and enjoy the trip. What's your plan?",
+      "target_present": 1,
+      "primary_strategy": "elicit-pref"
+    },
+    {
+      "key": [
+        546,
+        7,
+        "no-need"
+      ],
+      "candidate_rank": 4,
+      "utterance": "i can find other firewood. so i dont need.",
+      "target_present": 1,
+      "primary_strategy": "no-need"
+    },
+    {
+      "key": [
+        546,
+        7,
+        "other-need"
+      ],
+      "candidate_rank": 8,
+      "utterance": "i will make a fire and cook food",
+      "target_present": 0,
+      "primary_strategy": "self-need"
+    },
+    {
+      "key": [
+        546,
+        7,
+        "promote-coordination"
+      ],
+      "candidate_rank": 8,
+      "utterance": "nothing much. just enjoy the campsite.",
+      "target_present": 0,
+      "primary_strategy": "small-talk"
+    },
+    {
+      "key": [
+        546,
+        7,
+        "self-need"
+      ],
+      "candidate_rank": 2,
+      "utterance": "I need a lot of water. I get severe dry mouth.",
+      "target_present": 1,
+      "primary_strategy": "self-need"
+    },
+    {
+      "key": [
+        546,
+        7,
+        "showing-empathy"
+      ],
+      "candidate_rank": 5,
+      "utterance": "good that we agreed. i will bring my dog with me.",
+      "target_present": 1,
+      "primary_strategy": "showing-empathy"
+    },
+    {
+      "key": [
+        546,
+        7,
+        "small-talk"
+      ],
+      "candidate_rank": 6,
+      "utterance": "thanks for the deal. it was nice to meet you.",
+      "target_present": 1,
+      "primary_strategy": "small-talk"
+    },
+    {
+      "key": [
+        546,
+        7,
+        "uv-part"
+      ],
+      "candidate_rank": 4,
+      "utterance": "i will cook some food, but i need food to cook.",
+      "target_present": 0,
+      "primary_strategy": "self-need"
+    },
+    {
+      "key": [
+        546,
+        7,
+        "vouch-fair"
+      ],
+      "candidate_rank": 5,
+      "utterance": "It is an excellent offer. I think that you are the best negotiator.",
+      "target_present": 1,
+      "primary_strategy": "vouch-fair"
+    },
+    {
+      "key": [
+        546,
+        8,
+        "elicit-pref"
+      ],
+      "candidate_rank": 1,
+      "utterance": "What kind of animal do you want to hunt?",
+      "target_present": 1,
+      "primary_strategy": "elicit-pref"
+    },
+    {
+      "key": [
+        546,
+        8,
+        "no-need"
+      ],
+      "candidate_rank": 4,
+      "utterance": "I don't need firewood, I can look for it in the forest.",
+      "target_present": 1,
+      "primary_strategy": "no-need"
+    },
+    {
+      "key": [
+        546,
+        8,
+        "other-need"
+      ],
+      "candidate_rank": 7,
+      "utterance": "Ohh i'll get one also, that's why I need the firewood.",
+      "target_present": 1,
+      "primary_strategy": "self-need"
+    },
+    {
+      "key": [
+        546,
+        8,
+        "promote-coordination"
+      ],
+      "candidate_rank": 4,
+      "utterance": "I'd love to go hunting too! So I guess we can both get a little bit of our priorities. So if I get 2 water, 3 food, and 0 firewood,",
+      "target_present": 1,
+      "primary_strategy": "promote-coordination"
+    },
+    {
+      "key": [
+        546,
+        8,
+        "self-need"
+      ],
+      "candidate_rank": 7,
+      "utterance": "My family will do a lot of hiking. We need all the food to keep our energy up.",
+      "target_present": 1,
+      "primary_strategy": "self-need"
+    },
+    {
+      "key": [
+        546,
+        8,
+        "showing-empathy"
+      ],
+      "candidate_rank": 1,
+      "utterance": "That sounds like a good plan. Do you have a partner with you?",
+      "target_present": 1,
+      "primary_strategy": "showing-empathy"
+    },
+    {
+      "key": [
+        546,
+        8,
+        "small-talk"
+      ],
+      "candidate_rank": 4,
+      "utterance": "Oh nice! I'll be hiking. 🙂",
+      "target_present": 1,
+      "primary_strategy": "small-talk"
+    },
+    {
+      "key": [
+        546,
+        8,
+        "uv-part"
+      ],
+      "candidate_rank": 2,
+      "utterance": "I plan to take a hiking trip to the nearby mountain and camp there. I need to have water, food and firewood to survive.",
+      "target_present": 0,
+      "primary_strategy": "self-need"
+    },
+    {
+      "key": [
+        546,
+        8,
+        "vouch-fair"
+      ],
+      "candidate_rank": 7,
+      "utterance": "Hunting is fun but let's make sure we both get enough supplies.",
+      "target_present": 0,
+      "primary_strategy": "promote-coordination"
+    },
+    {
+      "key": [
+        546,
+        9,
+        "elicit-pref"
+      ],
+      "candidate_rank": 2,
+      "utterance": "do you need firewood?",
+      "target_present": 1,
+      "primary_strategy": "elicit-pref"
+    },
+    {
+      "key": [
+        546,
+        9,
+        "no-need"
+      ],
+      "candidate_rank": 7,
+      "utterance": "i can find my own food and wood so i dont need any",
+      "target_present": 1,
+      "primary_strategy": "no-need"
+    },
+    {
+      "key": [
+        546,
+        9,
+        "other-need"
+      ],
+      "candidate_rank": 5,
+      "utterance": "how much food do you need?",
+      "target_present": 0,
+      "primary_strategy": "elicit-pref"
+    },
+    {
+      "key": [
+        546,
+        9,
+        "promote-coordination"
+      ],
+      "candidate_rank": 7,
+      "utterance": "we can fish together",
+      "target_present": 1,
+      "primary_strategy": "promote-coordination"
+    },
+    {
+      "key": [
+        546,
+        9,
+        "self-need"
+      ],
+      "candidate_rank": 2,
+      "utterance": "i need 3 water and 1 firewood. What about you?",
+      "target_present": 1,
+      "primary_strategy": "self-need"
+    },
+    {
+      "key": [
+        546,
+        9,
+        "showing-empathy"
+      ],
+      "candidate_rank": 4,
+      "utterance": "i get a lot of joy from it",
+      "target_present": 1,
+      "primary_strategy": "showing-empathy"
+    },
+    {
+      "key": [
+        546,
+        9,
+        "small-talk"
+      ],
+      "candidate_rank": 8,
+      "utterance": "me too 🙂",
+      "target_present": 1,
+      "primary_strategy": "small-talk"
+    },
+    {
+      "key": [
+        546,
+        9,
+        "uv-part"
+      ],
+      "candidate_rank": 3,
+      "utterance": "hmm how do you plan to cook then?",
+      "target_present": 0,
+      "primary_strategy": "elicit-pref"
+    },
+    {
+      "key": [
+        546,
+        9,
+        "vouch-fair"
+      ],
+      "candidate_rank": 3,
+      "utterance": "you get 3 water and i get 2. it is fair",
+      "target_present": 1,
+      "primary_strategy": "vouch-fair"
+    },
+    {
+      "key": [
+        120,
+        0,
+        "elicit-pref"
+      ],
+      "candidate_rank": 7,
+      "utterance": "What are your top priorities for these extra supplies?",
+      "target_present": 1,
+      "primary_strategy": "elicit-pref"
+    },
+    {
+      "key": [
+        120,
+        0,
+        "no-need"
+      ],
+      "candidate_rank": 2,
+      "utterance": "I don't really need much firewood since I have high body heat naturally.",
+      "target_present": 1,
+      "primary_strategy": "no-need"
+    },
+    {
+      "key": [
+        120,
+        0,
+        "other-need"
+      ],
+      "candidate_rank": 2,
+      "utterance": "I need 3 food, 1 water, and 0 firewood.",
+      "target_present": 0,
+      "primary_strategy": "self-need"
+    },
+    {
+      "key": [
+        120,
+        0,
+        "promote-coordination"
+      ],
+      "candidate_rank": 4,
+      "utterance": "I am willing to give you 2 food, 2 water, and 2 firewood if you give me 3 food, 1 water, and 1 firewood.",
+      "target_present": 0,
+      "primary_strategy": "vouch-fair"
+    },
+    {
+      "key": [
+        120,
+        0,
+        "self-need"
+      ],
+      "candidate_rank": 7,
+      "utterance": "I have a very high metabolism and need a lot of food.",
+      "target_present": 1,
+      "primary_strategy": "self-need"
+    },
+    {
+      "key": [
+        120,
+        0,
+        "showing-empathy"
+      ],
+      "candidate_rank": 5,
+      "utterance": "I totally get it — being out in nature without enough supplies can be stressful.",
+      "target_present": 1,
+      "primary_strategy": "showing-empathy"
+    },
+    {
+      "key": [
+        120,
+        0,
+        "small-talk"
+      ],
+      "candidate_rank": 1,
+      "utterance": "Hi there! How are you doing today?",
+      "target_present": 1,
+      "primary_strategy": "small-talk"
+    },
+    {
+      "key": [
+        120,
+        0,
+        "uv-part"
+      ],
+      "candidate_rank": 3,
+      "utterance": "While I understand the value of firewood, my high metabolism means I can easily generate body heat, so it's less critical for me than food, which I need to sustain my energy.",
+      "target_present": 1,
+      "primary_strategy": "uv-part"
+    },
+    {
+      "key": [
+        120,
+        0,
+        "vouch-fair"
+      ],
+      "candidate_rank": 8,
+      "utterance": "How about we split 2 food, 1 water, 2 firewood?",
+      "target_present": 1,
+      "primary_strategy": "vouch-fair"
+    }
+  ]
+}

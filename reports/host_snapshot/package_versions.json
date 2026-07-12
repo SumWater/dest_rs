@@ -1,0 +1,10 @@
+{
+  "torch": "2.12.0+cu126",
+  "transformers": "5.8.1",
+  "peft": "0.19.1",
+  "accelerate": "1.13.0",
+  "bitsandbytes": "0.49.2",
+  "torch_cuda_version": "12.6",
+  "cuda_available": true,
+  "gpu": "NVIDIA RTX 5880 Ada Generation"
+}

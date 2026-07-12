@@ -1,0 +1,5138 @@
+{
+  "metrics": {
+    "total_samples": 270,
+    "parse_failures": 0,
+    "target_strategy_presence": 0.6148148148148148,
+    "primary_strategy_accuracy": 0.5555555555555556,
+    "macro_f1": 0.5276213689188292,
+    "per_class": {
+      "small-talk": {
+        "precision": 0.8125,
+        "recall": 0.43333333333333335,
+        "f1": 0.5652173913043479,
+        "support": 30,
+        "tp": 13,
+        "fp": 3,
+        "fn": 17
+      },
+      "self-need": {
+        "precision": 0.27835051546391754,
+        "recall": 0.9,
+        "f1": 0.42519685039370075,
+        "support": 30,
+        "tp": 27,
+        "fp": 70,
+        "fn": 3
+      },
+      "other-need": {
+        "precision": 0.5151515151515151,
+        "recall": 0.5666666666666667,
+        "f1": 0.5396825396825397,
+        "support": 30,
+        "tp": 17,
+        "fp": 16,
+        "fn": 13
+      },
+      "no-need": {
+        "precision": 0.9166666666666666,
+        "recall": 0.7333333333333333,
+        "f1": 0.8148148148148148,
+        "support": 30,
+        "tp": 22,
+        "fp": 2,
+        "fn": 8
+      },
+      "uv-part": {
+        "precision": 0.043478260869565216,
+        "recall": 0.03333333333333333,
+        "f1": 0.03773584905660378,
+        "support": 30,
+        "tp": 1,
+        "fp": 22,
+        "fn": 29
+      },
+      "elicit-pref": {
+        "precision": 0.65,
+        "recall": 0.8666666666666667,
+        "f1": 0.7428571428571429,
+        "support": 30,
+        "tp": 26,
+        "fp": 14,
+        "fn": 4
+      },
+      "showing-empathy": {
+        "precision": 0.4603174603174603,
+        "recall": 0.9666666666666667,
+        "f1": 0.6236559139784946,
+        "support": 30,
+        "tp": 29,
+        "fp": 34,
+        "fn": 1
+      },
+      "promote-coordination": {
+        "precision": 0.24,
+        "recall": 0.2,
+        "f1": 0.2181818181818182,
+        "support": 30,
+        "tp": 6,
+        "fp": 19,
+        "fn": 24
+      },
+      "vouch-fair": {
+        "precision": 0.7352941176470589,
+        "recall": 0.8333333333333334,
+        "f1": 0.78125,
+        "support": 30,
+        "tp": 25,
+        "fp": 9,
+        "fn": 5
+      }
+    },
+    "mean_off_target_strategy_count": 0.7,
+    "prediction_distribution": {
+      "elicit-pref": 40,
+      "no-need": 24,
+      "uv-part": 23,
+      "other-need": 33,
+      "showing-empathy": 63,
+      "self-need": 97,
+      "small-talk": 16,
+      "vouch-fair": 34,
+      "promote-coordination": 25
+    },
+    "primary_prediction_distribution": {
+      "elicit-pref": 22,
+      "no-need": 24,
+      "other-need": 18,
+      "self-need": 91,
+      "showing-empathy": 42,
+      "small-talk": 16,
+      "vouch-fair": 33,
+      "promote-coordination": 18,
+      "uv-part": 6
+    }
+  },
+  "details": [
+    {
+      "dialogue_id": 546,
+      "turn_index": 0,
+      "target_strategy": "elicit-pref",
+      "utterance": "What are the most important supplies you need for the trip?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 0,
+      "target_strategy": "no-need",
+      "utterance": "I don't need much firewood since we can find some nearby, so I'm willing to give up those packages if you need them.",
+      "present_strategies": [
+        "no-need",
+        "uv-part"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "uv-part"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\", \"uv-part\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 0,
+      "target_strategy": "other-need",
+      "utterance": "I understand that you need the water for your family, so I'm willing to give up the water packages to ensure your group stays hydrated.",
+      "present_strategies": [
+        "other-need",
+        "showing-empathy"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\", \"showing-empathy\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 0,
+      "target_strategy": "promote-coordination",
+      "utterance": "I would like to take the water and food.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 0,
+      "target_strategy": "self-need",
+      "utterance": "I really need the water since my family needs to stay hydrated.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 0,
+      "target_strategy": "showing-empathy",
+      "utterance": "I completely understand how important it is to have enough water for your family to stay hydrated; that must be a huge concern for you.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 0,
+      "target_strategy": "small-talk",
+      "utterance": "Hi there! I hope you're having a great time preparing for the trip.",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 0,
+      "target_strategy": "uv-part",
+      "utterance": "Water is irreplaceable out here; without it, we can't even survive the night.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 0,
+      "target_strategy": "vouch-fair",
+      "utterance": "That sounds fair.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 1,
+      "target_strategy": "elicit-pref",
+      "utterance": "what is your priority item?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 1,
+      "target_strategy": "no-need",
+      "utterance": "I'm doing well, thanks! I have a few things to ask about.",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "small-talk"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 1,
+      "target_strategy": "other-need",
+      "utterance": "I'm doing great, thanks for asking! I'm really looking forward to the water packages since I have a severe dry mouth. I can manage with the firewood and food, but I really need",
+      "present_strategies": [
+        "self-need",
+        "elicit-pref"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need",
+        "elicit-pref"
+      ],
+      "off_target_strategy_count": 2,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\", \"elicit-pref\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 1,
+      "target_strategy": "promote-coordination",
+      "utterance": "I have a severe dry mouth, so I need water. I can find other sticks for firewood, but I don't eat much.",
+      "present_strategies": [
+        "self-need",
+        "other-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need",
+        "other-need"
+      ],
+      "off_target_strategy_count": 2,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\", \"other-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 1,
+      "target_strategy": "self-need",
+      "utterance": "i have severe dry mouth so i need all the water",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 1,
+      "target_strategy": "showing-empathy",
+      "utterance": "I totally get it, being out in the woods without enough water can be really uncomfortable, especially with that dry mouth you mentioned.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 1,
+      "target_strategy": "small-talk",
+      "utterance": "good and you?",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 1,
+      "target_strategy": "uv-part",
+      "utterance": "I need to prioritize water because I have a severe dry mouth, and I can't afford to lose that.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 1,
+      "target_strategy": "vouch-fair",
+      "utterance": "That sounds fair.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 2,
+      "target_strategy": "elicit-pref",
+      "utterance": "Hey, I'm curious, which of these supplies do you think we should prioritize?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 2,
+      "target_strategy": "no-need",
+      "utterance": "I have plenty of water, so I'm not too concerned about that.",
+      "present_strategies": [
+        "no-need"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 2,
+      "target_strategy": "other-need",
+      "utterance": "I am doing well. I need to make sure my family gets the water first since we need to stay hydrated.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 2,
+      "target_strategy": "promote-coordination",
+      "utterance": "I'm doing well. I need to ask you about the items. I have a high priority on water, medium on food, and low on firewood.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 2,
+      "target_strategy": "self-need",
+      "utterance": "I need all three water packages since my family needs to stay hydrated.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 2,
+      "target_strategy": "showing-empathy",
+      "utterance": "I totally get it, being out in the wilderness without enough water can be really stressful, especially when you're trying to keep your family hydrated.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 2,
+      "target_strategy": "small-talk",
+      "utterance": "I'm doing well. I'm excited to start our camping trip.",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 2,
+      "target_strategy": "uv-part",
+      "utterance": "Water is irreplaceable here, we can't go a day without it.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 2,
+      "target_strategy": "vouch-fair",
+      "utterance": "That sounds great! I think we can split the items evenly.",
+      "present_strategies": [
+        "promote-coordination"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "promote-coordination"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 3,
+      "target_strategy": "elicit-pref",
+      "utterance": "what is your priority for the supplies?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 3,
+      "target_strategy": "no-need",
+      "utterance": "I don't really need much firewood, so you can take those.",
+      "present_strategies": [
+        "no-need",
+        "uv-part"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "uv-part"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\", \"uv-part\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 3,
+      "target_strategy": "other-need",
+      "utterance": "I have a severe dry mouth, so I really need the water. I can find other sticks for firewood, but I don't eat much, so food is less important to me.",
+      "present_strategies": [
+        "self-need",
+        "other-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\", \"other-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 3,
+      "target_strategy": "promote-coordination",
+      "utterance": "I have a high priority on water, medium on firewood, and low on food.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 3,
+      "target_strategy": "self-need",
+      "utterance": "i need all the water because i have severe dry mouth",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 3,
+      "target_strategy": "showing-empathy",
+      "utterance": "I totally get it, having to deal with dry mouth in the woods can be super uncomfortable, especially when you're trying to enjoy the campsite.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 3,
+      "target_strategy": "small-talk",
+      "utterance": "i have a lot of water and firewood. but not much food.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 3,
+      "target_strategy": "uv-part",
+      "utterance": "Water is irreplaceable for my dry mouth, so I need it to stay hydrated and keep my energy up.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 3,
+      "target_strategy": "vouch-fair",
+      "utterance": "I think it is fair to give me 2 water and 1 food",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 4,
+      "target_strategy": "elicit-pref",
+      "utterance": "I need water and food. What's your priority?",
+      "present_strategies": [
+        "self-need",
+        "elicit-pref"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\", \"elicit-pref\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 4,
+      "target_strategy": "no-need",
+      "utterance": "I don't need much firewood, so I'm flexible on that.",
+      "present_strategies": [
+        "no-need"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 4,
+      "target_strategy": "other-need",
+      "utterance": "I understand that you need water and firewood. Since you need water, I will give you the water package.",
+      "present_strategies": [
+        "other-need",
+        "self-need"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\", \"self-need\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 4,
+      "target_strategy": "promote-coordination",
+      "utterance": "I need water and food. I can give you firewood.",
+      "present_strategies": [
+        "self-need",
+        "uv-part"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need",
+        "uv-part"
+      ],
+      "off_target_strategy_count": 2,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\", \"uv-part\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 4,
+      "target_strategy": "self-need",
+      "utterance": "I need water and food.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 4,
+      "target_strategy": "showing-empathy",
+      "utterance": "I completely understand why you need water; it's essential for survival, and I can see how important it is for your family to stay hydrated.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 4,
+      "target_strategy": "small-talk",
+      "utterance": "I need water and food. We need to stay hydrated and have snacks for energy.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 4,
+      "target_strategy": "uv-part",
+      "utterance": "Water is irreplaceable for hydration, and I can't find any other source.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 4,
+      "target_strategy": "vouch-fair",
+      "utterance": "That sounds fair. I think we can split the water and food evenly.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 6,
+      "target_strategy": "elicit-pref",
+      "utterance": "I think I need to know how much you need for your family.",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 6,
+      "target_strategy": "no-need",
+      "utterance": "I don't really need much firewood, so I'm happy to give you all three packages.",
+      "present_strategies": [
+        "no-need"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 6,
+      "target_strategy": "other-need",
+      "utterance": "I think that's a great deal. I'll take the 2 water and 3 food, and you can have the 3 firewood and 1 water.",
+      "present_strategies": [
+        "showing-empathy",
+        "promote-coordination"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "showing-empathy",
+        "promote-coordination"
+      ],
+      "off_target_strategy_count": 2,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\", \"promote-coordination\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 6,
+      "target_strategy": "promote-coordination",
+      "utterance": "I think that's a fair deal. I'll give you all 3 firewood and 1 water.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "vouch-fair"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 6,
+      "target_strategy": "self-need",
+      "utterance": "I think that's a great deal. I'll give you all 3 firewood and 1 water for 2 water and 3 food.",
+      "present_strategies": [
+        "self-need",
+        "elicit-pref"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "elicit-pref"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\", \"elicit-pref\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 6,
+      "target_strategy": "showing-empathy",
+      "utterance": "I completely understand why you need water and firewood; it's essential to stay hydrated and have warmth for the night.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 6,
+      "target_strategy": "small-talk",
+      "utterance": "Great! I hope you have a great time camping!",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 6,
+      "target_strategy": "uv-part",
+      "utterance": "You know, the water you're offering is premium clean and it's the best for hydration.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 6,
+      "target_strategy": "vouch-fair",
+      "utterance": "That sounds fair.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 7,
+      "target_strategy": "elicit-pref",
+      "utterance": "I need to know if you have any other needs.",
+      "present_strategies": [
+        "other-need"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "other-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 7,
+      "target_strategy": "no-need",
+      "utterance": "I don't need much firewood, so I'm happy to give you all 3.",
+      "present_strategies": [
+        "no-need"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 7,
+      "target_strategy": "other-need",
+      "utterance": "I need water and firewood. What about you?",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 7,
+      "target_strategy": "promote-coordination",
+      "utterance": "I will take the food and give you the water.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 7,
+      "target_strategy": "self-need",
+      "utterance": "I will take a walk and try to find some food.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 7,
+      "target_strategy": "showing-empathy",
+      "utterance": "That sounds like a great deal for you, and I'm glad we could find a way to make it work for both of us!",
+      "present_strategies": [
+        "promote-coordination",
+        "showing-empathy"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 1,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "promote-coordination"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\", \"showing-empathy\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 7,
+      "target_strategy": "small-talk",
+      "utterance": "i will take a walk and enjoy the nature. and you?",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 7,
+      "target_strategy": "uv-part",
+      "utterance": "I think I can make a fire with the firewood you gave me, but I need to keep the water for my dry mouth.",
+      "present_strategies": [
+        "self-need",
+        "showing-empathy"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need",
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 2,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\", \"showing-empathy\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 7,
+      "target_strategy": "vouch-fair",
+      "utterance": "That sounds fair.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 8,
+      "target_strategy": "elicit-pref",
+      "utterance": "I need to know what you need for your trip.",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 8,
+      "target_strategy": "no-need",
+      "utterance": "I don't need much firewood, so I'm happy to give you all three packages.",
+      "present_strategies": [
+        "no-need"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 8,
+      "target_strategy": "other-need",
+      "utterance": "I need to hunt for food and water. I will take the food and water.",
+      "present_strategies": [
+        "self-need",
+        "elicit-pref"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need",
+        "elicit-pref"
+      ],
+      "off_target_strategy_count": 2,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\", \"elicit-pref\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 8,
+      "target_strategy": "promote-coordination",
+      "utterance": "I will take the water and food. You take the firewood.",
+      "present_strategies": [
+        "self-need",
+        "other-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need",
+        "other-need"
+      ],
+      "off_target_strategy_count": 2,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\", \"other-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 8,
+      "target_strategy": "self-need",
+      "utterance": "I will hunt for food and water. I will also hike to the top of the mountain.",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "elicit-pref"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 8,
+      "target_strategy": "showing-empathy",
+      "utterance": "I'm glad we can find a solution that works for both of us!",
+      "present_strategies": [
+        "promote-coordination"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "promote-coordination"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 8,
+      "target_strategy": "small-talk",
+      "utterance": "That's great! I hope you have a great time.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 8,
+      "target_strategy": "uv-part",
+      "utterance": "Water is irreplaceable for our journey, it's the most essential resource we have.",
+      "present_strategies": [
+        "self-need",
+        "showing-empathy"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need",
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 2,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\", \"showing-empathy\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 8,
+      "target_strategy": "vouch-fair",
+      "utterance": "That sounds fair.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 9,
+      "target_strategy": "elicit-pref",
+      "utterance": "i have a lot of water and firewood. What about you?",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 9,
+      "target_strategy": "no-need",
+      "utterance": "I don't need much firewood, so I'm happy to give you all 3. What about the food?",
+      "present_strategies": [
+        "no-need",
+        "elicit-pref"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "elicit-pref"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\", \"elicit-pref\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 9,
+      "target_strategy": "other-need",
+      "utterance": "I need water and firewood. What about you?",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 9,
+      "target_strategy": "promote-coordination",
+      "utterance": "I will take the food and give you the water and firewood.",
+      "present_strategies": [
+        "self-need",
+        "uv-part"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need",
+        "uv-part"
+      ],
+      "off_target_strategy_count": 2,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\", \"uv-part\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 9,
+      "target_strategy": "self-need",
+      "utterance": "i have severe dry mouth so i need all the water",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 9,
+      "target_strategy": "showing-empathy",
+      "utterance": "I can see that you need food, and I completely understand how important that is for you.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 9,
+      "target_strategy": "small-talk",
+      "utterance": "cool",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 9,
+      "target_strategy": "uv-part",
+      "utterance": "Water is irreplaceable for my dry mouth, and I can't find any other source.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 546,
+      "turn_index": 9,
+      "target_strategy": "vouch-fair",
+      "utterance": "That sounds great!",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 0,
+      "target_strategy": "elicit-pref",
+      "utterance": "What are your top priorities for the supplies?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 0,
+      "target_strategy": "no-need",
+      "utterance": "I don't need much firewood since I have a high metabolism.",
+      "present_strategies": [
+        "no-need"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 0,
+      "target_strategy": "other-need",
+      "utterance": "I understand that you need the food packages for your high metabolism, so I'm willing to give you those to ensure you have enough energy.",
+      "present_strategies": [
+        "other-need",
+        "showing-empathy"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\", \"showing-empathy\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 0,
+      "target_strategy": "promote-coordination",
+      "utterance": "I would like to trade for the food.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 0,
+      "target_strategy": "self-need",
+      "utterance": "I need all three food packages because I have a high metabolism and burn through calories quickly.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 0,
+      "target_strategy": "showing-empathy",
+      "utterance": "I completely understand how important it is to have enough food to keep up with your energy needs; that must be really tough for you.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 0,
+      "target_strategy": "small-talk",
+      "utterance": "Hey there! I hope you're having a great time getting ready for the trip.",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 0,
+      "target_strategy": "uv-part",
+      "utterance": "I need to stay hydrated to be active.",
+      "present_strategies": [
+        "other-need"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "other-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 0,
+      "target_strategy": "vouch-fair",
+      "utterance": "That sounds fair.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 1,
+      "target_strategy": "elicit-pref",
+      "utterance": "what is your priority for the supplies?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 1,
+      "target_strategy": "no-need",
+      "utterance": "i need food to help find my extra family that cam along",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 1,
+      "target_strategy": "other-need",
+      "utterance": "hi! i need the food packages for my family to eat, and the firewood to keep warm, and the water to bathe and cook with.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 1,
+      "target_strategy": "promote-coordination",
+      "utterance": "i need to find my family and get food to help them.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 1,
+      "target_strategy": "self-need",
+      "utterance": "i need this to help find my extra family that cam along",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 1,
+      "target_strategy": "showing-empathy",
+      "utterance": "i know you are trying to help me find my extra family that cam along",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 1,
+      "target_strategy": "small-talk",
+      "utterance": "hello 🙂 how are you doing today?",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 1,
+      "target_strategy": "uv-part",
+      "utterance": "Okay, I need to focus on the essentials. I have the food, which is my top priority, so I can't let that go. I also need some firewood to cook and stay warm",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 1,
+      "target_strategy": "vouch-fair",
+      "utterance": "hi",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "small-talk"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 3,
+      "target_strategy": "elicit-pref",
+      "utterance": "I think you want to give me all the firewood?",
+      "present_strategies": [
+        "elicit-pref",
+        "uv-part"
+      ],
+      "primary_strategy": "uv-part",
+      "target_present": 1,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "uv-part"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\", \"uv-part\"], \"primary_strategy\": \"uv-part\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 3,
+      "target_strategy": "no-need",
+      "utterance": "I don't really need much more firewood, so I'm happy to give you all three if you give me the food.",
+      "present_strategies": [
+        "no-need",
+        "uv-part"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "uv-part"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\", \"uv-part\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 3,
+      "target_strategy": "other-need",
+      "utterance": "I understand that you need the firewood for cooking and keeping warm, so I'm willing to give you all three firewood packages in exchange for the three food packages.",
+      "present_strategies": [
+        "other-need",
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\", \"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 3,
+      "target_strategy": "promote-coordination",
+      "utterance": "i think that would be a good idea. i would give you all three food and you give me all three water.",
+      "present_strategies": [
+        "promote-coordination"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 3,
+      "target_strategy": "self-need",
+      "utterance": "i would give you 2 food and 1 water and keep 1 firewood for myself",
+      "present_strategies": [
+        "self-need",
+        "uv-part"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "uv-part"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\", \"uv-part\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 3,
+      "target_strategy": "showing-empathy",
+      "utterance": "I totally get it, you need the firewood to keep warm and cook, and I'm happy to give you all three of them if you give me the food and water in return.",
+      "present_strategies": [
+        "showing-empathy",
+        "other-need"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "other-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\", \"other-need\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 3,
+      "target_strategy": "small-talk",
+      "utterance": "i think that is a great idea!",
+      "present_strategies": [
+        "promote-coordination"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "promote-coordination"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 3,
+      "target_strategy": "uv-part",
+      "utterance": "Okay, I can give you 3 food packages and 3 firewood, but I need to keep the water for myself since it's essential for cooking and hygiene.",
+      "present_strategies": [
+        "self-need",
+        "uv-part"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\", \"uv-part\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 3,
+      "target_strategy": "vouch-fair",
+      "utterance": "That sounds fair to me",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 4,
+      "target_strategy": "elicit-pref",
+      "utterance": "Because I have a high metabolism and need to stay active.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 4,
+      "target_strategy": "no-need",
+      "utterance": "I don't really need the firewood since I have high body heat.",
+      "present_strategies": [
+        "no-need",
+        "uv-part"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "uv-part"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\", \"uv-part\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 4,
+      "target_strategy": "other-need",
+      "utterance": "I need all 3 firewoods because I have a high metabolism and need to stay warm.",
+      "present_strategies": [
+        "self-need",
+        "showing-empathy"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need",
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 2,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\", \"showing-empathy\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 4,
+      "target_strategy": "promote-coordination",
+      "utterance": "Because I have high body heat and I need to stay hydrated to be active.",
+      "present_strategies": [
+        "other-need",
+        "showing-empathy"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "other-need",
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 2,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\", \"showing-empathy\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 4,
+      "target_strategy": "self-need",
+      "utterance": "I have high body heat naturally so I don't need it",
+      "present_strategies": [
+        "no-need"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "no-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 4,
+      "target_strategy": "showing-empathy",
+      "utterance": "I completely understand why you need the firewood; it must be really important for you to stay warm.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 4,
+      "target_strategy": "small-talk",
+      "utterance": "I have a high metabolism and need to stay active.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 4,
+      "target_strategy": "uv-part",
+      "utterance": "Because I have high body heat naturally, so I need less firewood to stay warm.",
+      "present_strategies": [
+        "other-need",
+        "showing-empathy"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "other-need",
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 2,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\", \"showing-empathy\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 4,
+      "target_strategy": "vouch-fair",
+      "utterance": "That sounds fair to me",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 5,
+      "target_strategy": "elicit-pref",
+      "utterance": "I think you need more firewood than food. So, how much firewood do you need?",
+      "present_strategies": [
+        "elicit-pref",
+        "other-need"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "other-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\", \"other-need\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 5,
+      "target_strategy": "no-need",
+      "utterance": "I don't really need much more firewood, so I'm happy to give you all three.",
+      "present_strategies": [
+        "no-need",
+        "uv-part"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "uv-part"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\", \"uv-part\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 5,
+      "target_strategy": "other-need",
+      "utterance": "I understand that you need the firewood to stay warm, so I'm willing to give you all three firewood packages in exchange for the three food packages.",
+      "present_strategies": [
+        "other-need",
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\", \"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 5,
+      "target_strategy": "promote-coordination",
+      "utterance": "I think that's a good idea. I can give you all 3 food and you can give me all 3 water. That way we both get what we need.",
+      "present_strategies": [
+        "promote-coordination",
+        "self-need"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\", \"self-need\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 5,
+      "target_strategy": "self-need",
+      "utterance": "i need this to help find my extra family that cam along",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 5,
+      "target_strategy": "showing-empathy",
+      "utterance": "I completely understand why you need all the firewood; staying warm is so important, especially if you get cold easily.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 5,
+      "target_strategy": "small-talk",
+      "utterance": "Okay, that sounds like a good deal. Let me think.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 5,
+      "target_strategy": "uv-part",
+      "utterance": "You know what, I think I can give you 2 food packages and 1 firewood, and you can give me 2 water and 1 firewood. That way we both have enough",
+      "present_strategies": [
+        "promote-coordination",
+        "elicit-pref"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "promote-coordination",
+        "elicit-pref"
+      ],
+      "off_target_strategy_count": 2,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\", \"elicit-pref\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 5,
+      "target_strategy": "vouch-fair",
+      "utterance": "That sounds fair to me.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 7,
+      "target_strategy": "elicit-pref",
+      "utterance": "Okay, so you want all 3 water?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 7,
+      "target_strategy": "no-need",
+      "utterance": "I don't really need much more firewood, so I'm happy to give you all 3.",
+      "present_strategies": [
+        "uv-part"
+      ],
+      "primary_strategy": "uv-part",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "uv-part"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"uv-part\"], \"primary_strategy\": \"uv-part\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 7,
+      "target_strategy": "other-need",
+      "utterance": "I think that would work for me if I get all 3 water still",
+      "present_strategies": [
+        "other-need",
+        "elicit-pref"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "elicit-pref"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\", \"elicit-pref\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 7,
+      "target_strategy": "promote-coordination",
+      "utterance": "Okay, how about i give you 2 food and 2 water, and you give me 2 firewood. That way we both get something to help us.",
+      "present_strategies": [
+        "elicit-pref",
+        "promote-coordination"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "elicit-pref"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\", \"promote-coordination\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 7,
+      "target_strategy": "self-need",
+      "utterance": "i would like to give you 2 firewood and 1 water. So you can have 2 firewood and 1 water.",
+      "present_strategies": [
+        "self-need",
+        "promote-coordination"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "promote-coordination"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\", \"promote-coordination\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 7,
+      "target_strategy": "showing-empathy",
+      "utterance": "I totally get it, staying warm is so important when you're out in the cold, and I want to make sure we both have what we need to survive this trip safely.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 7,
+      "target_strategy": "small-talk",
+      "utterance": "Okay, that sounds like a good deal. I think we can both be happy with that.",
+      "present_strategies": [
+        "showing-empathy",
+        "promote-coordination"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "showing-empathy",
+        "promote-coordination"
+      ],
+      "off_target_strategy_count": 2,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\", \"promote-coordination\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 7,
+      "target_strategy": "uv-part",
+      "utterance": "Okay, if you want all 3 water, I can give you 2 firewood and keep 1 food package. That way, I still have enough to help my family and stay warm.",
+      "present_strategies": [
+        "self-need",
+        "promote-coordination"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need",
+        "promote-coordination"
+      ],
+      "off_target_strategy_count": 2,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\", \"promote-coordination\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 120,
+      "turn_index": 7,
+      "target_strategy": "vouch-fair",
+      "utterance": "```",
+      "present_strategies": [
+        "elicit-pref",
+        "showing-empathy"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "elicit-pref",
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 2,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\", \"showing-empathy\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 1,
+      "target_strategy": "elicit-pref",
+      "utterance": "I would like to know if you have any specific preferences for the food, water, or firewood?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 1,
+      "target_strategy": "no-need",
+      "utterance": "I don't really need much firewood, I get hot easily, so I'm happy to give you all three packages.",
+      "present_strategies": [
+        "no-need",
+        "showing-empathy"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\", \"showing-empathy\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 1,
+      "target_strategy": "other-need",
+      "utterance": "I understand that you need 2 packages of firewood, 2 packages of water, and 1 package of food. Since I prioritize food and water, I'm willing to give up the fire",
+      "present_strategies": [
+        "other-need",
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\", \"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 1,
+      "target_strategy": "promote-coordination",
+      "utterance": "I would like to have 2 packages of food, 1 package of water, and 1 package of firewood.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 1,
+      "target_strategy": "self-need",
+      "utterance": "I would prefer to have 2 packages of food, 1 package of water and 1 package of firewood.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 1,
+      "target_strategy": "showing-empathy",
+      "utterance": "I completely understand why you need the firewood; it's important to have enough to keep us warm and safe during the night.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 1,
+      "target_strategy": "small-talk",
+      "utterance": "Hi there! I'm glad to hear that. I hope you're having a great time preparing for the trip.",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 1,
+      "target_strategy": "uv-part",
+      "utterance": "I understand your need for firewood, but I have a hard time keeping my energy up if I do not consume small snacks frequently throughout the day.",
+      "present_strategies": [
+        "other-need",
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "other-need",
+        "self-need"
+      ],
+      "off_target_strategy_count": 2,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\", \"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 1,
+      "target_strategy": "vouch-fair",
+      "utterance": "That sounds like a fair deal.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 3,
+      "target_strategy": "elicit-pref",
+      "utterance": "I get cold very easily and also get thirsty a lot. What are your preferences?",
+      "present_strategies": [
+        "other-need",
+        "elicit-pref"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 1,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "other-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\", \"elicit-pref\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 3,
+      "target_strategy": "no-need",
+      "utterance": "I don't really need much firewood since I get hot easily, so I'm happy to give you those packages.",
+      "present_strategies": [
+        "no-need",
+        "uv-part"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "uv-part"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\", \"uv-part\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 3,
+      "target_strategy": "other-need",
+      "utterance": "I understand that you need more water and firewood because you get cold easily and are thirsty often. Since you need more water, I'm willing to give you the extra water packages to ensure you stay",
+      "present_strategies": [
+        "other-need",
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\", \"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 3,
+      "target_strategy": "promote-coordination",
+      "utterance": "I prefer to have more food and water than firewood. I can take 2 packages of food, 2 packages of water, and 1 package of firewood.",
+      "present_strategies": [
+        "self-need",
+        "elicit-pref"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need",
+        "elicit-pref"
+      ],
+      "off_target_strategy_count": 2,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\", \"elicit-pref\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 3,
+      "target_strategy": "self-need",
+      "utterance": "I need the food to keep my energy up since I have a hard time keeping my energy up if I do not consume small snacks frequently throughout the day.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 3,
+      "target_strategy": "showing-empathy",
+      "utterance": "I completely understand why you need more water and firewood; it sounds like you're really struggling with staying warm and hydrated, and I want to make sure we find a solution that works for both of",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 3,
+      "target_strategy": "small-talk",
+      "utterance": "I prefer to have more food and water than firewood. I get hot easily and need to stay hydrated.",
+      "present_strategies": [
+        "self-need",
+        "other-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need",
+        "other-need"
+      ],
+      "off_target_strategy_count": 2,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\", \"other-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 3,
+      "target_strategy": "uv-part",
+      "utterance": "I understand your need for water, but I have a hard time keeping my energy up if I do not consume small snacks frequently throughout the day.",
+      "present_strategies": [
+        "other-need",
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "other-need",
+        "self-need"
+      ],
+      "off_target_strategy_count": 2,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\", \"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 3,
+      "target_strategy": "vouch-fair",
+      "utterance": "That sounds like a fair deal.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 7,
+      "target_strategy": "elicit-pref",
+      "utterance": "I think that's a fair deal. But just to make sure, are you okay with me having 3 packages of firewood, 1 water, and 1 food?",
+      "present_strategies": [
+        "vouch-fair",
+        "elicit-pref"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "vouch-fair"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\", \"elicit-pref\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 7,
+      "target_strategy": "no-need",
+      "utterance": "I don't really need much firewood since I prefer to stay cool, so I'm happy to give up those 3 packages.",
+      "present_strategies": [
+        "no-need",
+        "uv-part"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "uv-part"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\", \"uv-part\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 7,
+      "target_strategy": "other-need",
+      "utterance": "I think that's a great deal. I get cold easily, so I really appreciate the extra firewood.",
+      "present_strategies": [
+        "showing-empathy",
+        "other-need"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\", \"other-need\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 7,
+      "target_strategy": "promote-coordination",
+      "utterance": "I think that's a fair deal.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "vouch-fair"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 7,
+      "target_strategy": "self-need",
+      "utterance": "I will take the 2 packages of food and 2 waters.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 7,
+      "target_strategy": "showing-empathy",
+      "utterance": "I completely understand why you need more firewood; it must be really uncomfortable to stay warm in the cold.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 7,
+      "target_strategy": "small-talk",
+      "utterance": "I am glad we can come to an agreement. Have a great trip!",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 7,
+      "target_strategy": "uv-part",
+      "utterance": "The food is versatile and can be eaten in various ways, making it a great choice for our trip.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 7,
+      "target_strategy": "vouch-fair",
+      "utterance": "That sounds fair.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 9,
+      "target_strategy": "elicit-pref",
+      "utterance": "I think this would be a good even split of resources and would allow each of us to have extra supplies. 🙂",
+      "present_strategies": [
+        "promote-coordination"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "promote-coordination"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 9,
+      "target_strategy": "no-need",
+      "utterance": "I don't really need much firewood since I get hot easily, so I'm happy to give up those packages.",
+      "present_strategies": [
+        "no-need",
+        "uv-part"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "uv-part"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\", \"uv-part\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 9,
+      "target_strategy": "other-need",
+      "utterance": "I think this would be a good even split of resources and would allow each of us to have extra supplies. 🙂",
+      "present_strategies": [
+        "promote-coordination"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "promote-coordination"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 9,
+      "target_strategy": "promote-coordination",
+      "utterance": "I think this would be a good even split of resources and would allow each of us to have extra supplies. 🙂",
+      "present_strategies": [
+        "promote-coordination"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 9,
+      "target_strategy": "self-need",
+      "utterance": "I think this would be a good even split of resources and would allow each of us to have extra supplies. 🙂",
+      "present_strategies": [
+        "promote-coordination"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "promote-coordination"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 9,
+      "target_strategy": "showing-empathy",
+      "utterance": "I completely understand how important it is to have enough food and water to stay energized and hydrated while out in the sun.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 9,
+      "target_strategy": "small-talk",
+      "utterance": "I am excited to start this trip. I hope you are too. 🙂",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 9,
+      "target_strategy": "uv-part",
+      "utterance": "The food is irreplaceable for me because it keeps me energized throughout the day, and I can't get that from any other source.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 128,
+      "turn_index": 9,
+      "target_strategy": "vouch-fair",
+      "utterance": "That sounds fair.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 0,
+      "target_strategy": "elicit-pref",
+      "utterance": "I need to know which supplies are most important to you for the trip.",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 0,
+      "target_strategy": "no-need",
+      "utterance": "I don't need much firewood, so I'm happy to give up those packages if you need them.",
+      "present_strategies": [
+        "uv-part"
+      ],
+      "primary_strategy": "uv-part",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "uv-part"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"uv-part\"], \"primary_strategy\": \"uv-part\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 0,
+      "target_strategy": "other-need",
+      "utterance": "I understand that you are worried about not having enough food for the entire trip, so I will make sure to give you the food packages first.",
+      "present_strategies": [
+        "other-need",
+        "showing-empathy"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\", \"showing-empathy\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 0,
+      "target_strategy": "promote-coordination",
+      "utterance": "I would like to trade my food for your water.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 0,
+      "target_strategy": "self-need",
+      "utterance": "I am worried I don't have enough food for the entire trip.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 0,
+      "target_strategy": "showing-empathy",
+      "utterance": "I completely understand how stressful it is to worry about not having enough food for the whole trip; that must be really hard to deal with.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 0,
+      "target_strategy": "small-talk",
+      "utterance": "Hey there! I hope you're having a great time getting ready for the trip.",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 0,
+      "target_strategy": "uv-part",
+      "utterance": "I need to prioritize food because I don't have enough for the entire trip, and I can't go without it.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 0,
+      "target_strategy": "vouch-fair",
+      "utterance": "I think it is fair that I get the food and you get the water.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 1,
+      "target_strategy": "elicit-pref",
+      "utterance": "What is the most important item you need for the trip?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 1,
+      "target_strategy": "no-need",
+      "utterance": "I need food, water, and firewood.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 1,
+      "target_strategy": "other-need",
+      "utterance": "I understand that you are looking forward to the camping trip, but I need to prioritize my family's needs. We lost our water, so I need to ensure we have enough for our group.",
+      "present_strategies": [
+        "other-need",
+        "showing-empathy"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\", \"showing-empathy\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 1,
+      "target_strategy": "promote-coordination",
+      "utterance": "I am looking forward to the camping trip but could use a few more supplies!",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "small-talk"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 1,
+      "target_strategy": "self-need",
+      "utterance": "I need all the food because my family is hungry and we lost our water.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 1,
+      "target_strategy": "showing-empathy",
+      "utterance": "I completely understand how important it is to have enough food and water for your family, especially when you're already dealing with the cold and hunger.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 1,
+      "target_strategy": "small-talk",
+      "utterance": "Hello! I am looking forward to the camping trip but could use a few more supplies!",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 1,
+      "target_strategy": "uv-part",
+      "utterance": "I need the food to keep my family fed and the water to stay hydrated.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 1,
+      "target_strategy": "vouch-fair",
+      "utterance": "I think it is fair that we split the food and water evenly.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 2,
+      "target_strategy": "elicit-pref",
+      "utterance": "I have a lot of food, but I need to know if you have any firewood or water to share.",
+      "present_strategies": [
+        "self-need",
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\", \"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 2,
+      "target_strategy": "no-need",
+      "utterance": "I don't need much more food, but I do need some firewood.",
+      "present_strategies": [
+        "self-need",
+        "uv-part"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need",
+        "uv-part"
+      ],
+      "off_target_strategy_count": 2,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\", \"uv-part\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 2,
+      "target_strategy": "other-need",
+      "utterance": "I understand you're worried about not having enough food for the entire trip, so let's make sure we get more food packages for you.",
+      "present_strategies": [
+        "other-need",
+        "promote-coordination"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "promote-coordination"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\", \"promote-coordination\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 2,
+      "target_strategy": "promote-coordination",
+      "utterance": "I think we can share the food and water.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 2,
+      "target_strategy": "self-need",
+      "utterance": "I am worried I don't have enough food for the entire trip.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 2,
+      "target_strategy": "showing-empathy",
+      "utterance": "I completely understand how important it is to have enough food for the whole trip, and I want to make sure we find a way to share it fairly.",
+      "present_strategies": [
+        "showing-empathy",
+        "vouch-fair"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "vouch-fair"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\", \"vouch-fair\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 2,
+      "target_strategy": "small-talk",
+      "utterance": "I hope you are doing well!",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 2,
+      "target_strategy": "uv-part",
+      "utterance": "I need to make sure I have enough food for the entire trip, so I think it's best if we split the food packages.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 2,
+      "target_strategy": "vouch-fair",
+      "utterance": "I think it is fair if we split the food and water evenly",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 4,
+      "target_strategy": "elicit-pref",
+      "utterance": "I see, so we both need food the most. What about your second most needed item?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 4,
+      "target_strategy": "no-need",
+      "utterance": "I don't need much firewood since I have plenty of water from home.",
+      "present_strategies": [
+        "no-need",
+        "self-need"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\", \"self-need\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 4,
+      "target_strategy": "other-need",
+      "utterance": "I understand that food is your top priority, so I will give you the food packages.",
+      "present_strategies": [
+        "showing-empathy",
+        "other-need"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\", \"other-need\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 4,
+      "target_strategy": "promote-coordination",
+      "utterance": "I think we can split the food and water, but I need to have the firewood.",
+      "present_strategies": [
+        "self-need",
+        "uv-part"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need",
+        "uv-part"
+      ],
+      "off_target_strategy_count": 2,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\", \"uv-part\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 4,
+      "target_strategy": "self-need",
+      "utterance": "I am worried I don't have enough food for the entire trip.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 4,
+      "target_strategy": "showing-empathy",
+      "utterance": "I completely understand, and I'm glad we can work together to make sure we both have enough to eat!",
+      "present_strategies": [
+        "showing-empathy",
+        "promote-coordination"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "promote-coordination"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\", \"promote-coordination\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 4,
+      "target_strategy": "small-talk",
+      "utterance": "Great! I am glad we are on the same page.",
+      "present_strategies": [
+        "promote-coordination"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "promote-coordination"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 4,
+      "target_strategy": "uv-part",
+      "utterance": "Food is irreplaceable for us, it's the only thing we can't easily find in the wild.",
+      "present_strategies": [
+        "self-need",
+        "showing-empathy"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need",
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 2,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\", \"showing-empathy\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 4,
+      "target_strategy": "vouch-fair",
+      "utterance": "That sounds fair, but I think we should split the food evenly since it's the most important item for both of us.",
+      "present_strategies": [
+        "vouch-fair",
+        "promote-coordination"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "promote-coordination"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\", \"promote-coordination\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 7,
+      "target_strategy": "elicit-pref",
+      "utterance": "I think you need to take more food. What is your most needed item?",
+      "present_strategies": [
+        "elicit-pref",
+        "uv-part"
+      ],
+      "primary_strategy": "uv-part",
+      "target_present": 1,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "uv-part"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\", \"uv-part\"], \"primary_strategy\": \"uv-part\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 7,
+      "target_strategy": "no-need",
+      "utterance": "I don't need much firewood, so I can give you 2 firewood.",
+      "present_strategies": [
+        "uv-part"
+      ],
+      "primary_strategy": "uv-part",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "uv-part"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"uv-part\"], \"primary_strategy\": \"uv-part\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 7,
+      "target_strategy": "other-need",
+      "utterance": "I think that works for me. I need food the most, so I'll take 2 food packages.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 7,
+      "target_strategy": "promote-coordination",
+      "utterance": "I think that's a good plan.",
+      "present_strategies": [
+        "promote-coordination"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 7,
+      "target_strategy": "self-need",
+      "utterance": "I think I need to take 2 food, 1 water, and 1 firewood.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 7,
+      "target_strategy": "showing-empathy",
+      "utterance": "I completely understand, and I'm sorry you're in such a tough spot with the cold and hunger; it must be really hard to deal with these conditions.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 7,
+      "target_strategy": "small-talk",
+      "utterance": "that sounds good, i think we can do that.",
+      "present_strategies": [
+        "showing-empathy",
+        "promote-coordination"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "showing-empathy",
+        "promote-coordination"
+      ],
+      "off_target_strategy_count": 2,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\", \"promote-coordination\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 7,
+      "target_strategy": "uv-part",
+      "utterance": "Water is irreplaceable for our survival, it's the most critical resource we have.",
+      "present_strategies": [
+        "other-need"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "other-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 172,
+      "turn_index": 7,
+      "target_strategy": "vouch-fair",
+      "utterance": "That sounds fair.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 2,
+      "target_strategy": "elicit-pref",
+      "utterance": "i need to know how much water you need.",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 2,
+      "target_strategy": "no-need",
+      "utterance": "I don't need much firewood since I brought some extra, so I'm flexible on that.",
+      "present_strategies": [
+        "no-need"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 2,
+      "target_strategy": "other-need",
+      "utterance": "I understand that you need the water packages since you get dehydrated quickly. I'm happy to give you the water packages and take the food packages.",
+      "present_strategies": [
+        "other-need",
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\", \"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 2,
+      "target_strategy": "promote-coordination",
+      "utterance": "I need a lot of water, but i can give you some food.",
+      "present_strategies": [
+        "self-need",
+        "elicit-pref"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need",
+        "elicit-pref"
+      ],
+      "off_target_strategy_count": 2,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\", \"elicit-pref\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 2,
+      "target_strategy": "self-need",
+      "utterance": "i will be doing a lot of hiking so need lots of water.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 2,
+      "target_strategy": "showing-empathy",
+      "utterance": "I completely understand, and I'm glad we're both focused on what we need most. Since you're dehydrated quickly, I'm happy to give you the extra water to make sure you stay",
+      "present_strategies": [
+        "showing-empathy",
+        "promote-coordination"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "promote-coordination"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\", \"promote-coordination\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 2,
+      "target_strategy": "small-talk",
+      "utterance": "me too, i need to bring a lot of water. i also forgot some food at home so need a little extra.",
+      "present_strategies": [
+        "self-need",
+        "other-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need",
+        "other-need"
+      ],
+      "off_target_strategy_count": 2,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\", \"other-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 2,
+      "target_strategy": "uv-part",
+      "utterance": "Water is irreplaceable out here; without it, I can't even hike properly.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 2,
+      "target_strategy": "vouch-fair",
+      "utterance": "That sounds like you need a lot of water.",
+      "present_strategies": [
+        "other-need"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "other-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 8,
+      "target_strategy": "elicit-pref",
+      "utterance": "how much of the firewood would you need?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 8,
+      "target_strategy": "no-need",
+      "utterance": "i don't really need much firewood since i brought some extra so i can give you 2 of that.",
+      "present_strategies": [
+        "no-need",
+        "uv-part"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "uv-part"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\", \"uv-part\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 8,
+      "target_strategy": "other-need",
+      "utterance": "I think that works for me. I need more firewood for the extra food, so I'll take 2 firewood and 2 food, and you can have 1 water and 1",
+      "present_strategies": [
+        "self-need",
+        "promote-coordination"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need",
+        "promote-coordination"
+      ],
+      "off_target_strategy_count": 2,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\", \"promote-coordination\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 8,
+      "target_strategy": "promote-coordination",
+      "utterance": "i think that would be fair.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "vouch-fair"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 8,
+      "target_strategy": "self-need",
+      "utterance": "i think i need 2 of the water and 1 of the food and 1 of the firewood.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 8,
+      "target_strategy": "showing-empathy",
+      "utterance": "i totally get it, you need more firewood for the additional package of food, that makes sense.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 8,
+      "target_strategy": "small-talk",
+      "utterance": "yes, that sounds fair. how about the water?",
+      "present_strategies": [
+        "vouch-fair",
+        "elicit-pref"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "vouch-fair",
+        "elicit-pref"
+      ],
+      "off_target_strategy_count": 2,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\", \"elicit-pref\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 8,
+      "target_strategy": "uv-part",
+      "utterance": "Water is irreplaceable out here; without it, we can't even start the campfire, and it's the only thing that can sustain us through the entire hike.",
+      "present_strategies": [
+        "showing-empathy",
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "showing-empathy",
+        "self-need"
+      ],
+      "off_target_strategy_count": 2,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\", \"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 8,
+      "target_strategy": "vouch-fair",
+      "utterance": "That sounds fair.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 9,
+      "target_strategy": "elicit-pref",
+      "utterance": "I see, so you need more firewood for the additional food. How much of the food would you like to take?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 9,
+      "target_strategy": "no-need",
+      "utterance": "I don't really need much more firewood, so I'm happy to give you the two packages.",
+      "present_strategies": [
+        "no-need"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 9,
+      "target_strategy": "other-need",
+      "utterance": "I think I can manage with the current amount of firewood.",
+      "present_strategies": [
+        "no-need"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "no-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 9,
+      "target_strategy": "promote-coordination",
+      "utterance": "I think we can agree on 2 water, 2 food, and 1 firewood.",
+      "present_strategies": [
+        "promote-coordination"
+      ],
+      "primary_strategy": "promote-coordination",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"promote-coordination\"], \"primary_strategy\": \"promote-coordination\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 9,
+      "target_strategy": "self-need",
+      "utterance": "I need 2 water and 1 food.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 9,
+      "target_strategy": "showing-empathy",
+      "utterance": "I completely understand why you need more firewood, and I appreciate you being honest about the extra wood you forgot at home.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 9,
+      "target_strategy": "small-talk",
+      "utterance": "Okay, I think we can manage with that.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "vouch-fair"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 9,
+      "target_strategy": "uv-part",
+      "utterance": "Water is irreplaceable for hydration, so I need more of it.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 9,
+      "target_strategy": "vouch-fair",
+      "utterance": "That sounds fair.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 10,
+      "target_strategy": "elicit-pref",
+      "utterance": "how much of the food would you need?",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 10,
+      "target_strategy": "no-need",
+      "utterance": "I don't really need much more firewood since I brought some extra, so I'm happy to give up those packages.",
+      "present_strategies": [
+        "no-need",
+        "uv-part"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "uv-part"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\", \"uv-part\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 10,
+      "target_strategy": "other-need",
+      "utterance": "I think that's a fair deal, and I'm glad we could work it out. Have a great trip!",
+      "present_strategies": [
+        "vouch-fair",
+        "showing-empathy"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "vouch-fair",
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 2,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\", \"showing-empathy\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 10,
+      "target_strategy": "promote-coordination",
+      "utterance": "I think that would be a fair trade.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "vouch-fair"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 10,
+      "target_strategy": "self-need",
+      "utterance": "i will be doing a lot of hiking so need lots of water.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 10,
+      "target_strategy": "showing-empathy",
+      "utterance": "I completely understand how frustrating it is to have to worry about not having enough food for the trip, especially when you've already planned so much.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 10,
+      "target_strategy": "small-talk",
+      "utterance": "you too!",
+      "present_strategies": [
+        "small-talk"
+      ],
+      "primary_strategy": "small-talk",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"small-talk\"], \"primary_strategy\": \"small-talk\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 10,
+      "target_strategy": "uv-part",
+      "utterance": "Water is irreplaceable out here; without it, we can't even start the hike, so I need that priority.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 177,
+      "turn_index": 10,
+      "target_strategy": "vouch-fair",
+      "utterance": "That sounds fair.",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 468,
+      "turn_index": 2,
+      "target_strategy": "elicit-pref",
+      "utterance": "I have a lot of kids, so I need to know how many you need for your family.",
+      "present_strategies": [
+        "elicit-pref"
+      ],
+      "primary_strategy": "elicit-pref",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"elicit-pref\"], \"primary_strategy\": \"elicit-pref\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 468,
+      "turn_index": 2,
+      "target_strategy": "no-need",
+      "utterance": "I don't really need much firewood, so I'm happy to give you some.",
+      "present_strategies": [
+        "no-need",
+        "uv-part"
+      ],
+      "primary_strategy": "no-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "uv-part"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"no-need\", \"uv-part\"], \"primary_strategy\": \"no-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 468,
+      "turn_index": 2,
+      "target_strategy": "other-need",
+      "utterance": "I understand that you need more water for your kids, and I'm happy to give you two water packages. Since I need the firewood for my kids, I'll take the remaining one.",
+      "present_strategies": [
+        "other-need",
+        "self-need"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\", \"self-need\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 468,
+      "turn_index": 2,
+      "target_strategy": "promote-coordination",
+      "utterance": "I would like to get 3 firewood, 2 waters and 1 food pack.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 468,
+      "turn_index": 2,
+      "target_strategy": "self-need",
+      "utterance": "I have kids that are afraid of the dark so I need all the firewood",
+      "present_strategies": [
+        "other-need",
+        "self-need"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 1,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "other-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\", \"self-need\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 468,
+      "turn_index": 2,
+      "target_strategy": "showing-empathy",
+      "utterance": "I completely understand why you need more water; having kids can be so unpredictable and it's important to stay hydrated.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 468,
+      "turn_index": 2,
+      "target_strategy": "small-talk",
+      "utterance": "That sounds great, I am excited to go camping with my family.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 468,
+      "turn_index": 2,
+      "target_strategy": "uv-part",
+      "utterance": "The firewood is irreplaceable for keeping the kids warm and safe at night, so I need to prioritize that.",
+      "present_strategies": [
+        "self-need"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 468,
+      "turn_index": 2,
+      "target_strategy": "vouch-fair",
+      "utterance": "That sounds fair",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 468,
+      "turn_index": 4,
+      "target_strategy": "elicit-pref",
+      "utterance": "I have a lot of kids and need extra water. I can give you 2 food packs instead.",
+      "present_strategies": [
+        "self-need",
+        "elicit-pref"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\", \"elicit-pref\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 468,
+      "turn_index": 4,
+      "target_strategy": "no-need",
+      "utterance": "I don't need much firewood, I can give you 2 of those.",
+      "present_strategies": [
+        "uv-part"
+      ],
+      "primary_strategy": "uv-part",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "uv-part"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"uv-part\"], \"primary_strategy\": \"uv-part\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 468,
+      "turn_index": 4,
+      "target_strategy": "other-need",
+      "utterance": "I understand that you have a medical condition, but I need to prioritize water for my kids. I can give you 2 food packs instead.",
+      "present_strategies": [
+        "other-need",
+        "showing-empathy"
+      ],
+      "primary_strategy": "other-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"other-need\", \"showing-empathy\"], \"primary_strategy\": \"other-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 468,
+      "turn_index": 4,
+      "target_strategy": "promote-coordination",
+      "utterance": "I can give you 2 food packs and 1 water.",
+      "present_strategies": [
+        "self-need",
+        "elicit-pref"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need",
+        "elicit-pref"
+      ],
+      "off_target_strategy_count": 2,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\", \"elicit-pref\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 468,
+      "turn_index": 4,
+      "target_strategy": "self-need",
+      "utterance": "I have a bunch of kids and need extra water. I can give you 2 food packs instead.",
+      "present_strategies": [
+        "self-need",
+        "elicit-pref"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [
+        "elicit-pref"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\", \"elicit-pref\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 468,
+      "turn_index": 4,
+      "target_strategy": "showing-empathy",
+      "utterance": "I completely understand, and I'm sorry you're dealing with kidney issues; it's important to prioritize your health.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 468,
+      "turn_index": 4,
+      "target_strategy": "small-talk",
+      "utterance": "That's very kind of you. I appreciate that.",
+      "present_strategies": [
+        "showing-empathy"
+      ],
+      "primary_strategy": "showing-empathy",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 1,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"showing-empathy\"], \"primary_strategy\": \"showing-empathy\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 468,
+      "turn_index": 4,
+      "target_strategy": "uv-part",
+      "utterance": "The firewood is irreplaceable for keeping the kids safe at night, it's the most versatile item we have.",
+      "present_strategies": [
+        "self-need",
+        "showing-empathy"
+      ],
+      "primary_strategy": "self-need",
+      "target_present": 0,
+      "primary_correct": 0,
+      "off_target_strategies": [
+        "self-need",
+        "showing-empathy"
+      ],
+      "off_target_strategy_count": 2,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"self-need\", \"showing-empathy\"], \"primary_strategy\": \"self-need\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    },
+    {
+      "dialogue_id": 468,
+      "turn_index": 4,
+      "target_strategy": "vouch-fair",
+      "utterance": "That sounds fair",
+      "present_strategies": [
+        "vouch-fair"
+      ],
+      "primary_strategy": "vouch-fair",
+      "target_present": 1,
+      "primary_correct": 1,
+      "off_target_strategies": [],
+      "off_target_strategy_count": 0,
+      "parse_failed": 0,
+      "raw_response": "{\"present_strategies\": [\"vouch-fair\"], \"primary_strategy\": \"vouch-fair\"}",
+      "source_file": "output/need/casino_augmented_new_fix_seed43/b3_prefix_only/swap_samples_valid.jsonl"
+    }
+  ]
+}

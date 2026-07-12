@@ -1,0 +1,61 @@
+{
+  "inputs": {
+    "original_dir": "CaSiNo-main\\data\\split",
+    "augmented_dir": "augmented_data\\split"
+  },
+  "sha256": {
+    "CaSiNo-main\\data\\split\\casino_train.json": "03fadc88b7a1b8dc72e97e844a4c55308e80abc77980d5ff9bfd52809dec743d",
+    "CaSiNo-main\\data\\split\\casino_valid.json": "8d4a095deaae9d77b0257a310ada75f573b0b2c3119aa2c80983c4daeabf6e1d",
+    "CaSiNo-main\\data\\split\\casino_test.json": "19ea01f69c01dc46f703fc47be50510babd780d5db0b67af3ea8f35f7c829795",
+    "augmented_data\\split\\casino_train.json": "d0ce432314293c783c05bc3305b435ba4a10cadeeaee135e7ed1d1517a34f14f",
+    "augmented_data\\split\\casino_valid.json": "8d4a095deaae9d77b0257a310ada75f573b0b2c3119aa2c80983c4daeabf6e1d",
+    "augmented_data\\split\\casino_test.json": "19ea01f69c01dc46f703fc47be50510babd780d5db0b67af3ea8f35f7c829795"
+  },
+  "dialogues": {
+    "D0": {
+      "train": 314,
+      "dev": 41,
+      "test": 41
+    },
+    "D1": {
+      "train": 610,
+      "dev": 41,
+      "test": 41
+    }
+  },
+  "utterances_D1": 8167,
+  "origin_D1": {
+    "augmented": 3552,
+    "real": 4615
+  },
+  "label_cardinality_D1": {
+    "1": 7199,
+    "2": 735,
+    "3": 192,
+    "4": 40,
+    "5": 1
+  },
+  "multi_label_utterances_D1": 968,
+  "profile_missing_D1": 0,
+  "reasons_missing_D1": 0,
+  "dialogue_split_leakage_count": 0,
+  "augmented_train_vs_formal_test_dialogue_overlap": [],
+  "exact_duplicate_groups_D1": 108,
+  "average_response_words_by_strategy_D1": {
+    "elicit-pref": 20.708446866485012,
+    "no-need": 28.969849246231156,
+    "non-strategic": 12.320962199312715,
+    "other-need": 33.947565543071164,
+    "promote-coordination": 30.624890446976337,
+    "self-need": 27.809104258443465,
+    "showing-empathy": 34.957186544342505,
+    "small-talk": 17.376296296296296,
+    "uv-part": 33.901279707495426,
+    "vouch-fair": 30.767230169050716
+  },
+  "limitations": [
+    "Near-duplicate/template similarity is not inferred from exact matching and requires a second-stage semantic review.",
+    "Whether a generator saw test context cannot be proven from data alone; generation script provenance was inspected separately.",
+    "Strategy mixing beyond supplied labels requires a multi-label judge or human annotation."
+  ]
+}

@@ -1,0 +1,40 @@
+ M .gitignore
+ M configs/b2_lora_only.json
+ D log_b6_contrastive.log
+ D log_b6_contrastive_no_orth.log
+ D log_b9_prefix_then_lora.log
+ M output/need/casino_augmented/b2_lora_only/run_config.json
+ M output/need/casino_augmented/b3_prefix_only/run_config.json
+ M output/need/casino_augmented/b4_prefix_lora/run_config.json
+ M output/need/casino_augmented/b7_dest_rs_warm/run_config.json
+ M run_all.sh
+ M scripts/calibrate_evaluator.py
+ M scripts/generate_b1_swap.py
+ M src/casino_dataset.py
+ M src/config.py
+ M src/evaluate.py
+ M src/losses.py
+ D supplement.log
+ M train.py
+?? .idea/
+?? .supplement_logs/
+?? output/evaluator_calibration_results.json
+?? output/need/casino_augmented/b4_prefix_lora/lora_prefix_interference.json
+?? output/need/casino_augmented/b9_prefix_then_lora/
+?? output/need/casino_augmented/bootstrap_b3_prefix_only_vs_b4_prefix_lora.json
+?? output/need/casino_augmented/bootstrap_b3_prefix_only_vs_b7_dest_rs_warm.json
+?? output/need/casino_augmented/bootstrap_b4_prefix_lora_vs_b7_dest_rs_warm.json
+?? output/need/casino_augmented_new_fix/
+?? output/need/casino_augmented_new_fix_seed42/
+?? output/need/casino_augmented_new_fix_seed43/
+?? output/need/casino_augmented_new_fix_seed44/
+?? reports/
+?? run_all_nohup.log
+?? run_all_supplements.sh
+?? run_multi_seed.sh
+?? scripts/analyze_lora_prefix_interference.py
+?? scripts/bootstrap_confidence.py
+?? scripts/collect_experiment_host_snapshot.sh
+?? scripts/regenerate_swap_samples.py
+?? scripts/sample_for_human_eval.py
+?? solutions/

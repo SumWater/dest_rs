@@ -1,0 +1,7 @@
+{
+  "p0_generation": "reports/profile_ablation/p0_no_profile.jsonl",
+  "p0_evaluation": "reports/profile_ablation/p0_no_profile_multilabel.json",
+  "p1_generation": "output/need/casino_augmented_new_fix_seed42/b9_prefix_then_lora/swap_samples_valid.jsonl",
+  "p1_evaluation": "output/need/casino_augmented_new_fix_seed42/b9_prefix_then_lora/strategy_eval_multilabel.json",
+  "controlled_difference": "include_profile"
+}
